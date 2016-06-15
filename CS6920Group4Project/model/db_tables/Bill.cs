@@ -8,5 +8,10 @@ namespace CS6920Group4Project.model
 {
     public class Bill
     {
+        int RecordID { get; set; }
+        int BillCateogryID { get; set; }
+        decimal Amount { get; set; }
+        DateTime DateDue{ get; set; }
+        DateTime? DatePaid { get; set; }
     }
 }

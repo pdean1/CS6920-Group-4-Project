@@ -8,5 +8,10 @@ namespace CS6920Group4Project.model
 {
     public class User
     {
+        int ID { get; set; }
+        string Email { get; set; }
+        string Password { get; set; }
+        DateTime DateCreated { get; set; }
+        DateTime? DateUpdated { get; set; }
     }
 }

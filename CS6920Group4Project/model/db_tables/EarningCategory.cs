@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CS6920Group4Project.model
 {
-    public class EarningCategory
+    public class EarningCategory : Category
     {
     }
 }

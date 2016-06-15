@@ -5,7 +5,7 @@ using System.Text;
 
 namespace CS6920Group4Project.model
 {
-    public class BillCategory
+    public class BillCategory : Category
     {
     }
 }
