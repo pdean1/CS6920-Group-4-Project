@@ -47,7 +47,7 @@ CREATE TABLE ExpenseCategories (
   CONSTRAINT ExpenseCategory_PK PRIMARY KEY (ExpenseCategoryID)
 );
 -- =====================================================================
-	-- BillCategories Table Creation Scripts                               
+-- BillCategories Table Creation Scripts                               
 -- =====================================================================
 CREATE TABLE BillCategories (
   BillCategoryID INT UNSIGNED AUTO_INCREMENT NOT NULL,
@@ -65,7 +65,7 @@ CREATE TABLE EarningCategories (
   CONSTRAINT EarningCategory_PK PRIMARY KEY (EarningCategoryID)
 );
 -- =====================================================================
--- BillCategories Table Creation Scripts                               
+-- Budgets Table Creation Scripts                               
 -- =====================================================================
 CREATE TABLE Budgets (
   BudgetID     INT UNSIGNED AUTO_INCREMENT NOT NULL,
@@ -82,7 +82,7 @@ CREATE TABLE Budgets (
   CONSTRAINT Budget_UserID_Title_UK UNIQUE (UserID, Title)
 );
 -- =====================================================================
--- BillCategories Table Creation Scripts                               
+-- Records Table Creation Scripts                               
 -- =====================================================================
 CREATE TABLE Records (
   RecordID    INT UNSIGNED AUTO_INCREMENT NOT NULL,
@@ -101,7 +101,7 @@ CREATE TABLE Records (
     REFERENCES Budgets (BudgetID)
 );
 -- =====================================================================
--- BillCategories Table Creation Scripts                               
+-- Earnings Table Creation Scripts                               
 -- =====================================================================
 CREATE TABLE Earnings (
     RecordID INT UNSIGNED NOT NULL,
@@ -115,7 +115,7 @@ CREATE TABLE Earnings (
         REFERENCES EarningCategories (EarningCategoryID)
 );
 -- =====================================================================
--- BillCategories Table Creation Scripts                               
+-- Bills Table Creation Scripts                               
 -- =====================================================================
 CREATE TABLE Bills (
   RecordID       INT UNSIGNED  NOT NULL,
@@ -130,7 +130,7 @@ CREATE TABLE Bills (
     REFERENCES BillCategories (BillCategoryID)
 ); 
 -- =====================================================================
--- BillCategories Table Creation Scripts                               
+-- Expenses Table Creation Scripts                               
 -- ===================================================================== 
 CREATE TABLE Expenses (
   RecordID          INT UNSIGNED  NOT NULL,
