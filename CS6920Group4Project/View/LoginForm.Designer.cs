@@ -33,6 +33,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.tbUserName = new System.Windows.Forms.TextBox();
             this.tbPassword = new System.Windows.Forms.TextBox();
+            this.llCreateAccount = new System.Windows.Forms.LinkLabel();
             this.SuspendLayout();
             // 
             // btnLogIn
@@ -77,11 +78,22 @@
             this.tbPassword.Size = new System.Drawing.Size(194, 20);
             this.tbPassword.TabIndex = 2;
             // 
+            // llCreateAccount
+            // 
+            this.llCreateAccount.AutoSize = true;
+            this.llCreateAccount.Location = new System.Drawing.Point(12, 93);
+            this.llCreateAccount.Name = "llCreateAccount";
+            this.llCreateAccount.Size = new System.Drawing.Size(176, 13);
+            this.llCreateAccount.TabIndex = 4;
+            this.llCreateAccount.TabStop = true;
+            this.llCreateAccount.Text = "Don\'t have an account? Make one.";
+            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 123);
+            this.Controls.Add(this.llCreateAccount);
             this.Controls.Add(this.tbPassword);
             this.Controls.Add(this.tbUserName);
             this.Controls.Add(this.label2);
@@ -101,5 +113,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox tbUserName;
         private System.Windows.Forms.TextBox tbPassword;
+        private System.Windows.Forms.LinkLabel llCreateAccount;
     }
 }
