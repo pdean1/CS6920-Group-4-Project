@@ -10,6 +10,6 @@ namespace CS6920Group4Project.model
     {
         int ID { get; set; }
         string Title { get; set; }
-        string? Description { get; set; }
+        string Description { get; set; }
     }
 }
