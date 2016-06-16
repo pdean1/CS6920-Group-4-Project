@@ -60,6 +60,17 @@
     <Compile Include="forms\LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="model\db_tables\Bill.cs" />
+    <Compile Include="model\db_tables\BillCategory.cs" />
+    <Compile Include="model\db_tables\Budget.cs" />
+    <Compile Include="model\db_tables\BudgetType.cs" />
+    <Compile Include="model\db_tables\Category.cs" />
+    <Compile Include="model\db_tables\Earning.cs" />
+    <Compile Include="model\db_tables\EarningCategory.cs" />
+    <Compile Include="model\db_tables\Expense.cs" />
+    <Compile Include="model\db_tables\ExpenseCategory.cs" />
+    <Compile Include="model\db_tables\Record.cs" />
+    <Compile Include="model\db_tables\User.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="forms\LoginForm.resx">
@@ -87,6 +98,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

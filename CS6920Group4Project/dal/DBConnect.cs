@@ -15,7 +15,7 @@ namespace CS6920Group4Project.dal
     class DBConnect
     {
         private MySqlConnection connection;
-        private String database;
+        public const String database = "sql5123046";
         private String server;
         private String uid;
         private String password;
@@ -35,7 +35,6 @@ namespace CS6920Group4Project.dal
         {
             server = "localhost";
             /// modify these values as you wish
-            database = "sql5123046";
             uid = "root";
             password = "";
             /// END
@@ -104,6 +103,11 @@ namespace CS6920Group4Project.dal
                     + " Message:\n" + ex.Message);
                 return false;
             }
+        }
+
+        public MySqlConnection GetConnection()
+        {
+            return this.connection;
         }
     }
 }
