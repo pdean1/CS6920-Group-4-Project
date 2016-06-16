@@ -1,4 +1,4 @@
-﻿namespace CS6920Group4Project.forms
+﻿namespace CS6920Group4Project.View
 {
     partial class LoginForm
     {

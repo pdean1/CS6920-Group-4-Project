@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace CS6920Group4Project.forms
+namespace CS6920Group4Project.View
 {
     public partial class LoginForm : Form
     {
