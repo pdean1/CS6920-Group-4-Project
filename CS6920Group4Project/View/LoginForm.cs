@@ -35,5 +35,10 @@ namespace CS6920Group4Project.View
             }
             MessageBox.Show("Login not yet implemented");
         }
+
+        private void llCreateAccount_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            MessageBox.Show("Create User not yet implemented");
+        }
     }
 }

@@ -48,6 +48,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DAL\DBConnect.cs" />
+    <Compile Include="View\CreateUserForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\CreateUserForm.Designer.cs">
+      <DependentUpon>CreateUserForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -67,6 +73,9 @@
     <Compile Include="Model\User.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="View\CreateUserForm.resx">
+      <DependentUpon>CreateUserForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>

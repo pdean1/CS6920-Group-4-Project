@@ -87,6 +87,7 @@
             this.llCreateAccount.TabIndex = 4;
             this.llCreateAccount.TabStop = true;
             this.llCreateAccount.Text = "Don\'t have an account? Make one.";
+            this.llCreateAccount.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llCreateAccount_LinkClicked);
             // 
             // LoginForm
             // 
