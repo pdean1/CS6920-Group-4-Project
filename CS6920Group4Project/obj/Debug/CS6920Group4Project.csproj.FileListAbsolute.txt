@@ -9,3 +9,8 @@ C:\Users\Patrick\Documents\GitHub\CS6920-Group-4-Project\CS6920Group4Project\obj
 C:\Users\Patrick\Documents\GitHub\CS6920-Group-4-Project\CS6920Group4Project\obj\Debug\CS6920Group4Project.csproj.GenerateResource.Cache
 C:\Users\Patrick\Documents\GitHub\CS6920-Group-4-Project\CS6920Group4Project\obj\Debug\CS6920Group4Project.exe
 C:\Users\Patrick\Documents\GitHub\CS6920-Group-4-Project\CS6920Group4Project\obj\Debug\CS6920Group4Project.pdb
+C:\Users\Miko\Documents\West Georgia University\Project II\Budget Project\CS6920Group4Project\bin\Debug\CS6920Group4Project.exe.config
+C:\Users\Miko\Documents\West Georgia University\Project II\Budget Project\CS6920Group4Project\obj\Debug\CS6920Group4Project.forms.LoginForm.resources
+C:\Users\Miko\Documents\West Georgia University\Project II\Budget Project\CS6920Group4Project\obj\Debug\CS6920Group4Project.Properties.Resources.resources
+C:\Users\Miko\Documents\West Georgia University\Project II\Budget Project\CS6920Group4Project\obj\Debug\CS6920Group4Project.csproj.GenerateResource.Cache
+C:\Users\Miko\Documents\West Georgia University\Project II\Budget Project\CS6920Group4Project\obj\Debug\CS6920Group4Project.csprojResolveAssemblyReference.cache
