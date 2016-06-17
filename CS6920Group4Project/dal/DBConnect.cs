@@ -54,6 +54,8 @@ namespace CS6920Group4Project.dal
         /// Returns true on successfully opening a connection to the database, 
         /// false otherwise
         /// </returns>
+        /// 
+        /*
         private bool OpenConnection()
         {
             if (connection == null)
@@ -82,7 +84,7 @@ namespace CS6920Group4Project.dal
                 return false;
             }
         }
-
+        */
         /// <summary>
         /// Closes a connection to the database
         /// </summary>
@@ -90,6 +92,8 @@ namespace CS6920Group4Project.dal
         /// Returns true on successfully closing a connection to the database, 
         /// false otherwise
         /// </returns>
+        /// 
+        /*
         private bool CloseConnection()
         {
             try
@@ -104,7 +108,11 @@ namespace CS6920Group4Project.dal
                 return false;
             }
         }
-
+        */
+        /// <summary>
+        /// Returns the MySQL Connection to the Budget Database
+        /// </summary>
+        /// <returns>A MySQL Connection for the Database</returns>
         public MySqlConnection GetConnection()
         {
             return this.connection;
