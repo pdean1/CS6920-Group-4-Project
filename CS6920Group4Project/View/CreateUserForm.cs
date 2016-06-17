@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CS6920Group4Project.model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,17 @@ namespace CS6920Group4Project.View
 {
     public partial class CreateUserForm : Form
     {
+
+        private User user = new User();
+
         public CreateUserForm()
         {
             InitializeComponent();
+        }
+
+        private Boolean PasswordsMatch(String passwordOne, String passwordTwo)
+        {
+            return String.Compare(passwordOne, passwordTwo) == 0;
         }
     }
 }
