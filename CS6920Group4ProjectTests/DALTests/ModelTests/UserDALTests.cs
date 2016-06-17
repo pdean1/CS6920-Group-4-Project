@@ -18,6 +18,7 @@ namespace CS6920Group4ProjectTests.DALTests.ModelTests
         [TestMethod]
         public void TestAddUser()
         {
+            user.Email = "ZZTST01@zzz.com";
             user.Password = "password";
             long ret = userDAL.InsertUser(user);
             Assert.IsTrue(ret > 0);
