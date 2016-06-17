@@ -69,7 +69,7 @@ namespace CS6920Group4Project.DAL.Model
             throw new Exception("Function not yet implemented.");
         }
 
-        private const String UpdateUser = "";
+        private const String UpdateUserStatement = "";
 
         public long UpdateUser(User user)
         {
