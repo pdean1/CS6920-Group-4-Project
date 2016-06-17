@@ -39,5 +39,10 @@ namespace CS6920Group4Project.View
             tbPasswordOne.Clear();
             tbPasswordTwo.Clear();
         }
+
+        private void btnCreateUser_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Not yet Implemented");
+        }
     }
 }

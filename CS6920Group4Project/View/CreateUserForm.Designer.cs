@@ -34,7 +34,7 @@
             this.tbPasswordTwo = new System.Windows.Forms.TextBox();
             this.tbPasswordOne = new System.Windows.Forms.TextBox();
             this.tbEmail = new System.Windows.Forms.TextBox();
-            this.btnAdd = new System.Windows.Forms.Button();
+            this.btnCreateUser = new System.Windows.Forms.Button();
             this.btnReset = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -86,14 +86,15 @@
             this.tbEmail.Size = new System.Drawing.Size(236, 20);
             this.tbEmail.TabIndex = 1;
             // 
-            // btnAdd
+            // btnCreateUser
             // 
-            this.btnAdd.Location = new System.Drawing.Point(216, 136);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(134, 23);
-            this.btnAdd.TabIndex = 4;
-            this.btnAdd.Text = "Create Account";
-            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnCreateUser.Location = new System.Drawing.Point(216, 136);
+            this.btnCreateUser.Name = "btnCreateUser";
+            this.btnCreateUser.Size = new System.Drawing.Size(134, 23);
+            this.btnCreateUser.TabIndex = 4;
+            this.btnCreateUser.Text = "Create Account";
+            this.btnCreateUser.UseVisualStyleBackColor = true;
+            this.btnCreateUser.Click += new System.EventHandler(this.btnCreateUser_Click);
             // 
             // btnReset
             // 
@@ -111,7 +112,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(362, 173);
             this.Controls.Add(this.btnReset);
-            this.Controls.Add(this.btnAdd);
+            this.Controls.Add(this.btnCreateUser);
             this.Controls.Add(this.tbEmail);
             this.Controls.Add(this.tbPasswordOne);
             this.Controls.Add(this.tbPasswordTwo);
@@ -133,7 +134,7 @@
         private System.Windows.Forms.TextBox tbPasswordTwo;
         private System.Windows.Forms.TextBox tbPasswordOne;
         private System.Windows.Forms.TextBox tbEmail;
-        private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.Button btnCreateUser;
         private System.Windows.Forms.Button btnReset;
     }
 }
