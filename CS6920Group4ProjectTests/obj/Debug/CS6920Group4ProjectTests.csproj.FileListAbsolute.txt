@@ -1,7 +1,0 @@
-C:\Users\Patrick\Documents\Visual Studio 2013\Projects\CS6920-Group-4-Project\UnitTestProject1\obj\Debug\CS6920Group4ProjectTests.csprojResolveAssemblyReference.cache
-C:\Users\Patrick\Documents\Visual Studio 2013\Projects\CS6920-Group-4-Project\UnitTestProject1\bin\Debug\UnitTestProject1.dll
-C:\Users\Patrick\Documents\Visual Studio 2013\Projects\CS6920-Group-4-Project\UnitTestProject1\bin\Debug\UnitTestProject1.pdb
-C:\Users\Patrick\Documents\Visual Studio 2013\Projects\CS6920-Group-4-Project\UnitTestProject1\bin\Debug\CS6920Group4Project.exe
-C:\Users\Patrick\Documents\Visual Studio 2013\Projects\CS6920-Group-4-Project\UnitTestProject1\bin\Debug\CS6920Group4Project.pdb
-C:\Users\Patrick\Documents\Visual Studio 2013\Projects\CS6920-Group-4-Project\UnitTestProject1\obj\Debug\UnitTestProject1.dll
-C:\Users\Patrick\Documents\Visual Studio 2013\Projects\CS6920-Group-4-Project\UnitTestProject1\obj\Debug\UnitTestProject1.pdb
