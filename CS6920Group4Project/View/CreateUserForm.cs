@@ -19,11 +19,25 @@ namespace CS6920Group4Project.View
         public CreateUserForm()
         {
             InitializeComponent();
+            InitializePasswordTextFields();
+        }
+
+        private void InitializePasswordTextFields()
+        {
+            tbPasswordOne.PasswordChar = '*';
+            tbPasswordTwo.PasswordChar = '*';
         }
 
         private Boolean PasswordsMatch(String passwordOne, String passwordTwo)
         {
             return String.Compare(passwordOne, passwordTwo) == 0;
+        }
+
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            tbEmail.Clear();
+            tbPasswordOne.Clear();
+            tbPasswordTwo.Clear();
         }
     }
 }
