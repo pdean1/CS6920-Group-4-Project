@@ -49,9 +49,9 @@
             this.HeaderPnl.BackColor = System.Drawing.Color.Transparent;
             this.HeaderPnl.Controls.Add(this.balanceLbl);
             this.HeaderPnl.Controls.Add(this.welcomeLbl);
-            this.HeaderPnl.Location = new System.Drawing.Point(22, 1);
+            this.HeaderPnl.Location = new System.Drawing.Point(22, 6);
             this.HeaderPnl.Name = "HeaderPnl";
-            this.HeaderPnl.Size = new System.Drawing.Size(1338, 188);
+            this.HeaderPnl.Size = new System.Drawing.Size(1338, 183);
             this.HeaderPnl.TabIndex = 0;
             // 
             // tipsPnl
