@@ -83,10 +83,10 @@
             this.llCreateAccount.AutoSize = true;
             this.llCreateAccount.Location = new System.Drawing.Point(12, 93);
             this.llCreateAccount.Name = "llCreateAccount";
-            this.llCreateAccount.Size = new System.Drawing.Size(176, 13);
+            this.llCreateAccount.Size = new System.Drawing.Size(172, 13);
             this.llCreateAccount.TabIndex = 4;
             this.llCreateAccount.TabStop = true;
-            this.llCreateAccount.Text = "Don\'t have an account? Make one.";
+            this.llCreateAccount.Text = "New User? Create a new Account.";
             this.llCreateAccount.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llCreateAccount_LinkClicked);
             // 
             // LoginForm

@@ -1,0 +1,5 @@
+C:\Users\Miko\Documents\West Georgia University\Project II\Budget Project\CS6920Group4Project\obj\Debug\BudgetBuddy.csprojResolveAssemblyReference.cache
+C:\Users\Miko\Documents\West Georgia University\Project II\Budget Project\CS6920Group4Project\obj\Debug\CS6920Group4Project.forms.LoginForm.resources
+C:\Users\Miko\Documents\West Georgia University\Project II\Budget Project\CS6920Group4Project\obj\Debug\CS6920Group4Project.Properties.Resources.resources
+C:\Users\Miko\Documents\West Georgia University\Project II\Budget Project\CS6920Group4Project\obj\Debug\BudgetBuddy.csproj.GenerateResource.Cache
+C:\Users\Miko\Documents\West Georgia University\Project II\Budget Project\CS6920Group4Project\bin\Debug\CS6920Group4Project.exe.config
