@@ -43,7 +43,7 @@ namespace CS6920Group4Project.View
         private void llCreateAccount_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             MessageBox.Show("Create User not yet implemented");
-            Form cuForm = new CreateUserForm();
+            Form cuForm = new CreateUserForm1();
             cuForm.FormClosed += new FormClosedEventHandler(otherForm_FormClosed);
             this.Hide();
             cuForm.Show();
