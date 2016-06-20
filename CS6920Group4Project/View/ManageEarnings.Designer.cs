@@ -49,6 +49,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
+            this.currencyLbl = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // earningsWelcomeLbl
@@ -57,7 +58,7 @@
             this.earningsWelcomeLbl.BackColor = System.Drawing.Color.Transparent;
             this.earningsWelcomeLbl.Font = new System.Drawing.Font("Calibri", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.earningsWelcomeLbl.ForeColor = System.Drawing.Color.DarkGreen;
-            this.earningsWelcomeLbl.Location = new System.Drawing.Point(160, 81);
+            this.earningsWelcomeLbl.Location = new System.Drawing.Point(85, 60);
             this.earningsWelcomeLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.earningsWelcomeLbl.Name = "earningsWelcomeLbl";
             this.earningsWelcomeLbl.Size = new System.Drawing.Size(74, 21);
@@ -70,7 +71,7 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Calibri", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.DarkGreen;
-            this.label1.Location = new System.Drawing.Point(752, 92);
+            this.label1.Location = new System.Drawing.Point(542, 60);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(175, 21);
@@ -255,6 +256,17 @@
             this.button4.Text = "View Budget";
             this.button4.UseVisualStyleBackColor = false;
             // 
+            // currencyLbl
+            // 
+            this.currencyLbl.AutoSize = true;
+            this.currencyLbl.BackColor = System.Drawing.Color.Transparent;
+            this.currencyLbl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.currencyLbl.Location = new System.Drawing.Point(724, 60);
+            this.currencyLbl.Name = "currencyLbl";
+            this.currencyLbl.Size = new System.Drawing.Size(79, 23);
+            this.currencyLbl.TabIndex = 20;
+            this.currencyLbl.Text = "$1000.00";
+            // 
             // ManageEarnings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
@@ -262,6 +274,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1437, 762);
+            this.Controls.Add(this.currencyLbl);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
@@ -315,6 +328,7 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Label currencyLbl;
 
     }
 }
