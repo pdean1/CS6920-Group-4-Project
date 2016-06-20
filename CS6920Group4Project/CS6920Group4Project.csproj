@@ -52,6 +52,12 @@
     <Compile Include="DAL\DBConnect.cs" />
     <Compile Include="DAL\Model\UserDAL.cs" />
     <Compile Include="Utilities\EmailUtility.cs" />
+    <Compile Include="View\BudgetView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\BudgetView.Designer.cs">
+      <DependentUpon>BudgetView.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\CreateUserForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -95,6 +101,9 @@
     <Compile Include="View\WelcomeScreen.Designer.cs">
       <DependentUpon>WelcomeScreen.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="View\BudgetView.resx">
+      <DependentUpon>BudgetView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\CreateUserForm.resx">
       <DependentUpon>CreateUserForm.cs</DependentUpon>
     </EmbeddedResource>
