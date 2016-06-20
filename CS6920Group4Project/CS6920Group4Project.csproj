@@ -52,17 +52,17 @@
     <Compile Include="DAL\DBConnect.cs" />
     <Compile Include="DAL\Model\UserDAL.cs" />
     <Compile Include="Utilities\EmailUtility.cs" />
-    <Compile Include="View\ManageExpense.cs">
+    <Compile Include="View\AddExpense1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\ManageExpense.Designer.cs">
-      <DependentUpon>ManageExpense.cs</DependentUpon>
+    <Compile Include="View\AddExpense1.Designer.cs">
+      <DependentUpon>AddExpense1.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\AddExpenses.cs">
+    <Compile Include="View\ManageExpenses.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\AddExpenses.Designer.cs">
-      <DependentUpon>AddExpenses.cs</DependentUpon>
+    <Compile Include="View\ManageExpenses.Designer.cs">
+      <DependentUpon>ManageExpenses.cs</DependentUpon>
     </Compile>
     <Compile Include="View\CreateUserForm1.cs">
       <SubType>Form</SubType>
@@ -107,11 +107,11 @@
     <Compile Include="View\WelcomeScreen.Designer.cs">
       <DependentUpon>WelcomeScreen.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="View\ManageExpense.resx">
-      <DependentUpon>ManageExpense.cs</DependentUpon>
+    <EmbeddedResource Include="View\AddExpense1.resx">
+      <DependentUpon>AddExpense1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\AddExpenses.resx">
-      <DependentUpon>AddExpenses.cs</DependentUpon>
+    <EmbeddedResource Include="View\ManageExpenses.resx">
+      <DependentUpon>ManageExpenses.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\CreateUserForm1.resx">
       <DependentUpon>CreateUserForm1.cs</DependentUpon>

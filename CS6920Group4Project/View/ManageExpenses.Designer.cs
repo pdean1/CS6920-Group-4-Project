@@ -63,7 +63,7 @@
             this.btnDashBoard = new System.Windows.Forms.Button();
             this.budgetBtn = new System.Windows.Forms.Button();
             this.btnUpdateExpense = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
+            this.btnDelButton = new System.Windows.Forms.Button();
             this.HeaderPnl.SuspendLayout();
             this.tipsPnl.SuspendLayout();
             this.btnDelExpense.SuspendLayout();
@@ -142,7 +142,7 @@
             // btnDelExpense
             // 
             this.btnDelExpense.BackColor = System.Drawing.Color.Transparent;
-            this.btnDelExpense.Controls.Add(this.button8);
+            this.btnDelExpense.Controls.Add(this.btnDelButton);
             this.btnDelExpense.Controls.Add(this.btnUpdateExpense);
             this.btnDelExpense.Controls.Add(this.dateTimePicker1);
             this.btnDelExpense.Controls.Add(this.btnAddNewExpense);
@@ -459,18 +459,18 @@
             this.btnUpdateExpense.Text = "Update Expense";
             this.btnUpdateExpense.UseVisualStyleBackColor = false;
             // 
-            // button8
+            // btnDelButton
             // 
-            this.button8.AutoSize = true;
-            this.button8.BackColor = System.Drawing.Color.ForestGreen;
-            this.button8.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button8.ForeColor = System.Drawing.Color.MintCream;
-            this.button8.Location = new System.Drawing.Point(544, 481);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(165, 34);
-            this.button8.TabIndex = 30;
-            this.button8.Text = "Delete Expense";
-            this.button8.UseVisualStyleBackColor = false;
+            this.btnDelButton.AutoSize = true;
+            this.btnDelButton.BackColor = System.Drawing.Color.ForestGreen;
+            this.btnDelButton.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDelButton.ForeColor = System.Drawing.Color.MintCream;
+            this.btnDelButton.Location = new System.Drawing.Point(544, 481);
+            this.btnDelButton.Name = "btnDelButton";
+            this.btnDelButton.Size = new System.Drawing.Size(165, 34);
+            this.btnDelButton.TabIndex = 30;
+            this.btnDelButton.Text = "Delete Expense";
+            this.btnDelButton.UseVisualStyleBackColor = false;
             // 
             // Dashboard
             // 
@@ -532,7 +532,7 @@
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label labelFirstName;
         private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button btnDelButton;
         private System.Windows.Forms.Button btnUpdateExpense;
     }
 }
