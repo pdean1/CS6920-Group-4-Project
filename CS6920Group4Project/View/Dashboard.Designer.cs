@@ -33,10 +33,10 @@
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashboard));
             this.HeaderPnl = new System.Windows.Forms.Panel();
+            this.balanceLbl = new System.Windows.Forms.Label();
+            this.welcomeLbl = new System.Windows.Forms.Label();
             this.tipsPnl = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.welcomeLbl = new System.Windows.Forms.Label();
-            this.balanceLbl = new System.Windows.Forms.Label();
             this.percentageCht = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.HeaderPnl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.percentageCht)).BeginInit();
@@ -51,6 +51,31 @@
             this.HeaderPnl.Name = "HeaderPnl";
             this.HeaderPnl.Size = new System.Drawing.Size(1338, 183);
             this.HeaderPnl.TabIndex = 0;
+            // 
+            // balanceLbl
+            // 
+            this.balanceLbl.AutoSize = true;
+            this.balanceLbl.BackColor = System.Drawing.Color.Transparent;
+            this.balanceLbl.Font = new System.Drawing.Font("Calibri", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.balanceLbl.ForeColor = System.Drawing.Color.DarkGreen;
+            this.balanceLbl.Location = new System.Drawing.Point(540, 52);
+            this.balanceLbl.Name = "balanceLbl";
+            this.balanceLbl.Size = new System.Drawing.Size(183, 22);
+            this.balanceLbl.TabIndex = 8;
+            this.balanceLbl.Text = "Your Current balance is:";
+            // 
+            // welcomeLbl
+            // 
+            this.welcomeLbl.AutoSize = true;
+            this.welcomeLbl.BackColor = System.Drawing.Color.Transparent;
+            this.welcomeLbl.Font = new System.Drawing.Font("Calibri", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.welcomeLbl.ForeColor = System.Drawing.Color.DarkGreen;
+            this.welcomeLbl.Location = new System.Drawing.Point(141, 52);
+            this.welcomeLbl.Name = "welcomeLbl";
+            this.welcomeLbl.Size = new System.Drawing.Size(79, 22);
+            this.welcomeLbl.TabIndex = 7;
+            this.welcomeLbl.Text = "Welcome";
+            this.welcomeLbl.Click += new System.EventHandler(this.welcomeLbl_Click);
             // 
             // tipsPnl
             // 
@@ -67,31 +92,6 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(212, 555);
             this.panel3.TabIndex = 3;
-            // 
-            // welcomeLbl
-            // 
-            this.welcomeLbl.AutoSize = true;
-            this.welcomeLbl.BackColor = System.Drawing.Color.Transparent;
-            this.welcomeLbl.Font = new System.Drawing.Font("Calibri", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.welcomeLbl.ForeColor = System.Drawing.Color.DarkGreen;
-            this.welcomeLbl.Location = new System.Drawing.Point(141, 52);
-            this.welcomeLbl.Name = "welcomeLbl";
-            this.welcomeLbl.Size = new System.Drawing.Size(79, 22);
-            this.welcomeLbl.TabIndex = 7;
-            this.welcomeLbl.Text = "Welcome";
-            this.welcomeLbl.Click += new System.EventHandler(this.welcomeLbl_Click);
-            // 
-            // balanceLbl
-            // 
-            this.balanceLbl.AutoSize = true;
-            this.balanceLbl.BackColor = System.Drawing.Color.Transparent;
-            this.balanceLbl.Font = new System.Drawing.Font("Calibri", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.balanceLbl.ForeColor = System.Drawing.Color.DarkGreen;
-            this.balanceLbl.Location = new System.Drawing.Point(540, 52);
-            this.balanceLbl.Name = "balanceLbl";
-            this.balanceLbl.Size = new System.Drawing.Size(183, 22);
-            this.balanceLbl.TabIndex = 8;
-            this.balanceLbl.Text = "Your Current balance is:";
             // 
             // percentageCht
             // 
@@ -119,10 +119,10 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1384, 762);
             this.Controls.Add(this.panel3);
- //           this.Controls.Add(this.btnDelExpense);
             this.Controls.Add(this.tipsPnl);
             this.Controls.Add(this.HeaderPnl);
             this.DoubleBuffered = true;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Dashboard";
             this.Text = "Dashboard";
             this.HeaderPnl.ResumeLayout(false);

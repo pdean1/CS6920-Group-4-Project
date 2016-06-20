@@ -114,6 +114,7 @@
             this.Controls.Add(this.tbPassword);
             this.Controls.Add(this.tbUserName);
             this.DoubleBuffered = true;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "WelcomeScreen";
             this.Text = "Welcome";
             this.Load += new System.EventHandler(this.WelcomeScreen_Load);
