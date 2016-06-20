@@ -33,7 +33,7 @@
             this.balanceLbl = new System.Windows.Forms.Label();
             this.welcomeLbl = new System.Windows.Forms.Label();
             this.tipsPnl = new System.Windows.Forms.Panel();
-            this.dashboardpnl = new System.Windows.Forms.Panel();
+            this.btnDelExpense = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.reportBtn = new System.Windows.Forms.Button();
             this.btnManageEarnings = new System.Windows.Forms.Button();
@@ -99,11 +99,11 @@
             // 
             // dashboardpnl
             // 
-            this.dashboardpnl.BackColor = System.Drawing.Color.Transparent;
-            this.dashboardpnl.Location = new System.Drawing.Point(211, 195);
-            this.dashboardpnl.Name = "dashboardpnl";
-            this.dashboardpnl.Size = new System.Drawing.Size(930, 555);
-            this.dashboardpnl.TabIndex = 2;
+            this.btnDelExpense.BackColor = System.Drawing.Color.Transparent;
+            this.btnDelExpense.Location = new System.Drawing.Point(211, 195);
+            this.btnDelExpense.Name = "dashboardpnl";
+            this.btnDelExpense.Size = new System.Drawing.Size(930, 555);
+            this.btnDelExpense.TabIndex = 2;
             // 
             // panel3
             // 
@@ -298,7 +298,7 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1384, 762);
             this.Controls.Add(this.panel3);
-            this.Controls.Add(this.dashboardpnl);
+            this.Controls.Add(this.btnDelExpense);
             this.Controls.Add(this.tipsPnl);
             this.Controls.Add(this.HeaderPnl);
             this.DoubleBuffered = true;

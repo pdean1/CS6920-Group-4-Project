@@ -33,7 +33,19 @@
             this.balanceLbl = new System.Windows.Forms.Label();
             this.welcomeLbl = new System.Windows.Forms.Label();
             this.tipsPnl = new System.Windows.Forms.Panel();
-            this.dashboardpnl = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.cmboxBudget = new System.Windows.Forms.ComboBox();
+            this.btnDelExpense = new System.Windows.Forms.Panel();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.btnAddNewExpense = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.labelFirstName = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.btnManageReports = new System.Windows.Forms.Button();
             this.btnManageBudgets = new System.Windows.Forms.Button();
@@ -50,21 +62,11 @@
             this.billsBtn = new System.Windows.Forms.Button();
             this.btnDashBoard = new System.Windows.Forms.Button();
             this.budgetBtn = new System.Windows.Forms.Button();
-            this.cmboxBudget = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.labelFirstName = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.btnNewExpense = new System.Windows.Forms.Button();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.label5 = new System.Windows.Forms.Label();
+            this.btnUpdateExpense = new System.Windows.Forms.Button();
+            this.button8 = new System.Windows.Forms.Button();
             this.HeaderPnl.SuspendLayout();
             this.tipsPnl.SuspendLayout();
-            this.dashboardpnl.SuspendLayout();
+            this.btnDelExpense.SuspendLayout();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -113,23 +115,151 @@
             this.tipsPnl.Size = new System.Drawing.Size(320, 555);
             this.tipsPnl.TabIndex = 1;
             // 
-            // dashboardpnl
+            // label5
             // 
-            this.dashboardpnl.BackColor = System.Drawing.Color.Transparent;
-            this.dashboardpnl.Controls.Add(this.dateTimePicker1);
-            this.dashboardpnl.Controls.Add(this.btnNewExpense);
-            this.dashboardpnl.Controls.Add(this.label4);
-            this.dashboardpnl.Controls.Add(this.label2);
-            this.dashboardpnl.Controls.Add(this.textBox1);
-            this.dashboardpnl.Controls.Add(this.label3);
-            this.dashboardpnl.Controls.Add(this.textBox3);
-            this.dashboardpnl.Controls.Add(this.labelFirstName);
-            this.dashboardpnl.Controls.Add(this.textBox2);
-            this.dashboardpnl.Controls.Add(this.label1);
-            this.dashboardpnl.Location = new System.Drawing.Point(339, 195);
-            this.dashboardpnl.Name = "dashboardpnl";
-            this.dashboardpnl.Size = new System.Drawing.Size(813, 555);
-            this.dashboardpnl.TabIndex = 2;
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.Font = new System.Drawing.Font("Calibri", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.DarkGreen;
+            this.label5.Location = new System.Drawing.Point(51, 125);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(82, 22);
+            this.label5.TabIndex = 13;
+            this.label5.Text = "Expenses:";
+            // 
+            // cmboxBudget
+            // 
+            this.cmboxBudget.BackColor = System.Drawing.Color.ForestGreen;
+            this.cmboxBudget.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmboxBudget.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmboxBudget.ForeColor = System.Drawing.Color.ForestGreen;
+            this.cmboxBudget.FormattingEnabled = true;
+            this.cmboxBudget.Location = new System.Drawing.Point(14, 62);
+            this.cmboxBudget.Name = "cmboxBudget";
+            this.cmboxBudget.Size = new System.Drawing.Size(121, 26);
+            this.cmboxBudget.TabIndex = 0;
+            // 
+            // btnDelExpense
+            // 
+            this.btnDelExpense.BackColor = System.Drawing.Color.Transparent;
+            this.btnDelExpense.Controls.Add(this.button8);
+            this.btnDelExpense.Controls.Add(this.btnUpdateExpense);
+            this.btnDelExpense.Controls.Add(this.dateTimePicker1);
+            this.btnDelExpense.Controls.Add(this.btnAddNewExpense);
+            this.btnDelExpense.Controls.Add(this.label4);
+            this.btnDelExpense.Controls.Add(this.label2);
+            this.btnDelExpense.Controls.Add(this.textBox1);
+            this.btnDelExpense.Controls.Add(this.label3);
+            this.btnDelExpense.Controls.Add(this.textBox3);
+            this.btnDelExpense.Controls.Add(this.labelFirstName);
+            this.btnDelExpense.Controls.Add(this.textBox2);
+            this.btnDelExpense.Controls.Add(this.label1);
+            this.btnDelExpense.Location = new System.Drawing.Point(339, 195);
+            this.btnDelExpense.Name = "btnDelExpense";
+            this.btnDelExpense.Size = new System.Drawing.Size(813, 555);
+            this.btnDelExpense.TabIndex = 2;
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(299, 420);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker1.TabIndex = 28;
+            // 
+            // btnAddNewExpense
+            // 
+            this.btnAddNewExpense.AutoSize = true;
+            this.btnAddNewExpense.BackColor = System.Drawing.Color.ForestGreen;
+            this.btnAddNewExpense.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddNewExpense.ForeColor = System.Drawing.Color.MintCream;
+            this.btnAddNewExpense.Location = new System.Drawing.Point(111, 481);
+            this.btnAddNewExpense.Name = "btnAddNewExpense";
+            this.btnAddNewExpense.Size = new System.Drawing.Size(165, 34);
+            this.btnAddNewExpense.TabIndex = 27;
+            this.btnAddNewExpense.Text = "Add New Expense";
+            this.btnAddNewExpense.UseVisualStyleBackColor = false;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.Font = new System.Drawing.Font("Calibri", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.DarkGreen;
+            this.label4.Location = new System.Drawing.Point(193, 416);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(83, 22);
+            this.label4.TabIndex = 20;
+            this.label4.Text = "Due Date:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Calibri", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.DarkGreen;
+            this.label2.Location = new System.Drawing.Point(193, 370);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(73, 22);
+            this.label2.TabIndex = 18;
+            this.label2.Text = "Amount:";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(299, 372);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(196, 20);
+            this.textBox1.TabIndex = 17;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Calibri", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.DarkGreen;
+            this.label3.Location = new System.Drawing.Point(193, 211);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(98, 22);
+            this.label3.TabIndex = 16;
+            this.label3.Text = "Description:";
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(297, 210);
+            this.textBox3.Multiline = true;
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(276, 130);
+            this.textBox3.TabIndex = 15;
+            // 
+            // labelFirstName
+            // 
+            this.labelFirstName.AutoSize = true;
+            this.labelFirstName.BackColor = System.Drawing.Color.Transparent;
+            this.labelFirstName.Font = new System.Drawing.Font("Calibri", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelFirstName.ForeColor = System.Drawing.Color.DarkGreen;
+            this.labelFirstName.Location = new System.Drawing.Point(182, 156);
+            this.labelFirstName.Name = "labelFirstName";
+            this.labelFirstName.Size = new System.Drawing.Size(111, 22);
+            this.labelFirstName.TabIndex = 12;
+            this.labelFirstName.Text = "Expense Title:";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(299, 158);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(274, 20);
+            this.textBox2.TabIndex = 11;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Calibri", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.DarkGreen;
+            this.label1.Location = new System.Drawing.Point(217, 29);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(381, 59);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "Manage Expenses";
             // 
             // panel3
             // 
@@ -316,131 +446,31 @@
             this.budgetBtn.Text = "Manager Budgets";
             this.budgetBtn.UseVisualStyleBackColor = true;
             // 
-            // cmboxBudget
+            // btnUpdateExpense
             // 
-            this.cmboxBudget.BackColor = System.Drawing.Color.ForestGreen;
-            this.cmboxBudget.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmboxBudget.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmboxBudget.ForeColor = System.Drawing.Color.ForestGreen;
-            this.cmboxBudget.FormattingEnabled = true;
-            this.cmboxBudget.Location = new System.Drawing.Point(14, 62);
-            this.cmboxBudget.Name = "cmboxBudget";
-            this.cmboxBudget.Size = new System.Drawing.Size(121, 26);
-            this.cmboxBudget.TabIndex = 0;
+            this.btnUpdateExpense.AutoSize = true;
+            this.btnUpdateExpense.BackColor = System.Drawing.Color.ForestGreen;
+            this.btnUpdateExpense.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdateExpense.ForeColor = System.Drawing.Color.MintCream;
+            this.btnUpdateExpense.Location = new System.Drawing.Point(330, 481);
+            this.btnUpdateExpense.Name = "btnUpdateExpense";
+            this.btnUpdateExpense.Size = new System.Drawing.Size(165, 34);
+            this.btnUpdateExpense.TabIndex = 29;
+            this.btnUpdateExpense.Text = "Update Expense";
+            this.btnUpdateExpense.UseVisualStyleBackColor = false;
             // 
-            // label1
+            // button8
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Calibri", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.DarkGreen;
-            this.label1.Location = new System.Drawing.Point(217, 29);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(381, 59);
-            this.label1.TabIndex = 9;
-            this.label1.Text = "Manage Expenses";
-            // 
-            // labelFirstName
-            // 
-            this.labelFirstName.AutoSize = true;
-            this.labelFirstName.BackColor = System.Drawing.Color.Transparent;
-            this.labelFirstName.Font = new System.Drawing.Font("Calibri", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelFirstName.ForeColor = System.Drawing.Color.DarkGreen;
-            this.labelFirstName.Location = new System.Drawing.Point(182, 156);
-            this.labelFirstName.Name = "labelFirstName";
-            this.labelFirstName.Size = new System.Drawing.Size(111, 22);
-            this.labelFirstName.TabIndex = 12;
-            this.labelFirstName.Text = "Expense Title:";
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(299, 158);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(274, 20);
-            this.textBox2.TabIndex = 11;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Calibri", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.DarkGreen;
-            this.label3.Location = new System.Drawing.Point(193, 211);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(98, 22);
-            this.label3.TabIndex = 16;
-            this.label3.Text = "Description:";
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(297, 210);
-            this.textBox3.Multiline = true;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(276, 130);
-            this.textBox3.TabIndex = 15;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Calibri", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.DarkGreen;
-            this.label2.Location = new System.Drawing.Point(193, 370);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(73, 22);
-            this.label2.TabIndex = 18;
-            this.label2.Text = "Amount:";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(299, 372);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(196, 20);
-            this.textBox1.TabIndex = 17;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Font = new System.Drawing.Font("Calibri", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.DarkGreen;
-            this.label4.Location = new System.Drawing.Point(193, 416);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(83, 22);
-            this.label4.TabIndex = 20;
-            this.label4.Text = "Due Date:";
-            // 
-            // btnNewExpense
-            // 
-            this.btnNewExpense.AutoSize = true;
-            this.btnNewExpense.BackColor = System.Drawing.Color.ForestGreen;
-            this.btnNewExpense.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNewExpense.ForeColor = System.Drawing.Color.MintCream;
-            this.btnNewExpense.Location = new System.Drawing.Point(299, 492);
-            this.btnNewExpense.Name = "btnNewExpense";
-            this.btnNewExpense.Size = new System.Drawing.Size(165, 34);
-            this.btnNewExpense.TabIndex = 27;
-            this.btnNewExpense.Text = "Add New Expense";
-            this.btnNewExpense.UseVisualStyleBackColor = false;
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(299, 420);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker1.TabIndex = 28;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Font = new System.Drawing.Font("Calibri", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.DarkGreen;
-            this.label5.Location = new System.Drawing.Point(51, 125);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(82, 22);
-            this.label5.TabIndex = 13;
-            this.label5.Text = "Expenses:";
+            this.button8.AutoSize = true;
+            this.button8.BackColor = System.Drawing.Color.ForestGreen;
+            this.button8.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button8.ForeColor = System.Drawing.Color.MintCream;
+            this.button8.Location = new System.Drawing.Point(544, 481);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(165, 34);
+            this.button8.TabIndex = 30;
+            this.button8.Text = "Delete Expense";
+            this.button8.UseVisualStyleBackColor = false;
             // 
             // Dashboard
             // 
@@ -450,7 +480,7 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1384, 762);
             this.Controls.Add(this.panel3);
-            this.Controls.Add(this.dashboardpnl);
+            this.Controls.Add(this.btnDelExpense);
             this.Controls.Add(this.tipsPnl);
             this.Controls.Add(this.HeaderPnl);
             this.DoubleBuffered = true;
@@ -460,8 +490,8 @@
             this.HeaderPnl.PerformLayout();
             this.tipsPnl.ResumeLayout(false);
             this.tipsPnl.PerformLayout();
-            this.dashboardpnl.ResumeLayout(false);
-            this.dashboardpnl.PerformLayout();
+            this.btnDelExpense.ResumeLayout(false);
+            this.btnDelExpense.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -471,7 +501,7 @@
 
         private System.Windows.Forms.Panel HeaderPnl;
         private System.Windows.Forms.Panel tipsPnl;
-        private System.Windows.Forms.Panel dashboardpnl;
+        private System.Windows.Forms.Panel btnDelExpense;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label welcomeLbl;
         private System.Windows.Forms.Label balanceLbl;
@@ -494,7 +524,7 @@
         private System.Windows.Forms.ComboBox cmboxBudget;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.Button btnNewExpense;
+        private System.Windows.Forms.Button btnAddNewExpense;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBox1;
@@ -502,5 +532,7 @@
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label labelFirstName;
         private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button btnUpdateExpense;
     }
 }
