@@ -60,16 +60,16 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.txtBudgetTitle = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.txtBudgetDesc = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.btnAddBudget = new System.Windows.Forms.Button();
+            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.btnAddNewExpense = new System.Windows.Forms.Button();
             this.HeaderPnl.SuspendLayout();
             this.tipsPnl.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -126,7 +126,7 @@
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Calibri", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.DarkGreen;
-            this.label5.Location = new System.Drawing.Point(51, 125);
+            this.label5.Location = new System.Drawing.Point(42, 113);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(82, 22);
             this.label5.TabIndex = 13;
@@ -418,13 +418,6 @@
             this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
             this.dateTimePicker1.TabIndex = 28;
             // 
-            // textBox6
-            // 
-            this.txtBudgetTitle.Location = new System.Drawing.Point(638, 357);
-            this.txtBudgetTitle.Name = "textBox6";
-            this.txtBudgetTitle.Size = new System.Drawing.Size(274, 20);
-            this.txtBudgetTitle.TabIndex = 32;
-            // 
             // label9
             // 
             this.label9.AutoSize = true;
@@ -436,14 +429,6 @@
             this.label9.Size = new System.Drawing.Size(111, 22);
             this.label9.TabIndex = 33;
             this.label9.Text = "Expense Title:";
-            // 
-            // textBox5
-            // 
-            this.txtBudgetDesc.Location = new System.Drawing.Point(636, 409);
-            this.txtBudgetDesc.Multiline = true;
-            this.txtBudgetDesc.Name = "textBox5";
-            this.txtBudgetDesc.Size = new System.Drawing.Size(276, 130);
-            this.txtBudgetDesc.TabIndex = 34;
             // 
             // label8
             // 
@@ -507,18 +492,33 @@
             this.dateTimePicker2.Size = new System.Drawing.Size(200, 20);
             this.dateTimePicker2.TabIndex = 40;
             // 
-            // btnAddExpense
+            // textBox7
             // 
-            this.btnAddBudget.AutoSize = true;
-            this.btnAddBudget.BackColor = System.Drawing.Color.ForestGreen;
-            this.btnAddBudget.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddBudget.ForeColor = System.Drawing.Color.MintCream;
-            this.btnAddBudget.Location = new System.Drawing.Point(669, 680);
-            this.btnAddBudget.Name = "btnAddExpense";
-            this.btnAddBudget.Size = new System.Drawing.Size(165, 34);
-            this.btnAddBudget.TabIndex = 41;
-            this.btnAddBudget.Text = "Add Expense";
-            this.btnAddBudget.UseVisualStyleBackColor = false;
+            this.textBox7.Location = new System.Drawing.Point(638, 410);
+            this.textBox7.Multiline = true;
+            this.textBox7.Name = "textBox7";
+            this.textBox7.Size = new System.Drawing.Size(276, 130);
+            this.textBox7.TabIndex = 42;
+            // 
+            // textBox8
+            // 
+            this.textBox8.Location = new System.Drawing.Point(638, 357);
+            this.textBox8.Name = "textBox8";
+            this.textBox8.Size = new System.Drawing.Size(274, 20);
+            this.textBox8.TabIndex = 41;
+            // 
+            // btnAddNewExpense
+            // 
+            this.btnAddNewExpense.AutoSize = true;
+            this.btnAddNewExpense.BackColor = System.Drawing.Color.ForestGreen;
+            this.btnAddNewExpense.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddNewExpense.ForeColor = System.Drawing.Color.MintCream;
+            this.btnAddNewExpense.Location = new System.Drawing.Point(638, 680);
+            this.btnAddNewExpense.Name = "btnAddNewExpense";
+            this.btnAddNewExpense.Size = new System.Drawing.Size(165, 34);
+            this.btnAddNewExpense.TabIndex = 43;
+            this.btnAddNewExpense.Text = "Add New Expense";
+            this.btnAddNewExpense.UseVisualStyleBackColor = false;
             // 
             // Dashboard
             // 
@@ -527,15 +527,15 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1384, 762);
-            this.Controls.Add(this.btnAddBudget);
+            this.Controls.Add(this.btnAddNewExpense);
+            this.Controls.Add(this.textBox7);
+            this.Controls.Add(this.textBox8);
             this.Controls.Add(this.dateTimePicker2);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.textBox4);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.txtBudgetDesc);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.txtBudgetTitle);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.tipsPnl);
@@ -598,5 +598,8 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.Button btnAddExpense;
+        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.Button btnAddNewExpense;
     }
 }
