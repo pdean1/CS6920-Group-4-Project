@@ -16,5 +16,20 @@ namespace CS6920Group4Project.View
         {
             InitializeComponent();
         }
+
+        private void viewBudgetToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
     }
 }
