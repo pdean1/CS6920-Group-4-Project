@@ -77,6 +77,12 @@
     <Compile Include="View\Dashboard.Designer.cs">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\ManageEarnings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\ManageEarnings.Designer.cs">
+      <DependentUpon>ManageEarnings.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\WelcomeParent.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -103,6 +109,9 @@
     </Compile>
     <EmbeddedResource Include="View\Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\ManageEarnings.resx">
+      <DependentUpon>ManageEarnings.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\WelcomeParent.resx">
       <DependentUpon>WelcomeParent.cs</DependentUpon>

@@ -35,9 +35,10 @@
             this.HeaderPnl = new System.Windows.Forms.Panel();
             this.balanceLbl = new System.Windows.Forms.Label();
             this.welcomeLbl = new System.Windows.Forms.Label();
-            this.tipsPnl = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
+            this.rightDashPnl = new System.Windows.Forms.Panel();
+            this.leftDashPnl = new System.Windows.Forms.Panel();
             this.percentageCht = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.mainDashPnl = new System.Windows.Forms.Panel();
             this.HeaderPnl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.percentageCht)).BeginInit();
             this.SuspendLayout();
@@ -49,7 +50,7 @@
             this.HeaderPnl.Controls.Add(this.welcomeLbl);
             this.HeaderPnl.Location = new System.Drawing.Point(22, 6);
             this.HeaderPnl.Name = "HeaderPnl";
-            this.HeaderPnl.Size = new System.Drawing.Size(1338, 183);
+            this.HeaderPnl.Size = new System.Drawing.Size(1338, 149);
             this.HeaderPnl.TabIndex = 0;
             // 
             // balanceLbl
@@ -77,21 +78,21 @@
             this.welcomeLbl.Text = "Welcome";
             this.welcomeLbl.Click += new System.EventHandler(this.welcomeLbl_Click);
             // 
-            // tipsPnl
+            // rightDashPnl
             // 
-            this.tipsPnl.BackColor = System.Drawing.Color.Transparent;
-            this.tipsPnl.Location = new System.Drawing.Point(22, 195);
-            this.tipsPnl.Name = "tipsPnl";
-            this.tipsPnl.Size = new System.Drawing.Size(182, 555);
-            this.tipsPnl.TabIndex = 1;
+            this.rightDashPnl.BackColor = System.Drawing.Color.Transparent;
+            this.rightDashPnl.Location = new System.Drawing.Point(22, 171);
+            this.rightDashPnl.Name = "rightDashPnl";
+            this.rightDashPnl.Size = new System.Drawing.Size(261, 579);
+            this.rightDashPnl.TabIndex = 1;
             // 
-            // panel3
+            // leftDashPnl
             // 
-            this.panel3.BackColor = System.Drawing.Color.Transparent;
-            this.panel3.Location = new System.Drawing.Point(1148, 195);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(212, 555);
-            this.panel3.TabIndex = 3;
+            this.leftDashPnl.BackColor = System.Drawing.Color.Transparent;
+            this.leftDashPnl.Location = new System.Drawing.Point(1141, 171);
+            this.leftDashPnl.Name = "leftDashPnl";
+            this.leftDashPnl.Size = new System.Drawing.Size(219, 579);
+            this.leftDashPnl.TabIndex = 3;
             // 
             // percentageCht
             // 
@@ -111,6 +112,14 @@
             this.percentageCht.TabIndex = 0;
             this.percentageCht.Text = "Budget";
             // 
+            // mainDashPnl
+            // 
+            this.mainDashPnl.BackColor = System.Drawing.Color.Transparent;
+            this.mainDashPnl.Location = new System.Drawing.Point(297, 171);
+            this.mainDashPnl.Name = "mainDashPnl";
+            this.mainDashPnl.Size = new System.Drawing.Size(831, 577);
+            this.mainDashPnl.TabIndex = 4;
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -118,13 +127,14 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1384, 762);
-            this.Controls.Add(this.panel3);
-            this.Controls.Add(this.tipsPnl);
+            this.Controls.Add(this.mainDashPnl);
+            this.Controls.Add(this.leftDashPnl);
+            this.Controls.Add(this.rightDashPnl);
             this.Controls.Add(this.HeaderPnl);
             this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Dashboard";
-            this.Text = "Dashboard";
+            this.Text = "Budget Buddy Dashboard";
             this.HeaderPnl.ResumeLayout(false);
             this.HeaderPnl.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.percentageCht)).EndInit();
@@ -135,11 +145,12 @@
         #endregion
 
         private System.Windows.Forms.Panel HeaderPnl;
-        private System.Windows.Forms.Panel tipsPnl;
+        private System.Windows.Forms.Panel rightDashPnl;
         private System.Windows.Forms.Panel dashboardpnl;
-        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel leftDashPnl;
         private System.Windows.Forms.Label welcomeLbl;
         private System.Windows.Forms.Label balanceLbl;
         private System.Windows.Forms.DataVisualization.Charting.Chart percentageCht;
+        private System.Windows.Forms.Panel mainDashPnl;
     }
 }
