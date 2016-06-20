@@ -15,7 +15,7 @@ namespace CS6920Group4Project.View
         public WelcomeScreen()
         {
             InitializeComponent();
-            InitializePasswordBox();
+    //        InitializePasswordBox();
         }
 
         private void InitializePasswordBox()

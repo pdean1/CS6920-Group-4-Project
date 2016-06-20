@@ -16,7 +16,7 @@ namespace CS6920Group4Project
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new View.LoginForm());
+            Application.Run(new View.WelcomeScreen());
         }
     }
 }

@@ -28,3 +28,15 @@ C:\Users\Patrick\Documents\Visual Studio 2013\Projects\CS6920-Group-4-Project\CS
 C:\Users\Miko\Documents\West Georgia University\Project II\Budget Project\CS6920Group4Project\obj\Debug\CS6920Group4Project.View.CreateUserForm.resources
 C:\Users\Miko\Documents\West Georgia University\Project II\Budget Project\CS6920Group4Project\obj\Debug\CS6920Group4Project.View.LoginForm.resources
 C:\Users\Miko\Documents\West Georgia University\Project II\Budget Project\CS6920Group4Project\obj\Debug\CS6920Group4Project.View.WelcomeScreen.resources
+C:\Users\Kescia\Documents\UWG\CS6920ProjectII\CS6290Project\CS6920-Group-4-Project\CS6920Group4Project\bin\Debug\CS6920Group4Project.exe.config
+C:\Users\Kescia\Documents\UWG\CS6920ProjectII\CS6290Project\CS6920-Group-4-Project\CS6920Group4Project\obj\Debug\CS6920Group4Project.csprojResolveAssemblyReference.cache
+C:\Users\Kescia\Documents\UWG\CS6920ProjectII\CS6290Project\CS6920-Group-4-Project\CS6920Group4Project\obj\Debug\CS6920Group4Project.View.CreateUserForm.resources
+C:\Users\Kescia\Documents\UWG\CS6920ProjectII\CS6290Project\CS6920-Group-4-Project\CS6920Group4Project\obj\Debug\CS6920Group4Project.Properties.Resources.resources
+C:\Users\Kescia\Documents\UWG\CS6920ProjectII\CS6290Project\CS6920-Group-4-Project\CS6920Group4Project\obj\Debug\CS6920Group4Project.View.Dashboard.resources
+C:\Users\Kescia\Documents\UWG\CS6920ProjectII\CS6290Project\CS6920-Group-4-Project\CS6920Group4Project\obj\Debug\CS6920Group4Project.View.WelcomeScreen.resources
+C:\Users\Kescia\Documents\UWG\CS6920ProjectII\CS6290Project\CS6920-Group-4-Project\CS6920Group4Project\obj\Debug\CS6920Group4Project.csproj.GenerateResource.Cache
+C:\Users\Kescia\Documents\UWG\CS6920ProjectII\CS6290Project\CS6920-Group-4-Project\CS6920Group4Project\bin\Debug\CS6920Group4Project.exe
+C:\Users\Kescia\Documents\UWG\CS6920ProjectII\CS6290Project\CS6920-Group-4-Project\CS6920Group4Project\bin\Debug\CS6920Group4Project.pdb
+C:\Users\Kescia\Documents\UWG\CS6920ProjectII\CS6290Project\CS6920-Group-4-Project\CS6920Group4Project\bin\Debug\MySql.Data.dll
+C:\Users\Kescia\Documents\UWG\CS6920ProjectII\CS6290Project\CS6920-Group-4-Project\CS6920Group4Project\obj\Debug\CS6920Group4Project.exe
+C:\Users\Kescia\Documents\UWG\CS6920ProjectII\CS6290Project\CS6920-Group-4-Project\CS6920Group4Project\obj\Debug\CS6920Group4Project.pdb
