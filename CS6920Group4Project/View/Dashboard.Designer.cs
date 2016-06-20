@@ -34,13 +34,11 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashboard));
             this.HeaderPnl = new System.Windows.Forms.Panel();
             this.tipsPnl = new System.Windows.Forms.Panel();
-            this.btnDelExpense = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.welcomeLbl = new System.Windows.Forms.Label();
             this.balanceLbl = new System.Windows.Forms.Label();
             this.percentageCht = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.HeaderPnl.SuspendLayout();
-            this.btnDelExpense.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.percentageCht)).BeginInit();
             this.SuspendLayout();
             // 
@@ -61,15 +59,6 @@
             this.tipsPnl.Name = "tipsPnl";
             this.tipsPnl.Size = new System.Drawing.Size(182, 555);
             this.tipsPnl.TabIndex = 1;
-            // 
-            // dashboardpnl
-            // 
-            this.btnDelExpense.BackColor = System.Drawing.Color.White;
-            this.btnDelExpense.Controls.Add(this.percentageCht);
-            this.btnDelExpense.Location = new System.Drawing.Point(211, 195);
-            this.btnDelExpense.Name = "dashboardpnl";
-            this.btnDelExpense.Size = new System.Drawing.Size(930, 555);
-            this.btnDelExpense.TabIndex = 2;
             // 
             // panel3
             // 
@@ -130,7 +119,7 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1384, 762);
             this.Controls.Add(this.panel3);
-            this.Controls.Add(this.btnDelExpense);
+ //           this.Controls.Add(this.btnDelExpense);
             this.Controls.Add(this.tipsPnl);
             this.Controls.Add(this.HeaderPnl);
             this.DoubleBuffered = true;
@@ -138,7 +127,6 @@
             this.Text = "Dashboard";
             this.HeaderPnl.ResumeLayout(false);
             this.HeaderPnl.PerformLayout();
-            this.btnDelExpense.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.percentageCht)).EndInit();
             this.ResumeLayout(false);
 
