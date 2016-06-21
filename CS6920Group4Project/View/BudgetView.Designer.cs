@@ -62,6 +62,7 @@
             this.Expenses,
             this.expenseBalance});
             this.expenseView.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.expenseView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.expenseView.Location = new System.Drawing.Point(68, 274);
             this.expenseView.Name = "expenseView";
             this.expenseView.Size = new System.Drawing.Size(502, 97);
@@ -86,6 +87,7 @@
             this.Income,
             this.incomeBal});
             this.incomeView.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.incomeView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.incomeView.Location = new System.Drawing.Point(68, 36);
             this.incomeView.Name = "incomeView";
             this.incomeView.Size = new System.Drawing.Size(502, 97);
@@ -111,6 +113,7 @@
             this.billBalance});
             this.billView.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.billView.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.billView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.billView.Location = new System.Drawing.Point(68, 160);
             this.billView.Name = "billView";
             this.billView.Size = new System.Drawing.Size(502, 97);
