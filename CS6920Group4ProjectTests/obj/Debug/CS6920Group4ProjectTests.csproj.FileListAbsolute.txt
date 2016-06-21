@@ -19,3 +19,10 @@ C:\Users\Miko\Source\Repos\CS6920-Group-4-Project\CS6920Group4ProjectTests\bin\D
 C:\Users\Miko\Source\Repos\CS6920-Group-4-Project\CS6920Group4ProjectTests\obj\Debug\CS6920Group4ProjectTests.csprojResolveAssemblyReference.cache
 C:\Users\Miko\Source\Repos\CS6920-Group-4-Project\CS6920Group4ProjectTests\obj\Debug\CS6920Group4ProjectTests.dll
 C:\Users\Miko\Source\Repos\CS6920-Group-4-Project\CS6920Group4ProjectTests\obj\Debug\CS6920Group4ProjectTests.pdb
+C:\Users\Patrick\Documents\GitHub\CS6920-Group-4-Project\CS6920Group4ProjectTests\bin\Debug\CS6920Group4ProjectTests.dll
+C:\Users\Patrick\Documents\GitHub\CS6920-Group-4-Project\CS6920Group4ProjectTests\bin\Debug\CS6920Group4ProjectTests.pdb
+C:\Users\Patrick\Documents\GitHub\CS6920-Group-4-Project\CS6920Group4ProjectTests\bin\Debug\CS6920Group4Project.exe
+C:\Users\Patrick\Documents\GitHub\CS6920-Group-4-Project\CS6920Group4ProjectTests\bin\Debug\CS6920Group4Project.pdb
+C:\Users\Patrick\Documents\GitHub\CS6920-Group-4-Project\CS6920Group4ProjectTests\obj\Debug\CS6920Group4ProjectTests.csprojResolveAssemblyReference.cache
+C:\Users\Patrick\Documents\GitHub\CS6920-Group-4-Project\CS6920Group4ProjectTests\obj\Debug\CS6920Group4ProjectTests.dll
+C:\Users\Patrick\Documents\GitHub\CS6920-Group-4-Project\CS6920Group4ProjectTests\obj\Debug\CS6920Group4ProjectTests.pdb
