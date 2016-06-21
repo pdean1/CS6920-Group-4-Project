@@ -21,12 +21,16 @@ USE sql5123046;
 -- =====================================================================
 CREATE TABLE Users (
    UserID      INT UNSIGNED AUTO_INCREMENT NOT NULL,
-   Email       VARCHAR(128)                NOT NULL,
+   -- Email       VARCHAR(128)                NOT NULL,
+   FirstName   VARCHAR(48)                 NOT NULL,
+   LastName    VARCHAR(48)                 NOT NULL, -- Might want to consider making this a nullable field I know many people with only one name
+   UserName    VARCHAR(24)                 NOT NULL,
    Password    VARCHAR(256)                NOT NULL,
    DateCreated DATETIME                    NOT NULL,
    DateUpdated DATETIME,
    CONSTRAINT User_PK PRIMARY KEY (UserID),
-   CONSTRAINT User_Email_UK UNIQUE (Email)
+   -- CONSTRAINT User_Email_UK UNIQUE (Email)
+   CONSTRAINT User_UserName_UK UNIQUE (UserName)
 ); 
 -- =====================================================================
 -- BudgetTypes Table Creation Scripts                               

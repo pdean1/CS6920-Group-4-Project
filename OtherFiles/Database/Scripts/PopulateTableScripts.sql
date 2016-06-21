@@ -1,5 +1,5 @@
-INSERT INTO `sql5123046`.`users` (`Email`, `Password`, `DateCreated`) VALUES ('test@test.com', 'password', '2016-06-15');
-INSERT INTO `sql5123046`.`users` (`Email`, `Password`, `DateCreated`) VALUES ('test2@test.com', 'letmein', '2016-06.15');
+INSERT INTO `sql5123046`.`users` (`FirstName`, `LastName`, `UserName`, `Password`, `DateCreated`) VALUES ('Guest', 'User', 'guest', 'guest', '2016-06-15');
+INSERT INTO `sql5123046`.`users` (`FirstName`, `LastName`, `UserName`, `Password`, `DateCreated`) VALUES ('Guest', 'User 2', 'guest2', 'guest2', '2016-06-15');
 
 INSERT INTO `sql5123046`.`budgettypes` (`Title`, `Description`) VALUES ('Monthly', 'Monthly budget');
 INSERT INTO `sql5123046`.`budgettypes` (`Title`, `Description`) VALUES ('Vacation', 'Vacation budget');
