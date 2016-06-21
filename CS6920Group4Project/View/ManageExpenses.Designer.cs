@@ -38,9 +38,9 @@
             this.label5 = new System.Windows.Forms.Label();
             this.monthCalendar = new System.Windows.Forms.MonthCalendar();
             this.expenseBtn = new System.Windows.Forms.Button();
-            this.incomeBox = new System.Windows.Forms.TextBox();
-            this.incomeDescBox = new System.Windows.Forms.TextBox();
-            this.incomeAmountBox = new System.Windows.Forms.TextBox();
+            this.expenseBox = new System.Windows.Forms.TextBox();
+            this.expenseDescBox = new System.Windows.Forms.TextBox();
+            this.expenseAmountBox = new System.Windows.Forms.TextBox();
             this.budgetLbl = new System.Windows.Forms.Label();
             this.currentBudgetLbl = new System.Windows.Forms.Label();
             this.incomeDashBtn = new System.Windows.Forms.Button();
@@ -149,26 +149,26 @@
             this.expenseBtn.Text = "Add Expense";
             this.expenseBtn.UseVisualStyleBackColor = false;
             // 
-            // incomeBox
+            // expenseBox
             // 
-            this.incomeBox.Location = new System.Drawing.Point(756, 308);
-            this.incomeBox.Name = "incomeBox";
-            this.incomeBox.Size = new System.Drawing.Size(227, 28);
-            this.incomeBox.TabIndex = 9;
+            this.expenseBox.Location = new System.Drawing.Point(756, 308);
+            this.expenseBox.Name = "expenseBox";
+            this.expenseBox.Size = new System.Drawing.Size(227, 28);
+            this.expenseBox.TabIndex = 9;
             // 
-            // incomeDescBox
+            // expenseDescBox
             // 
-            this.incomeDescBox.Location = new System.Drawing.Point(756, 352);
-            this.incomeDescBox.Name = "incomeDescBox";
-            this.incomeDescBox.Size = new System.Drawing.Size(227, 28);
-            this.incomeDescBox.TabIndex = 10;
+            this.expenseDescBox.Location = new System.Drawing.Point(756, 352);
+            this.expenseDescBox.Name = "expenseDescBox";
+            this.expenseDescBox.Size = new System.Drawing.Size(227, 28);
+            this.expenseDescBox.TabIndex = 10;
             // 
-            // incomeAmountBox
+            // expenseAmountBox
             // 
-            this.incomeAmountBox.Location = new System.Drawing.Point(756, 395);
-            this.incomeAmountBox.Name = "incomeAmountBox";
-            this.incomeAmountBox.Size = new System.Drawing.Size(227, 28);
-            this.incomeAmountBox.TabIndex = 11;
+            this.expenseAmountBox.Location = new System.Drawing.Point(756, 395);
+            this.expenseAmountBox.Name = "expenseAmountBox";
+            this.expenseAmountBox.Size = new System.Drawing.Size(227, 28);
+            this.expenseAmountBox.TabIndex = 11;
             // 
             // budgetLbl
             // 
@@ -283,9 +283,9 @@
             this.Controls.Add(this.incomeDashBtn);
             this.Controls.Add(this.currentBudgetLbl);
             this.Controls.Add(this.budgetLbl);
-            this.Controls.Add(this.incomeAmountBox);
-            this.Controls.Add(this.incomeDescBox);
-            this.Controls.Add(this.incomeBox);
+            this.Controls.Add(this.expenseAmountBox);
+            this.Controls.Add(this.expenseDescBox);
+            this.Controls.Add(this.expenseBox);
             this.Controls.Add(this.expenseBtn);
             this.Controls.Add(this.monthCalendar);
             this.Controls.Add(this.label5);
@@ -317,9 +317,9 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.MonthCalendar monthCalendar;
         private System.Windows.Forms.Button expenseBtn;
-        private System.Windows.Forms.TextBox incomeBox;
-        private System.Windows.Forms.TextBox incomeDescBox;
-        private System.Windows.Forms.TextBox incomeAmountBox;
+        private System.Windows.Forms.TextBox expenseBox;
+        private System.Windows.Forms.TextBox expenseDescBox;
+        private System.Windows.Forms.TextBox expenseAmountBox;
         private System.Windows.Forms.Label budgetLbl;
         private System.Windows.Forms.Label currentBudgetLbl;
         private System.Windows.Forms.Button incomeDashBtn;

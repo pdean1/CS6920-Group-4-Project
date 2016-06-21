@@ -31,16 +31,13 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ManageBills));
             this.billsWelcomeLbl = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.incomeLbl = new System.Windows.Forms.Label();
+            this.inLbl = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.monthCalendar = new System.Windows.Forms.MonthCalendar();
-            this.incomeBtn = new System.Windows.Forms.Button();
-            this.incomeBox = new System.Windows.Forms.TextBox();
-            this.incomeDescBox = new System.Windows.Forms.TextBox();
-            this.incomeAmountBox = new System.Windows.Forms.TextBox();
+            this.billAmountBox = new System.Windows.Forms.TextBox();
             this.budgetLbl = new System.Windows.Forms.Label();
             this.currentBudgetLbl = new System.Windows.Forms.Label();
             this.incomeDashBtn = new System.Windows.Forms.Button();
@@ -50,6 +47,9 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.currencyLbl = new System.Windows.Forms.Label();
+            this.billDescBox = new System.Windows.Forms.TextBox();
+            this.billBox = new System.Windows.Forms.TextBox();
+            this.billBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // billsWelcomeLbl
@@ -78,18 +78,18 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Your Current Balance is:";
             // 
-            // incomeLbl
+            // inLbl
             // 
-            this.incomeLbl.AutoSize = true;
-            this.incomeLbl.BackColor = System.Drawing.Color.Transparent;
-            this.incomeLbl.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.incomeLbl.Location = new System.Drawing.Point(353, 236);
-            this.incomeLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.incomeLbl.Name = "incomeLbl";
-            this.incomeLbl.Size = new System.Drawing.Size(176, 26);
-            this.incomeLbl.TabIndex = 2;
-            this.incomeLbl.Text = "BILL INFORMATION";
-            this.incomeLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.inLbl.AutoSize = true;
+            this.inLbl.BackColor = System.Drawing.Color.Transparent;
+            this.inLbl.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.inLbl.Location = new System.Drawing.Point(353, 236);
+            this.inLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.inLbl.Name = "inLbl";
+            this.inLbl.Size = new System.Drawing.Size(176, 26);
+            this.inLbl.TabIndex = 2;
+            this.inLbl.Text = "BILL INFORMATION";
+            this.inLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label2
             // 
@@ -137,38 +137,12 @@
             this.monthCalendar.Name = "monthCalendar";
             this.monthCalendar.TabIndex = 7;
             // 
-            // incomeBtn
+            // billAmountBox
             // 
-            this.incomeBtn.BackColor = System.Drawing.Color.ForestGreen;
-            this.incomeBtn.ForeColor = System.Drawing.Color.White;
-            this.incomeBtn.Location = new System.Drawing.Point(842, 629);
-            this.incomeBtn.Name = "incomeBtn";
-            this.incomeBtn.Size = new System.Drawing.Size(141, 36);
-            this.incomeBtn.TabIndex = 8;
-            this.incomeBtn.TabStop = false;
-            this.incomeBtn.Text = "Add Bill";
-            this.incomeBtn.UseVisualStyleBackColor = false;
-            // 
-            // incomeBox
-            // 
-            this.incomeBox.Location = new System.Drawing.Point(756, 308);
-            this.incomeBox.Name = "incomeBox";
-            this.incomeBox.Size = new System.Drawing.Size(227, 28);
-            this.incomeBox.TabIndex = 9;
-            // 
-            // incomeDescBox
-            // 
-            this.incomeDescBox.Location = new System.Drawing.Point(756, 352);
-            this.incomeDescBox.Name = "incomeDescBox";
-            this.incomeDescBox.Size = new System.Drawing.Size(227, 28);
-            this.incomeDescBox.TabIndex = 10;
-            // 
-            // incomeAmountBox
-            // 
-            this.incomeAmountBox.Location = new System.Drawing.Point(756, 395);
-            this.incomeAmountBox.Name = "incomeAmountBox";
-            this.incomeAmountBox.Size = new System.Drawing.Size(227, 28);
-            this.incomeAmountBox.TabIndex = 11;
+            this.billAmountBox.Location = new System.Drawing.Point(756, 395);
+            this.billAmountBox.Name = "billAmountBox";
+            this.billAmountBox.Size = new System.Drawing.Size(227, 28);
+            this.billAmountBox.TabIndex = 11;
             // 
             // budgetLbl
             // 
@@ -267,6 +241,32 @@
             this.currencyLbl.TabIndex = 20;
             this.currencyLbl.Text = "$1000.00";
             // 
+            // billDescBox
+            // 
+            this.billDescBox.Location = new System.Drawing.Point(756, 345);
+            this.billDescBox.Name = "billDescBox";
+            this.billDescBox.Size = new System.Drawing.Size(227, 28);
+            this.billDescBox.TabIndex = 22;
+            // 
+            // billBox
+            // 
+            this.billBox.Location = new System.Drawing.Point(756, 301);
+            this.billBox.Name = "billBox";
+            this.billBox.Size = new System.Drawing.Size(227, 28);
+            this.billBox.TabIndex = 21;
+            // 
+            // billBtn
+            // 
+            this.billBtn.BackColor = System.Drawing.Color.ForestGreen;
+            this.billBtn.ForeColor = System.Drawing.Color.White;
+            this.billBtn.Location = new System.Drawing.Point(842, 642);
+            this.billBtn.Name = "billBtn";
+            this.billBtn.Size = new System.Drawing.Size(141, 36);
+            this.billBtn.TabIndex = 23;
+            this.billBtn.TabStop = false;
+            this.billBtn.Text = "Add Bill";
+            this.billBtn.UseVisualStyleBackColor = false;
+            // 
             // ManageBills
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
@@ -274,6 +274,9 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1437, 762);
+            this.Controls.Add(this.billBtn);
+            this.Controls.Add(this.billDescBox);
+            this.Controls.Add(this.billBox);
             this.Controls.Add(this.currencyLbl);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
@@ -283,16 +286,13 @@
             this.Controls.Add(this.incomeDashBtn);
             this.Controls.Add(this.currentBudgetLbl);
             this.Controls.Add(this.budgetLbl);
-            this.Controls.Add(this.incomeAmountBox);
-            this.Controls.Add(this.incomeDescBox);
-            this.Controls.Add(this.incomeBox);
-            this.Controls.Add(this.incomeBtn);
+            this.Controls.Add(this.billAmountBox);
             this.Controls.Add(this.monthCalendar);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.incomeLbl);
+            this.Controls.Add(this.inLbl);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.billsWelcomeLbl);
             this.Font = new System.Drawing.Font("Calibri", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -300,7 +300,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "ManageBills";
-            this.Text = "Manage Bills";
+            this.Text = "Manage Budget";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -310,16 +310,16 @@
 
         private System.Windows.Forms.Label billsWelcomeLbl;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label incomeLbl;
+        private System.Windows.Forms.Label inLbl;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.MonthCalendar monthCalendar;
-        private System.Windows.Forms.Button incomeBtn;
-        private System.Windows.Forms.TextBox incomeBox;
-        private System.Windows.Forms.TextBox incomeDescBox;
-        private System.Windows.Forms.TextBox incomeAmountBox;
+ //       private System.Windows.Forms.Button incomeBtn;
+ //       private System.Windows.Forms.TextBox incomeBox;
+ //       private System.Windows.Forms.TextBox incomeDescBox;
+        private System.Windows.Forms.TextBox billAmountBox;
         private System.Windows.Forms.Label budgetLbl;
         private System.Windows.Forms.Label currentBudgetLbl;
         private System.Windows.Forms.Button incomeDashBtn;
@@ -329,6 +329,9 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Label currencyLbl;
+        private System.Windows.Forms.TextBox billDescBox;
+        private System.Windows.Forms.TextBox billBox;
+        private System.Windows.Forms.Button billBtn;
 
     }
 }
