@@ -18,16 +18,17 @@ namespace CS6920Group4Project.DAL.Model
         private MySqlConnection conn = new DBConnect().GetConnection();
 
         /// <summary>
-        /// 
-        /// </summary>
-        private const String InsertUserStatement = "INSERT INTO `sql5123046`.`users` (`Email`, `Password`, `DateCreated`)" + 
-            " VALUES (@Email, @Password, @DateCreated);";
+        /// This statement allows a developer to insert a User into the Users table
+        /// </summary> 
+        private const String InsertUserStatement = "INSERT INTO `sql5123046`.`users` (`FirstName`, `LastName`, `UserName`, `Password`, `DateCreated`)" + 
+            " VALUES (@FirstName, @LastName, @UserName, @Password, @DateCreated);";
 
         /// <summary>
-        /// 
+        /// This function will add a user to the database. If this function encounters a MySQLException, 
+        /// a message box is presented to the user informing them of the issue and the function will return 0
         /// </summary>
-        /// <param name="user"></param>
-        /// <returns></returns>
+        /// <param name="user">The User to be added</param>
+        /// <returns>0 on a failed insertion, or the ID of the last inserted record</returns>
         public long InsertUser(User user)
         {
             long id = 0; 
@@ -38,7 +39,9 @@ namespace CS6920Group4Project.DAL.Model
                 command.Connection = conn;
                 command.CommandText = InsertUserStatement;
                 command.Prepare();
-                command.Parameters.AddWithValue("@Email", user.Email);
+                command.Parameters.AddWithValue("@FirstName", user.FirstName);
+                command.Parameters.AddWithValue("@LastName", user.LastName);
+                command.Parameters.AddWithValue("@UserName", user.UserName);
                 command.Parameters.AddWithValue("@Password", user.Password);
                 command.Parameters.AddWithValue("@DateCreated", DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss"));
                 command.ExecuteNonQuery();
@@ -55,6 +58,14 @@ namespace CS6920Group4Project.DAL.Model
                 conn.Close();
             }
             return id;
+        }
+
+
+
+        public User LoginUser(String UserName, String Password)
+        {
+            throw new Exception("Functionality not yet implemented");
+
         }
 
         private const String DeleteUserStatement = "";
