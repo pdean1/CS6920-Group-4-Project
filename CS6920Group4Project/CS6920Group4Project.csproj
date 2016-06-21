@@ -89,6 +89,18 @@
     <Compile Include="View\CreateNewUserForm.Designer.cs">
       <DependentUpon>CreateNewUserForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\ManageBills.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\ManageBills.Designer.cs">
+      <DependentUpon>ManageBills.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\ManageExpenses.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\ManageExpenses.Designer.cs">
+      <DependentUpon>ManageExpenses.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\ManageEarnings.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -127,6 +139,12 @@
     </Compile>
     <EmbeddedResource Include="View\Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\ManageBills.resx">
+      <DependentUpon>ManageBills.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\ManageExpenses.resx">
+      <DependentUpon>ManageExpenses.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\ManageEarnings.resx">
       <DependentUpon>ManageEarnings.cs</DependentUpon>
