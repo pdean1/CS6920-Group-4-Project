@@ -38,8 +38,10 @@
             this.incomeBal = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.billView = new System.Windows.Forms.ListView();
             this.Bills = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.dueDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.billBalance = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.budgetVewPnl = new System.Windows.Forms.Panel();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.budgetVewPnl.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -85,7 +87,8 @@
             this.incomeView.BackColor = System.Drawing.Color.LightGoldenrodYellow;
             this.incomeView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.Income,
-            this.incomeBal});
+            this.incomeBal,
+            this.columnHeader1});
             this.incomeView.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.incomeView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.incomeView.Location = new System.Drawing.Point(68, 36);
@@ -110,11 +113,12 @@
             this.billView.BackColor = System.Drawing.Color.AliceBlue;
             this.billView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.Bills,
+            this.dueDate,
             this.billBalance});
             this.billView.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.billView.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.billView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
-            this.billView.Location = new System.Drawing.Point(68, 160);
+            this.billView.Location = new System.Drawing.Point(68, 152);
             this.billView.Name = "billView";
             this.billView.Size = new System.Drawing.Size(502, 97);
             this.billView.TabIndex = 3;
@@ -126,8 +130,15 @@
             this.Bills.Text = "Bills";
             this.Bills.Width = 77;
             // 
+            // dueDate
+            // 
+            this.dueDate.DisplayIndex = 2;
+            this.dueDate.Text = "Date Due";
+            this.dueDate.Width = 106;
+            // 
             // billBalance
             // 
+            this.billBalance.DisplayIndex = 1;
             this.billBalance.Text = "Balance";
             this.billBalance.Width = 78;
             // 
@@ -141,6 +152,11 @@
             this.budgetVewPnl.Name = "budgetVewPnl";
             this.budgetVewPnl.Size = new System.Drawing.Size(631, 423);
             this.budgetVewPnl.TabIndex = 4;
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "Deposit Date";
+            this.columnHeader1.Width = 105;
             // 
             // BudgetView
             // 
@@ -173,5 +189,7 @@
         private System.Windows.Forms.ColumnHeader Bills;
         private System.Windows.Forms.ColumnHeader billBalance;
         private System.Windows.Forms.Panel budgetVewPnl;
+        private System.Windows.Forms.ColumnHeader dueDate;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
     }
 }

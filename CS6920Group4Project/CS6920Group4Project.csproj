@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="DAL\DBConnect.cs" />
     <Compile Include="DAL\Model\UserDAL.cs" />
+    <Compile Include="Model\Dashboard.cs" />
     <Compile Include="Utilities\EmailUtility.cs" />
     <Compile Include="View\BudgetView.cs">
       <SubType>Form</SubType>

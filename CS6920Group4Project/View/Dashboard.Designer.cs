@@ -295,9 +295,9 @@
             this.label6.ForeColor = System.Drawing.Color.DarkGreen;
             this.label6.Location = new System.Drawing.Point(281, 257);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(78, 26);
+            this.label6.Size = new System.Drawing.Size(170, 26);
             this.label6.TabIndex = 6;
-            this.label6.Text = "Balance";
+            this.label6.Text = "Income Remaining";
             // 
             // label5
             // 

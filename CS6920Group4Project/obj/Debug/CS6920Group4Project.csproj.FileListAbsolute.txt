@@ -60,3 +60,8 @@ C:\Users\Kescia\Documents\UWG\CS6920ProjectII\CS6290Project\CS6920-Group-4-Proje
 C:\Users\Kescia\Documents\UWG\CS6920ProjectII\CS6290Project\CS6920-Group-4-Project\CS6920Group4Project\obj\Debug\CS6920Group4Project.View.ManageExpenses.resources
 C:\Users\Kescia\Documents\UWG\CS6920ProjectII\CS6290Project\CS6920-Group-4-Project\CS6920Group4Project\obj\Debug\CS6920Group4Project.View.ManageBills.resources
 C:\Users\Kescia\Documents\UWG\CS6920ProjectII\CS6290Project\CS6920-Group-4-Project\CS6920Group4Project\obj\Debug\CS6920Group4Project.View.ManageBudgets.resources
+C:\Users\Miko\Source\Repos\CS6920-Group-4-Project\CS6920Group4Project\obj\Debug\CS6920Group4Project.View.BudgetView.resources
+C:\Users\Miko\Source\Repos\CS6920-Group-4-Project\CS6920Group4Project\obj\Debug\CS6920Group4Project.View.CreateNewUserForm.resources
+C:\Users\Miko\Source\Repos\CS6920-Group-4-Project\CS6920Group4Project\obj\Debug\CS6920Group4Project.View.ManageBudgets.resources
+C:\Users\Miko\Source\Repos\CS6920-Group-4-Project\CS6920Group4Project\obj\Debug\CS6920Group4Project.View.ManageBills.resources
+C:\Users\Miko\Source\Repos\CS6920-Group-4-Project\CS6920Group4Project\obj\Debug\CS6920Group4Project.View.ManageExpenses.resources
