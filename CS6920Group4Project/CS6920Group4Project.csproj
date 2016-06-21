@@ -83,6 +83,12 @@
     <Compile Include="View\Dashboard.Designer.cs">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\CreateNewUserForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\CreateNewUserForm.Designer.cs">
+      <DependentUpon>CreateNewUserForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\ManageEarnings.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -103,6 +109,9 @@
     </Compile>
     <EmbeddedResource Include="View\BudgetView.resx">
       <DependentUpon>BudgetView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\CreateNewUserForm.resx">
+      <DependentUpon>CreateNewUserForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\CreateUserForm.resx">
       <DependentUpon>CreateUserForm.cs</DependentUpon>

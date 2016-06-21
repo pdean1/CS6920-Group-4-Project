@@ -422,7 +422,7 @@
 
         private System.Windows.Forms.Panel HeaderPnl;
         private System.Windows.Forms.Panel rightDashPnl;
-        private System.Windows.Forms.Panel dashboardpnl;
+ //       private System.Windows.Forms.Panel dashboardpnl;
         private System.Windows.Forms.Panel leftDashPnl;
         private System.Windows.Forms.Label welcomeLbl;
         private System.Windows.Forms.Label balanceLbl;
