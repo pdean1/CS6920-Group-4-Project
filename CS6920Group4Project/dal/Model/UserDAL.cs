@@ -20,8 +20,8 @@ namespace CS6920Group4Project.DAL.Model
         /// <summary>
         /// This statement allows a developer to insert a User into the Users table
         /// </summary> 
-        private const String InsertUserStatement = "INSERT INTO `sql5123046`.`users` (`FirstName`, `LastName`, `UserName`, `Password`, `DateCreated`)" + 
-            " VALUES (@FirstName, @LastName, @UserName, @Password, @DateCreated);";
+        private const String InsertUserStatement = "INSERT INTO `sql5123046`.`users` (`FirstName`, `LastName`," + 
+            " `UserName`, `Password`, `DateCreated`) VALUES (@FirstName, @LastName, @UserName, @Password, @DateCreated);";
 
         /// <summary>
         /// This function will add a user to the database. If this function encounters a MySQLException, 
@@ -60,12 +60,71 @@ namespace CS6920Group4Project.DAL.Model
             return id;
         }
 
+        private const string LogInQuery = "SELECT `users`.`UserID`, `users`.`FirstName`, `users`.`LastName`, `users`.`UserName`," +
+            " `users`.`Password`, `users`.`DateCreated`, `users`.`DateUpdated` FROM `sql5123046`.`users` WHERE `users`.`UserName`" + 
+            " = @UserName AND `users`.`Password` = @Password;";
 
-
-        public User LoginUser(String UserName, String Password)
+        /// <summary>
+        /// Attempts to retrieve and log in a user based on the supplied credentials (username and password)
+        /// </summary>
+        /// <param name="UserName">The username of a user attempting to log in</param>
+        /// <param name="Password">The password of a user attempting to log in</param>
+        /// <returns>A populated user object or null</returns>
+        public User AttemptUserLogin(String UserName, String Password)
         {
-            throw new Exception("Functionality not yet implemented");
-
+            User user = new User();
+            try
+            {
+                MySqlCommand command = new MySqlCommand();
+                conn.Open();
+                command.Connection = conn;
+                command.CommandText = LogInQuery;
+                command.Prepare();
+                command.Parameters.AddWithValue("@UserName", UserName);
+                command.Parameters.AddWithValue("@Password", Password);
+                using (MySqlDataReader reader = command.ExecuteReader())
+                {
+                    for (int i = 0; reader.Read(); i++)
+                    {
+                        if (i > 0)
+                        {
+                            conn.Close();
+                            return null;
+                        }
+                        user.ID = reader.GetInt32(0);
+                        user.FirstName = reader.GetString(1);
+                        user.LastName = reader.GetString(2);
+                        user.UserName = reader.GetString(3);
+                        user.Password = reader.GetString(4);
+                        user.DateCreated = reader.GetDateTime(5);
+                        try
+                        {
+                            user.DateUpdated = reader.GetDateTime(6);
+                        }
+                        catch (Exception)
+                        {
+                            user.DateUpdated = null;
+                        }
+                    }
+                    conn.Close();
+                    return user;
+                }
+            }
+            catch (MySqlException e)
+            {
+                MessageBox.Show("Unable to query for users in the database. Error information: " +
+                    e.Number + "\nMySQL Error Text: " + e.Message);
+                return null;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Unable to query for users in the database. Error information: " + e.Message + "\n" + e.StackTrace);
+                return null;
+            }
+            finally 
+            {
+                conn.Close();
+            }
         }
 
         private const String DeleteUserStatement = "";
