@@ -21,5 +21,10 @@ namespace CS6920Group4Project.View
         {
 
         }
+
+        private void Dashboard_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

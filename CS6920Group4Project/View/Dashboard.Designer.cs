@@ -391,6 +391,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Dashboard";
             this.Text = "Budget Buddy Dashboard";
+            this.Load += new System.EventHandler(this.Dashboard_Load);
             this.HeaderPnl.ResumeLayout(false);
             this.HeaderPnl.PerformLayout();
             this.leftDashPnl.ResumeLayout(false);

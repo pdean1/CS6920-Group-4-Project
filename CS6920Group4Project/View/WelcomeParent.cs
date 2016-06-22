@@ -13,6 +13,9 @@ namespace CS6920Group4Project.View
     public partial class WelcomeParent : Form        
     { 
         Dashboard dashboard;
+        private ManageBudgets manageBudget;
+        private ManageEarnings manageEarnings;
+
         public WelcomeParent()
         {
             InitializeComponent();
@@ -49,6 +52,48 @@ namespace CS6920Group4Project.View
         private void dashboard_FormClosed(object sender, FormClosedEventArgs e)
         {
  	        dashboard = null;
+        }
+
+        private void WelcomeParent_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void manageBillsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //opens the manage budget page within the parent form
+            if (manageBudget == null)
+            {
+                manageBudget = new ManageBudgets();
+                manageBudget.MdiParent = this;
+                manageBudget.FormClosed += new FormClosedEventHandler(manageBudget_FormClosed);
+                manageBudget.Show();
+            }
+            else
+                manageBudget.Activate();
+        }
+
+        private void manageBudget_FormClosed(object sender, System.Windows.Forms.FormClosedEventArgs e)
+        {
+ 	        manageBudget = null;
+        }
+        
+        private void incomeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (manageEarnings == null)
+            {
+                manageEarnings = new ManageEarnings();
+                manageEarnings.MdiParent = this;
+                manageEarnings.FormClosed += new FormClosedEventHandler(ManageEarnings_FormClosed);
+                manageEarnings.Show();
+            }
+            else
+                manageEarnings.Activate();
+        }
+
+        private void ManageEarnings_FormClosed(object sender, System.Windows.Forms.FormClosedEventArgs e)
+        {
+            manageEarnings = null;
         }
     
   }

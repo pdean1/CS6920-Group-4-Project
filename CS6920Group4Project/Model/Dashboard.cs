@@ -4,16 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CS6920Group4Project.Model
+namespace CS6920Group4Project.model
 {
     
-    class Dashboard
+    public class Dashboard : Record
     {
-        private decimal incomeTotal;
-        private decimal expenseTotal;
-        private decimal billTotal;
-        private decimal balance;
-
+        
         public Dashboard()
         {
 
@@ -26,9 +22,5 @@ namespace CS6920Group4Project.Model
 
         public decimal Balance { get; set; }
 
-        public decimal IncomeRemaining()
-        {
-            return incomeTotal - billTotal - expenseTotal;
-        }
     }
 }
