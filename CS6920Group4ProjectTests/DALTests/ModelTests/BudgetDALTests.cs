@@ -15,5 +15,11 @@ namespace CS6920Group4ProjectTests.DALTests.ModelTests
         {
             Assert.IsNotNull(_dal.GetAllUserBudgets(1));
         }
+
+        [TestMethod]
+        public void TestSelectBudgetsOnMaxIntShouldReturnABlankList()
+        {
+            Assert.IsTrue(_dal.GetAllUserBudgets(int.MaxValue).Count == 0);
+        }
     }
 }
