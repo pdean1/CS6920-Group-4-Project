@@ -69,9 +69,9 @@
             this.incomeLbl.Location = new System.Drawing.Point(353, 236);
             this.incomeLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.incomeLbl.Name = "incomeLbl";
-            this.incomeLbl.Size = new System.Drawing.Size(214, 26);
+            this.incomeLbl.Size = new System.Drawing.Size(231, 26);
             this.incomeLbl.TabIndex = 2;
-            this.incomeLbl.Text = "INCOME INFORMATION";
+            this.incomeLbl.Text = "EARNINGS INFORMATION";
             this.incomeLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label2
@@ -80,9 +80,9 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Location = new System.Drawing.Point(574, 308);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(112, 21);
+            this.label2.Size = new System.Drawing.Size(125, 21);
             this.label2.TabIndex = 3;
-            this.label2.Text = "Income Source";
+            this.label2.Text = "Earnings Source:";
             // 
             // label3
             // 
@@ -90,9 +90,9 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Location = new System.Drawing.Point(574, 352);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(88, 21);
+            this.label3.Size = new System.Drawing.Size(93, 21);
             this.label3.TabIndex = 4;
-            this.label3.Text = "Description";
+            this.label3.Text = "Description:";
             // 
             // label4
             // 
@@ -100,9 +100,9 @@
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Location = new System.Drawing.Point(574, 395);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(67, 21);
+            this.label4.Size = new System.Drawing.Size(72, 21);
             this.label4.TabIndex = 5;
-            this.label4.Text = "Amount";
+            this.label4.Text = "Amount:";
             // 
             // label5
             // 
@@ -110,9 +110,9 @@
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Location = new System.Drawing.Point(573, 440);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(99, 21);
+            this.label5.Size = new System.Drawing.Size(104, 21);
             this.label5.TabIndex = 6;
-            this.label5.Text = "Deposit Date";
+            this.label5.Text = "Deposit Date:";
             // 
             // monthCalendar
             // 
