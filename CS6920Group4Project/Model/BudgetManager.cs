@@ -9,8 +9,6 @@ namespace CS6920Group4Project.Model
 {
     public class BudgetManager
     {
-        public List<Bill> bills { get; set; }
-        public List<Earning> earnings { get; set; }
-        public List<Expense> expenses { get; set; }
+        public List<Record> records { get; set; }
     }
 }

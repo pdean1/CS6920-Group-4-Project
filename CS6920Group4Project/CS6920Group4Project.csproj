@@ -49,11 +49,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controller\UserController.cs" />
     <Compile Include="DAL\DBConnect.cs" />
+    <Compile Include="DAL\Model\BudgetDAL.cs" />
     <Compile Include="DAL\Model\UserDAL.cs" />
+    <Compile Include="Model\BudgetManager.cs" />
     <Compile Include="Model\Dashboard.cs" />
     <Compile Include="Session\SessionInformation.cs" />
-    <Compile Include="Utilities\EmailUtility.cs" />
     <Compile Include="View\BudgetView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -182,6 +184,7 @@
   <ItemGroup>
     <Folder Include="DAL\Controller\" />
     <Folder Include="DB\" />
+    <Folder Include="Utilities\" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
