@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 using CS6920Group4Project.model;
 using System.Windows.Forms;
+using CS6920Group4Project.Utilities;
 namespace CS6920Group4Project.DAL.Model
 {
     public class UserDAL
@@ -49,8 +50,7 @@ namespace CS6920Group4Project.DAL.Model
             }
             catch (MySqlException exception)
             {
-                MessageBox.Show("Problem adding user to the database.\nMySQL Error Number: " + 
-                    exception.Number + "\nMySQL Error Text: " + exception.Message);
+                DatabaseErrorMessageUtility.SendMessageToUser("Problem adding user to the database.", exception);
                 id = 0;
             }
             finally
@@ -112,8 +112,7 @@ namespace CS6920Group4Project.DAL.Model
             }
             catch (MySqlException e)
             {
-                MessageBox.Show("Unable to query for users in the database. Error information: " +
-                    e.Number + "\nMySQL Error Text: " + e.Message);
+                DatabaseErrorMessageUtility.SendMessageToUser("Unable to query for users in the database.", e);
                 return null;
             }
             catch (Exception e)
