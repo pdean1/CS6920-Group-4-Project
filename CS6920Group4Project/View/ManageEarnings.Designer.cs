@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ManageEarnings));
             this.earningsWelcomeLbl = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.incomeLbl = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -41,15 +40,11 @@
             this.incomeBox = new System.Windows.Forms.TextBox();
             this.incomeDescBox = new System.Windows.Forms.TextBox();
             this.incomeAmountBox = new System.Windows.Forms.TextBox();
-            this.budgetLbl = new System.Windows.Forms.Label();
-            this.currentBudgetLbl = new System.Windows.Forms.Label();
             this.earningsDashBtn = new System.Windows.Forms.Button();
-            this.incomeReportBtn = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.currencyLbl = new System.Windows.Forms.Label();
+            this.manageEarningsBtn = new System.Windows.Forms.Button();
+            this.manageExpensesBtn = new System.Windows.Forms.Button();
+            this.manageBillsBtn = new System.Windows.Forms.Button();
+            this.viewBudgetBtn = new System.Windows.Forms.Button();
             this.userNameEarningsLbl = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -65,19 +60,6 @@
             this.earningsWelcomeLbl.Size = new System.Drawing.Size(175, 21);
             this.earningsWelcomeLbl.TabIndex = 0;
             this.earningsWelcomeLbl.Text = "Currently Logged in As: ";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Calibri", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.DarkGreen;
-            this.label1.Location = new System.Drawing.Point(542, 60);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(175, 21);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Your Current Balance is:";
             // 
             // incomeLbl
             // 
@@ -171,26 +153,6 @@
             this.incomeAmountBox.Size = new System.Drawing.Size(227, 28);
             this.incomeAmountBox.TabIndex = 11;
             // 
-            // budgetLbl
-            // 
-            this.budgetLbl.AutoSize = true;
-            this.budgetLbl.BackColor = System.Drawing.Color.Transparent;
-            this.budgetLbl.Location = new System.Drawing.Point(38, 236);
-            this.budgetLbl.Name = "budgetLbl";
-            this.budgetLbl.Size = new System.Drawing.Size(121, 21);
-            this.budgetLbl.TabIndex = 12;
-            this.budgetLbl.Text = "Current Budget:";
-            // 
-            // currentBudgetLbl
-            // 
-            this.currentBudgetLbl.AutoSize = true;
-            this.currentBudgetLbl.BackColor = System.Drawing.Color.Transparent;
-            this.currentBudgetLbl.Location = new System.Drawing.Point(165, 236);
-            this.currentBudgetLbl.Name = "currentBudgetLbl";
-            this.currentBudgetLbl.Size = new System.Drawing.Size(74, 21);
-            this.currentBudgetLbl.TabIndex = 13;
-            this.currentBudgetLbl.Text = "Personal ";
-            // 
             // earningsDashBtn
             // 
             this.earningsDashBtn.BackColor = System.Drawing.Color.ForestGreen;
@@ -203,71 +165,52 @@
             this.earningsDashBtn.UseVisualStyleBackColor = false;
             this.earningsDashBtn.Click += new System.EventHandler(this.earningsDashBtn_Click);
             // 
-            // incomeReportBtn
+            // manageEarningsBtn
             // 
-            this.incomeReportBtn.BackColor = System.Drawing.Color.ForestGreen;
-            this.incomeReportBtn.ForeColor = System.Drawing.Color.White;
-            this.incomeReportBtn.Location = new System.Drawing.Point(1218, 295);
-            this.incomeReportBtn.Name = "incomeReportBtn";
-            this.incomeReportBtn.Size = new System.Drawing.Size(175, 53);
-            this.incomeReportBtn.TabIndex = 15;
-            this.incomeReportBtn.Text = "Reports";
-            this.incomeReportBtn.UseVisualStyleBackColor = false;
+            this.manageEarningsBtn.BackColor = System.Drawing.Color.ForestGreen;
+            this.manageEarningsBtn.ForeColor = System.Drawing.Color.White;
+            this.manageEarningsBtn.Location = new System.Drawing.Point(1218, 308);
+            this.manageEarningsBtn.Name = "manageEarningsBtn";
+            this.manageEarningsBtn.Size = new System.Drawing.Size(175, 53);
+            this.manageEarningsBtn.TabIndex = 16;
+            this.manageEarningsBtn.Text = "Manage Earnings";
+            this.manageEarningsBtn.UseVisualStyleBackColor = false;
+            this.manageEarningsBtn.Click += new System.EventHandler(this.manageEarningsBtn_Click);
             // 
-            // button1
+            // manageExpensesBtn
             // 
-            this.button1.BackColor = System.Drawing.Color.ForestGreen;
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(1218, 354);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(175, 53);
-            this.button1.TabIndex = 16;
-            this.button1.Text = "Manage Income";
-            this.button1.UseVisualStyleBackColor = false;
+            this.manageExpensesBtn.BackColor = System.Drawing.Color.ForestGreen;
+            this.manageExpensesBtn.ForeColor = System.Drawing.Color.White;
+            this.manageExpensesBtn.Location = new System.Drawing.Point(1218, 381);
+            this.manageExpensesBtn.Name = "manageExpensesBtn";
+            this.manageExpensesBtn.Size = new System.Drawing.Size(175, 53);
+            this.manageExpensesBtn.TabIndex = 17;
+            this.manageExpensesBtn.Text = "Manage Expenses";
+            this.manageExpensesBtn.UseVisualStyleBackColor = false;
+            this.manageExpensesBtn.Click += new System.EventHandler(this.manageExpensesBtn_Click);
             // 
-            // button2
+            // manageBillsBtn
             // 
-            this.button2.BackColor = System.Drawing.Color.ForestGreen;
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(1218, 413);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(175, 53);
-            this.button2.TabIndex = 17;
-            this.button2.Text = "Manage Expenses";
-            this.button2.UseVisualStyleBackColor = false;
+            this.manageBillsBtn.BackColor = System.Drawing.Color.ForestGreen;
+            this.manageBillsBtn.ForeColor = System.Drawing.Color.White;
+            this.manageBillsBtn.Location = new System.Drawing.Point(1218, 456);
+            this.manageBillsBtn.Name = "manageBillsBtn";
+            this.manageBillsBtn.Size = new System.Drawing.Size(175, 53);
+            this.manageBillsBtn.TabIndex = 18;
+            this.manageBillsBtn.Text = "Manage Bills";
+            this.manageBillsBtn.UseVisualStyleBackColor = false;
+            this.manageBillsBtn.Click += new System.EventHandler(this.manageBillsBtn_Click);
             // 
-            // button3
+            // viewBudgetBtn
             // 
-            this.button3.BackColor = System.Drawing.Color.ForestGreen;
-            this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(1218, 472);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(175, 53);
-            this.button3.TabIndex = 18;
-            this.button3.Text = "Manage Bills";
-            this.button3.UseVisualStyleBackColor = false;
-            // 
-            // button4
-            // 
-            this.button4.BackColor = System.Drawing.Color.ForestGreen;
-            this.button4.ForeColor = System.Drawing.Color.White;
-            this.button4.Location = new System.Drawing.Point(1218, 530);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(175, 53);
-            this.button4.TabIndex = 19;
-            this.button4.Text = "View Budget";
-            this.button4.UseVisualStyleBackColor = false;
-            // 
-            // currencyLbl
-            // 
-            this.currencyLbl.AutoSize = true;
-            this.currencyLbl.BackColor = System.Drawing.Color.Transparent;
-            this.currencyLbl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.currencyLbl.Location = new System.Drawing.Point(724, 60);
-            this.currencyLbl.Name = "currencyLbl";
-            this.currencyLbl.Size = new System.Drawing.Size(79, 23);
-            this.currencyLbl.TabIndex = 20;
-            this.currencyLbl.Text = "$1000.00";
+            this.viewBudgetBtn.BackColor = System.Drawing.Color.ForestGreen;
+            this.viewBudgetBtn.ForeColor = System.Drawing.Color.White;
+            this.viewBudgetBtn.Location = new System.Drawing.Point(1218, 530);
+            this.viewBudgetBtn.Name = "viewBudgetBtn";
+            this.viewBudgetBtn.Size = new System.Drawing.Size(175, 53);
+            this.viewBudgetBtn.TabIndex = 19;
+            this.viewBudgetBtn.Text = "View Budget";
+            this.viewBudgetBtn.UseVisualStyleBackColor = false;
             // 
             // userNameEarningsLbl
             // 
@@ -287,15 +230,11 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1437, 762);
             this.Controls.Add(this.userNameEarningsLbl);
-            this.Controls.Add(this.currencyLbl);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.incomeReportBtn);
+            this.Controls.Add(this.viewBudgetBtn);
+            this.Controls.Add(this.manageBillsBtn);
+            this.Controls.Add(this.manageExpensesBtn);
+            this.Controls.Add(this.manageEarningsBtn);
             this.Controls.Add(this.earningsDashBtn);
-            this.Controls.Add(this.currentBudgetLbl);
-            this.Controls.Add(this.budgetLbl);
             this.Controls.Add(this.incomeAmountBox);
             this.Controls.Add(this.incomeDescBox);
             this.Controls.Add(this.incomeBox);
@@ -306,7 +245,6 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.incomeLbl);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.earningsWelcomeLbl);
             this.Font = new System.Drawing.Font("Calibri", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.DarkGreen;
@@ -323,7 +261,6 @@
         #endregion
 
         private System.Windows.Forms.Label earningsWelcomeLbl;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label incomeLbl;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
@@ -334,15 +271,11 @@
         private System.Windows.Forms.TextBox incomeBox;
         private System.Windows.Forms.TextBox incomeDescBox;
         private System.Windows.Forms.TextBox incomeAmountBox;
-        private System.Windows.Forms.Label budgetLbl;
-        private System.Windows.Forms.Label currentBudgetLbl;
         private System.Windows.Forms.Button earningsDashBtn;
-        private System.Windows.Forms.Button incomeReportBtn;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Label currencyLbl;
+        private System.Windows.Forms.Button manageEarningsBtn;
+        private System.Windows.Forms.Button manageExpensesBtn;
+        private System.Windows.Forms.Button manageBillsBtn;
+        private System.Windows.Forms.Button viewBudgetBtn;
         private System.Windows.Forms.Label userNameEarningsLbl;
 
     }
