@@ -50,6 +50,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="DALTests\ModelTests\BudgetDALTests.cs" />
     <Compile Include="DALTests\ModelTests\UserDALTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SessionTests\SessionInformationTests.cs" />

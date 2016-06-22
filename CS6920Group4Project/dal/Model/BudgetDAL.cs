@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 using CS6920Group4Project.dal;
 using CS6920Group4Project.model;
+using CS6920Group4Project.Utilities;
 
 namespace CS6920Group4Project.DAL.Model
 {
@@ -28,7 +29,51 @@ namespace CS6920Group4Project.DAL.Model
         public List<Budget> GetAllUserBudgets (int UserID)
         {
             List<Budget> budgets = new List<Budget>();
+            Budget budget = new Budget();
 
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand();
+                conn.Open();
+                cmd.Connection = conn;
+                cmd.CommandText = SelectAllUsersBudgetsStatement;
+                cmd.Prepare();
+                cmd.Parameters.AddWithValue("@ID", UserID);
+                using (MySqlDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        budget.ID = reader.GetInt32(0);
+                        budget.UserID = reader.GetInt32(1);
+                        budget.BudgetTypeID = reader.GetInt32(2);
+                        budget.Title = reader.GetString(3);
+                        try
+                        {
+                            budget.Description = reader.GetString(4);
+                        }
+                        catch (Exception)
+                        {
+                            budget.Description = "";
+                        }
+                        budget.DateCreated = reader.GetDateTime(5);
+                        budgets.Add(budget);
+                    }
+                }
+            }
+            catch (MySqlException e)
+            {
+                DatabaseErrorMessageUtility.SendMessageToUser("Unable to query for users in the database.", e);
+                budgets = null;
+            }
+            catch (Exception e)
+            {
+                DatabaseErrorMessageUtility.SendMessageToUser("Unable to query for users in the database.", e);
+                budgets = null;
+            }
+            finally
+            {
+                conn.Close();
+            }
             return budgets;
         }
     }
