@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace CS6920Group4Project.model
 {
-    public class Bill
+    public class Bill : Record
     {
-        int RecordID { get; set; }
         int BillCateogryID { get; set; }
         decimal Amount { get; set; }
         DateTime DateDue{ get; set; }
