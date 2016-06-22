@@ -15,6 +15,11 @@ namespace CS6920Group4Project.View
         public CreateNewUserForm()
         {
             InitializeComponent();
+        }
+
+        private void CreateNewUserForm_Load(object sender, EventArgs e)
+        {
+
         }     
 
     }

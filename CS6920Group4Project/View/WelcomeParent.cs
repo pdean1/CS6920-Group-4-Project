@@ -7,6 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CS6920Group4Project.Model;
+using CS6920Group4Project.View;
+using CS6920Group4Project.model;
 
 namespace CS6920Group4Project.View
 {
@@ -21,6 +24,8 @@ namespace CS6920Group4Project.View
         public WelcomeParent()
         {
             InitializeComponent();
+            this.CenterToScreen();
+
         }
 
         private void viewBudgetToolStripMenuItem_Click(object sender, EventArgs e)

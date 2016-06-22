@@ -60,6 +60,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.statisticsChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.userNameLbl = new System.Windows.Forms.Label();
             this.HeaderPnl.SuspendLayout();
             this.leftDashPnl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.percentageCht)).BeginInit();
@@ -70,6 +71,7 @@
             // HeaderPnl
             // 
             this.HeaderPnl.BackColor = System.Drawing.Color.Transparent;
+            this.HeaderPnl.Controls.Add(this.userNameLbl);
             this.HeaderPnl.Controls.Add(this.balanceLbl);
             this.HeaderPnl.Controls.Add(this.welcomeLbl);
             this.HeaderPnl.Location = new System.Drawing.Point(22, 6);
@@ -95,11 +97,11 @@
             this.welcomeLbl.BackColor = System.Drawing.Color.Transparent;
             this.welcomeLbl.Font = new System.Drawing.Font("Calibri", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.welcomeLbl.ForeColor = System.Drawing.Color.DarkGreen;
-            this.welcomeLbl.Location = new System.Drawing.Point(141, 52);
+            this.welcomeLbl.Location = new System.Drawing.Point(44, 52);
             this.welcomeLbl.Name = "welcomeLbl";
-            this.welcomeLbl.Size = new System.Drawing.Size(79, 22);
+            this.welcomeLbl.Size = new System.Drawing.Size(176, 22);
             this.welcomeLbl.TabIndex = 7;
-            this.welcomeLbl.Text = "Welcome";
+            this.welcomeLbl.Text = "Currently Logged in As:";
             this.welcomeLbl.Click += new System.EventHandler(this.welcomeLbl_Click);
             // 
             // rightDashPnl
@@ -376,6 +378,17 @@
             this.statisticsChart.TabIndex = 0;
             this.statisticsChart.Text = "Budget Statistics";
             // 
+            // userNameLbl
+            // 
+            this.userNameLbl.AutoSize = true;
+            this.userNameLbl.Font = new System.Drawing.Font("Calibri", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.userNameLbl.ForeColor = System.Drawing.Color.DarkGreen;
+            this.userNameLbl.Location = new System.Drawing.Point(227, 54);
+            this.userNameLbl.Name = "userNameLbl";
+            this.userNameLbl.Size = new System.Drawing.Size(98, 21);
+            this.userNameLbl.TabIndex = 9;
+            this.userNameLbl.Text = "User\'s Name";
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -431,5 +444,6 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Label userNameLbl;
     }
 }

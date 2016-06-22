@@ -185,6 +185,7 @@
             this.DoubleBuffered = true;
             this.Name = "CreateNewUserForm";
             this.Text = "Create New User";
+            this.Load += new System.EventHandler(this.CreateNewUserForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
