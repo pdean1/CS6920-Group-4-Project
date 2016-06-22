@@ -56,6 +56,7 @@
     <Compile Include="Model\BudgetManager.cs" />
     <Compile Include="Model\Dashboard.cs" />
     <Compile Include="Session\SessionInformation.cs" />
+    <Compile Include="Utilities\DatabaseErrorMessageUtility.cs" />
     <Compile Include="View\BudgetView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -184,7 +185,6 @@
   <ItemGroup>
     <Folder Include="DAL\Controller\" />
     <Folder Include="DB\" />
-    <Folder Include="Utilities\" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />

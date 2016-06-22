@@ -24,5 +24,10 @@ namespace CS6920Group4Project.Utilities
         {
             MessageBox.Show(message + "\n" + "Error Information: \n\tError Number:" + e.Number + "\n\tError Message:" + e.Message);
         }
+
+        public static void SendMessageToUser(string message, Exception e)
+        {
+            MessageBox.Show(message + "\n\tError Message: " + e.Message + "\n\tCall Stack: " + e.StackTrace);
+        }
     }
 }

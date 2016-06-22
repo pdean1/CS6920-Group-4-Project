@@ -113,17 +113,18 @@ namespace CS6920Group4Project.DAL.Model
             catch (MySqlException e)
             {
                 DatabaseErrorMessageUtility.SendMessageToUser("Unable to query for users in the database.", e);
-                return null;
+                user = null;
             }
             catch (Exception e)
             {
-                MessageBox.Show("Unable to query for users in the database. Error information: " + e.Message + "\n" + e.StackTrace);
-                return null;
+                DatabaseErrorMessageUtility.SendMessageToUser("Unable to query for users in the database.", e);
+                user = null;
             }
             finally 
             {
                 conn.Close();
             }
+            return user;
         }
 
         private const String DeleteUserStatement = "";
