@@ -7,14 +7,27 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CS6920Group4Project.Model;
+using CS6920Group4Project.View;
+using CS6920Group4Project.model;
+using CS6920Group4Project.DAL.Model;
 
 namespace CS6920Group4Project.View
 {
     public partial class ManageEarnings : Form
     {
-        public ManageEarnings()
+        private User user;
+
+        public ManageEarnings(User userName)
         {
             InitializeComponent();
+            user = userName;
+            userNameEarningsLbl.Text = user.FirstName + "" + user.LastName;
+        }
+
+        private void ManageEarnings_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

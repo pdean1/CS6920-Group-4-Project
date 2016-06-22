@@ -50,6 +50,7 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.currencyLbl = new System.Windows.Forms.Label();
+            this.userNameEarningsLbl = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // earningsWelcomeLbl
@@ -58,12 +59,12 @@
             this.earningsWelcomeLbl.BackColor = System.Drawing.Color.Transparent;
             this.earningsWelcomeLbl.Font = new System.Drawing.Font("Calibri", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.earningsWelcomeLbl.ForeColor = System.Drawing.Color.DarkGreen;
-            this.earningsWelcomeLbl.Location = new System.Drawing.Point(85, 60);
+            this.earningsWelcomeLbl.Location = new System.Drawing.Point(64, 60);
             this.earningsWelcomeLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.earningsWelcomeLbl.Name = "earningsWelcomeLbl";
-            this.earningsWelcomeLbl.Size = new System.Drawing.Size(74, 21);
+            this.earningsWelcomeLbl.Size = new System.Drawing.Size(175, 21);
             this.earningsWelcomeLbl.TabIndex = 0;
-            this.earningsWelcomeLbl.Text = "Welcome";
+            this.earningsWelcomeLbl.Text = "Currently Logged in As: ";
             // 
             // label1
             // 
@@ -267,6 +268,16 @@
             this.currencyLbl.TabIndex = 20;
             this.currencyLbl.Text = "$1000.00";
             // 
+            // userNameEarningsLbl
+            // 
+            this.userNameEarningsLbl.AutoSize = true;
+            this.userNameEarningsLbl.BackColor = System.Drawing.Color.Transparent;
+            this.userNameEarningsLbl.Location = new System.Drawing.Point(247, 60);
+            this.userNameEarningsLbl.Name = "userNameEarningsLbl";
+            this.userNameEarningsLbl.Size = new System.Drawing.Size(98, 21);
+            this.userNameEarningsLbl.TabIndex = 21;
+            this.userNameEarningsLbl.Text = "User\'s Name";
+            // 
             // ManageEarnings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
@@ -274,6 +285,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1437, 762);
+            this.Controls.Add(this.userNameEarningsLbl);
             this.Controls.Add(this.currencyLbl);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
@@ -301,6 +313,7 @@
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "ManageEarnings";
             this.Text = "Manage Earnings";
+            this.Load += new System.EventHandler(this.ManageEarnings_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -329,6 +342,7 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Label currencyLbl;
+        private System.Windows.Forms.Label userNameEarningsLbl;
 
     }
 }
