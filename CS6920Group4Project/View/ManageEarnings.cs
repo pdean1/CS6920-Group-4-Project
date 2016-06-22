@@ -25,7 +25,17 @@ namespace CS6920Group4Project.View
             userNameEarningsLbl.Text = user.FirstName + "" + user.LastName;
         }
 
+        public ManageEarnings()
+        {
+            // TODO: Complete member initialization
+        }
+
         private void ManageEarnings_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void earningsDashBtn_Click(object sender, EventArgs e)
         {
 
         }

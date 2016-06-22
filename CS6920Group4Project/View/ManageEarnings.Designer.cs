@@ -43,7 +43,7 @@
             this.incomeAmountBox = new System.Windows.Forms.TextBox();
             this.budgetLbl = new System.Windows.Forms.Label();
             this.currentBudgetLbl = new System.Windows.Forms.Label();
-            this.incomeDashBtn = new System.Windows.Forms.Button();
+            this.earningsDashBtn = new System.Windows.Forms.Button();
             this.incomeReportBtn = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -191,16 +191,17 @@
             this.currentBudgetLbl.TabIndex = 13;
             this.currentBudgetLbl.Text = "Personal ";
             // 
-            // incomeDashBtn
+            // earningsDashBtn
             // 
-            this.incomeDashBtn.BackColor = System.Drawing.Color.ForestGreen;
-            this.incomeDashBtn.ForeColor = System.Drawing.Color.White;
-            this.incomeDashBtn.Location = new System.Drawing.Point(1218, 236);
-            this.incomeDashBtn.Name = "incomeDashBtn";
-            this.incomeDashBtn.Size = new System.Drawing.Size(175, 53);
-            this.incomeDashBtn.TabIndex = 14;
-            this.incomeDashBtn.Text = "DashBoard";
-            this.incomeDashBtn.UseVisualStyleBackColor = false;
+            this.earningsDashBtn.BackColor = System.Drawing.Color.ForestGreen;
+            this.earningsDashBtn.ForeColor = System.Drawing.Color.White;
+            this.earningsDashBtn.Location = new System.Drawing.Point(1218, 236);
+            this.earningsDashBtn.Name = "earningsDashBtn";
+            this.earningsDashBtn.Size = new System.Drawing.Size(175, 53);
+            this.earningsDashBtn.TabIndex = 14;
+            this.earningsDashBtn.Text = "DashBoard";
+            this.earningsDashBtn.UseVisualStyleBackColor = false;
+            this.earningsDashBtn.Click += new System.EventHandler(this.earningsDashBtn_Click);
             // 
             // incomeReportBtn
             // 
@@ -292,7 +293,7 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.incomeReportBtn);
-            this.Controls.Add(this.incomeDashBtn);
+            this.Controls.Add(this.earningsDashBtn);
             this.Controls.Add(this.currentBudgetLbl);
             this.Controls.Add(this.budgetLbl);
             this.Controls.Add(this.incomeAmountBox);
@@ -335,7 +336,7 @@
         private System.Windows.Forms.TextBox incomeAmountBox;
         private System.Windows.Forms.Label budgetLbl;
         private System.Windows.Forms.Label currentBudgetLbl;
-        private System.Windows.Forms.Button incomeDashBtn;
+        private System.Windows.Forms.Button earningsDashBtn;
         private System.Windows.Forms.Button incomeReportBtn;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
