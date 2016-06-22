@@ -15,6 +15,8 @@ namespace CS6920Group4Project.View
         Dashboard dashboard;
         private ManageBudgets manageBudget;
         private ManageEarnings manageEarnings;
+        private ManageExpenses manageExpenses;
+        private ManageBills manageBills;
 
         public WelcomeParent()
         {
@@ -95,6 +97,43 @@ namespace CS6920Group4Project.View
         {
             manageEarnings = null;
         }
+
+        private void expensesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (manageExpenses == null)
+            {
+                manageExpenses = new ManageExpenses();
+                manageExpenses.MdiParent = this;
+                manageExpenses.FormClosed += new FormClosedEventHandler(ManageExpenses_FormClosed);
+                manageExpenses.Show();
+            }
+            else
+                manageExpenses.Activate();
+        }
+
+        private void ManageExpenses_FormClosed(object sender, System.Windows.Forms.FormClosedEventArgs e)
+        {
+            manageExpenses = null;
+        }
+
+        private void billsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (manageBills == null)
+            {
+                manageBills = new ManageBills();
+                manageBills.MdiParent = this;
+                manageBills.FormClosed += new FormClosedEventHandler(ManageExpenses_FormClosed);
+                manageBills.Show();
+            }
+            else
+                manageBills.Activate();
+        }
+
+        private void ManageBills_FormClosed(object sender, System.Windows.Forms.FormClosedEventArgs e)
+        {
+            manageBills = null;
+        }
+
     
   }
 }
