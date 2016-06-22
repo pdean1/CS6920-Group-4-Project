@@ -21,5 +21,15 @@ namespace CS6920Group4Project.DAL.Model
             return 0;
         }
 
+        private const string SelectAllUsersBudgetsStatement = "SELECT `budgets`.`BudgetID`, `budgets`.`UserID`, `budgets`.`BudgetTypeID`, " +
+            "`budgets`.`Title`, `budgets`.`Description`, `budgets`.`DateCreated` FROM `sql5123046`.`budgets`" +
+            " WHERE `budgets`.`UserID` = @ID;";
+
+        public List<Budget> GetAllUserBudgets (int UserID)
+        {
+            List<Budget> budgets = new List<Budget>();
+
+            return budgets;
+        }
     }
 }
