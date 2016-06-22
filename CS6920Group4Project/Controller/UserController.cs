@@ -13,14 +13,23 @@ namespace CS6920Group4Project.Controller
     /// </summary>
     public class UserController : User
     {
-        static readonly UserController instance = new UserController();
+        private static UserController instance;
         
         private readonly UserDAL userDAL = new UserDAL();
+
+        private UserController()
+        {
+
+        }
 
         public static UserController Instance
         {
             get
             {
+                if (instance == null)
+                {
+                    instance = new UserController();
+                }
                 return instance;
             }
         }
