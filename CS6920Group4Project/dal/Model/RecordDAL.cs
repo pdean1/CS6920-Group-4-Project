@@ -72,13 +72,13 @@ namespace CS6920Group4Project.DAL.Model
             catch (MySqlException e)
             {
                 DatabaseErrorMessageUtility.SendMessageToUser(
-                    "Unable to query for users in the database.", e);
+                    "Unable to query for records in the database.", e);
                 records = null;
             }
             catch (Exception e)
             {
                 DatabaseErrorMessageUtility.SendMessageToUser(
-                    "Unable to query for users in the database.", e);
+                    "Unable to query for records in the database.", e);
                 records = null;
             }
             finally
