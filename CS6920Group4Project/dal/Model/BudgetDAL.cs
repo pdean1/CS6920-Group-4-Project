@@ -58,6 +58,7 @@ namespace CS6920Group4Project.DAL.Model
                         budget.DateCreated = reader.GetDateTime(5);
                         budgets.Add(budget);
                     }
+                    reader.Close();
                 }
             }
             catch (MySqlException e)

@@ -105,6 +105,7 @@ namespace CS6920Group4Project.DAL.Model
                         {
                             user.DateUpdated = null;
                         }
+                        reader.Close();
                     }
                     conn.Close();
                     return user;

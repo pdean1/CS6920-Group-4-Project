@@ -51,8 +51,9 @@
   <ItemGroup>
     <Compile Include="Controller\UserController.cs" />
     <Compile Include="DAL\DBConnect.cs" />
-    <Compile Include="DAL\Model\BudgetController.cs" />
+    <Compile Include="Controller\BudgetController.cs" />
     <Compile Include="DAL\Model\BudgetDAL.cs" />
+    <Compile Include="DAL\Model\RecordDAL.cs" />
     <Compile Include="DAL\Model\UserDAL.cs" />
     <Compile Include="Model\Dashboard.cs" />
     <Compile Include="Session\SessionInformation.cs" />
@@ -183,7 +184,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="DAL\Controller\" />
     <Folder Include="DB\" />
   </ItemGroup>
   <ItemGroup>
