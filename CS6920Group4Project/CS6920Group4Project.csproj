@@ -52,7 +52,10 @@
     <Compile Include="Controller\UserController.cs" />
     <Compile Include="DAL\DBConnect.cs" />
     <Compile Include="Controller\BudgetController.cs" />
+    <Compile Include="DAL\Model\BillDAL.cs" />
     <Compile Include="DAL\Model\BudgetDAL.cs" />
+    <Compile Include="DAL\Model\EarningDAL.cs" />
+    <Compile Include="DAL\Model\ExpenseDAL.cs" />
     <Compile Include="DAL\Model\RecordDAL.cs" />
     <Compile Include="DAL\Model\UserDAL.cs" />
     <Compile Include="Model\Dashboard.cs" />
