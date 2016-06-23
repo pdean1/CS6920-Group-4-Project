@@ -11,7 +11,7 @@ using CS6920Group4Project.Utilities;
 
 namespace CS6920Group4Project.DAL.Model
 {
-    class ManageEarningsDAL
+    public class ManageEarningsDAL
     {
         /// <summary>
         /// connector for the manage earnings 
