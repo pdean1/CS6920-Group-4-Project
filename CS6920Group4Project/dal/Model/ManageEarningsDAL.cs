@@ -18,5 +18,16 @@ namespace CS6920Group4Project.DAL.Model
         /// </summary>
         private MySqlConnection conn = new DBConnect().GetConnection();
 
+        /// <summary>
+        /// create two insert statements, one for each table in the database
+        /// </summary>
+        String InsertEarningCategories = "INSERT INTO `sql5123046`.`earningscategories`" +
+                                                "(`Title`,`Description`)" +
+                                                "VALUES (@Title, @Description)";
+
+
+        String InsertEarnings = "INSERT INTO `sql5123046`.`earnings`" +
+                                        "(`Amount`, `DateEarned`) VALUES (@Amount, @DateEarned)";
+
     }
 }
