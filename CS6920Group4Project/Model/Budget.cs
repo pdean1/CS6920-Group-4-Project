@@ -14,5 +14,8 @@ namespace CS6920Group4Project.model
         public string Title { get; set; }
         public string Description { get; set; }
         public DateTime DateCreated { get; set; }
+        public List<Bill> Bills { get; set; }
+        public List<Earning> Earnings { get; set; }
+        public List<Expense> Expenses { get; set; }
     }
 }
