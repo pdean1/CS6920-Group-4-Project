@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="Controller\UserController.cs" />
     <Compile Include="DAL\DBConnect.cs" />
+    <Compile Include="DAL\Model\BudgetController.cs" />
     <Compile Include="DAL\Model\BudgetDAL.cs" />
     <Compile Include="DAL\Model\UserDAL.cs" />
     <Compile Include="Model\BudgetManager.cs" />
