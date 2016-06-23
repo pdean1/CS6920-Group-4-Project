@@ -8,8 +8,9 @@ namespace CS6920Group4Project.Model
 {
     public class Earning : Record
     {
-        int EarningCategoryID { get; set; }
-        decimal Amount { get; set; }
-        DateTime DateEarned { get; set; }
+        // public int EarningCategoryID { get; set; }
+        public EarningCategory Category { get; set; }
+        public decimal Amount { get; set; }
+        public DateTime DateEarned { get; set; }
     }
 }
