@@ -10,9 +10,9 @@ namespace CS6920Group4Project.Model
     {
         public int EarningCategoryID { get; set; }
 
-        public String Title { get; set; }
+        //public String Title { get; set; }
 
-        public String Description { get; set;  }
+        //public String Description { get; set;  }
 
 
     }

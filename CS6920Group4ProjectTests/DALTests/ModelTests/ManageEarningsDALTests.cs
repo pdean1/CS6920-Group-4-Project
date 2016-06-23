@@ -16,7 +16,7 @@ namespace CS6920Group4ProjectTests.DALTests.ModelTests
         [TestMethod]
         public void TestManageEarningsIsReturningTrue(Double amount)
         {
-            ManageEarningsDAL earn = new ManageEarningsDAL(); 
+            //ManageEarningsDAL earn = new ManageEarningsDAL(); 
 
             
             //arrange

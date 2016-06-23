@@ -8,7 +8,7 @@ using CS6920Group4Project.Model;
 
 namespace CS6920Group4Project.Controller
 {
-    class ManageEarningsController
+    public class ManageEarningsController
     {
         private static ManageEarningsController instance;
 
