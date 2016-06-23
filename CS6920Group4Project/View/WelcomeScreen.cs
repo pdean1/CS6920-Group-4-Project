@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using CS6920Group4Project.model;
+using CS6920Group4Project.Model;
 using CS6920Group4Project.View;
 using CS6920Group4Project.DAL.Model;
 

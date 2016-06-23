@@ -1,4 +1,4 @@
-﻿using CS6920Group4Project.dal;
+﻿using CS6920Group4Project.DAL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 using MySql.Data.MySqlClient;
-using CS6920Group4Project.model;
+using CS6920Group4Project.Model;
 using System.Windows.Forms;
 using CS6920Group4Project.Utilities;
 namespace CS6920Group4Project.DAL.Model

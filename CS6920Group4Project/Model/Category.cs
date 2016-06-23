@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CS6920Group4Project.model
+namespace CS6920Group4Project.Model
 {
     public class Category
     {

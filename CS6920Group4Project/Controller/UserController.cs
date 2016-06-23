@@ -1,5 +1,5 @@
 ﻿using CS6920Group4Project.DAL.Model;
-using CS6920Group4Project.model;
+using CS6920Group4Project.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace CS6920Group4Project.Controller
 {
     /// <summary>
-    /// This class controls access to the model classes and the database
+    /// This class controls access to the Model classes and the database
     /// </summary>
     public class UserController : User
     {

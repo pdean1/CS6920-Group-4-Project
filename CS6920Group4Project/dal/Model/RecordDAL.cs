@@ -5,8 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 
 using MySql.Data.MySqlClient;
-using CS6920Group4Project.dal;
-using CS6920Group4Project.model;
+using CS6920Group4Project.DAL;
+using CS6920Group4Project.Model;
 using CS6920Group4Project.Utilities;
 
 namespace CS6920Group4Project.DAL.Model

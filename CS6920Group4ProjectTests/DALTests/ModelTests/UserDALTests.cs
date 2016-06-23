@@ -2,7 +2,7 @@
 using System.Text;
 using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using CS6920Group4Project.model;
+using CS6920Group4Project.Model;
 using CS6920Group4Project.DAL.Model;
 
 namespace CS6920Group4ProjectTests.DALTests.ModelTests

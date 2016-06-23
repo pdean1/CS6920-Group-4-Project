@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 using System.Windows.Forms;
 
-namespace CS6920Group4Project.dal
+namespace CS6920Group4Project.DAL
 {
     /// <summary>
     /// Allows us to open a connection to a MySQL Database

@@ -1,5 +1,5 @@
 ﻿using CS6920Group4Project.DAL.Model;
-using CS6920Group4Project.model;
+using CS6920Group4Project.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace CS6920Group4Project.Controller
 {
     /// <summary>
-    /// This class controls access to the model class Budget's DAL Methods
+    /// This class controls access to the Model class Budget's DAL Methods
     /// </summary>
     class BudgetController
     {

@@ -1,4 +1,4 @@
-﻿using CS6920Group4Project.model;
+﻿using CS6920Group4Project.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
