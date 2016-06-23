@@ -54,7 +54,6 @@
     <Compile Include="DAL\Model\BudgetController.cs" />
     <Compile Include="DAL\Model\BudgetDAL.cs" />
     <Compile Include="DAL\Model\UserDAL.cs" />
-    <Compile Include="Model\BudgetManager.cs" />
     <Compile Include="Model\Dashboard.cs" />
     <Compile Include="Session\SessionInformation.cs" />
     <Compile Include="Utilities\DatabaseErrorMessageUtility.cs" />

@@ -14,6 +14,7 @@ namespace CS6920Group4Project
         [STAThread]
         static void Main()
         {
+            Session.SessionInformation.InitSession();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new View.WelcomeScreen());

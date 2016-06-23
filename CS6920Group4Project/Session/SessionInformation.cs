@@ -14,6 +14,8 @@ namespace CS6920Group4Project.Session
     {
         private static User SignedInUser;
 
+        private static List<Budget> Budgets;
+
         /// <summary>
         /// Retrieves the session user from session
         /// </summary>
@@ -30,6 +32,17 @@ namespace CS6920Group4Project.Session
         public static void SetSessionUser(User u)
         {
             SignedInUser = u;
+        }
+
+        public static List<Budget> GetListOfBudgets()
+        {
+            return Budgets;
+        }
+
+        public static void InitSession()
+        {
+            SignedInUser = new User();
+            Budgets = new List<Budget>();
         }
     }
 }

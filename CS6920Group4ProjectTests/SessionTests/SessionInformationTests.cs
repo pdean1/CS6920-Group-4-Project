@@ -20,5 +20,13 @@ namespace CS6920Group4ProjectTests.SessionTests
             Assert.AreEqual("Patrick", SessionInformation.GetSessionUser().FirstName);
             Assert.AreEqual("Dean", SessionInformation.GetSessionUser().LastName);
         }
+
+        [TestMethod]
+        public void TestInitSessionMethod()
+        {
+            SessionInformation.InitSession();
+            Assert.IsTrue(SessionInformation.GetSessionUser() != null);
+            Assert.IsTrue(SessionInformation.GetListOfBudgets() != null);
+        }
     }
 }
