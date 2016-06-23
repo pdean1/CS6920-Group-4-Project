@@ -39,8 +39,6 @@ namespace CS6920Group4Project.Controller
         /// <returns>A List of budgets or null in the case of invalid parameters being passed to the program</returns>
         public List<Budget> GetUsersBudgets(int ID)
         {
-            if (ID == null)
-                return null;
             if (ID <= 0)
                 return null;
             return budgetDAL.GetAllUserBudgets(ID);
