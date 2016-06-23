@@ -54,6 +54,7 @@
     <Compile Include="DALTests\ModelTests\BudgetDALTests.cs" />
     <Compile Include="DALTests\ModelTests\EarningDALTests.cs" />
     <Compile Include="DALTests\ModelTests\ExpenseDALTests.cs" />
+    <Compile Include="DALTests\ModelTests\ManageEarningsDALTests.cs" />
     <Compile Include="DALTests\ModelTests\RecordDALTests.cs" />
     <Compile Include="DALTests\ModelTests\UserDALTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
