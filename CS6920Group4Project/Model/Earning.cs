@@ -8,6 +8,7 @@ namespace CS6920Group4Project.Model
 {
     public class Earning : Record
     {
+        public int RecordID { get; set; }
         public int EarningCategoryID { get; set; }
         public EarningCategory Category { get; set; }
         public double Amount { get; set; }

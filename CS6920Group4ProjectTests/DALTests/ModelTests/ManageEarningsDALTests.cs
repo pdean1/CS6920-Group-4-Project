@@ -21,7 +21,6 @@ namespace CS6920Group4ProjectTests.DALTests.ModelTests
             
             //arrange
             
-
             //act
 
             //assert
