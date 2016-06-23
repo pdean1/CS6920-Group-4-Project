@@ -49,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controller\ManageEarningsController.cs" />
     <Compile Include="Controller\UserController.cs" />
     <Compile Include="DAL\DBConnect.cs" />
     <Compile Include="Controller\BudgetController.cs" />
