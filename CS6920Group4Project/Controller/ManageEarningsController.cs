@@ -10,6 +10,13 @@ namespace CS6920Group4Project.Controller
 {
     class ManageEarningsController
     {
-        
+        private static ManageEarningsController instance;
+
+        private readonly ManageEarningsDAL earningDAL = new ManageEarningsDAL();
+
+        private ManageEarningsController()
+        {
+
+        }
     }
 }
