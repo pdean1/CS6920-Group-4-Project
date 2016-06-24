@@ -46,16 +46,16 @@ namespace CS6920Group4Project.View
             Boolean findUser = UserController.Instance.Login(username, password);
             if (findUser == true)
             {
-                Form bdForm = new Dashboard();
-                bdForm.FormClosed += new FormClosedEventHandler(otherForm_FormClosed);
+                Form wpForm = new WelcomeParent();
+                wpForm.FormClosed += new FormClosedEventHandler(otherForm_FormClosed);
                 this.Hide();
-                bdForm.Show();
+                wpForm.Show();
             }  
             else
             {
                 MessageBox.Show("Invalid User Information, Please Try Again!"
                                , "USER"
-                               , MessageBoxButtons.YesNo
+                               , MessageBoxButtons.OK
                                , MessageBoxIcon.Stop);  
             }
         }
@@ -63,7 +63,7 @@ namespace CS6920Group4Project.View
         private void llCreateAccount_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             MessageBox.Show("Create User not yet implemented");
-            Form cuForm = new CreateUserForm();
+            Form cuForm = new CreateNewUserForm();
             cuForm.FormClosed += new FormClosedEventHandler(otherForm_FormClosed);
             this.Hide();
             cuForm.Show();
