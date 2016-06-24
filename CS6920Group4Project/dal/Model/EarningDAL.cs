@@ -101,7 +101,7 @@ namespace CS6920Group4Project.DAL.Model
             }
             return earnings;
         }
-        public static void AddEarning(Record record)
+        public static void AddEarning(Record record, Earning earn)
         {
             
             MySqlConnection conn = new DBConnect().GetConnection();
@@ -109,19 +109,33 @@ namespace CS6920Group4Project.DAL.Model
             String InsertStatement = "INSERT INTO `sql5123046`.`records`" +
                                             "(`RecordID`, `BudgetID`, `RecordType`, `Title`, `Description`, `DateCreated`)" +
                                             "VALUES (@RecordID, @BudgetID, @RecordType, @Title, @Description, @DateCreated)";
+            
             MySqlCommand insertCommand = new MySqlCommand(InsertStatement, conn);
             
-            insertCommand.Parameters.AddWithValue("@RecordID", record.ID);
             insertCommand.Parameters.AddWithValue("@BudgetID", record.BudgetID);
             insertCommand.Parameters.AddWithValue("RecordType", record.RecordType);
             insertCommand.Parameters.AddWithValue("@Title", record.Title);
             insertCommand.Parameters.AddWithValue("@Description", record.Description);
             insertCommand.Parameters.AddWithValue("@DateCreated", record.DateCreated);
 
+            String InsertEarnStatement = "INSERT INTO `sql5123046`.`earnings`" +
+                                         "(`RecordID`,`EarningCategoryID`,`Amount`,`DateEarned`)" +
+                                         "VALUES(@RecordID, @EarningCategoryID,@Amount, @DateEarned)";
+           
+            MySqlCommand insertEarnCommand = new MySqlCommand(InsertEarnStatement, conn);
+
+            insertEarnCommand.Parameters.AddWithValue("@EarningCategoryID", earn.EarningCategoryID);
+            insertEarnCommand.Parameters.AddWithValue("@Amount", earn.Amount);
+            insertEarnCommand.Parameters.AddWithValue("@DateEarned", earn.DateEarned);
+
             try
             {
                 conn.Open();
                 insertCommand.ExecuteNonQuery();
+                record.ID = insertCommand.LastInsertedId;
+                insertEarnCommand.Parameters.AddWithValue("@RecordID", record.ID);
+                insertEarnCommand.ExecuteNonQuery();
+                
             }
             catch (MySqlException ex)
             {
@@ -132,6 +146,7 @@ namespace CS6920Group4Project.DAL.Model
                 insertCommand.Dispose();
                 conn.Close();
             }
+
         }
     }
 }

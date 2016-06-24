@@ -8,8 +8,8 @@ namespace CS6920Group4Project.Model
 {
     public class Record
     {
-        public int ID { get; set; }
-        public int BudgetID { get; set; }
+        public long ID { get; set; }
+        public long BudgetID { get; set; }
         public char RecordType { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
