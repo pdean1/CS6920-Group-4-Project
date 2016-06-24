@@ -101,6 +101,10 @@ namespace CS6920Group4Project.DAL.Model
             }
             return earnings;
         }
+        public void showEarnings()
+        {
+           
+        }
         public void AddEarning(Record record, Earning earn)
         {
             
