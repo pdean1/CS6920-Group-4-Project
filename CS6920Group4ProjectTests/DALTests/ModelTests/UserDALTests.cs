@@ -38,6 +38,10 @@ namespace CS6920Group4ProjectTests.DALTests.ModelTests
             user.Password = "guest";
             User u2 = userDAL.AttemptUserLogin(user.UserName, user.Password);
             Assert.IsTrue(u2 != null);
+            Assert.IsTrue(u2.FirstName != "");
+            Assert.IsTrue(u2.LastName != "");
+            Assert.IsTrue(u2.Password != "");
+            Assert.IsTrue(u2.ID > 0);
         }
     }
 }

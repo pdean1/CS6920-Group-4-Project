@@ -44,5 +44,20 @@ namespace CS6920Group4Project.Controller
             return budgetDAL.GetAllUserBudgets(ID);
         }
 
+        public Boolean PopulateBudgetsWithRecords(List<Budget> budgets)
+        {
+            if (budgets == null)
+                return false;
+            
+            foreach (Budget b in budgets)
+            {
+                b.Earnings = EarningController.Instance.GetEarningsByBudgetID(b.ID);
+                b.Expenses = ExpenseController.Instance.GetExpensesByBudgetID(b.ID);
+                b.Bills = BillController.Instance.GetBillsByBudgetID(b.ID);
+            }
+
+            return true;
+        }
+
     }
 }
