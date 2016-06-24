@@ -35,9 +35,7 @@
             this.llCreateAccount = new System.Windows.Forms.LinkLabel();
             this.userLbl = new System.Windows.Forms.Label();
             this.PassLbl = new System.Windows.Forms.Label();
-            this.labelEmail = new System.Windows.Forms.Label();
             this.labelFirstName = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
@@ -75,7 +73,7 @@
             this.llCreateAccount.AutoSize = true;
             this.llCreateAccount.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.llCreateAccount.LinkColor = System.Drawing.Color.DarkKhaki;
-            this.llCreateAccount.Location = new System.Drawing.Point(559, 364);
+            this.llCreateAccount.Location = new System.Drawing.Point(556, 413);
             this.llCreateAccount.Name = "llCreateAccount";
             this.llCreateAccount.Size = new System.Drawing.Size(243, 19);
             this.llCreateAccount.TabIndex = 5;
@@ -106,40 +104,21 @@
             this.PassLbl.TabIndex = 7;
             this.PassLbl.Text = "Password:";
             // 
-            // labelEmail
-            // 
-            this.labelEmail.AutoSize = true;
-            this.labelEmail.BackColor = System.Drawing.Color.Transparent;
-            this.labelEmail.Font = new System.Drawing.Font("Calibri", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelEmail.ForeColor = System.Drawing.Color.DarkGreen;
-            this.labelEmail.Location = new System.Drawing.Point(473, 497);
-            this.labelEmail.Name = "labelEmail";
-            this.labelEmail.Size = new System.Drawing.Size(116, 22);
-            this.labelEmail.TabIndex = 11;
-            this.labelEmail.Text = "Email Address:";
-            // 
             // labelFirstName
             // 
             this.labelFirstName.AutoSize = true;
             this.labelFirstName.BackColor = System.Drawing.Color.Transparent;
             this.labelFirstName.Font = new System.Drawing.Font("Calibri", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelFirstName.ForeColor = System.Drawing.Color.DarkGreen;
-            this.labelFirstName.Location = new System.Drawing.Point(489, 406);
+            this.labelFirstName.Location = new System.Drawing.Point(489, 454);
             this.labelFirstName.Name = "labelFirstName";
             this.labelFirstName.Size = new System.Drawing.Size(94, 22);
             this.labelFirstName.TabIndex = 10;
             this.labelFirstName.Text = "First Name:";
             // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(595, 499);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(274, 20);
-            this.textBox1.TabIndex = 9;
-            // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(595, 408);
+            this.textBox2.Location = new System.Drawing.Point(595, 456);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(274, 20);
             this.textBox2.TabIndex = 8;
@@ -150,7 +129,7 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Calibri", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.DarkGreen;
-            this.label1.Location = new System.Drawing.Point(495, 453);
+            this.label1.Location = new System.Drawing.Point(495, 501);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(93, 22);
             this.label1.TabIndex = 13;
@@ -158,7 +137,7 @@
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(595, 455);
+            this.textBox3.Location = new System.Drawing.Point(595, 503);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(274, 20);
             this.textBox3.TabIndex = 12;
@@ -172,9 +151,7 @@
             this.ClientSize = new System.Drawing.Size(1384, 762);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.labelEmail);
             this.Controls.Add(this.labelFirstName);
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.PassLbl);
             this.Controls.Add(this.userLbl);
@@ -199,9 +176,7 @@
         private System.Windows.Forms.LinkLabel llCreateAccount;
         private System.Windows.Forms.Label userLbl;
         private System.Windows.Forms.Label PassLbl;
-        private System.Windows.Forms.Label labelEmail;
         private System.Windows.Forms.Label labelFirstName;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox3;

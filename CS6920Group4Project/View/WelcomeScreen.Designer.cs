@@ -76,6 +76,7 @@
             this.llCreateAccount.TabIndex = 5;
             this.llCreateAccount.TabStop = true;
             this.llCreateAccount.Text = "New User? Create a New Account.";
+            this.llCreateAccount.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llCreateAccount_LinkClicked);
             // 
             // userLbl
             // 
