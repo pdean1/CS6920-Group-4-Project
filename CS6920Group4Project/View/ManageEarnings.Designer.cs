@@ -46,6 +46,8 @@
             this.manageBillsBtn = new System.Windows.Forms.Button();
             this.viewBudgetBtn = new System.Windows.Forms.Button();
             this.userNameEarningsLbl = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // earningsWelcomeLbl
@@ -78,7 +80,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Location = new System.Drawing.Point(574, 308);
+            this.label2.Location = new System.Drawing.Point(574, 316);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(125, 21);
             this.label2.TabIndex = 3;
@@ -134,7 +136,7 @@
             // 
             // incomeBox
             // 
-            this.incomeBox.Location = new System.Drawing.Point(756, 308);
+            this.incomeBox.Location = new System.Drawing.Point(756, 313);
             this.incomeBox.Name = "incomeBox";
             this.incomeBox.Size = new System.Drawing.Size(227, 28);
             this.incomeBox.TabIndex = 9;
@@ -222,6 +224,23 @@
             this.userNameEarningsLbl.TabIndex = 21;
             this.userNameEarningsLbl.Text = "User\'s Name";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(577, 275);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(100, 21);
+            this.label1.TabIndex = 22;
+            this.label1.Text = "Budget Type:";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(756, 267);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 29);
+            this.comboBox1.TabIndex = 23;
+            // 
             // ManageEarnings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
@@ -229,6 +248,8 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1437, 762);
+            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.userNameEarningsLbl);
             this.Controls.Add(this.viewBudgetBtn);
             this.Controls.Add(this.manageBillsBtn);
@@ -277,6 +298,8 @@
         private System.Windows.Forms.Button manageBillsBtn;
         private System.Windows.Forms.Button viewBudgetBtn;
         private System.Windows.Forms.Label userNameEarningsLbl;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox comboBox1;
 
     }
 }

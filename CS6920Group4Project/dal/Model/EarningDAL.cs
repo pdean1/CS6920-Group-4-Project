@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
 using MySql.Data.MySqlClient;
 using CS6920Group4Project.Model;
 using CS6920Group4Project.Utilities;
@@ -101,6 +100,42 @@ namespace CS6920Group4Project.DAL.Model
                 conn.Close();
             }
             return earnings;
+        }
+        public static void AddEarning(Record record)
+        {
+            
+            MySqlConnection conn = new DBConnect().GetConnection();
+
+            String InsertStatement = "INSERT INTO `sql5123046`.`records`" +
+                                            "(`RecordID`, `BudgetID`, `RecordType`, `Title`, `Description`, `DateCreated`)" +
+                                            "VALUES (@RecordID, @BudgetID, @RecordType, @Title, @Description, @DateCreated)";
+            MySqlCommand insertCommand = new MySqlCommand(InsertStatement, conn);
+            if (record.ID == null)
+                insertCommand.Parameters.AddWithValue("@RecordID", DBNull.Value);
+            else
+            if (record.BudgetID == null)
+                insertCommand.Parameters.AddWithValue("@BudgetID", DBNull.Value);
+            else
+                insertCommand.Parameters.AddWithValue("RecordType", record.RecordType);
+
+            insertCommand.Parameters.AddWithValue("@Title", record.Title);
+            insertCommand.Parameters.AddWithValue("@Description", record.Description);
+            insertCommand.Parameters.AddWithValue("@DateCreated", record.DateCreated);
+
+            try
+            {
+                conn.Open();
+                insertCommand.ExecuteNonQuery();
+            }
+            catch (MySqlException ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                insertCommand.Dispose();
+                conn.Close();
+            }
         }
     }
 }

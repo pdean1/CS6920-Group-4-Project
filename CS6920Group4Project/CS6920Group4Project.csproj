@@ -52,7 +52,6 @@
     <Compile Include="Controller\BillController.cs" />
     <Compile Include="Controller\EarningController.cs" />
     <Compile Include="Controller\ExpenseController.cs" />
-    <Compile Include="Controller\ManageEarningsController.cs" />
     <Compile Include="Controller\UserController.cs" />
     <Compile Include="DAL\DBConnect.cs" />
     <Compile Include="Controller\BudgetController.cs" />
@@ -60,7 +59,6 @@
     <Compile Include="DAL\Model\BudgetDAL.cs" />
     <Compile Include="DAL\Model\EarningDAL.cs" />
     <Compile Include="DAL\Model\ExpenseDAL.cs" />
-    <Compile Include="DAL\Model\ManageEarningsDAL.cs" />
     <Compile Include="DAL\Model\RecordDAL.cs" />
     <Compile Include="DAL\Model\UserDAL.cs" />
     <Compile Include="Model\Dashboard.cs" />
@@ -169,6 +167,41 @@
     <EmbeddedResource Include="View\WelcomeScreen.resx">
       <DependentUpon>WelcomeScreen.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Properties\DataSources\CS6920Group4Project.Controller.BudgetController.datasource" />
+    <None Include="Properties\DataSources\CS6920Group4Project.Controller.ManageEarningsController.datasource" />
+    <None Include="Properties\DataSources\CS6920Group4Project.Controller.UserController.datasource" />
+    <None Include="Properties\DataSources\CS6920Group4Project.DAL.DBConnect.datasource" />
+    <None Include="Properties\DataSources\CS6920Group4Project.DAL.Model.BillDAL.datasource" />
+    <None Include="Properties\DataSources\CS6920Group4Project.DAL.Model.BudgetDAL.datasource" />
+    <None Include="Properties\DataSources\CS6920Group4Project.DAL.Model.EarningDAL.datasource" />
+    <None Include="Properties\DataSources\CS6920Group4Project.DAL.Model.ExpenseDAL.datasource" />
+    <None Include="Properties\DataSources\CS6920Group4Project.DAL.Model.RecordDAL.datasource" />
+    <None Include="Properties\DataSources\CS6920Group4Project.DAL.Model.UserDAL.datasource" />
+    <None Include="Properties\DataSources\CS6920Group4Project.Model.Bill.datasource" />
+    <None Include="Properties\DataSources\CS6920Group4Project.Model.BillCategory.datasource" />
+    <None Include="Properties\DataSources\CS6920Group4Project.Model.Budget.datasource" />
+    <None Include="Properties\DataSources\CS6920Group4Project.Model.BudgetType.datasource" />
+    <None Include="Properties\DataSources\CS6920Group4Project.Model.Category.datasource" />
+    <None Include="Properties\DataSources\CS6920Group4Project.Model.Dashboard.datasource" />
+    <None Include="Properties\DataSources\CS6920Group4Project.Model.Earning.datasource" />
+    <None Include="Properties\DataSources\CS6920Group4Project.Model.EarningCategory.datasource" />
+    <None Include="Properties\DataSources\CS6920Group4Project.Model.Expense.datasource" />
+    <None Include="Properties\DataSources\CS6920Group4Project.Model.ExpenseCategory.datasource" />
+    <None Include="Properties\DataSources\CS6920Group4Project.Model.Record.datasource" />
+    <None Include="Properties\DataSources\CS6920Group4Project.Model.User.datasource" />
+    <None Include="Properties\DataSources\CS6920Group4Project.Properties.Resources.datasource" />
+    <None Include="Properties\DataSources\CS6920Group4Project.Properties.Settings.datasource" />
+    <None Include="Properties\DataSources\CS6920Group4Project.Session.SessionInformation.datasource" />
+    <None Include="Properties\DataSources\CS6920Group4Project.Utilities.DatabaseErrorMessageUtility.datasource" />
+    <None Include="Properties\DataSources\CS6920Group4Project.View.BudgetView.datasource" />
+    <None Include="Properties\DataSources\CS6920Group4Project.View.CreateNewUserForm.datasource" />
+    <None Include="Properties\DataSources\CS6920Group4Project.View.Dashboard.datasource" />
+    <None Include="Properties\DataSources\CS6920Group4Project.View.ManageBills.datasource" />
+    <None Include="Properties\DataSources\CS6920Group4Project.View.ManageBudgets.datasource" />
+    <None Include="Properties\DataSources\CS6920Group4Project.View.ManageEarnings.datasource" />
+    <None Include="Properties\DataSources\CS6920Group4Project.View.ManageExpenses.datasource" />
+    <None Include="Properties\DataSources\CS6920Group4Project.View.WelcomeParent.datasource" />
+    <None Include="Properties\DataSources\CS6920Group4Project.View.WelcomeScreen.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
