@@ -9,7 +9,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using CS6920Group4Project.Model;
 using CS6920Group4Project.View;
-using CS6920Group4Project.DAL.Model;
 using CS6920Group4Project.Controller;
 
 namespace CS6920Group4Project.View
@@ -36,12 +35,15 @@ namespace CS6920Group4Project.View
 
         private void ManageEarnings_Load(object sender, EventArgs e)
         {
-            this.LoadBudgetTypeBox();
+            
             
         }
+        /// <summary>
+        /// method to load a combobox -stubbed out functionality for later use
+        /// </summary>
         private void LoadBudgetTypeBox()
         {
-            BudgetController bud = new BudgetController();
+           
             try
             { 
                 if (budgetType == null)
@@ -80,29 +82,30 @@ namespace CS6920Group4Project.View
 
         private void manageBillsBtn_Click(object sender, EventArgs e)
         {
-
+            this.Close();
+            ManageBills bills = new ManageBills();
+            bills.Show();
         }
 
         private void addEarningsBtn_Click(object sender, EventArgs e)
         {
-            
-            String title = titleTxt.Text;
-            String type = earningTypeBox.Text;
-            String desc = earningDescBox.Text;
-            decimal amount = Decimal.Parse(earningAmountBox.Text);
-
-
-            Record record = new Record();
-            record.Title = title;
-            record.Description = desc;
-
-            Earning earn = new Earning();
-
-            //comboBox1.GetItemText();
             EarningController con = new EarningController();
+            Record record = new Record();
+            Earning earn = new Earning();
+            this.PutEarningData(record, earn);
             con.AddEarning(record, earn);
-            
         }
+
+        private void PutEarningData(Record record, Earning earn)
+        {
+                  
+            record.Title = titleTxt.Text;
+            record.Description = earningDescBox.Text;
+            earn.Amount = Decimal.Parse(earningAmountBox.Text);
+            
+           
+        }
+
         /// <summary>
         /// if desired method to clear all fields before closing or if the user wants to start again (reset)
         /// </summary>
@@ -113,6 +116,22 @@ namespace CS6920Group4Project.View
             earningDescBox.Text = "";
             earningAmountBox.Text = "";
         }
-           
+
+        private bool IsValidData()
+        {
+            if(Validator.IsPresent(titleTxt))
+            {
+                return true;
+            }
+            else 
+                return false;
+        }
+        private void cancelBtn_Click(object sender, EventArgs e)
+        {
+            this.ClearText();
+            Close();
+        }
+
+        
     }
 }

@@ -46,10 +46,9 @@
             this.manageBillsBtn = new System.Windows.Forms.Button();
             this.viewBudgetBtn = new System.Windows.Forms.Button();
             this.userNameEarningsLbl = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.titleTxt = new System.Windows.Forms.TextBox();
+            this.cancelBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // earningsWelcomeLbl
@@ -227,31 +226,15 @@
             this.userNameEarningsLbl.TabIndex = 21;
             this.userNameEarningsLbl.Text = "User\'s Name";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(573, 236);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(100, 21);
-            this.label1.TabIndex = 22;
-            this.label1.Text = "Budget Type:";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(756, 228);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 29);
-            this.comboBox1.TabIndex = 23;
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(574, 277);
+            this.label6.BackColor = System.Drawing.Color.Transparent;
+            this.label6.Location = new System.Drawing.Point(574, 268);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(40, 21);
+            this.label6.Size = new System.Drawing.Size(52, 21);
             this.label6.TabIndex = 24;
-            this.label6.Text = "Title";
+            this.label6.Text = "Title *";
             // 
             // titleTxt
             // 
@@ -260,6 +243,18 @@
             this.titleTxt.Size = new System.Drawing.Size(100, 28);
             this.titleTxt.TabIndex = 25;
             // 
+            // cancelBtn
+            // 
+            this.cancelBtn.BackColor = System.Drawing.Color.ForestGreen;
+            this.cancelBtn.ForeColor = System.Drawing.Color.White;
+            this.cancelBtn.Location = new System.Drawing.Point(756, 629);
+            this.cancelBtn.Name = "cancelBtn";
+            this.cancelBtn.Size = new System.Drawing.Size(75, 36);
+            this.cancelBtn.TabIndex = 26;
+            this.cancelBtn.Text = "Cancel";
+            this.cancelBtn.UseVisualStyleBackColor = false;
+            this.cancelBtn.Click += new System.EventHandler(this.cancelBtn_Click);
+            // 
             // ManageEarnings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
@@ -267,10 +262,9 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1437, 762);
+            this.Controls.Add(this.cancelBtn);
             this.Controls.Add(this.titleTxt);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.userNameEarningsLbl);
             this.Controls.Add(this.viewBudgetBtn);
             this.Controls.Add(this.manageBillsBtn);
@@ -293,6 +287,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "ManageEarnings";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Manage Earnings";
             this.Load += new System.EventHandler(this.ManageEarnings_Load);
             this.ResumeLayout(false);
@@ -319,10 +314,9 @@
         private System.Windows.Forms.Button manageBillsBtn;
         private System.Windows.Forms.Button viewBudgetBtn;
         private System.Windows.Forms.Label userNameEarningsLbl;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox titleTxt;
+        private System.Windows.Forms.Button cancelBtn;
 
     }
 }
