@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using CS6920Group4Project.Model;
 using CS6920Group4Project.View;
 using CS6920Group4Project.DAL.Model;
+using CS6920Group4Project.Controller;
 
 
 namespace CS6920Group4Project.View
@@ -19,31 +20,44 @@ namespace CS6920Group4Project.View
         public WelcomeScreen()
         {
             InitializeComponent();
-    //        InitializePasswordBox();
-        }
-
-        private void InitializePasswordBox()
-        {
-            throw new NotImplementedException();
         }
 
         private void WelcomeScreen_Load(object sender, EventArgs e)
         {
             this.Show();                                    // code added for guestLogin
             this.guestLogin();                              // code added for guestLogin
-            tbPassword.PasswordChar = '*';
         }
+
         private void btnLogIn_Click(object sender, EventArgs e)
         {
             String username = tbUserName.Text;
-           // String password = tbPassword.Text;
-           // if (String.IsNullOrEmpty(username) || String.IsNullOrEmpty(password))
+            String password = tbPassword.Text;
+           
+            if (String.IsNullOrEmpty(username) || String.IsNullOrEmpty(password))
             {
-                MessageBox.Show("Please provide a username and password");
+                MessageBox.Show("Please provide a valid username and password, Please Try Again",
+                                "USER",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Stop);
                 tbPassword.Clear();
                 return;
             }
-                //MessageBox.Show("Login not yet implemented");
+
+            Boolean findUser = UserController.Instance.Login(username, password);
+            if (findUser == true)
+            {
+                Form bdForm = new Dashboard();
+                bdForm.FormClosed += new FormClosedEventHandler(otherForm_FormClosed);
+                this.Hide();
+                bdForm.Show();
+            }  
+            else
+            {
+                MessageBox.Show("Invalid User Information, Please Try Again!"
+                               , "USER"
+                               , MessageBoxButtons.YesNo
+                               , MessageBoxIcon.Stop);  
+            }
         }
 
         private void llCreateAccount_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -59,11 +73,6 @@ namespace CS6920Group4Project.View
         void otherForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             this.Show();
-        }
-
-        private void LoginForm_Load(object sender, EventArgs e)
-        {
-
         }
 
         private void guestLogin()                      // code added for guestLogin
