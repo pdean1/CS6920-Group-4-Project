@@ -17,8 +17,7 @@ namespace CS6920Group4Project.View
     public partial class ManageEarnings : Form
     {
         private User user;
-        private ManageEarnings _manageEarn;
-        private ManageEarningsController _earnController;
+        public List<Budget> budgetType;
 
         public ManageEarnings()
         {
@@ -37,7 +36,23 @@ namespace CS6920Group4Project.View
 
         private void ManageEarnings_Load(object sender, EventArgs e)
         {
+            this.LoadBudgetTypeBox();
+            
+        }
+        private void LoadBudgetTypeBox()
+        {
+            try
+            {
+                if (budgetType == null)
+                {
+                    Close();
+                }
 
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message, e.GetType().ToString());
+            }
         }
 
         private void earningsDashBtn_Click(object sender, EventArgs e)
@@ -63,6 +78,11 @@ namespace CS6920Group4Project.View
         }
 
         private void manageBillsBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void incomeBtn_Click(object sender, EventArgs e)
         {
 
         }

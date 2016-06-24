@@ -131,8 +131,9 @@
             this.incomeBtn.Size = new System.Drawing.Size(141, 36);
             this.incomeBtn.TabIndex = 8;
             this.incomeBtn.TabStop = false;
-            this.incomeBtn.Text = "Add Income";
+            this.incomeBtn.Text = "Add Earnings";
             this.incomeBtn.UseVisualStyleBackColor = false;
+            this.incomeBtn.Click += new System.EventHandler(this.incomeBtn_Click);
             // 
             // incomeBox
             // 
