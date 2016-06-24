@@ -7,10 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using CS6920Group4Project.Controller;
 using CS6920Group4Project.Model;
 using CS6920Group4Project.View;
 using CS6920Group4Project.DAL.Model;
+using CS6920Group4Project.Controller;
 
 namespace CS6920Group4Project.View
 {
@@ -41,8 +41,9 @@ namespace CS6920Group4Project.View
         }
         private void LoadBudgetTypeBox()
         {
+            BudgetController bud = new BudgetController();
             try
-            {
+            { 
                 if (budgetType == null)
                 {
                     Close();
@@ -82,9 +83,36 @@ namespace CS6920Group4Project.View
 
         }
 
-        private void incomeBtn_Click(object sender, EventArgs e)
+        private void addEarningsBtn_Click(object sender, EventArgs e)
         {
+            
+            String title = titleTxt.Text;
+            String type = earningTypeBox.Text;
+            String desc = earningDescBox.Text;
+            decimal amount = Decimal.Parse(earningAmountBox.Text);
 
+
+            Record record = new Record();
+            record.Title = title;
+            record.Description = desc;
+
+            Earning earn = new Earning();
+
+            //comboBox1.GetItemText();
+            EarningController con = new EarningController();
+            con.AddEarning(record, earn);
+            
         }
+        /// <summary>
+        /// if desired method to clear all fields before closing or if the user wants to start again (reset)
+        /// </summary>
+        private void ClearText()
+        {
+            titleTxt.Text = "";
+            earningTypeBox.Text = "";
+            earningDescBox.Text = "";
+            earningAmountBox.Text = "";
+        }
+           
     }
 }

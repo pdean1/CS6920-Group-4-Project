@@ -13,15 +13,27 @@ namespace CS6920Group4Project.Controller
 {
     class Validator
     {
-        /*
-          public static bool IsPresent(Control control)
+        private static string title = "Error";
+
+        public static string Title
+        {
+            get
+            {
+                return title;
+            }
+            set
+            {
+                title = value;
+            }
+        }
+        public static bool IsPresent(Control control)
           {
               if (control.GetType().ToString() == "System.Windows.Forms.TextBox")
               {
                   TextBox textBox = (TextBox)control;
                   if (textBox.Text == "")
                   {
-                      //MessageBox.Show(textBox.Tag.ToString() + " is a required field.", Title);
+                      MessageBox.Show(textBox.Tag.ToString() + " is a required field.", Title);
                       textBox.Focus();
                       return false;
                   }
@@ -35,7 +47,7 @@ namespace CS6920Group4Project.Controller
                   ComboBox comboBox = (ComboBox)control;
                   if (comboBox.SelectedIndex == -1)
                   {
-                      //MessageBox.Show(comboBox.Tag.ToString() + " is a required field.", Title);
+                      MessageBox.Show(comboBox.Tag.ToString() + " is a required field.", Title);
                       comboBox.Focus();
                       return false;
                   }
@@ -46,7 +58,8 @@ namespace CS6920Group4Project.Controller
               }
               return true;
           }
+         
        
-      }*/
+      }
     }
-}
+

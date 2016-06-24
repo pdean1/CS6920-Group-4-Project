@@ -101,7 +101,7 @@ namespace CS6920Group4Project.DAL.Model
             }
             return earnings;
         }
-        public static void AddEarning(Record record, Earning earn)
+        public void AddEarning(Record record, Earning earn)
         {
             
             MySqlConnection conn = new DBConnect().GetConnection();

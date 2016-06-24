@@ -11,13 +11,13 @@ namespace CS6920Group4Project.Controller
     /// <summary>
     /// This class controls access to the Model class Budget's DAL Methods
     /// </summary>
-    class BudgetController
+    public class BudgetController
     {
         private static BudgetController instance;
 
         private readonly BudgetDAL budgetDAL = new BudgetDAL();
 
-        private BudgetController() { }
+        public BudgetController() { }
 
         public static BudgetController Instance
         {

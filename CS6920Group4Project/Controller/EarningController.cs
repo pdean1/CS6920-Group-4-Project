@@ -30,5 +30,11 @@ namespace CS6920Group4Project.Controller
         {
             return _dal.GetEarningsByBudgetID(ID);
         }
+
+        public void AddEarning(Record record, Earning earn)
+        {
+            _dal.AddEarning(record, earn);
+        }
     }
+
 }

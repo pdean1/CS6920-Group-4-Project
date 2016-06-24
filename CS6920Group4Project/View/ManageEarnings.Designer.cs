@@ -36,10 +36,10 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.monthCalendar = new System.Windows.Forms.MonthCalendar();
-            this.incomeBtn = new System.Windows.Forms.Button();
-            this.incomeBox = new System.Windows.Forms.TextBox();
-            this.incomeDescBox = new System.Windows.Forms.TextBox();
-            this.incomeAmountBox = new System.Windows.Forms.TextBox();
+            this.addEarningsBtn = new System.Windows.Forms.Button();
+            this.earningTypeBox = new System.Windows.Forms.TextBox();
+            this.earningDescBox = new System.Windows.Forms.TextBox();
+            this.earningAmountBox = new System.Windows.Forms.TextBox();
             this.earningsDashBtn = new System.Windows.Forms.Button();
             this.manageEarningsBtn = new System.Windows.Forms.Button();
             this.manageExpensesBtn = new System.Windows.Forms.Button();
@@ -49,7 +49,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.titleTxt = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // earningsWelcomeLbl
@@ -124,39 +124,39 @@
             this.monthCalendar.Name = "monthCalendar";
             this.monthCalendar.TabIndex = 7;
             // 
-            // incomeBtn
+            // addEarningsBtn
             // 
-            this.incomeBtn.BackColor = System.Drawing.Color.ForestGreen;
-            this.incomeBtn.ForeColor = System.Drawing.Color.White;
-            this.incomeBtn.Location = new System.Drawing.Point(842, 629);
-            this.incomeBtn.Name = "incomeBtn";
-            this.incomeBtn.Size = new System.Drawing.Size(141, 36);
-            this.incomeBtn.TabIndex = 8;
-            this.incomeBtn.TabStop = false;
-            this.incomeBtn.Text = "Add Earnings";
-            this.incomeBtn.UseVisualStyleBackColor = false;
-            this.incomeBtn.Click += new System.EventHandler(this.incomeBtn_Click);
+            this.addEarningsBtn.BackColor = System.Drawing.Color.ForestGreen;
+            this.addEarningsBtn.ForeColor = System.Drawing.Color.White;
+            this.addEarningsBtn.Location = new System.Drawing.Point(842, 629);
+            this.addEarningsBtn.Name = "addEarningsBtn";
+            this.addEarningsBtn.Size = new System.Drawing.Size(141, 36);
+            this.addEarningsBtn.TabIndex = 8;
+            this.addEarningsBtn.TabStop = false;
+            this.addEarningsBtn.Text = "Add Earnings";
+            this.addEarningsBtn.UseVisualStyleBackColor = false;
+            this.addEarningsBtn.Click += new System.EventHandler(this.addEarningsBtn_Click);
             // 
-            // incomeBox
+            // earningTypeBox
             // 
-            this.incomeBox.Location = new System.Drawing.Point(756, 308);
-            this.incomeBox.Name = "incomeBox";
-            this.incomeBox.Size = new System.Drawing.Size(227, 28);
-            this.incomeBox.TabIndex = 9;
+            this.earningTypeBox.Location = new System.Drawing.Point(756, 308);
+            this.earningTypeBox.Name = "earningTypeBox";
+            this.earningTypeBox.Size = new System.Drawing.Size(227, 28);
+            this.earningTypeBox.TabIndex = 9;
             // 
-            // incomeDescBox
+            // earningDescBox
             // 
-            this.incomeDescBox.Location = new System.Drawing.Point(756, 352);
-            this.incomeDescBox.Name = "incomeDescBox";
-            this.incomeDescBox.Size = new System.Drawing.Size(227, 28);
-            this.incomeDescBox.TabIndex = 10;
+            this.earningDescBox.Location = new System.Drawing.Point(756, 352);
+            this.earningDescBox.Name = "earningDescBox";
+            this.earningDescBox.Size = new System.Drawing.Size(227, 28);
+            this.earningDescBox.TabIndex = 10;
             // 
-            // incomeAmountBox
+            // earningAmountBox
             // 
-            this.incomeAmountBox.Location = new System.Drawing.Point(756, 395);
-            this.incomeAmountBox.Name = "incomeAmountBox";
-            this.incomeAmountBox.Size = new System.Drawing.Size(227, 28);
-            this.incomeAmountBox.TabIndex = 11;
+            this.earningAmountBox.Location = new System.Drawing.Point(756, 395);
+            this.earningAmountBox.Name = "earningAmountBox";
+            this.earningAmountBox.Size = new System.Drawing.Size(227, 28);
+            this.earningAmountBox.TabIndex = 11;
             // 
             // earningsDashBtn
             // 
@@ -253,12 +253,12 @@
             this.label6.TabIndex = 24;
             this.label6.Text = "Title";
             // 
-            // textBox1
+            // titleTxt
             // 
-            this.textBox1.Location = new System.Drawing.Point(756, 268);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 28);
-            this.textBox1.TabIndex = 25;
+            this.titleTxt.Location = new System.Drawing.Point(756, 268);
+            this.titleTxt.Name = "titleTxt";
+            this.titleTxt.Size = new System.Drawing.Size(100, 28);
+            this.titleTxt.TabIndex = 25;
             // 
             // ManageEarnings
             // 
@@ -267,7 +267,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1437, 762);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.titleTxt);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label1);
@@ -277,10 +277,10 @@
             this.Controls.Add(this.manageExpensesBtn);
             this.Controls.Add(this.manageEarningsBtn);
             this.Controls.Add(this.earningsDashBtn);
-            this.Controls.Add(this.incomeAmountBox);
-            this.Controls.Add(this.incomeDescBox);
-            this.Controls.Add(this.incomeBox);
-            this.Controls.Add(this.incomeBtn);
+            this.Controls.Add(this.earningAmountBox);
+            this.Controls.Add(this.earningDescBox);
+            this.Controls.Add(this.earningTypeBox);
+            this.Controls.Add(this.addEarningsBtn);
             this.Controls.Add(this.monthCalendar);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -309,10 +309,10 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.MonthCalendar monthCalendar;
-        private System.Windows.Forms.Button incomeBtn;
-        private System.Windows.Forms.TextBox incomeBox;
-        private System.Windows.Forms.TextBox incomeDescBox;
-        private System.Windows.Forms.TextBox incomeAmountBox;
+        private System.Windows.Forms.Button addEarningsBtn;
+        private System.Windows.Forms.TextBox earningTypeBox;
+        private System.Windows.Forms.TextBox earningDescBox;
+        private System.Windows.Forms.TextBox earningAmountBox;
         private System.Windows.Forms.Button earningsDashBtn;
         private System.Windows.Forms.Button manageEarningsBtn;
         private System.Windows.Forms.Button manageExpensesBtn;
@@ -322,7 +322,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox titleTxt;
 
     }
 }
