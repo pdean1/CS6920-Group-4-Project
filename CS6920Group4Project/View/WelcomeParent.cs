@@ -40,8 +40,17 @@ namespace CS6920Group4Project.View
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Session.SessionInformation.InitSession();
-            this.Dispose();
+            DialogResult dialog = MessageBox.Show("Do you really wish to exit the program");
+            if (dialog == DialogResult.Yes)
+            {
+                Session.SessionInformation.InitSession();
+                 this.Dispose();
+            }
+            else if (dialog == DialogResult.No)
+            {
+                this.Close();
+            }
+            
         }
 
         private void dashboardToolStripMenuItem_Click(object sender, EventArgs e)

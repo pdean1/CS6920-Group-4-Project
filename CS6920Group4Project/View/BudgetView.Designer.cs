@@ -64,7 +64,7 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.DarkGreen;
-            this.label1.Location = new System.Drawing.Point(636, 197);
+            this.label1.Location = new System.Drawing.Point(634, 197);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(134, 33);
             this.label1.TabIndex = 0;
@@ -173,7 +173,7 @@
             this.budgetVewPnl.Controls.Add(this.incomeView);
             this.budgetVewPnl.Location = new System.Drawing.Point(327, 255);
             this.budgetVewPnl.Name = "budgetVewPnl";
-            this.budgetVewPnl.Size = new System.Drawing.Size(762, 466);
+            this.budgetVewPnl.Size = new System.Drawing.Size(762, 477);
             this.budgetVewPnl.TabIndex = 4;
             // 
             // title
