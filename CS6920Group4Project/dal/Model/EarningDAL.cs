@@ -110,14 +110,10 @@ namespace CS6920Group4Project.DAL.Model
                                             "(`RecordID`, `BudgetID`, `RecordType`, `Title`, `Description`, `DateCreated`)" +
                                             "VALUES (@RecordID, @BudgetID, @RecordType, @Title, @Description, @DateCreated)";
             MySqlCommand insertCommand = new MySqlCommand(InsertStatement, conn);
-            if (record.ID == null)
-                insertCommand.Parameters.AddWithValue("@RecordID", DBNull.Value);
-            else
-            if (record.BudgetID == null)
-                insertCommand.Parameters.AddWithValue("@BudgetID", DBNull.Value);
-            else
-                insertCommand.Parameters.AddWithValue("RecordType", record.RecordType);
-
+            
+            insertCommand.Parameters.AddWithValue("@RecordID", record.ID);
+            insertCommand.Parameters.AddWithValue("@BudgetID", record.BudgetID);
+            insertCommand.Parameters.AddWithValue("RecordType", record.RecordType);
             insertCommand.Parameters.AddWithValue("@Title", record.Title);
             insertCommand.Parameters.AddWithValue("@Description", record.Description);
             insertCommand.Parameters.AddWithValue("@DateCreated", record.DateCreated);
