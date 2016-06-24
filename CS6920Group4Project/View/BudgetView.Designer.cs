@@ -31,12 +31,12 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BudgetView));
             this.label1 = new System.Windows.Forms.Label();
             this.expenseView = new System.Windows.Forms.ListView();
-            this.Expenses = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.expenseBalance = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.expenseTitle = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.expenseDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.incomeView = new System.Windows.Forms.ListView();
             this.budgetType = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.billView = new System.Windows.Forms.ListView();
-            this.Bills = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.billTitle = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.dueDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.billBalance = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.budgetVewPnl = new System.Windows.Forms.Panel();
@@ -49,6 +49,12 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.billAmount = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.billDescription = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.datePaid = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.expenseDescription = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.expenseAmount = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.expenseCategory = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.budgetVewPnl.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -58,7 +64,7 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.DarkGreen;
-            this.label1.Location = new System.Drawing.Point(641, 197);
+            this.label1.Location = new System.Drawing.Point(636, 197);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(134, 33);
             this.label1.TabIndex = 0;
@@ -68,26 +74,31 @@
             // 
             this.expenseView.BackColor = System.Drawing.Color.SkyBlue;
             this.expenseView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.Expenses,
-            this.expenseBalance});
+            this.expenseCategory,
+            this.expenseTitle,
+            this.expenseDescription,
+            this.expenseDate,
+            this.expenseAmount});
             this.expenseView.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.expenseView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
-            this.expenseView.Location = new System.Drawing.Point(27, 312);
+            this.expenseView.Location = new System.Drawing.Point(27, 346);
             this.expenseView.Name = "expenseView";
-            this.expenseView.Size = new System.Drawing.Size(709, 97);
+            this.expenseView.Size = new System.Drawing.Size(709, 120);
             this.expenseView.TabIndex = 1;
             this.expenseView.UseCompatibleStateImageBehavior = false;
             this.expenseView.View = System.Windows.Forms.View.Details;
             // 
-            // Expenses
+            // expenseTitle
             // 
-            this.Expenses.Text = "Expenses";
-            this.Expenses.Width = 79;
+            this.expenseTitle.DisplayIndex = 0;
+            this.expenseTitle.Text = "Expense Title";
+            this.expenseTitle.Width = 109;
             // 
-            // expenseBalance
+            // expenseDate
             // 
-            this.expenseBalance.Text = "Balance";
-            this.expenseBalance.Width = 78;
+            this.expenseDate.DisplayIndex = 1;
+            this.expenseDate.Text = "Date";
+            this.expenseDate.Width = 78;
             // 
             // incomeView
             // 
@@ -102,9 +113,9 @@
             this.amount});
             this.incomeView.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.incomeView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
-            this.incomeView.Location = new System.Drawing.Point(27, 40);
+            this.incomeView.Location = new System.Drawing.Point(27, 39);
             this.incomeView.Name = "incomeView";
-            this.incomeView.Size = new System.Drawing.Size(709, 97);
+            this.incomeView.Size = new System.Drawing.Size(709, 123);
             this.incomeView.TabIndex = 2;
             this.incomeView.UseCompatibleStateImageBehavior = false;
             this.incomeView.View = System.Windows.Forms.View.Details;
@@ -119,27 +130,29 @@
             // 
             this.billView.BackColor = System.Drawing.Color.AliceBlue;
             this.billView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.Bills,
+            this.billTitle,
+            this.billAmount,
             this.dueDate,
-            this.billBalance});
+            this.billDescription,
+            this.billBalance,
+            this.datePaid});
             this.billView.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.billView.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.billView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
-            this.billView.Location = new System.Drawing.Point(27, 179);
+            this.billView.Location = new System.Drawing.Point(27, 190);
             this.billView.Name = "billView";
-            this.billView.Size = new System.Drawing.Size(709, 97);
+            this.billView.Size = new System.Drawing.Size(709, 121);
             this.billView.TabIndex = 3;
             this.billView.UseCompatibleStateImageBehavior = false;
             this.billView.View = System.Windows.Forms.View.Details;
             // 
-            // Bills
+            // billTitle
             // 
-            this.Bills.Text = "Bills";
-            this.Bills.Width = 77;
+            this.billTitle.Text = "Bill Title";
+            this.billTitle.Width = 111;
             // 
             // dueDate
             // 
-            this.dueDate.DisplayIndex = 2;
             this.dueDate.Text = "Date Due";
             this.dueDate.Width = 106;
             // 
@@ -147,7 +160,7 @@
             // 
             this.billBalance.DisplayIndex = 1;
             this.billBalance.Text = "Balance";
-            this.billBalance.Width = 78;
+            this.billBalance.Width = 89;
             // 
             // budgetVewPnl
             // 
@@ -160,7 +173,7 @@
             this.budgetVewPnl.Controls.Add(this.incomeView);
             this.budgetVewPnl.Location = new System.Drawing.Point(327, 255);
             this.budgetVewPnl.Name = "budgetVewPnl";
-            this.budgetVewPnl.Size = new System.Drawing.Size(762, 423);
+            this.budgetVewPnl.Size = new System.Drawing.Size(762, 466);
             this.budgetVewPnl.TabIndex = 4;
             // 
             // title
@@ -185,7 +198,7 @@
             // 
             this.earning.DisplayIndex = 4;
             this.earning.Text = "Source";
-            this.earning.Width = 86;
+            this.earning.Width = 117;
             // 
             // amount
             // 
@@ -205,7 +218,7 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.DarkGreen;
-            this.label2.Location = new System.Drawing.Point(329, 18);
+            this.label2.Location = new System.Drawing.Point(329, 11);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(67, 19);
             this.label2.TabIndex = 4;
@@ -217,7 +230,7 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.DarkGreen;
-            this.label3.Location = new System.Drawing.Point(344, 157);
+            this.label3.Location = new System.Drawing.Point(344, 168);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(36, 19);
             this.label3.TabIndex = 5;
@@ -229,11 +242,44 @@
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.DarkGreen;
-            this.label4.Location = new System.Drawing.Point(333, 290);
+            this.label4.Location = new System.Drawing.Point(332, 319);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(70, 19);
             this.label4.TabIndex = 6;
             this.label4.Text = "Expenses";
+            // 
+            // billAmount
+            // 
+            this.billAmount.DisplayIndex = 3;
+            this.billAmount.Text = "Amount";
+            this.billAmount.Width = 94;
+            // 
+            // billDescription
+            // 
+            this.billDescription.DisplayIndex = 4;
+            this.billDescription.Text = "Description";
+            this.billDescription.Width = 118;
+            // 
+            // datePaid
+            // 
+            this.datePaid.Text = "Date Paid";
+            // 
+            // expenseDescription
+            // 
+            this.expenseDescription.Text = "Description";
+            this.expenseDescription.Width = 113;
+            // 
+            // expenseAmount
+            // 
+            this.expenseAmount.DisplayIndex = 3;
+            this.expenseAmount.Text = "Amount";
+            this.expenseAmount.Width = 102;
+            // 
+            // expenseCategory
+            // 
+            this.expenseCategory.DisplayIndex = 4;
+            this.expenseCategory.Text = "Category";
+            this.expenseCategory.Width = 92;
             // 
             // BudgetView
             // 
@@ -258,11 +304,11 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ListView expenseView;
-        private System.Windows.Forms.ColumnHeader Expenses;
-        private System.Windows.Forms.ColumnHeader expenseBalance;
+        private System.Windows.Forms.ColumnHeader expenseTitle;
+        private System.Windows.Forms.ColumnHeader expenseDate;
         private System.Windows.Forms.ListView incomeView;
         private System.Windows.Forms.ListView billView;
-        private System.Windows.Forms.ColumnHeader Bills;
+        private System.Windows.Forms.ColumnHeader billTitle;
         private System.Windows.Forms.ColumnHeader billBalance;
         private System.Windows.Forms.Panel budgetVewPnl;
         private System.Windows.Forms.ColumnHeader dueDate;
@@ -276,5 +322,11 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ColumnHeader billAmount;
+        private System.Windows.Forms.ColumnHeader billDescription;
+        private System.Windows.Forms.ColumnHeader datePaid;
+        private System.Windows.Forms.ColumnHeader expenseDescription;
+        private System.Windows.Forms.ColumnHeader expenseAmount;
+        private System.Windows.Forms.ColumnHeader expenseCategory;
     }
 }
