@@ -84,13 +84,8 @@ namespace CS6920Group4Project.DAL.Model
                 command.Parameters.AddWithValue("@Password", Password);
                 using (MySqlDataReader reader = command.ExecuteReader())
                 {
-                    for (int i = 0; reader.Read(); i++)
-                    {
-                        if (i > 0)
-                        {
-                            conn.Close();
-                            return null;
-                        }
+					if (reader.Read())
+					{
                         user.ID = reader.GetInt32(0);
                         user.FirstName = reader.GetString(1);
                         user.LastName = reader.GetString(2);
@@ -104,8 +99,10 @@ namespace CS6920Group4Project.DAL.Model
                         catch (Exception)
                         {
                             user.DateUpdated = null;
-                        }
-                    }
+                        }						
+					}
+					else
+						user = null;
                     reader.Close();
                     conn.Close();
                     return user;
