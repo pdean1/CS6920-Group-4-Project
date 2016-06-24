@@ -34,11 +34,13 @@ namespace CS6920Group4Project.View
 
         private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            Session.SessionInformation.InitSession();
+            this.Close();
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            Session.SessionInformation.InitSession();
             this.Dispose();
         }
 

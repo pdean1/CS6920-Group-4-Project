@@ -19,6 +19,9 @@ namespace CS6920Group4ProjectTests.SessionTests
             SessionInformation.SetSessionUser(user);
             Assert.AreEqual("Patrick", SessionInformation.GetSessionUser().FirstName);
             Assert.AreEqual("Dean", SessionInformation.GetSessionUser().LastName);
+            SessionInformation.InitSession();
+            Assert.AreEqual(null, SessionInformation.GetSessionUser().FirstName);
+            Assert.AreEqual(null, SessionInformation.GetSessionUser().LastName);
         }
 
         [TestMethod]
