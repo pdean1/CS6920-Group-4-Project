@@ -86,7 +86,13 @@ namespace CS6920Group4Project.View
             ManageBills bills = new ManageBills();
             bills.Show();
         }
-
+        private void viewBudgetBtn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            BudgetView view = new BudgetView();
+            view.Show();
+            
+        }
         private void addEarningsBtn_Click(object sender, EventArgs e)
         {
             EarningController con = new EarningController();
@@ -131,6 +137,8 @@ namespace CS6920Group4Project.View
             this.ClearText();
             Close();
         }
+
+       
 
         
     }

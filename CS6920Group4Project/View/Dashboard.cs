@@ -40,5 +40,33 @@ namespace CS6920Group4Project.View
         {
 
         }
+
+        private void dashEarnBtn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            ManageEarnings earn = new ManageEarnings();
+            earn.Show();
+        }
+
+        private void dashExpBtn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            ManageExpenses expense = new ManageExpenses();
+            expense.Show();
+        }
+
+        private void dashBillBtn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            ManageBills bills = new ManageBills();
+            bills.Show();
+        }
+
+        private void DashBudbtn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            BudgetView view = new BudgetView();
+            view.Show();
+        }
     }
 }

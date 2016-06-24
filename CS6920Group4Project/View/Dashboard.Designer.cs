@@ -36,16 +36,15 @@
             System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashboard));
             this.HeaderPnl = new System.Windows.Forms.Panel();
+            this.userNameLbl = new System.Windows.Forms.Label();
             this.balanceLbl = new System.Windows.Forms.Label();
             this.welcomeLbl = new System.Windows.Forms.Label();
             this.rightDashPnl = new System.Windows.Forms.Panel();
             this.leftDashPnl = new System.Windows.Forms.Panel();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.DashBudbtn = new System.Windows.Forms.Button();
+            this.dashBillBtn = new System.Windows.Forms.Button();
+            this.dashExpBtn = new System.Windows.Forms.Button();
+            this.dashEarnBtn = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.percentageCht = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.mainDashPnl = new System.Windows.Forms.Panel();
@@ -60,7 +59,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.statisticsChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.userNameLbl = new System.Windows.Forms.Label();
             this.HeaderPnl.SuspendLayout();
             this.leftDashPnl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.percentageCht)).BeginInit();
@@ -78,6 +76,17 @@
             this.HeaderPnl.Name = "HeaderPnl";
             this.HeaderPnl.Size = new System.Drawing.Size(1338, 149);
             this.HeaderPnl.TabIndex = 0;
+            // 
+            // userNameLbl
+            // 
+            this.userNameLbl.AutoSize = true;
+            this.userNameLbl.Font = new System.Drawing.Font("Calibri", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.userNameLbl.ForeColor = System.Drawing.Color.DarkGreen;
+            this.userNameLbl.Location = new System.Drawing.Point(227, 54);
+            this.userNameLbl.Name = "userNameLbl";
+            this.userNameLbl.Size = new System.Drawing.Size(98, 21);
+            this.userNameLbl.TabIndex = 9;
+            this.userNameLbl.Text = "User\'s Name";
             // 
             // balanceLbl
             // 
@@ -115,89 +124,67 @@
             // leftDashPnl
             // 
             this.leftDashPnl.BackColor = System.Drawing.Color.Transparent;
-            this.leftDashPnl.Controls.Add(this.button7);
-            this.leftDashPnl.Controls.Add(this.button6);
-            this.leftDashPnl.Controls.Add(this.button5);
-            this.leftDashPnl.Controls.Add(this.button4);
-            this.leftDashPnl.Controls.Add(this.button3);
-            this.leftDashPnl.Controls.Add(this.button2);
+            this.leftDashPnl.Controls.Add(this.DashBudbtn);
+            this.leftDashPnl.Controls.Add(this.dashBillBtn);
+            this.leftDashPnl.Controls.Add(this.dashExpBtn);
+            this.leftDashPnl.Controls.Add(this.dashEarnBtn);
             this.leftDashPnl.Controls.Add(this.button1);
             this.leftDashPnl.Location = new System.Drawing.Point(1141, 171);
             this.leftDashPnl.Name = "leftDashPnl";
             this.leftDashPnl.Size = new System.Drawing.Size(219, 579);
             this.leftDashPnl.TabIndex = 3;
             // 
-            // button7
+            // DashBudbtn
             // 
-            this.button7.BackColor = System.Drawing.Color.ForestGreen;
-            this.button7.Font = new System.Drawing.Font("Calibri", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button7.ForeColor = System.Drawing.Color.White;
-            this.button7.Location = new System.Drawing.Point(26, 381);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(175, 53);
-            this.button7.TabIndex = 6;
-            this.button7.Text = "View Budget";
-            this.button7.UseVisualStyleBackColor = false;
+            this.DashBudbtn.BackColor = System.Drawing.Color.ForestGreen;
+            this.DashBudbtn.Font = new System.Drawing.Font("Calibri", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DashBudbtn.ForeColor = System.Drawing.Color.White;
+            this.DashBudbtn.Location = new System.Drawing.Point(23, 311);
+            this.DashBudbtn.Name = "DashBudbtn";
+            this.DashBudbtn.Size = new System.Drawing.Size(175, 53);
+            this.DashBudbtn.TabIndex = 6;
+            this.DashBudbtn.Text = "View Budget";
+            this.DashBudbtn.UseVisualStyleBackColor = false;
+            this.DashBudbtn.Click += new System.EventHandler(this.DashBudbtn_Click);
             // 
-            // button6
+            // dashBillBtn
             // 
-            this.button6.BackColor = System.Drawing.Color.ForestGreen;
-            this.button6.Font = new System.Drawing.Font("Calibri", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.ForeColor = System.Drawing.Color.White;
-            this.button6.Location = new System.Drawing.Point(26, 312);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(175, 53);
-            this.button6.TabIndex = 5;
-            this.button6.Text = "Manage Bills";
-            this.button6.UseVisualStyleBackColor = false;
+            this.dashBillBtn.BackColor = System.Drawing.Color.ForestGreen;
+            this.dashBillBtn.Font = new System.Drawing.Font("Calibri", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dashBillBtn.ForeColor = System.Drawing.Color.White;
+            this.dashBillBtn.Location = new System.Drawing.Point(23, 235);
+            this.dashBillBtn.Name = "dashBillBtn";
+            this.dashBillBtn.Size = new System.Drawing.Size(175, 53);
+            this.dashBillBtn.TabIndex = 5;
+            this.dashBillBtn.Text = "Manage Bills";
+            this.dashBillBtn.UseVisualStyleBackColor = false;
+            this.dashBillBtn.Click += new System.EventHandler(this.dashBillBtn_Click);
             // 
-            // button5
+            // dashExpBtn
             // 
-            this.button5.BackColor = System.Drawing.Color.ForestGreen;
-            this.button5.Font = new System.Drawing.Font("Calibri", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.ForeColor = System.Drawing.Color.White;
-            this.button5.Location = new System.Drawing.Point(26, 249);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(175, 53);
-            this.button5.TabIndex = 4;
-            this.button5.Text = "Manage Expenses";
-            this.button5.UseVisualStyleBackColor = false;
+            this.dashExpBtn.BackColor = System.Drawing.Color.ForestGreen;
+            this.dashExpBtn.Font = new System.Drawing.Font("Calibri", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dashExpBtn.ForeColor = System.Drawing.Color.White;
+            this.dashExpBtn.Location = new System.Drawing.Point(23, 161);
+            this.dashExpBtn.Name = "dashExpBtn";
+            this.dashExpBtn.Size = new System.Drawing.Size(175, 53);
+            this.dashExpBtn.TabIndex = 4;
+            this.dashExpBtn.Text = "Manage Expenses";
+            this.dashExpBtn.UseVisualStyleBackColor = false;
+            this.dashExpBtn.Click += new System.EventHandler(this.dashExpBtn_Click);
             // 
-            // button4
+            // dashEarnBtn
             // 
-            this.button4.BackColor = System.Drawing.Color.ForestGreen;
-            this.button4.Font = new System.Drawing.Font("Calibri", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.ForeColor = System.Drawing.Color.White;
-            this.button4.Location = new System.Drawing.Point(26, 187);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(175, 53);
-            this.button4.TabIndex = 3;
-            this.button4.Text = "Manage Income";
-            this.button4.UseVisualStyleBackColor = false;
-            // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.Color.ForestGreen;
-            this.button3.Font = new System.Drawing.Font("Calibri", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(26, 125);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(175, 53);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "Reports";
-            this.button3.UseVisualStyleBackColor = false;
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.ForestGreen;
-            this.button2.Font = new System.Drawing.Font("Calibri", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(26, 66);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(175, 53);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "DashBoard";
-            this.button2.UseVisualStyleBackColor = false;
+            this.dashEarnBtn.BackColor = System.Drawing.Color.ForestGreen;
+            this.dashEarnBtn.Font = new System.Drawing.Font("Calibri", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dashEarnBtn.ForeColor = System.Drawing.Color.White;
+            this.dashEarnBtn.Location = new System.Drawing.Point(23, 90);
+            this.dashEarnBtn.Name = "dashEarnBtn";
+            this.dashEarnBtn.Size = new System.Drawing.Size(175, 53);
+            this.dashEarnBtn.TabIndex = 3;
+            this.dashEarnBtn.Text = "Manage Earnings";
+            this.dashEarnBtn.UseVisualStyleBackColor = false;
+            this.dashEarnBtn.Click += new System.EventHandler(this.dashEarnBtn_Click);
             // 
             // button1
             // 
@@ -378,17 +365,6 @@
             this.statisticsChart.TabIndex = 0;
             this.statisticsChart.Text = "Budget Statistics";
             // 
-            // userNameLbl
-            // 
-            this.userNameLbl.AutoSize = true;
-            this.userNameLbl.Font = new System.Drawing.Font("Calibri", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.userNameLbl.ForeColor = System.Drawing.Color.DarkGreen;
-            this.userNameLbl.Location = new System.Drawing.Point(227, 54);
-            this.userNameLbl.Name = "userNameLbl";
-            this.userNameLbl.Size = new System.Drawing.Size(98, 21);
-            this.userNameLbl.TabIndex = 9;
-            this.userNameLbl.Text = "User\'s Name";
-            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -437,13 +413,11 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataVisualization.Charting.Chart statisticsChart;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button dashBillBtn;
+        private System.Windows.Forms.Button dashExpBtn;
+        private System.Windows.Forms.Button dashEarnBtn;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button DashBudbtn;
         private System.Windows.Forms.Label userNameLbl;
     }
 }
