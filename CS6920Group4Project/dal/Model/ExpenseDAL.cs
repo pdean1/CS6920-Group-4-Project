@@ -14,6 +14,13 @@ namespace CS6920Group4Project.DAL.Model
     {
         private MySqlConnection conn = new DBConnect().GetConnection();
 
+        private const string InsertExpenseStatment = "INSERT INTO sql5123046.earnings(EarningCategoryID, Amount, DateEarned) VALUES (@EarningCategoryID, @Amount, @DateEarned)";
+
+        public long InsertExpense(Expense expense)
+        {
+            return 0;
+        }
+
         private const string GetListOfExpensesByBudgetIDStatment = 
             "SELECT `viewexpenserecords`.`RecordID`," + 
             "   `viewexpenserecords`.`BudgetID`," +  

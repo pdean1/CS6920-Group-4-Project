@@ -13,7 +13,15 @@ namespace CS6920Group4Project.DAL.Model
     public class BillDAL
     {
         private MySqlConnection conn = new DBConnect().GetConnection();
-        
+
+        private const string InsertBillStatement = 
+            "INSERT INTO sql5123046.bills(RecordID, BillCategoryID, Amount, DateDue, DatePaid) VALUES (@RecordID, @BillCategoryID, @Amount, @DateDue, @DatePaid)";
+
+        public long InsertBill(Bill bill)
+        {
+            return 0;
+        }
+
         private const string SelectBillsByBudgetID = 
             "SELECT `viewbillrecords`.`RecordID`, " + 
             "`viewbillrecords`.`BudgetID`, " + 

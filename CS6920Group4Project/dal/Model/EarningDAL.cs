@@ -14,6 +14,13 @@ namespace CS6920Group4Project.DAL.Model
     {
         private MySqlConnection conn = new DBConnect().GetConnection();
 
+        private const string InsertEarningStatement = "";
+
+        public long InsertEarning(Earning earning)
+        {
+            return 0;
+        }
+
         private const string SelectEarningsByBudgetIDStatement = 
             "SELECT `viewearningrecords`.`RecordID`, " +
             "`viewearningrecords`.`BudgetID`, " +

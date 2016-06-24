@@ -19,7 +19,14 @@ namespace CS6920Group4Project.DAL.Model
     {
         private MySqlConnection conn = new DBConnect().GetConnection();
 
-        private String SelectRecordsByBudgetIDStatement = 
+        private const string InsertRecordStatement = "INSERT INTO sql5123046.records(BudgetID, RecordType, Title, Description, DateCreated) VALUES (@BudgetID, @RecordType, @Title, @Description, @DateCreated)";
+
+        public long InsertRecord(Record record)
+        {
+            return 0;
+        }
+
+        private const string SelectRecordsByBudgetIDStatement = 
             "SELECT `records`.`RecordID`, " + 
             "`records`.`BudgetID`, " +
             "`records`.`RecordType`, " +
