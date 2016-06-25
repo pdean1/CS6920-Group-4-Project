@@ -47,9 +47,9 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.currencyLbl = new System.Windows.Forms.Label();
-            this.billDescBox = new System.Windows.Forms.TextBox();
             this.billBox = new System.Windows.Forms.TextBox();
             this.billBtn = new System.Windows.Forms.Button();
+            this.billCategoryBox = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // billsWelcomeLbl
@@ -107,9 +107,9 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Location = new System.Drawing.Point(574, 352);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(88, 21);
+            this.label3.Size = new System.Drawing.Size(97, 21);
             this.label3.TabIndex = 4;
-            this.label3.Text = "Description";
+            this.label3.Text = "Bill Category";
             // 
             // label4
             // 
@@ -241,13 +241,6 @@
             this.currencyLbl.TabIndex = 20;
             this.currencyLbl.Text = "$1000.00";
             // 
-            // billDescBox
-            // 
-            this.billDescBox.Location = new System.Drawing.Point(756, 345);
-            this.billDescBox.Name = "billDescBox";
-            this.billDescBox.Size = new System.Drawing.Size(227, 28);
-            this.billDescBox.TabIndex = 22;
-            // 
             // billBox
             // 
             this.billBox.Location = new System.Drawing.Point(756, 301);
@@ -266,6 +259,16 @@
             this.billBtn.TabStop = false;
             this.billBtn.Text = "Add Bill";
             this.billBtn.UseVisualStyleBackColor = false;
+            this.billBtn.Click += new System.EventHandler(this.billBtn_Click);
+            // 
+            // billCategoryBox
+            // 
+            this.billCategoryBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.billCategoryBox.FormattingEnabled = true;
+            this.billCategoryBox.Location = new System.Drawing.Point(756, 349);
+            this.billCategoryBox.Name = "billCategoryBox";
+            this.billCategoryBox.Size = new System.Drawing.Size(227, 29);
+            this.billCategoryBox.TabIndex = 24;
             // 
             // ManageBills
             // 
@@ -274,8 +277,8 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1437, 762);
+            this.Controls.Add(this.billCategoryBox);
             this.Controls.Add(this.billBtn);
-            this.Controls.Add(this.billDescBox);
             this.Controls.Add(this.billBox);
             this.Controls.Add(this.currencyLbl);
             this.Controls.Add(this.button4);
@@ -329,9 +332,9 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Label currencyLbl;
-        private System.Windows.Forms.TextBox billDescBox;
         private System.Windows.Forms.TextBox billBox;
         private System.Windows.Forms.Button billBtn;
+        private System.Windows.Forms.ComboBox billCategoryBox;
 
     }
 }
