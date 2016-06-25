@@ -39,25 +39,12 @@ namespace CS6920Group4Project.View
             cbBudgets.ValueMember = "ID";
             cbBudgets.SelectedIndexChanged += cbBudgets_SelectedIndexChanged;
             cbBudgets.SelectedIndex = 0;
+            UpdateDashboard();
         }
 
         private void cbBudgets_SelectedIndexChanged(Object sender, EventArgs e)
         {
-            string[] xValues = { "Earnings", "Expenses", "Bills" };
-            BillsAmount = Session.SessionInformation.GetListOfBudgets()[cbBudgets.SelectedIndex].GetTotalAmountOfBills();
-            EarningsAmount = Session.SessionInformation.GetListOfBudgets()[cbBudgets.SelectedIndex].GetTotalAmountOfEarnings();
-            ExpensesAmount = Session.SessionInformation.GetListOfBudgets()[cbBudgets.SelectedIndex].GetTotalAmountOfExpenses();
-
-            lblBillAmount.Text = string.Format("{0:c}", BillsAmount);
-            lblExpenseAmount.Text = string.Format("{0:c}", ExpensesAmount);
-            lblIncomeAmount.Text = string.Format("{0:c}", EarningsAmount);
-
-            lblIncomeRemaining.Text = string.Format("{0:c}", EarningsAmount - (BillsAmount + ExpensesAmount));
-
-            decimal[] yValues = { EarningsAmount, ExpensesAmount, BillsAmount };
-            statisticsChart.Series[0].Points.DataBindXY(xValues, yValues);
-            statisticsChart.Series[0].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            MessageBox.Show("Boom");
+            UpdateDashboard();
             return; // working on this
         }
 
@@ -87,6 +74,24 @@ namespace CS6920Group4Project.View
             this.Close();
             BudgetView view = new BudgetView();
             view.Show();
+        }
+
+        private void UpdateDashboard()
+        {
+            string[] xValues = { "Earnings", "Expenses", "Bills" };
+            BillsAmount = Session.SessionInformation.GetListOfBudgets()[cbBudgets.SelectedIndex].GetTotalAmountOfBills();
+            EarningsAmount = Session.SessionInformation.GetListOfBudgets()[cbBudgets.SelectedIndex].GetTotalAmountOfEarnings();
+            ExpensesAmount = Session.SessionInformation.GetListOfBudgets()[cbBudgets.SelectedIndex].GetTotalAmountOfExpenses();
+
+            lblBillAmount.Text = string.Format("{0:c}", BillsAmount);
+            lblExpenseAmount.Text = string.Format("{0:c}", ExpensesAmount);
+            lblIncomeAmount.Text = string.Format("{0:c}", EarningsAmount);
+
+            lblIncomeRemaining.Text = string.Format("{0:c}", EarningsAmount - (BillsAmount + ExpensesAmount));
+
+            decimal[] yValues = { EarningsAmount, ExpensesAmount, BillsAmount };
+            statisticsChart.Series[0].Points.DataBindXY(xValues, yValues);
+            statisticsChart.Series[0].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
         }
     }
 }
