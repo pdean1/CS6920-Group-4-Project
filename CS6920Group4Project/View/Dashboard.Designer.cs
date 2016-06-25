@@ -48,10 +48,11 @@
             this.button1 = new System.Windows.Forms.Button();
             this.percentageCht = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.mainDashPnl = new System.Windows.Forms.Panel();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
+            this.cbBudgets = new System.Windows.Forms.ComboBox();
+            this.lblIncomeRemaining = new System.Windows.Forms.Label();
+            this.lblBillAmount = new System.Windows.Forms.Label();
+            this.lblExpenseAmount = new System.Windows.Forms.Label();
+            this.lblIncomeAmount = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -59,7 +60,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.statisticsChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.cbBudgets = new System.Windows.Forms.ComboBox();
             this.HeaderPnl.SuspendLayout();
             this.leftDashPnl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.percentageCht)).BeginInit();
@@ -222,10 +222,10 @@
             this.mainDashPnl.BackColor = System.Drawing.Color.White;
             this.mainDashPnl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.mainDashPnl.Controls.Add(this.cbBudgets);
-            this.mainDashPnl.Controls.Add(this.label10);
-            this.mainDashPnl.Controls.Add(this.label9);
-            this.mainDashPnl.Controls.Add(this.label8);
-            this.mainDashPnl.Controls.Add(this.label7);
+            this.mainDashPnl.Controls.Add(this.lblIncomeRemaining);
+            this.mainDashPnl.Controls.Add(this.lblBillAmount);
+            this.mainDashPnl.Controls.Add(this.lblExpenseAmount);
+            this.mainDashPnl.Controls.Add(this.lblIncomeAmount);
             this.mainDashPnl.Controls.Add(this.label6);
             this.mainDashPnl.Controls.Add(this.label5);
             this.mainDashPnl.Controls.Add(this.label4);
@@ -238,46 +238,56 @@
             this.mainDashPnl.Size = new System.Drawing.Size(831, 577);
             this.mainDashPnl.TabIndex = 4;
             // 
-            // label10
+            // cbBudgets
             // 
-            this.label10.AutoSize = true;
-            this.label10.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label10.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(484, 261);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(62, 25);
-            this.label10.TabIndex = 10;
-            this.label10.Text = "$0000";
+            this.cbBudgets.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbBudgets.Font = new System.Drawing.Font("Calibri", 15.75F);
+            this.cbBudgets.ForeColor = System.Drawing.Color.ForestGreen;
+            this.cbBudgets.FormattingEnabled = true;
+            this.cbBudgets.Location = new System.Drawing.Point(286, 86);
+            this.cbBudgets.Name = "cbBudgets";
+            this.cbBudgets.Size = new System.Drawing.Size(259, 34);
+            this.cbBudgets.TabIndex = 11;
             // 
-            // label9
+            // lblIncomeRemaining
             // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(485, 209);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(60, 23);
-            this.label9.TabIndex = 9;
-            this.label9.Text = "$0000";
+            this.lblIncomeRemaining.AutoSize = true;
+            this.lblIncomeRemaining.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIncomeRemaining.Location = new System.Drawing.Point(484, 261);
+            this.lblIncomeRemaining.Name = "lblIncomeRemaining";
+            this.lblIncomeRemaining.Size = new System.Drawing.Size(60, 23);
+            this.lblIncomeRemaining.TabIndex = 10;
+            this.lblIncomeRemaining.Text = "$0000";
             // 
-            // label8
+            // lblBillAmount
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(485, 176);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(60, 23);
-            this.label8.TabIndex = 8;
-            this.label8.Text = "$0000";
+            this.lblBillAmount.AutoSize = true;
+            this.lblBillAmount.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBillAmount.Location = new System.Drawing.Point(485, 209);
+            this.lblBillAmount.Name = "lblBillAmount";
+            this.lblBillAmount.Size = new System.Drawing.Size(60, 23);
+            this.lblBillAmount.TabIndex = 9;
+            this.lblBillAmount.Text = "$0000";
             // 
-            // label7
+            // lblExpenseAmount
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(483, 139);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(64, 23);
-            this.label7.TabIndex = 7;
-            this.label7.Text = "$ 0000";
+            this.lblExpenseAmount.AutoSize = true;
+            this.lblExpenseAmount.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblExpenseAmount.Location = new System.Drawing.Point(485, 176);
+            this.lblExpenseAmount.Name = "lblExpenseAmount";
+            this.lblExpenseAmount.Size = new System.Drawing.Size(60, 23);
+            this.lblExpenseAmount.TabIndex = 8;
+            this.lblExpenseAmount.Text = "$0000";
+            // 
+            // lblIncomeAmount
+            // 
+            this.lblIncomeAmount.AutoSize = true;
+            this.lblIncomeAmount.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIncomeAmount.Location = new System.Drawing.Point(483, 139);
+            this.lblIncomeAmount.Name = "lblIncomeAmount";
+            this.lblIncomeAmount.Size = new System.Drawing.Size(64, 23);
+            this.lblIncomeAmount.TabIndex = 7;
+            this.lblIncomeAmount.Text = "$ 0000";
             // 
             // label6
             // 
@@ -367,17 +377,6 @@
             this.statisticsChart.TabIndex = 0;
             this.statisticsChart.Text = "Budget Statistics";
             // 
-            // cbBudgets
-            // 
-            this.cbBudgets.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbBudgets.Font = new System.Drawing.Font("Calibri", 15.75F);
-            this.cbBudgets.ForeColor = System.Drawing.Color.ForestGreen;
-            this.cbBudgets.FormattingEnabled = true;
-            this.cbBudgets.Location = new System.Drawing.Point(286, 86);
-            this.cbBudgets.Name = "cbBudgets";
-            this.cbBudgets.Size = new System.Drawing.Size(259, 34);
-            this.cbBudgets.TabIndex = 11;
-            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -415,10 +414,10 @@
         private System.Windows.Forms.Label balanceLbl;
         private System.Windows.Forms.DataVisualization.Charting.Chart percentageCht;
         private System.Windows.Forms.Panel mainDashPnl;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label lblIncomeRemaining;
+        private System.Windows.Forms.Label lblBillAmount;
+        private System.Windows.Forms.Label lblExpenseAmount;
+        private System.Windows.Forms.Label lblIncomeAmount;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
