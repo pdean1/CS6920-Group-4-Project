@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CS6920Group4Project.Controller;
 
 namespace CS6920Group4Project.View
 {
@@ -20,6 +21,7 @@ namespace CS6920Group4Project.View
         public ManageBills()
         {
             InitializeComponent();
+            this.getBillCategoryList();
         }
 
         private void billBtn_Click(object sender, EventArgs e)
@@ -61,6 +63,13 @@ namespace CS6920Group4Project.View
             billCategoryBox.SelectedIndex = -1 ;
             billAmountBox.Text = "";
             monthCalendar.Text = "";
+        }
+
+        private void getBillCategoryList()
+        {
+            billCategoryBox.DataSource = BillController.Instance.GetBillCategoryList();
+            billCategoryBox.DisplayMember = "Title";
+            billCategoryBox.ValueMember = "ID";
         }
     }
 }

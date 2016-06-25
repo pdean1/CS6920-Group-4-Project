@@ -112,5 +112,47 @@ namespace CS6920Group4Project.DAL.Model
             }
             return bills;
         }
+
+        public List<Category> GetBillCategoryList()
+        {
+            List<Category> billCategoryList = new List<Category>();
+            try
+            {
+                using (MySqlCommand cmd = new MySqlCommand())
+                {
+                    conn.Open();
+                    cmd.Connection = conn;
+                    cmd.CommandText = "SELECT * FROM viewbillcategorylist";
+                    cmd.Prepare();
+                    using (MySqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            var bid = reader.GetOrdinal("BillCategoryID");
+                            var bTitle = reader.GetOrdinal("Title");
+                            var bDesc = reader.GetOrdinal("Description");
+
+                            Category billCategory = new Category();
+
+                            billCategory.ID = reader.GetInt32(bid);
+                            billCategory.Title = reader.GetString(bTitle);
+                            billCategoryList.Add(billCategory);
+                        }
+                        reader.Close();
+                    }
+                }
+            }
+            catch (MySqlException e)
+            {
+                DatabaseErrorMessageUtility.SendMessageToUser(
+                    "Unable to query the BillCategory in the database.", e);
+               billCategoryList = null;
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return billCategoryList;
+        }
     }
 }
