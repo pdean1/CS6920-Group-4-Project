@@ -105,41 +105,79 @@ namespace CS6920Group4Project.DAL.Model
         {
            
         }
-        public void AddEarning(Record record, Earning earn)
+        /// <summary>
+        /// series of query to add earnings to the database
+        /// </summary>
+        /// <param name="earn"></param>
+        public void AddEarning(Earning earn)
         {
             
             MySqlConnection conn = new DBConnect().GetConnection();
 
-            String InsertStatement = "INSERT INTO `sql5123046`.`records`" +
-                                            "(`RecordID`, `BudgetID`, `RecordType`, `Title`, `Description`, `DateCreated`)" +
-                                            "VALUES (@RecordID, @BudgetID, @RecordType, @Title, @Description, @DateCreated)";
-            
-            MySqlCommand insertCommand = new MySqlCommand(InsertStatement, conn);
-            
-            insertCommand.Parameters.AddWithValue("@BudgetID", record.BudgetID);
-            insertCommand.Parameters.AddWithValue("RecordType", record.RecordType);
-            insertCommand.Parameters.AddWithValue("@Title", record.Title);
-            insertCommand.Parameters.AddWithValue("@Description", record.Description);
-            insertCommand.Parameters.AddWithValue("@DateCreated", record.DateCreated);
+            //record to insert statement inserting into record table
+            String InsertRecordStatement = "INSERT INTO `sql5123046`.`records`" +
+                                            "(`BudgetID`, `RecordType`, `Title`, `Description`, `DateCreated`)" +
+                                            "VALUES (@BudgetID, @RecordType, @Title, @Description, @DateCreated)";
+
+                        
+            MySqlCommand insertRecordCommand = new MySqlCommand(InsertRecordStatement, conn);
+            insertRecordCommand.Parameters.AddWithValue("@BudgetID", 1);
+            insertRecordCommand.Parameters.AddWithValue("RecordType", earn.RecordType);
+            insertRecordCommand.Parameters.AddWithValue("@Title", earn.Title);
+            insertRecordCommand.Parameters.AddWithValue("@Description", earn.Description);
+            insertRecordCommand.Parameters.AddWithValue("@DateCreated", earn.DateCreated);
+
 
             String InsertEarnStatement = "INSERT INTO `sql5123046`.`earnings`" +
-                                         "(`RecordID`,`EarningCategoryID`,`Amount`,`DateEarned`)" +
-                                         "VALUES(@RecordID, @EarningCategoryID,@Amount, @DateEarned)";
+                                       "(`RecordID`,`EarningCategoryID`,`Amount`,`DateEarned`)" +
+                                       "VALUES(@RecordID, @EarningCategoryID, @Amount, @DateEarned)";      
+     
            
             MySqlCommand insertEarnCommand = new MySqlCommand(InsertEarnStatement, conn);
-
-            insertEarnCommand.Parameters.AddWithValue("@EarningCategoryID", earn.EarningCategoryID);
             insertEarnCommand.Parameters.AddWithValue("@Amount", earn.Amount);
             insertEarnCommand.Parameters.AddWithValue("@DateEarned", earn.DateEarned);
+
+            //to check if we already have the same title/description in the earningcategory table
+            String SelectEarnCategoryStatement = "SELECT `EarningCategoryID` FROM `sql5123046`.`earningscategory` WHERE `Title` = @Title AND `Description` = @Description";
+            MySqlCommand selectEarnCategoryCommand = new MySqlCommand(SelectEarnCategoryStatement, conn);
+            selectEarnCategoryCommand.Parameters.AddWithValue("@Title", earn.Category.Title);
+            selectEarnCategoryCommand.Parameters.AddWithValue("@Description", earn.Category.Description);
+
+           //query to add a new earning to the category if it doesn't have one yet
+            String InsertEarnCategoryStatement = "INSERT INTO `sql5123046`.`earningscategory`" +
+                                         "(`EarningCategoryID`, `Title`,`Description`)" +
+                                         "VALUES(@EarningCategoryId, @Title, @Description)";
+            MySqlCommand insertEarnCategoryCommand = new MySqlCommand(InsertEarnCategoryStatement, conn);
+            insertEarnCategoryCommand.Parameters.AddWithValue("@Title", earn.Category.Title);
+            insertEarnCategoryCommand.Parameters.AddWithValue("@Description", earn.Category.Description);
 
             try
             {
                 conn.Open();
-                insertCommand.ExecuteNonQuery();
-                record.ID = insertCommand.LastInsertedId;
-                insertEarnCommand.Parameters.AddWithValue("@RecordID", record.ID);
+                insertRecordCommand.ExecuteNonQuery();
+                earn.ID = insertRecordCommand.LastInsertedId;
+                insertEarnCommand.Parameters.AddWithValue("@RecordID", earn.ID);
+
+                bool foundCategory = false;
+                using (MySqlDataReader reader = selectEarnCategoryCommand.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        earn.Category.EarningCategoryID = reader.GetInt32(0);
+                        foundCategory = true;
+                    }
+                    reader.Close();
+                }
+                if (!foundCategory)
+                {
+                    // creates a new insert category
+                    insertEarnCategoryCommand.ExecuteNonQuery();
+                    earn.Category.EarningCategoryID = (int)insertEarnCategoryCommand.LastInsertedId;
+                }
+
+                insertEarnCommand.Parameters.AddWithValue("@EarningCategoryID", earn.Category.EarningCategoryID);
                 insertEarnCommand.ExecuteNonQuery();
-                
+
             }
             catch (MySqlException ex)
             {
@@ -147,7 +185,10 @@ namespace CS6920Group4Project.DAL.Model
             }
             finally
             {
-                insertCommand.Dispose();
+                insertRecordCommand.Dispose();
+                insertEarnCommand.Dispose();
+                insertEarnCategoryCommand.Dispose();
+                selectEarnCategoryCommand.Dispose();
                 conn.Close();
             }
 

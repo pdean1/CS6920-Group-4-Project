@@ -99,7 +99,7 @@ namespace CS6920Group4Project.View
             Record record = new Record();
             Earning earn = new Earning();
             this.PutEarningData(record, earn);
-            con.AddEarning(record, earn);
+            con.AddEarning(earn);
         }
 
         private void PutEarningData(Record record, Earning earn)
