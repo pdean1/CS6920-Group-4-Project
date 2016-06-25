@@ -37,7 +37,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.monthCalendar = new System.Windows.Forms.MonthCalendar();
             this.addEarningsBtn = new System.Windows.Forms.Button();
-            this.earningTypeBox = new System.Windows.Forms.TextBox();
+            this.recordTypeBox = new System.Windows.Forms.TextBox();
             this.earningDescBox = new System.Windows.Forms.TextBox();
             this.earningAmountBox = new System.Windows.Forms.TextBox();
             this.earningsDashBtn = new System.Windows.Forms.Button();
@@ -48,6 +48,8 @@
             this.label6 = new System.Windows.Forms.Label();
             this.titleTxt = new System.Windows.Forms.TextBox();
             this.cancelBtn = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.recordDescBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // earningsWelcomeLbl
@@ -82,9 +84,9 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Location = new System.Drawing.Point(573, 308);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(47, 21);
+            this.label2.Size = new System.Drawing.Size(97, 21);
             this.label2.TabIndex = 3;
-            this.label2.Text = "Type:";
+            this.label2.Text = "Record Title:";
             // 
             // label3
             // 
@@ -100,7 +102,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Location = new System.Drawing.Point(574, 395);
+            this.label4.Location = new System.Drawing.Point(574, 423);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(72, 21);
             this.label4.TabIndex = 5;
@@ -110,7 +112,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Location = new System.Drawing.Point(573, 440);
+            this.label5.Location = new System.Drawing.Point(573, 468);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(104, 21);
             this.label5.TabIndex = 6;
@@ -118,7 +120,7 @@
             // 
             // monthCalendar
             // 
-            this.monthCalendar.Location = new System.Drawing.Point(756, 440);
+            this.monthCalendar.Location = new System.Drawing.Point(756, 468);
             this.monthCalendar.Name = "monthCalendar";
             this.monthCalendar.TabIndex = 7;
             // 
@@ -126,7 +128,7 @@
             // 
             this.addEarningsBtn.BackColor = System.Drawing.Color.ForestGreen;
             this.addEarningsBtn.ForeColor = System.Drawing.Color.White;
-            this.addEarningsBtn.Location = new System.Drawing.Point(842, 629);
+            this.addEarningsBtn.Location = new System.Drawing.Point(842, 657);
             this.addEarningsBtn.Name = "addEarningsBtn";
             this.addEarningsBtn.Size = new System.Drawing.Size(141, 36);
             this.addEarningsBtn.TabIndex = 8;
@@ -135,12 +137,12 @@
             this.addEarningsBtn.UseVisualStyleBackColor = false;
             this.addEarningsBtn.Click += new System.EventHandler(this.addEarningsBtn_Click);
             // 
-            // earningTypeBox
+            // recordTypeBox
             // 
-            this.earningTypeBox.Location = new System.Drawing.Point(756, 308);
-            this.earningTypeBox.Name = "earningTypeBox";
-            this.earningTypeBox.Size = new System.Drawing.Size(227, 28);
-            this.earningTypeBox.TabIndex = 9;
+            this.recordTypeBox.Location = new System.Drawing.Point(756, 308);
+            this.recordTypeBox.Name = "recordTypeBox";
+            this.recordTypeBox.Size = new System.Drawing.Size(100, 28);
+            this.recordTypeBox.TabIndex = 9;
             // 
             // earningDescBox
             // 
@@ -151,7 +153,7 @@
             // 
             // earningAmountBox
             // 
-            this.earningAmountBox.Location = new System.Drawing.Point(756, 395);
+            this.earningAmountBox.Location = new System.Drawing.Point(756, 423);
             this.earningAmountBox.Name = "earningAmountBox";
             this.earningAmountBox.Size = new System.Drawing.Size(227, 28);
             this.earningAmountBox.TabIndex = 11;
@@ -220,9 +222,9 @@
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Location = new System.Drawing.Point(574, 268);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(52, 21);
+            this.label6.Size = new System.Drawing.Size(118, 21);
             this.label6.TabIndex = 24;
-            this.label6.Text = "Title *";
+            this.label6.Text = "Category Title *";
             // 
             // titleTxt
             // 
@@ -235,13 +237,30 @@
             // 
             this.cancelBtn.BackColor = System.Drawing.Color.ForestGreen;
             this.cancelBtn.ForeColor = System.Drawing.Color.White;
-            this.cancelBtn.Location = new System.Drawing.Point(756, 629);
+            this.cancelBtn.Location = new System.Drawing.Point(756, 657);
             this.cancelBtn.Name = "cancelBtn";
             this.cancelBtn.Size = new System.Drawing.Size(75, 36);
             this.cancelBtn.TabIndex = 26;
             this.cancelBtn.Text = "Cancel";
             this.cancelBtn.UseVisualStyleBackColor = false;
             this.cancelBtn.Click += new System.EventHandler(this.cancelBtn_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Location = new System.Drawing.Point(574, 391);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(140, 21);
+            this.label1.TabIndex = 27;
+            this.label1.Text = "Record Description";
+            // 
+            // recordDescBox
+            // 
+            this.recordDescBox.Location = new System.Drawing.Point(756, 388);
+            this.recordDescBox.Name = "recordDescBox";
+            this.recordDescBox.Size = new System.Drawing.Size(227, 28);
+            this.recordDescBox.TabIndex = 28;
             // 
             // ManageEarnings
             // 
@@ -250,6 +269,8 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1437, 762);
+            this.Controls.Add(this.recordDescBox);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.cancelBtn);
             this.Controls.Add(this.titleTxt);
             this.Controls.Add(this.label6);
@@ -260,7 +281,7 @@
             this.Controls.Add(this.earningsDashBtn);
             this.Controls.Add(this.earningAmountBox);
             this.Controls.Add(this.earningDescBox);
-            this.Controls.Add(this.earningTypeBox);
+            this.Controls.Add(this.recordTypeBox);
             this.Controls.Add(this.addEarningsBtn);
             this.Controls.Add(this.monthCalendar);
             this.Controls.Add(this.label5);
@@ -292,7 +313,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.MonthCalendar monthCalendar;
         private System.Windows.Forms.Button addEarningsBtn;
-        private System.Windows.Forms.TextBox earningTypeBox;
+        private System.Windows.Forms.TextBox recordTypeBox;
         private System.Windows.Forms.TextBox earningDescBox;
         private System.Windows.Forms.TextBox earningAmountBox;
         private System.Windows.Forms.Button earningsDashBtn;
@@ -303,6 +324,8 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox titleTxt;
         private System.Windows.Forms.Button cancelBtn;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox recordDescBox;
 
     }
 }

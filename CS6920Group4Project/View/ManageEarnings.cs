@@ -118,7 +118,7 @@ namespace CS6920Group4Project.View
         private void ClearText()
         {
             titleTxt.Text = "";
-            earningTypeBox.Text = "";
+            recordTypeBox.Text = "";
             earningDescBox.Text = "";
             earningAmountBox.Text = "";
         }
