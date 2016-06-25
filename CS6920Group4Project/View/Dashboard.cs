@@ -16,20 +16,13 @@ namespace CS6920Group4Project.View
 {
     public partial class Dashboard : Form
     {
-        private User user;
-
-        public Dashboard(User userName)
-        {
-            InitializeComponent();
-            user = userName;
-            userNameLbl.Text = user.FirstName + "" + user.LastName;
-            
-       }
-
         public Dashboard()
         {
-            // TODO: Complete member initialization
-        }
+            InitializeComponent();
+            userNameLbl.Text = Session.SessionInformation.GetSessionUser().FirstName + " " 
+                + Session.SessionInformation.GetSessionUser().LastName;
+            
+       }
 
         private void welcomeLbl_Click(object sender, EventArgs e)
         {
@@ -38,7 +31,15 @@ namespace CS6920Group4Project.View
 
         private void Dashboard_Load(object sender, EventArgs e)
         {
+            cbBudgets.DataSource = Session.SessionInformation.GetListOfBudgets();
+            cbBudgets.DisplayMember = "Title";
+            cbBudgets.ValueMember = "ID";
+            cbBudgets.ValueMemberChanged += cbBudgets_ValueMemberChanged;
+        }
 
+        private void cbBudgets_ValueMemberChanged(Object sender, EventArgs e)
+        {
+            return; // working on this
         }
 
         private void dashEarnBtn_Click(object sender, EventArgs e)

@@ -59,6 +59,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.statisticsChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.cbBudgets = new System.Windows.Forms.ComboBox();
             this.HeaderPnl.SuspendLayout();
             this.leftDashPnl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.percentageCht)).BeginInit();
@@ -220,6 +221,7 @@
             // 
             this.mainDashPnl.BackColor = System.Drawing.Color.White;
             this.mainDashPnl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.mainDashPnl.Controls.Add(this.cbBudgets);
             this.mainDashPnl.Controls.Add(this.label10);
             this.mainDashPnl.Controls.Add(this.label9);
             this.mainDashPnl.Controls.Add(this.label8);
@@ -365,6 +367,17 @@
             this.statisticsChart.TabIndex = 0;
             this.statisticsChart.Text = "Budget Statistics";
             // 
+            // cbBudgets
+            // 
+            this.cbBudgets.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbBudgets.Font = new System.Drawing.Font("Calibri", 15.75F);
+            this.cbBudgets.ForeColor = System.Drawing.Color.ForestGreen;
+            this.cbBudgets.FormattingEnabled = true;
+            this.cbBudgets.Location = new System.Drawing.Point(286, 86);
+            this.cbBudgets.Name = "cbBudgets";
+            this.cbBudgets.Size = new System.Drawing.Size(259, 34);
+            this.cbBudgets.TabIndex = 11;
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -419,5 +432,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button DashBudbtn;
         private System.Windows.Forms.Label userNameLbl;
+        private System.Windows.Forms.ComboBox cbBudgets;
     }
 }

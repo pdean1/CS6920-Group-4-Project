@@ -29,7 +29,6 @@ namespace CS6920Group4Project.DAL.Model
         public List<Budget> GetAllUserBudgets (int UserID)
         {
             List<Budget> budgets = new List<Budget>();
-            Budget budget = new Budget();
 
             try
             {
@@ -43,6 +42,7 @@ namespace CS6920Group4Project.DAL.Model
                 {
                     while (reader.Read())
                     {
+                        Budget budget = new Budget();
                         budget.ID = reader.GetInt32(0);
                         budget.UserID = reader.GetInt32(1);
                         budget.BudgetTypeID = reader.GetInt32(2);

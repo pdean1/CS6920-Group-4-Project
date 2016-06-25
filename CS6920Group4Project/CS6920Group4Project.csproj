@@ -169,7 +169,6 @@
       <DependentUpon>WelcomeScreen.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\DataSources\CS6920Group4Project.Controller.BudgetController.datasource" />
-    <None Include="Properties\DataSources\CS6920Group4Project.Controller.ManageEarningsController.datasource" />
     <None Include="Properties\DataSources\CS6920Group4Project.Controller.UserController.datasource" />
     <None Include="Properties\DataSources\CS6920Group4Project.DAL.DBConnect.datasource" />
     <None Include="Properties\DataSources\CS6920Group4Project.DAL.Model.BillDAL.datasource" />
