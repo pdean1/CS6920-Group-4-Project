@@ -15,6 +15,7 @@ namespace CS6920Group4Project.View
     public partial class WelcomeParent : Form        
     { 
         Dashboard dashboard;
+        private BudgetView viewBudget;
         private ManageBudgets manageBudget;
         private ManageEarnings manageEarnings;
         private ManageExpenses manageExpenses;
@@ -29,7 +30,20 @@ namespace CS6920Group4Project.View
 
         private void viewBudgetToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            //opens the manage budget page within the parent form
+            if (viewBudget == null)
+            {
+                viewBudget = new BudgetView();
+                viewBudget.MdiParent = this;
+                viewBudget.FormClosed += new FormClosedEventHandler(BudgetView_FormClosed);
+                viewBudget.Show();
+            }
+            else
+                viewBudget.Activate();
+        }
+        private void BudgetView_FormClosed(object sender, System.Windows.Forms.FormClosedEventArgs e)
+        {
+            viewBudget = null;
         }
 
         private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
@@ -74,25 +88,6 @@ namespace CS6920Group4Project.View
         private void WelcomeParent_Load(object sender, EventArgs e)
         {
 
-        }
-
-        private void manageBillsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            //opens the manage budget page within the parent form
-            if (manageBudget == null)
-            {
-                manageBudget = new ManageBudgets();
-                manageBudget.MdiParent = this;
-                manageBudget.FormClosed += new FormClosedEventHandler(manageBudget_FormClosed);
-                manageBudget.Show();
-            }
-            else
-                manageBudget.Activate();
-        }
-
-        private void manageBudget_FormClosed(object sender, System.Windows.Forms.FormClosedEventArgs e)
-        {
- 	        manageBudget = null;
         }
         
         private void incomeToolStripMenuItem_Click(object sender, EventArgs e)
@@ -149,6 +144,26 @@ namespace CS6920Group4Project.View
             manageBills = null;
         }
 
-    
+        private void createBudgetToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            {
+                //opens the manage budget page within the parent form
+                if (manageBudget == null)
+                {
+                    manageBudget = new ManageBudgets();
+                    manageBudget.MdiParent = this;
+                    manageBudget.FormClosed += new FormClosedEventHandler(manageBudget_FormClosed);
+                    manageBudget.Show();
+                }
+                else
+                    manageBudget.Activate();
+            }
+        }
+
+        private void manageBudget_FormClosed(object sender, System.Windows.Forms.FormClosedEventArgs e)
+        {
+ 	        manageBudget = null;
+        }
+    }   
   }
-}
+

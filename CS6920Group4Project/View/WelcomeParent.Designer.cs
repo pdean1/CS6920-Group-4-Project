@@ -35,7 +35,7 @@
             this.logOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.budgetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.manageExpensesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.manageBudgetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.manageBillsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.manageIncomeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.incomeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -90,25 +90,25 @@
             // budgetToolStripMenuItem
             // 
             this.budgetToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.manageExpensesToolStripMenuItem,
+            this.manageBudgetToolStripMenuItem,
             this.manageBillsToolStripMenuItem,
             this.manageIncomeToolStripMenuItem});
             this.budgetToolStripMenuItem.Name = "budgetToolStripMenuItem";
             this.budgetToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
             this.budgetToolStripMenuItem.Text = "Budget";
             // 
-            // manageExpensesToolStripMenuItem
+            // manageBudgetToolStripMenuItem
             // 
-            this.manageExpensesToolStripMenuItem.Name = "manageExpensesToolStripMenuItem";
-            this.manageExpensesToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
-            this.manageExpensesToolStripMenuItem.Text = "Create a Budget";
+            this.manageBudgetToolStripMenuItem.Name = "manageBudgetToolStripMenuItem";
+            this.manageBudgetToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
+            this.manageBudgetToolStripMenuItem.Text = "Create a Budget";
+            this.manageBudgetToolStripMenuItem.Click += new System.EventHandler(this.createBudgetToolStripMenuItem_Click);
             // 
             // manageBillsToolStripMenuItem
             // 
             this.manageBillsToolStripMenuItem.Name = "manageBillsToolStripMenuItem";
             this.manageBillsToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
             this.manageBillsToolStripMenuItem.Text = "View Budget";
-            this.manageBillsToolStripMenuItem.Click += new System.EventHandler(this.manageBillsToolStripMenuItem_Click);
             // 
             // manageIncomeToolStripMenuItem
             // 
@@ -123,21 +123,21 @@
             // incomeToolStripMenuItem
             // 
             this.incomeToolStripMenuItem.Name = "incomeToolStripMenuItem";
-            this.incomeToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.incomeToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
             this.incomeToolStripMenuItem.Text = "Earnings";
             this.incomeToolStripMenuItem.Click += new System.EventHandler(this.incomeToolStripMenuItem_Click);
             // 
             // expensesToolStripMenuItem
             // 
             this.expensesToolStripMenuItem.Name = "expensesToolStripMenuItem";
-            this.expensesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.expensesToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
             this.expensesToolStripMenuItem.Text = "Expenses";
             this.expensesToolStripMenuItem.Click += new System.EventHandler(this.expensesToolStripMenuItem_Click);
             // 
             // billsToolStripMenuItem
             // 
             this.billsToolStripMenuItem.Name = "billsToolStripMenuItem";
-            this.billsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.billsToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
             this.billsToolStripMenuItem.Text = "Bills";
             this.billsToolStripMenuItem.Click += new System.EventHandler(this.billsToolStripMenuItem_Click);
             // 
@@ -176,7 +176,7 @@
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem signUpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem budgetToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem manageExpensesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem manageBudgetToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem manageBillsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem manageIncomeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem dashboardToolStripMenuItem;
