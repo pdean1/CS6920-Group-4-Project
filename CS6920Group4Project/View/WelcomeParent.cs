@@ -31,17 +31,26 @@ namespace CS6920Group4Project.View
 
         private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Session.SessionInformation.InitSession();
-            this.Close();
+            DialogResult dialog = MessageBox.Show("Are you sure you want to log out", "", MessageBoxButtons.YesNo);
+            if (dialog == DialogResult.Yes)
+            {
+                Session.SessionInformation.InitSession();
+                this.Dispose();
+            }
+            else if (dialog == DialogResult.No)
+            {
+                this.Close();
+            }
+    
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            DialogResult dialog = MessageBox.Show("Do you really wish to exit the program");
+            DialogResult dialog = MessageBox.Show("Do you really wish to exit the program","", MessageBoxButtons.YesNo);
             if (dialog == DialogResult.Yes)
             {
                 Session.SessionInformation.InitSession();
-                 this.Dispose();
+                Application.Exit();
             }
             else if (dialog == DialogResult.No)
             {
