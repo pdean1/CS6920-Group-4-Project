@@ -15,6 +15,7 @@ namespace CS6920Group4Project.View
     public partial class WelcomeParent : Form        
     { 
         Dashboard dashboard;
+        Dashboard dashboardParent;
         private BudgetView viewBudget;
         private ManageBudgets manageBudget;
         private ManageEarnings manageEarnings;
@@ -26,24 +27,6 @@ namespace CS6920Group4Project.View
             InitializeComponent();
             this.CenterToScreen();
 
-        }
-
-        private void viewBudgetToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            //opens the manage budget page within the parent form
-            if (viewBudget == null)
-            {
-                viewBudget = new BudgetView();
-                viewBudget.MdiParent = this;
-                viewBudget.FormClosed += new FormClosedEventHandler(BudgetView_FormClosed);
-                viewBudget.Show();
-            }
-            else
-                viewBudget.Activate();
-        }
-        private void BudgetView_FormClosed(object sender, System.Windows.Forms.FormClosedEventArgs e)
-        {
-            viewBudget = null;
         }
 
         private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
@@ -87,7 +70,18 @@ namespace CS6920Group4Project.View
 
         private void WelcomeParent_Load(object sender, EventArgs e)
         {
-
+        if(dashboardParent == null) {
+            dashboardParent = new Dashboard();
+            dashboardParent.MdiParent = this;
+            dashboardParent.FormClosed += new FormClosedEventHandler(dashboard_FormClosed);
+            dashboardParent.Show();
+        }
+        else
+            dashboardParent.Activate();
+        }
+        private void dashboardParent_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            dashboardParent = null;
         }
         
         private void incomeToolStripMenuItem_Click(object sender, EventArgs e)
@@ -164,6 +158,30 @@ namespace CS6920Group4Project.View
         {
  	        manageBudget = null;
         }
+
+        private void viewBudgetToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //opens the manage budget page within the parent form
+            if (viewBudget == null)
+            {
+                viewBudget = new BudgetView();
+                viewBudget.MdiParent = this;
+                viewBudget.FormClosed += new FormClosedEventHandler(BudgetView_FormClosed);
+                viewBudget.Show();
+            }
+            else
+                viewBudget.Activate();
+        }
+        private void BudgetView_FormClosed(object sender, System.Windows.Forms.FormClosedEventArgs e)
+        {
+            viewBudget = null;
+        }
+
+        private void manageIncomeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+       
     }   
   }
 
