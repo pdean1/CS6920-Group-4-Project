@@ -1,6 +1,6 @@
 USE sql5123046;
 
-CREATE OR REPLACE VIEW ViewBillRecords AS 
+CREATE OR REPLACE VIEW viewbillrecords AS 
 SELECT 
   R.RecordID, 
   R.BudgetID, 
@@ -15,11 +15,11 @@ SELECT
   B.DatePaid,
   R.DateCreated
 FROM `sql5123046`.`records` AS R 
-JOIN `sql5123046`.`Bills` AS B ON R.RecordID = B.RecordID 
-JOIN `sql5123046`.`BillCategories` AS BC ON B.BillCategoryID = BC.BillCategoryID
+JOIN `sql5123046`.`bills` AS B ON R.RecordID = B.RecordID 
+JOIN `sql5123046`.`billcategories` AS BC ON B.BillCategoryID = BC.BillCategoryID
 WHERE R.RecordType = 'B';
 
-CREATE OR REPLACE VIEW ViewEarningRecords AS 
+CREATE OR REPLACE VIEW viewearningrecords AS 
 SELECT 
   R.RecordID, 
   R.BudgetID, 
@@ -37,7 +37,7 @@ JOIN `sql5123046`.`earnings` AS E ON R.RecordID = E.RecordID
 JOIN `sql5123046`.`earningcategories` AS EC ON E.EarningCategoryID = EC.EarningCategoryID
 WHERE R.RecordType = 'E';
 
-CREATE OR REPLACE VIEW ViewExpenseRecords AS 
+CREATE OR REPLACE VIEW viewexpenserecords AS 
 SELECT 
   R.RecordID, 
   R.BudgetID, 
