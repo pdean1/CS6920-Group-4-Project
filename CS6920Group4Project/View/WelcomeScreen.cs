@@ -20,6 +20,7 @@ namespace CS6920Group4Project.View
         public WelcomeScreen()
         {
             InitializeComponent();
+            tbPassword.PasswordChar = '●';
         }
 
         private void WelcomeScreen_Load(object sender, EventArgs e)
