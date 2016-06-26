@@ -28,5 +28,9 @@ namespace CS6920Group4Project.Controller
         {
             return _dal.GetListOfExpensesByBudgetID(ID);
         }
+        public long InsertExpense(Expense e)
+        {
+            return _dal.InsertExpense(e);
+        }
     }
 }
