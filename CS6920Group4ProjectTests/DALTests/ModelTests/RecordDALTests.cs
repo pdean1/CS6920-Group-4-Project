@@ -21,5 +21,16 @@ namespace CS6920Group4ProjectTests.DALTests.ModelTests
             }
             Assert.IsTrue(_dal.GetRecordsByBudgetID(1).Count > 0);
         }
+
+        [TestMethod]
+        public void TestInsertRecordIntoDatabase()
+        {
+            Record record = new Record();
+            record.BudgetID = 1;
+            record.RecordType = 'E';
+            record.Title = "A test earning";
+            record.Description = null;
+            Assert.IsTrue(_dal.InsertRecord(record) > 0);
+        }
     }
 }

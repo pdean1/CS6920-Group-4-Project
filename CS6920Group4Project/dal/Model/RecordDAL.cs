@@ -19,11 +19,40 @@ namespace CS6920Group4Project.DAL.Model
     {
         private MySqlConnection conn = new DBConnect().GetConnection();
 
-        private const string InsertRecordStatement = "INSERT INTO sql5123046.records(BudgetID, RecordType, Title, Description, DateCreated) VALUES (@BudgetID, @RecordType, @Title, @Description, @DateCreated)";
+        private const string InsertRecordStatement = "INSERT INTO sql5123046.records(BudgetID, RecordType, Title, Description, DateCreated)" 
+            + " VALUES (@BudgetID, @RecordType, @Title, @Description, @DateCreated)";
 
         public long InsertRecord(Record record)
         {
-            return 0;
+            long id = 0;
+            MySqlCommand command = new MySqlCommand();
+            try
+            {
+                conn.Open();
+                command.Connection = conn;
+                command.CommandText = InsertRecordStatement;
+                command.Prepare();
+                command.Parameters.AddWithValue("@BudgetID", record.BudgetID);
+                command.Parameters.AddWithValue("@RecordType", record.RecordType);
+                command.Parameters.AddWithValue("@Title", record.Title);
+                command.Parameters.AddWithValue("@Description", (String.IsNullOrEmpty(record.Description)) ? "" : record.Description);
+                command.Parameters.AddWithValue("@DateCreated", DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss"));
+                command.ExecuteNonQuery();
+                id = command.LastInsertedId;
+            }
+            catch (MySqlException e)
+            {
+                DatabaseErrorMessageUtility.SendMessageToUser("Problem adding Record information to the database.", e);
+            }
+            catch (Exception e)
+            {
+                DatabaseErrorMessageUtility.SendMessageToUser("Problem adding Record information to the database.", e);
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return id;
         }
 
         private const string SelectRecordsByBudgetIDStatement = 
@@ -43,7 +72,6 @@ namespace CS6920Group4Project.DAL.Model
         public List<Record> GetRecordsByBudgetID(int BudgetID)
         {
             List<Record> records = new List<Record>();
-            Record record = new Record();
             try
             {
                 using (MySqlCommand cmd = new MySqlCommand())
@@ -57,6 +85,7 @@ namespace CS6920Group4Project.DAL.Model
                     {
                         while (reader.Read())
                         {
+                            Record record = new Record();
                             record.ID = reader.GetInt32(0);
                             record.BudgetID = reader.GetInt32(1);
                             record.RecordType = reader.GetChar(2);
