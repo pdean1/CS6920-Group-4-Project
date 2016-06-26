@@ -35,13 +35,8 @@ namespace CS6920Group4Project.View
             if (dialog == DialogResult.Yes)
             {
                 Session.SessionInformation.InitSession();
-                this.Dispose();
-            }
-            else if (dialog == DialogResult.No)
-            {
                 this.Close();
             }
-    
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
