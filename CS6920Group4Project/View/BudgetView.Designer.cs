@@ -38,7 +38,6 @@
             this.expenseAmount = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.earnView = new System.Windows.Forms.ListView();
             this.dateEarned = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.budgetType = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.title = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.description = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.category = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -98,18 +97,18 @@
             // 
             this.expenseTitle.DisplayIndex = 0;
             this.expenseTitle.Text = "Expense Title";
-            this.expenseTitle.Width = 109;
+            this.expenseTitle.Width = 120;
             // 
             // expenseDescription
             // 
             this.expenseDescription.Text = "Description";
-            this.expenseDescription.Width = 113;
+            this.expenseDescription.Width = 121;
             // 
             // expenseDate
             // 
             this.expenseDate.DisplayIndex = 1;
             this.expenseDate.Text = "Date";
-            this.expenseDate.Width = 78;
+            this.expenseDate.Width = 107;
             // 
             // expenseAmount
             // 
@@ -121,13 +120,12 @@
             // 
             this.earnView.BackColor = System.Drawing.Color.LightGoldenrodYellow;
             this.earnView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.dateEarned,
-            this.budgetType,
             this.title,
             this.description,
             this.category,
             this.earning,
-            this.amount});
+            this.amount,
+            this.dateEarned});
             this.earnView.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.earnView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.earnView.Location = new System.Drawing.Point(27, 39);
@@ -139,43 +137,31 @@
             // 
             // dateEarned
             // 
-            this.dateEarned.DisplayIndex = 6;
             this.dateEarned.Text = "Date";
             this.dateEarned.Width = 83;
             // 
-            // budgetType
-            // 
-            this.budgetType.DisplayIndex = 0;
-            this.budgetType.Text = "Budget Type";
-            this.budgetType.Width = 105;
-            // 
             // title
             // 
-            this.title.DisplayIndex = 1;
             this.title.Text = "Title";
             this.title.Width = 92;
             // 
             // description
             // 
-            this.description.DisplayIndex = 2;
             this.description.Text = "Description";
             this.description.Width = 109;
             // 
             // category
             // 
-            this.category.DisplayIndex = 3;
             this.category.Text = "Category";
             this.category.Width = 91;
             // 
             // earning
             // 
-            this.earning.DisplayIndex = 4;
-            this.earning.Text = "Source";
+            this.earning.Text = "Earning Title";
             this.earning.Width = 117;
             // 
             // amount
             // 
-            this.amount.DisplayIndex = 5;
             this.amount.Text = "Amount";
             this.amount.Width = 95;
             // 
@@ -208,12 +194,12 @@
             // 
             this.billAmount.DisplayIndex = 3;
             this.billAmount.Text = "Amount";
-            this.billAmount.Width = 94;
+            this.billAmount.Width = 99;
             // 
             // dueDate
             // 
             this.dueDate.Text = "Date Due";
-            this.dueDate.Width = 106;
+            this.dueDate.Width = 120;
             // 
             // billDescription
             // 
@@ -225,11 +211,12 @@
             // 
             this.billBalance.DisplayIndex = 1;
             this.billBalance.Text = "Balance";
-            this.billBalance.Width = 89;
+            this.billBalance.Width = 111;
             // 
             // datePaid
             // 
             this.datePaid.Text = "Date Paid";
+            this.datePaid.Width = 92;
             // 
             // budgetVewPnl
             // 
@@ -313,7 +300,6 @@
         private System.Windows.Forms.ColumnHeader billBalance;
         private System.Windows.Forms.Panel budgetVewPnl;
         private System.Windows.Forms.ColumnHeader dueDate;
-        private System.Windows.Forms.ColumnHeader budgetType;
         private System.Windows.Forms.ColumnHeader title;
         private System.Windows.Forms.ColumnHeader description;
         private System.Windows.Forms.ColumnHeader category;

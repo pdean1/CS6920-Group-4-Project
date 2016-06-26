@@ -43,6 +43,35 @@ namespace CS6920Group4Project.View
                 earnView.Items[i].SubItems.Add(earning.Amount.ToString());
                 earnView.Items[i].SubItems.Add(earning.DateEarned.ToString());
             }
+           
+            List<Bill> billList = billController.GetBillsByBudgetID(budgetID);
+            for (int i = 0; i < billList.Count; i++)
+            {
+                Bill bill = billList[i];
+                ListViewItem item = new ListViewItem();
+                billView.Items.Add((i + 1).ToString());
+                billView.Items[i].SubItems.Add(bill.Title.ToString());
+                billView.Items[i].SubItems.Add(bill.Amount.ToString());
+                billView.Items[i].SubItems.Add(bill.DateDue.ToString());
+                billView.Items[i].SubItems.Add(bill.Description.ToString());
+                billView.Items[i].SubItems.Add(bill.DatePaid.ToString());
+                               
+            }
+            List<Expense> expenseList = expenseController.GetExpensesByBudgetID(budgetID);
+            for (int i = 0; i < expenseList.Count; i++)
+            {
+                Expense expense = expenseList[i];
+                ListViewItem item = new ListViewItem();
+                expenseView.Items.Add((i + 1).ToString());
+                expenseView.Items[i].SubItems.Add(expense.Title.ToString());
+                expenseView.Items[i].SubItems.Add(expense.DateSpent.ToString());
+                expenseView.Items[i].SubItems.Add(expense.Description.ToString());
+                expenseView.Items[i].SubItems.Add(expense.Amount.ToString());
+                expenseView.Items[i].SubItems.Add(expense.Category.Description.ToString());
+
+
+            }
         }
+
     }
 }
