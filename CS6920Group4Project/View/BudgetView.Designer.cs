@@ -36,7 +36,7 @@
             this.expenseDescription = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.expenseDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.expenseAmount = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.incomeView = new System.Windows.Forms.ListView();
+            this.earnView = new System.Windows.Forms.ListView();
             this.dateEarned = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.budgetType = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.title = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -117,10 +117,10 @@
             this.expenseAmount.Text = "Amount";
             this.expenseAmount.Width = 102;
             // 
-            // incomeView
+            // earnView
             // 
-            this.incomeView.BackColor = System.Drawing.Color.LightGoldenrodYellow;
-            this.incomeView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.earnView.BackColor = System.Drawing.Color.LightGoldenrodYellow;
+            this.earnView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.dateEarned,
             this.budgetType,
             this.title,
@@ -128,14 +128,14 @@
             this.category,
             this.earning,
             this.amount});
-            this.incomeView.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.incomeView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
-            this.incomeView.Location = new System.Drawing.Point(27, 39);
-            this.incomeView.Name = "incomeView";
-            this.incomeView.Size = new System.Drawing.Size(709, 123);
-            this.incomeView.TabIndex = 2;
-            this.incomeView.UseCompatibleStateImageBehavior = false;
-            this.incomeView.View = System.Windows.Forms.View.Details;
+            this.earnView.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.earnView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
+            this.earnView.Location = new System.Drawing.Point(27, 39);
+            this.earnView.Name = "earnView";
+            this.earnView.Size = new System.Drawing.Size(709, 123);
+            this.earnView.TabIndex = 2;
+            this.earnView.UseCompatibleStateImageBehavior = false;
+            this.earnView.View = System.Windows.Forms.View.Details;
             // 
             // dateEarned
             // 
@@ -239,7 +239,7 @@
             this.budgetVewPnl.Controls.Add(this.label2);
             this.budgetVewPnl.Controls.Add(this.expenseView);
             this.budgetVewPnl.Controls.Add(this.billView);
-            this.budgetVewPnl.Controls.Add(this.incomeView);
+            this.budgetVewPnl.Controls.Add(this.earnView);
             this.budgetVewPnl.Location = new System.Drawing.Point(327, 255);
             this.budgetVewPnl.Name = "budgetVewPnl";
             this.budgetVewPnl.Size = new System.Drawing.Size(762, 477);
@@ -307,7 +307,7 @@
         private System.Windows.Forms.ListView expenseView;
         private System.Windows.Forms.ColumnHeader expenseTitle;
         private System.Windows.Forms.ColumnHeader expenseDate;
-        private System.Windows.Forms.ListView incomeView;
+        private System.Windows.Forms.ListView earnView;
         private System.Windows.Forms.ListView billView;
         private System.Windows.Forms.ColumnHeader billTitle;
         private System.Windows.Forms.ColumnHeader billBalance;

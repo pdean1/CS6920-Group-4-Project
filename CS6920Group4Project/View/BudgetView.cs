@@ -28,7 +28,21 @@ namespace CS6920Group4Project.View
 
         private void BudgetView_Load(object sender, EventArgs e)
         {
+            int budgetID = 1;
 
+            List<Earning> earningsList = earnController.GetEarningsByBudgetID(budgetID);
+            for (int i = 0; i < earningsList.Count; i++)
+            {
+                Earning earning = earningsList[i];
+                ListViewItem item = new ListViewItem();
+                earnView.Items.Add((i + 1).ToString());
+                earnView.Items[i].SubItems.Add(earning.Title.ToString());
+                earnView.Items[i].SubItems.Add(earning.Description.ToString());
+                earnView.Items[i].SubItems.Add(earning.Category.Description.ToString());
+                earnView.Items[i].SubItems.Add(earning.Category.Title.ToString());
+                earnView.Items[i].SubItems.Add(earning.Amount.ToString());
+                earnView.Items[i].SubItems.Add(earning.DateEarned.ToString());
+            }
         }
     }
 }
