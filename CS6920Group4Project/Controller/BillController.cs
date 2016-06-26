@@ -8,15 +8,11 @@ using System.Threading.Tasks;
 
 namespace CS6920Group4Project.Controller
 {
-    class BillController
+    public class BillController
     {
         private static BillController instance;
         private readonly BillDAL _dal = new BillDAL();
-        private BillController()
-        {
-            
-        }
-
+        
         public static BillController Instance
         {
             get

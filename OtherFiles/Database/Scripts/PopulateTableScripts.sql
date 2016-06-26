@@ -38,7 +38,7 @@ INSERT INTO `sql5123046`.`earningcategories` (`Title`) VALUES ('Consultation');
 INSERT INTO `sql5123046`.`earningcategories` (`Title`) VALUES ('Other');
 
 INSERT INTO `sql5123046`.`budgets` (`UserID`, `BudgetTypeID`, `Title`, `Description`, `DateCreated`) VALUES ('1', '1', 'June 2016', 'June 2016 Test Budget', '2016-06-01');
-INSERT INTO `sql5123046`.`budgets` (`UserID`, `BudgetTypeID`, `Title`, `Description`, `DateCreated`) VALUES ('1', '1', 'July 2016', 'July 2016 Monthly Budget', '2016-07-01');
+-- INSERT INTO `sql5123046`.`budgets` (`UserID`, `BudgetTypeID`, `Title`, `Description`, `DateCreated`) VALUES ('1', '1', 'July 2016', 'July 2016 Monthly Budget', '2016-07-01');
 INSERT INTO `sql5123046`.`budgets` (`UserID`, `BudgetTypeID`, `Title`, `Description`, `DateCreated`) VALUES ('2', '2', 'Tybee Island Vacation Budget', 'August 2016', '2016-06-01');
 
 INSERT INTO `sql5123046`.`records` (`BudgetID`, `RecordType`, `Title`, `Description`, `DateCreated`) VALUES ('1', 'E', 'Paycheck', '1st of the month', '2016-06-01');

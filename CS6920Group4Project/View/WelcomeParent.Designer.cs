@@ -36,7 +36,7 @@
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.budgetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.manageBudgetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.manageBillsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewBudgetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.manageIncomeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.incomeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.expensesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -53,7 +53,7 @@
             this.dashboardToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1384, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1434, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -70,20 +70,20 @@
             // signUpToolStripMenuItem
             // 
             this.signUpToolStripMenuItem.Name = "signUpToolStripMenuItem";
-            this.signUpToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.signUpToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
             this.signUpToolStripMenuItem.Text = "Sign up";
             // 
             // logOutToolStripMenuItem
             // 
             this.logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
-            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
             this.logOutToolStripMenuItem.Text = "Log Out";
             this.logOutToolStripMenuItem.Click += new System.EventHandler(this.logOutToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -91,7 +91,7 @@
             // 
             this.budgetToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.manageBudgetToolStripMenuItem,
-            this.manageBillsToolStripMenuItem,
+            this.viewBudgetToolStripMenuItem,
             this.manageIncomeToolStripMenuItem});
             this.budgetToolStripMenuItem.Name = "budgetToolStripMenuItem";
             this.budgetToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
@@ -104,11 +104,12 @@
             this.manageBudgetToolStripMenuItem.Text = "Create a Budget";
             this.manageBudgetToolStripMenuItem.Click += new System.EventHandler(this.createBudgetToolStripMenuItem_Click);
             // 
-            // manageBillsToolStripMenuItem
+            // viewBudgetToolStripMenuItem
             // 
-            this.manageBillsToolStripMenuItem.Name = "manageBillsToolStripMenuItem";
-            this.manageBillsToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
-            this.manageBillsToolStripMenuItem.Text = "View Budget";
+            this.viewBudgetToolStripMenuItem.Name = "viewBudgetToolStripMenuItem";
+            this.viewBudgetToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
+            this.viewBudgetToolStripMenuItem.Text = "View Budget";
+            this.viewBudgetToolStripMenuItem.Click += new System.EventHandler(this.viewBudgetToolStripMenuItem_Click);
             // 
             // manageIncomeToolStripMenuItem
             // 
@@ -119,25 +120,26 @@
             this.manageIncomeToolStripMenuItem.Name = "manageIncomeToolStripMenuItem";
             this.manageIncomeToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
             this.manageIncomeToolStripMenuItem.Text = "Manage";
+            this.manageIncomeToolStripMenuItem.Click += new System.EventHandler(this.manageIncomeToolStripMenuItem_Click);
             // 
             // incomeToolStripMenuItem
             // 
             this.incomeToolStripMenuItem.Name = "incomeToolStripMenuItem";
-            this.incomeToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
+            this.incomeToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.incomeToolStripMenuItem.Text = "Earnings";
             this.incomeToolStripMenuItem.Click += new System.EventHandler(this.incomeToolStripMenuItem_Click);
             // 
             // expensesToolStripMenuItem
             // 
             this.expensesToolStripMenuItem.Name = "expensesToolStripMenuItem";
-            this.expensesToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
+            this.expensesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.expensesToolStripMenuItem.Text = "Expenses";
             this.expensesToolStripMenuItem.Click += new System.EventHandler(this.expensesToolStripMenuItem_Click);
             // 
             // billsToolStripMenuItem
             // 
             this.billsToolStripMenuItem.Name = "billsToolStripMenuItem";
-            this.billsToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
+            this.billsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.billsToolStripMenuItem.Text = "Bills";
             this.billsToolStripMenuItem.Click += new System.EventHandler(this.billsToolStripMenuItem_Click);
             // 
@@ -153,7 +155,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(1384, 762);
+            this.ClientSize = new System.Drawing.Size(1434, 812);
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
@@ -177,7 +179,7 @@
         private System.Windows.Forms.ToolStripMenuItem signUpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem budgetToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem manageBudgetToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem manageBillsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem viewBudgetToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem manageIncomeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem dashboardToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem incomeToolStripMenuItem;

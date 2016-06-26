@@ -162,7 +162,7 @@ namespace CS6920Group4Project.DAL.Model
                 {
                     conn.Open();
                     cmd.Connection = conn;
-                    cmd.CommandText = "SELECT * FROM viewbillcategorylist";
+                    cmd.CommandText = "SELECT * FROM billcategories";
                     cmd.Prepare();
                     using (MySqlDataReader reader = cmd.ExecuteReader())
                     {

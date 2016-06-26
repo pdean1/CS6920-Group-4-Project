@@ -15,6 +15,7 @@ namespace CS6920Group4Project.View
     public partial class WelcomeParent : Form        
     { 
         Dashboard dashboard;
+        Dashboard dashboardParent;
         private BudgetView viewBudget;
         private ManageBudgets manageBudget;
         private ManageEarnings manageEarnings;
@@ -28,43 +29,24 @@ namespace CS6920Group4Project.View
 
         }
 
-        private void viewBudgetToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            //opens the manage budget page within the parent form
-            if (viewBudget == null)
-            {
-                viewBudget = new BudgetView();
-                viewBudget.MdiParent = this;
-                viewBudget.FormClosed += new FormClosedEventHandler(BudgetView_FormClosed);
-                viewBudget.Show();
-            }
-            else
-                viewBudget.Activate();
-        }
-        private void BudgetView_FormClosed(object sender, System.Windows.Forms.FormClosedEventArgs e)
-        {
-            viewBudget = null;
-        }
-
         private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Session.SessionInformation.InitSession();
-            this.Close();
+            DialogResult dialog = MessageBox.Show("Are you sure you want to log out", "", MessageBoxButtons.YesNo);
+            if (dialog == DialogResult.Yes)
+            {
+                Session.SessionInformation.InitSession();
+                this.Close();
+            }
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            DialogResult dialog = MessageBox.Show("Do you really wish to exit the program");
+            DialogResult dialog = MessageBox.Show("Do you really wish to exit the program","", MessageBoxButtons.YesNo);
             if (dialog == DialogResult.Yes)
             {
                 Session.SessionInformation.InitSession();
-                 this.Dispose();
+                Application.Exit();
             }
-            else if (dialog == DialogResult.No)
-            {
-                this.Close();
-            }
-            
         }
 
         private void dashboardToolStripMenuItem_Click(object sender, EventArgs e)
@@ -87,7 +69,18 @@ namespace CS6920Group4Project.View
 
         private void WelcomeParent_Load(object sender, EventArgs e)
         {
-
+        if(dashboardParent == null) {
+            dashboardParent = new Dashboard();
+            dashboardParent.MdiParent = this;
+            dashboardParent.FormClosed += new FormClosedEventHandler(dashboard_FormClosed);
+            dashboardParent.Show();
+        }
+        else
+            dashboardParent.Activate();
+        }
+        private void dashboardParent_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            dashboardParent = null;
         }
         
         private void incomeToolStripMenuItem_Click(object sender, EventArgs e)
@@ -164,6 +157,30 @@ namespace CS6920Group4Project.View
         {
  	        manageBudget = null;
         }
+
+        private void viewBudgetToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //opens the manage budget page within the parent form
+            if (viewBudget == null)
+            {
+                viewBudget = new BudgetView();
+                viewBudget.MdiParent = this;
+                viewBudget.FormClosed += new FormClosedEventHandler(BudgetView_FormClosed);
+                viewBudget.Show();
+            }
+            else
+                viewBudget.Activate();
+        }
+        private void BudgetView_FormClosed(object sender, System.Windows.Forms.FormClosedEventArgs e)
+        {
+            viewBudget = null;
+        }
+
+        private void manageIncomeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+       
     }   
   }
 
