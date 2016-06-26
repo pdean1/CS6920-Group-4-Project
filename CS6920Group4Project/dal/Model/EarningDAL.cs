@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 using CS6920Group4Project.Model;
 using CS6920Group4Project.Utilities;
+using CS6920Group4Project.Controller;
 
 namespace CS6920Group4Project.DAL.Model
 {
@@ -13,11 +14,46 @@ namespace CS6920Group4Project.DAL.Model
     {
         private MySqlConnection conn = new DBConnect().GetConnection();
 
-        private const string InsertEarningStatement = "";
+        private const string InsertEarningStatement = "INSERT INTO `sql5123046`.`earnings` (`RecordID`, `EarningCategoryID`, `Amount`, `DateEarned`)" 
+            + " VALUES (@RecordID, @EarningCategoryID, @Amount, @DateEarned);";
 
         public long InsertEarning(Earning earning)
         {
-            return 0;
+            long id = RecordController.Instance.InsertRecord(earning);
+            if (id == 0)
+                return 0;
+            earning.ID = id;
+            using (MySqlCommand command = new MySqlCommand())
+            {
+                try
+                {
+                    conn.Open();
+                    command.Connection = conn;
+                    command.CommandText = InsertEarningStatement;
+                    command.Prepare();
+                    command.Parameters.AddWithValue("@RecordID", earning.ID);
+                    command.Parameters.AddWithValue("@EarningCategoryID", earning.Category.ID);
+                    command.Parameters.AddWithValue("@Amount", earning.Amount);
+                    command.Parameters.AddWithValue("@DateEarned", earning.DateEarned);
+                    command.ExecuteNonQuery();
+                    id = command.LastInsertedId;
+                }
+                catch (MySqlException e)
+                {
+                    DatabaseErrorMessageUtility.SendMessageToUser("Unable to query for users in the database.", e);
+                    id = 0;
+                }
+                catch (Exception e)
+                {
+                    DatabaseErrorMessageUtility.SendMessageToUser("Unable to query for users in the database.", e);
+                    id = 0;
+                }
+                finally
+                {
+                    conn.Close();
+                }    
+            }
+            return id;
         }
 
         private const string SelectEarningsByBudgetIDStatement = 
