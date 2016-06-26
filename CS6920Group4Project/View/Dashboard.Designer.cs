@@ -365,7 +365,7 @@
             this.statisticsChart.ChartAreas.Add(chartArea2);
             legend2.Name = "Legend1";
             this.statisticsChart.Legends.Add(legend2);
-            this.statisticsChart.Location = new System.Drawing.Point(307, 361);
+            this.statisticsChart.Location = new System.Drawing.Point(286, 328);
             this.statisticsChart.Name = "statisticsChart";
             this.statisticsChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
             series2.ChartArea = "ChartArea1";
@@ -373,7 +373,7 @@
             series2.Legend = "Legend1";
             series2.Name = "Series1";
             this.statisticsChart.Series.Add(series2);
-            this.statisticsChart.Size = new System.Drawing.Size(221, 194);
+            this.statisticsChart.Size = new System.Drawing.Size(259, 227);
             this.statisticsChart.TabIndex = 0;
             this.statisticsChart.Text = "Budget Statistics";
             // 
