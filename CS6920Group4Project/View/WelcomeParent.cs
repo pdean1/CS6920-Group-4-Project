@@ -47,11 +47,6 @@ namespace CS6920Group4Project.View
                 Session.SessionInformation.InitSession();
                 Application.Exit();
             }
-            else if (dialog == DialogResult.No)
-            {
-                this.Close();
-            }
-            
         }
 
         private void dashboardToolStripMenuItem_Click(object sender, EventArgs e)
