@@ -32,7 +32,6 @@
             this.billsWelcomeLbl = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.inLbl = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -47,9 +46,12 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.currencyLbl = new System.Windows.Forms.Label();
-            this.billBox = new System.Windows.Forms.TextBox();
             this.billBtn = new System.Windows.Forms.Button();
             this.billCategoryBox = new System.Windows.Forms.ComboBox();
+            this.billTitleBox = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.billBox = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // billsWelcomeLbl
@@ -90,16 +92,6 @@
             this.inLbl.TabIndex = 2;
             this.inLbl.Text = "BILL INFORMATION";
             this.inLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Location = new System.Drawing.Point(574, 308);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(82, 21);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Bill Source";
             // 
             // label3
             // 
@@ -241,13 +233,6 @@
             this.currencyLbl.TabIndex = 20;
             this.currencyLbl.Text = "$1000.00";
             // 
-            // billBox
-            // 
-            this.billBox.Location = new System.Drawing.Point(756, 301);
-            this.billBox.Name = "billBox";
-            this.billBox.Size = new System.Drawing.Size(227, 28);
-            this.billBox.TabIndex = 21;
-            // 
             // billBtn
             // 
             this.billBtn.BackColor = System.Drawing.Color.ForestGreen;
@@ -270,6 +255,40 @@
             this.billCategoryBox.Size = new System.Drawing.Size(227, 29);
             this.billCategoryBox.TabIndex = 24;
             // 
+            // billTitleBox
+            // 
+            this.billTitleBox.Location = new System.Drawing.Point(755, 304);
+            this.billTitleBox.Name = "billTitleBox";
+            this.billTitleBox.Size = new System.Drawing.Size(227, 28);
+            this.billTitleBox.TabIndex = 30;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.Transparent;
+            this.label6.Location = new System.Drawing.Point(573, 311);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(65, 21);
+            this.label6.TabIndex = 29;
+            this.label6.Text = "Bill Title";
+            // 
+            // billBox
+            // 
+            this.billBox.Location = new System.Drawing.Point(755, 261);
+            this.billBox.Name = "billBox";
+            this.billBox.Size = new System.Drawing.Size(227, 28);
+            this.billBox.TabIndex = 28;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Location = new System.Drawing.Point(573, 268);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(82, 21);
+            this.label2.TabIndex = 27;
+            this.label2.Text = "Bill Source";
+            // 
             // ManageBills
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
@@ -277,9 +296,12 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1437, 762);
+            this.Controls.Add(this.billTitleBox);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.billBox);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.billCategoryBox);
             this.Controls.Add(this.billBtn);
-            this.Controls.Add(this.billBox);
             this.Controls.Add(this.currencyLbl);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
@@ -294,7 +316,6 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.inLbl);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.billsWelcomeLbl);
@@ -314,7 +335,6 @@
         private System.Windows.Forms.Label billsWelcomeLbl;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label inLbl;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
@@ -332,9 +352,12 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Label currencyLbl;
-        private System.Windows.Forms.TextBox billBox;
         private System.Windows.Forms.Button billBtn;
         private System.Windows.Forms.ComboBox billCategoryBox;
+        private System.Windows.Forms.TextBox billTitleBox;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox billBox;
+        private System.Windows.Forms.Label label2;
 
     }
 }
