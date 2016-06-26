@@ -35,6 +35,10 @@ namespace CS6920Group4Project.Controller
         {
             _dal.AddEarning(earn);
         }
+        public long InsertEarning(Earning e)
+        {
+            return _dal.InsertEarning(e);
+        }
     }
 
 }

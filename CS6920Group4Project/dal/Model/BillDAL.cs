@@ -32,7 +32,7 @@ namespace CS6920Group4Project.DAL.Model
                 command.Connection = conn;
                 command.CommandText = InsertBillStatement;
                 command.Prepare();
-                command.Parameters.AddWithValue("@RecordID", bill.BudgetID);
+                command.Parameters.AddWithValue("@RecordID", bill.ID);
                 command.Parameters.AddWithValue("@BillCategoryID", bill.Category.ID);
                 command.Parameters.AddWithValue("@Amount", bill.Amount);
                 command.Parameters.AddWithValue("@DateDue", bill.DateDue.ToLongDateString());
