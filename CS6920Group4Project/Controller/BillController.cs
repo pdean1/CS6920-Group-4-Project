@@ -37,5 +37,9 @@ namespace CS6920Group4Project.Controller
         {
             return _dal.GetBillCategoryList();
         }
+        public long InsertBill(Bill b)
+        {
+            return _dal.InsertBill(b);
+        }
     }
 }
