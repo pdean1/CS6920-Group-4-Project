@@ -33,9 +33,14 @@ namespace CS6920Group4Project.Controller
             return _dal.GetBillsByBudgetID(ID);
         }
 
-        public List<Category> GetBillCategoryList()
+        public List<BillCategory> GetBillCategoryList()
         {
             return _dal.GetBillCategoryList();
+        }
+
+        public long InsertBill(Bill bill)
+        {
+            return _dal.InsertBill(bill);
         }
     }
 }

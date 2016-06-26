@@ -153,9 +153,9 @@ namespace CS6920Group4Project.DAL.Model
             return bills;
         }
 
-        public List<Category> GetBillCategoryList()
+        public List<BillCategory> GetBillCategoryList()
         {
-            List<Category> billCategoryList = new List<Category>();
+            List<BillCategory> billCategoryList = new List<BillCategory>();
             try
             {
                 using (MySqlCommand cmd = new MySqlCommand())
@@ -172,7 +172,7 @@ namespace CS6920Group4Project.DAL.Model
                             var bTitle = reader.GetOrdinal("Title");
                             var bDesc = reader.GetOrdinal("Description");
 
-                            Category billCategory = new Category();
+                            BillCategory billCategory = new BillCategory();
 
                             billCategory.ID = reader.GetInt32(bid);
                             billCategory.Title = reader.GetString(bTitle);

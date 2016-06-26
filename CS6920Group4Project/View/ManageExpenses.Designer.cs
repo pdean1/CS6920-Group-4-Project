@@ -49,9 +49,7 @@
             this.expenseCategoryBox = new System.Windows.Forms.ComboBox();
             this.expanseTitletxt = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.expenseNametxt = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // expenseWelcomeLbl
@@ -261,13 +259,6 @@
             this.label6.TabIndex = 27;
             this.label6.Text = "Expense Title:";
             // 
-            // expenseNametxt
-            // 
-            this.expenseNametxt.Location = new System.Drawing.Point(756, 268);
-            this.expenseNametxt.Name = "expenseNametxt";
-            this.expenseNametxt.Size = new System.Drawing.Size(227, 28);
-            this.expenseNametxt.TabIndex = 26;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -277,16 +268,6 @@
             this.label3.Size = new System.Drawing.Size(137, 21);
             this.label3.TabIndex = 25;
             this.label3.Text = "Expense Category:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Location = new System.Drawing.Point(574, 268);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(116, 21);
-            this.label2.TabIndex = 24;
-            this.label2.Text = "Expense Name:";
             // 
             // ManageExpenses
             // 
@@ -298,9 +279,7 @@
             this.Controls.Add(this.expenseCategoryBox);
             this.Controls.Add(this.expanseTitletxt);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.expenseNametxt);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.currencyLbl);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
@@ -351,9 +330,7 @@
         private System.Windows.Forms.ComboBox expenseCategoryBox;
         private System.Windows.Forms.TextBox expanseTitletxt;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox expenseNametxt;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
 
     }
 }

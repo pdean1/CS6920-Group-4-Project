@@ -35,8 +35,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.monthCalendar = new System.Windows.Forms.MonthCalendar();
-            this.billAmountBox = new System.Windows.Forms.TextBox();
+            this.billAmountTxt = new System.Windows.Forms.TextBox();
             this.budgetLbl = new System.Windows.Forms.Label();
             this.currentBudgetLbl = new System.Windows.Forms.Label();
             this.incomeDashBtn = new System.Windows.Forms.Button();
@@ -48,10 +47,11 @@
             this.currencyLbl = new System.Windows.Forms.Label();
             this.billBtn = new System.Windows.Forms.Button();
             this.billCategoryBox = new System.Windows.Forms.ComboBox();
-            this.billTitleBox = new System.Windows.Forms.TextBox();
+            this.billTitleTxt = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.billBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.billDescTxt = new System.Windows.Forms.TextBox();
+            this.monthCalendar = new System.Windows.Forms.MonthCalendar();
             this.SuspendLayout();
             // 
             // billsWelcomeLbl
@@ -97,11 +97,11 @@
             // 
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Location = new System.Drawing.Point(574, 352);
+            this.label3.Location = new System.Drawing.Point(575, 309);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(97, 21);
+            this.label3.Size = new System.Drawing.Size(102, 21);
             this.label3.TabIndex = 4;
-            this.label3.Text = "Bill Category";
+            this.label3.Text = "Bill Category:";
             // 
             // label4
             // 
@@ -109,9 +109,9 @@
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Location = new System.Drawing.Point(574, 395);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(67, 21);
+            this.label4.Size = new System.Drawing.Size(97, 21);
             this.label4.TabIndex = 5;
-            this.label4.Text = "Amount";
+            this.label4.Text = "Bill Amount:";
             // 
             // label5
             // 
@@ -119,22 +119,16 @@
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Location = new System.Drawing.Point(573, 440);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(99, 21);
+            this.label5.Size = new System.Drawing.Size(104, 21);
             this.label5.TabIndex = 6;
-            this.label5.Text = "Deposit Date";
+            this.label5.Text = "Deposit Date:";
             // 
-            // monthCalendar
+            // billAmountTxt
             // 
-            this.monthCalendar.Location = new System.Drawing.Point(756, 440);
-            this.monthCalendar.Name = "monthCalendar";
-            this.monthCalendar.TabIndex = 7;
-            // 
-            // billAmountBox
-            // 
-            this.billAmountBox.Location = new System.Drawing.Point(756, 395);
-            this.billAmountBox.Name = "billAmountBox";
-            this.billAmountBox.Size = new System.Drawing.Size(227, 28);
-            this.billAmountBox.TabIndex = 11;
+            this.billAmountTxt.Location = new System.Drawing.Point(756, 395);
+            this.billAmountTxt.Name = "billAmountTxt";
+            this.billAmountTxt.Size = new System.Drawing.Size(227, 28);
+            this.billAmountTxt.TabIndex = 11;
             // 
             // budgetLbl
             // 
@@ -250,44 +244,50 @@
             // 
             this.billCategoryBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.billCategoryBox.FormattingEnabled = true;
-            this.billCategoryBox.Location = new System.Drawing.Point(756, 349);
+            this.billCategoryBox.Location = new System.Drawing.Point(757, 306);
             this.billCategoryBox.Name = "billCategoryBox";
             this.billCategoryBox.Size = new System.Drawing.Size(227, 29);
             this.billCategoryBox.TabIndex = 24;
             // 
-            // billTitleBox
+            // billTitleTxt
             // 
-            this.billTitleBox.Location = new System.Drawing.Point(755, 304);
-            this.billTitleBox.Name = "billTitleBox";
-            this.billTitleBox.Size = new System.Drawing.Size(227, 28);
-            this.billTitleBox.TabIndex = 30;
+            this.billTitleTxt.Location = new System.Drawing.Point(756, 261);
+            this.billTitleTxt.Name = "billTitleTxt";
+            this.billTitleTxt.Size = new System.Drawing.Size(227, 28);
+            this.billTitleTxt.TabIndex = 30;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.Transparent;
-            this.label6.Location = new System.Drawing.Point(573, 311);
+            this.label6.Location = new System.Drawing.Point(574, 268);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(65, 21);
+            this.label6.Size = new System.Drawing.Size(70, 21);
             this.label6.TabIndex = 29;
-            this.label6.Text = "Bill Title";
-            // 
-            // billBox
-            // 
-            this.billBox.Location = new System.Drawing.Point(755, 261);
-            this.billBox.Name = "billBox";
-            this.billBox.Size = new System.Drawing.Size(227, 28);
-            this.billBox.TabIndex = 28;
+            this.label6.Text = "Bill Title:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Location = new System.Drawing.Point(573, 268);
+            this.label2.Location = new System.Drawing.Point(575, 354);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(82, 21);
-            this.label2.TabIndex = 27;
-            this.label2.Text = "Bill Source";
+            this.label2.Size = new System.Drawing.Size(118, 21);
+            this.label2.TabIndex = 31;
+            this.label2.Text = "Bill Description:";
+            // 
+            // billDescTxt
+            // 
+            this.billDescTxt.Location = new System.Drawing.Point(756, 354);
+            this.billDescTxt.Name = "billDescTxt";
+            this.billDescTxt.Size = new System.Drawing.Size(227, 28);
+            this.billDescTxt.TabIndex = 32;
+            // 
+            // monthCalendar
+            // 
+            this.monthCalendar.Location = new System.Drawing.Point(756, 440);
+            this.monthCalendar.Name = "monthCalendar";
+            this.monthCalendar.TabIndex = 7;
             // 
             // ManageBills
             // 
@@ -296,10 +296,10 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1437, 762);
-            this.Controls.Add(this.billTitleBox);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.billBox);
+            this.Controls.Add(this.billDescTxt);
             this.Controls.Add(this.label2);
+            this.Controls.Add(this.billTitleTxt);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.billCategoryBox);
             this.Controls.Add(this.billBtn);
             this.Controls.Add(this.currencyLbl);
@@ -311,7 +311,7 @@
             this.Controls.Add(this.incomeDashBtn);
             this.Controls.Add(this.currentBudgetLbl);
             this.Controls.Add(this.budgetLbl);
-            this.Controls.Add(this.billAmountBox);
+            this.Controls.Add(this.billAmountTxt);
             this.Controls.Add(this.monthCalendar);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -338,11 +338,10 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.MonthCalendar monthCalendar;
  //       private System.Windows.Forms.Button incomeBtn;
  //       private System.Windows.Forms.TextBox incomeBox;
  //       private System.Windows.Forms.TextBox incomeDescBox;
-        private System.Windows.Forms.TextBox billAmountBox;
+        private System.Windows.Forms.TextBox billAmountTxt;
         private System.Windows.Forms.Label budgetLbl;
         private System.Windows.Forms.Label currentBudgetLbl;
         private System.Windows.Forms.Button incomeDashBtn;
@@ -354,10 +353,11 @@
         private System.Windows.Forms.Label currencyLbl;
         private System.Windows.Forms.Button billBtn;
         private System.Windows.Forms.ComboBox billCategoryBox;
-        private System.Windows.Forms.TextBox billTitleBox;
+        private System.Windows.Forms.TextBox billTitleTxt;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox billBox;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox billDescTxt;
+        private System.Windows.Forms.MonthCalendar monthCalendar;
 
     }
 }

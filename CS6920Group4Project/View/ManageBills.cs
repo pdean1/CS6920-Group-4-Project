@@ -8,15 +8,21 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CS6920Group4Project.Controller;
+using CS6920Group4Project.Model;
+using System.Data.SqlClient;
 
 namespace CS6920Group4Project.View
 {
     public partial class ManageBills : Form
     {
-        String billSource;
-        String billDesc;
-        String billAmount;
-        String billDate;
+        private String billDesc;
+        private String billAmount;
+        private String billDate;
+        private String billTitle;
+
+        private BillCategory billCategory;
+        private List<BillCategory> categoryList;
+        private List<Budget> budgetList;
 
         public ManageBills()
         {
@@ -26,50 +32,92 @@ namespace CS6920Group4Project.View
 
         private void billBtn_Click(object sender, EventArgs e)
         {
-            bool isValidData = this.validateData();
-            if (isValidData == true)
+            try
             {
-                
+                bool isValidData = this.validateData();
+                if (isValidData == true)
+                {
+                    Bill newBill = new Bill();
+                    newBill.Amount = Convert.ToDecimal(billAmount);
+                    newBill.DateCreated = DateTime.Now;
+                    DateTime formatedDate = DateTime.Parse(billDate);
+ //                   DateTime formatedDate = billDate.ToString("yyyy-MM-dd HH:mm");
+                    newBill.DateDue = DateTime.Parse(billDate);
+                    newBill.Title = billTitle;
+                    newBill.Description = billDesc;
+                    newBill.Category = categoryList[billCategoryBox.SelectedIndex];
+                    newBill.BudgetID = 1;
+
+                    long isBillAdded = BillController.Instance.InsertBill(newBill);
+                    if (isBillAdded == 0)
+                    {
+                        MessageBox.Show("An error occured, Bill was not added to your Budget",
+                                    "USER",
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Stop);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Bill Successfully Added",
+                                    "USER",
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Stop);
+                        this.clearData();
+                    }
+                }
+                else
+                {
+                    this.clearData();
+                }
             }
-            else
+            catch (SqlException ex)
             {
-                this.clearData();
+                MessageBox.Show(ex.Message, ex.GetType().ToString());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.GetType().ToString());
             }
         }
 
         public bool validateData()
         {
-            billSource = billBox.Text;
-            billDesc = billCategoryBox.SelectedText.ToString();
-            billAmount = billAmountBox.Text;
-            billDate = monthCalendar.Text;
+             billDesc = billDescTxt.Text;
+             billAmount = billAmountTxt.Text;
+             billDate = monthCalendar.SelectionRange.Start.ToShortDateString();
+             billTitle = billTitleTxt.Text;
+            
+             if (String.IsNullOrEmpty(billTitle) || String.IsNullOrEmpty(billAmount) || String.IsNullOrEmpty(billDate))
+             {
+                 MessageBox.Show("All fields are required, Please Try Again",
+                                 "USER",
+                                 MessageBoxButtons.OK,
+                                 MessageBoxIcon.Stop);
+                 return false;
+             }
 
-            if (String.IsNullOrEmpty(billSource) || String.IsNullOrEmpty(billDesc) ||
-                String.IsNullOrEmpty(billAmount) || String.IsNullOrEmpty(billDate))
-            {
-                MessageBox.Show("All fields are required, Please Try Again",
-                                "USER",
-                                MessageBoxButtons.OK,
-                                MessageBoxIcon.Stop);
-                return false;
-            }
-
-            return true;
+             return true;
         }
 
         private void clearData()
         {
-            billBox.Text = "";
+            billDescTxt.Text = "";
             billCategoryBox.SelectedIndex = -1 ;
-            billAmountBox.Text = "";
+            billAmountTxt.Text = "";
             monthCalendar.Text = "";
         }
 
         private void getBillCategoryList()
         {
-            billCategoryBox.DataSource = BillController.Instance.GetBillCategoryList();
+            categoryList = BillController.Instance.GetBillCategoryList();
+            billCategoryBox.DataSource = categoryList;
             billCategoryBox.DisplayMember = "Title";
             billCategoryBox.ValueMember = "ID";
+        }
+
+        private void getUserID()
+        {
+            budgetList = Session.SessionInformation.GetListOfBudgets();     
         }
     }
 }
