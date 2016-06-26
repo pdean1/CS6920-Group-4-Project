@@ -59,6 +59,7 @@
     <Compile Include="Controller\BudgetController.cs" />
     <Compile Include="DAL\Model\BillDAL.cs" />
     <Compile Include="DAL\Model\BudgetDAL.cs" />
+    <Compile Include="DAL\Model\CategoriesDAL.cs" />
     <Compile Include="DAL\Model\EarningDAL.cs" />
     <Compile Include="DAL\Model\ExpenseDAL.cs" />
     <Compile Include="DAL\Model\RecordDAL.cs" />
