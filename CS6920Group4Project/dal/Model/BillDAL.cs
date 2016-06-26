@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 using CS6920Group4Project.Model;
 using CS6920Group4Project.Utilities;
+using CS6920Group4Project.Controller;
 
 namespace CS6920Group4Project.DAL.Model
 {
@@ -15,11 +16,50 @@ namespace CS6920Group4Project.DAL.Model
         private MySqlConnection conn = new DBConnect().GetConnection();
 
         private const string InsertBillStatement = 
-            "INSERT INTO sql5123046.bills(RecordID, BillCategoryID, Amount, DateDue, DatePaid) VALUES (@RecordID, @BillCategoryID, @Amount, @DateDue, @DatePaid)";
+            "INSERT INTO sql5123046.bills(RecordID, BillCategoryID, Amount, DateDue, DatePaid) VALUES" 
+            + " (@RecordID, @BillCategoryID, @Amount, @DateDue, @DatePaid)";
 
         public long InsertBill(Bill bill)
         {
-            return 0;
+            long id = RecordController.Instance.InsertRecord(bill);
+            if (id == 0)
+                return 0;
+            bill.ID = id;
+            MySqlCommand command = new MySqlCommand();
+            try
+            {
+                conn.Open();
+                command.Connection = conn;
+                command.CommandText = InsertBillStatement;
+                command.Prepare();
+                command.Parameters.AddWithValue("@RecordID", bill.BudgetID);
+                command.Parameters.AddWithValue("@BillCategoryID", bill.Category.ID);
+                command.Parameters.AddWithValue("@Amount", bill.Amount);
+                command.Parameters.AddWithValue("@DateDue", bill.DateDue.ToLongDateString());
+                if (bill.DatePaid == null)
+                {
+                    command.Parameters.AddWithValue("@DatePaid", DBNull.Value);
+                }
+                else
+                {
+                    command.Parameters.AddWithValue("@DatePaid", bill.DatePaid.Value.ToLongDateString());
+                }
+                command.ExecuteNonQuery();
+                id = command.LastInsertedId;
+            }
+            catch (MySqlException e)
+            {
+                DatabaseErrorMessageUtility.SendMessageToUser("Problem adding Record information to the database.", e);
+            }
+            catch (Exception e)
+            {
+                DatabaseErrorMessageUtility.SendMessageToUser("Problem adding Record information to the database.", e);
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return id;
         }
 
         private const string SelectBillsByBudgetID = 

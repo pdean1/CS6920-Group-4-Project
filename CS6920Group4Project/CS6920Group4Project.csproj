@@ -52,6 +52,7 @@
     <Compile Include="Controller\BillController.cs" />
     <Compile Include="Controller\EarningController.cs" />
     <Compile Include="Controller\ExpenseController.cs" />
+    <Compile Include="Controller\RecordController.cs" />
     <Compile Include="Controller\UserController.cs" />
     <Compile Include="Controller\Validator.cs" />
     <Compile Include="DAL\DBConnect.cs" />
