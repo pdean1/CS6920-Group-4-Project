@@ -31,30 +31,30 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BudgetView));
             this.label1 = new System.Windows.Forms.Label();
             this.expenseView = new System.Windows.Forms.ListView();
+            this.expenseCategory = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.expenseTitle = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.expenseDescription = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.expenseDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.expenseAmount = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.incomeView = new System.Windows.Forms.ListView();
+            this.dateEarned = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.budgetType = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.billView = new System.Windows.Forms.ListView();
-            this.billTitle = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.dueDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.billBalance = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.budgetVewPnl = new System.Windows.Forms.Panel();
             this.title = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.description = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.category = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.earning = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.amount = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.dateEarned = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.billView = new System.Windows.Forms.ListView();
+            this.billTitle = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.billAmount = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.dueDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.billDescription = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.billBalance = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.datePaid = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.expenseDescription = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.expenseAmount = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.expenseCategory = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.budgetVewPnl = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.budgetVewPnl.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -88,17 +88,34 @@
             this.expenseView.UseCompatibleStateImageBehavior = false;
             this.expenseView.View = System.Windows.Forms.View.Details;
             // 
+            // expenseCategory
+            // 
+            this.expenseCategory.DisplayIndex = 4;
+            this.expenseCategory.Text = "Category";
+            this.expenseCategory.Width = 92;
+            // 
             // expenseTitle
             // 
             this.expenseTitle.DisplayIndex = 0;
             this.expenseTitle.Text = "Expense Title";
             this.expenseTitle.Width = 109;
             // 
+            // expenseDescription
+            // 
+            this.expenseDescription.Text = "Description";
+            this.expenseDescription.Width = 113;
+            // 
             // expenseDate
             // 
             this.expenseDate.DisplayIndex = 1;
             this.expenseDate.Text = "Date";
             this.expenseDate.Width = 78;
+            // 
+            // expenseAmount
+            // 
+            this.expenseAmount.DisplayIndex = 3;
+            this.expenseAmount.Text = "Amount";
+            this.expenseAmount.Width = 102;
             // 
             // incomeView
             // 
@@ -120,61 +137,17 @@
             this.incomeView.UseCompatibleStateImageBehavior = false;
             this.incomeView.View = System.Windows.Forms.View.Details;
             // 
+            // dateEarned
+            // 
+            this.dateEarned.DisplayIndex = 6;
+            this.dateEarned.Text = "Date";
+            this.dateEarned.Width = 83;
+            // 
             // budgetType
             // 
             this.budgetType.DisplayIndex = 0;
             this.budgetType.Text = "Budget Type";
             this.budgetType.Width = 105;
-            // 
-            // billView
-            // 
-            this.billView.BackColor = System.Drawing.Color.AliceBlue;
-            this.billView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.billTitle,
-            this.billAmount,
-            this.dueDate,
-            this.billDescription,
-            this.billBalance,
-            this.datePaid});
-            this.billView.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.billView.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.billView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
-            this.billView.Location = new System.Drawing.Point(27, 190);
-            this.billView.Name = "billView";
-            this.billView.Size = new System.Drawing.Size(709, 121);
-            this.billView.TabIndex = 3;
-            this.billView.UseCompatibleStateImageBehavior = false;
-            this.billView.View = System.Windows.Forms.View.Details;
-            // 
-            // billTitle
-            // 
-            this.billTitle.Text = "Bill Title";
-            this.billTitle.Width = 111;
-            // 
-            // dueDate
-            // 
-            this.dueDate.Text = "Date Due";
-            this.dueDate.Width = 106;
-            // 
-            // billBalance
-            // 
-            this.billBalance.DisplayIndex = 1;
-            this.billBalance.Text = "Balance";
-            this.billBalance.Width = 89;
-            // 
-            // budgetVewPnl
-            // 
-            this.budgetVewPnl.BackColor = System.Drawing.Color.White;
-            this.budgetVewPnl.Controls.Add(this.label4);
-            this.budgetVewPnl.Controls.Add(this.label3);
-            this.budgetVewPnl.Controls.Add(this.label2);
-            this.budgetVewPnl.Controls.Add(this.expenseView);
-            this.budgetVewPnl.Controls.Add(this.billView);
-            this.budgetVewPnl.Controls.Add(this.incomeView);
-            this.budgetVewPnl.Location = new System.Drawing.Point(327, 255);
-            this.budgetVewPnl.Name = "budgetVewPnl";
-            this.budgetVewPnl.Size = new System.Drawing.Size(762, 477);
-            this.budgetVewPnl.TabIndex = 4;
             // 
             // title
             // 
@@ -206,35 +179,71 @@
             this.amount.Text = "Amount";
             this.amount.Width = 95;
             // 
-            // dateEarned
+            // billView
             // 
-            this.dateEarned.DisplayIndex = 6;
-            this.dateEarned.Text = "Date";
-            this.dateEarned.Width = 83;
+            this.billView.BackColor = System.Drawing.Color.AliceBlue;
+            this.billView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.billTitle,
+            this.billAmount,
+            this.dueDate,
+            this.billDescription,
+            this.billBalance,
+            this.datePaid});
+            this.billView.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.billView.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.billView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
+            this.billView.Location = new System.Drawing.Point(27, 190);
+            this.billView.Name = "billView";
+            this.billView.Size = new System.Drawing.Size(709, 121);
+            this.billView.TabIndex = 3;
+            this.billView.UseCompatibleStateImageBehavior = false;
+            this.billView.View = System.Windows.Forms.View.Details;
             // 
-            // label2
+            // billTitle
             // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.DarkGreen;
-            this.label2.Location = new System.Drawing.Point(329, 11);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(67, 19);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Earnings";
+            this.billTitle.Text = "Bill Title";
+            this.billTitle.Width = 111;
             // 
-            // label3
+            // billAmount
             // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.DarkGreen;
-            this.label3.Location = new System.Drawing.Point(344, 168);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(36, 19);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "Bills";
+            this.billAmount.DisplayIndex = 3;
+            this.billAmount.Text = "Amount";
+            this.billAmount.Width = 94;
+            // 
+            // dueDate
+            // 
+            this.dueDate.Text = "Date Due";
+            this.dueDate.Width = 106;
+            // 
+            // billDescription
+            // 
+            this.billDescription.DisplayIndex = 4;
+            this.billDescription.Text = "Description";
+            this.billDescription.Width = 118;
+            // 
+            // billBalance
+            // 
+            this.billBalance.DisplayIndex = 1;
+            this.billBalance.Text = "Balance";
+            this.billBalance.Width = 89;
+            // 
+            // datePaid
+            // 
+            this.datePaid.Text = "Date Paid";
+            // 
+            // budgetVewPnl
+            // 
+            this.budgetVewPnl.BackColor = System.Drawing.Color.White;
+            this.budgetVewPnl.Controls.Add(this.label4);
+            this.budgetVewPnl.Controls.Add(this.label3);
+            this.budgetVewPnl.Controls.Add(this.label2);
+            this.budgetVewPnl.Controls.Add(this.expenseView);
+            this.budgetVewPnl.Controls.Add(this.billView);
+            this.budgetVewPnl.Controls.Add(this.incomeView);
+            this.budgetVewPnl.Location = new System.Drawing.Point(327, 255);
+            this.budgetVewPnl.Name = "budgetVewPnl";
+            this.budgetVewPnl.Size = new System.Drawing.Size(762, 477);
+            this.budgetVewPnl.TabIndex = 4;
             // 
             // label4
             // 
@@ -248,38 +257,29 @@
             this.label4.TabIndex = 6;
             this.label4.Text = "Expenses";
             // 
-            // billAmount
+            // label3
             // 
-            this.billAmount.DisplayIndex = 3;
-            this.billAmount.Text = "Amount";
-            this.billAmount.Width = 94;
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.DarkGreen;
+            this.label3.Location = new System.Drawing.Point(344, 168);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(36, 19);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "Bills";
             // 
-            // billDescription
+            // label2
             // 
-            this.billDescription.DisplayIndex = 4;
-            this.billDescription.Text = "Description";
-            this.billDescription.Width = 118;
-            // 
-            // datePaid
-            // 
-            this.datePaid.Text = "Date Paid";
-            // 
-            // expenseDescription
-            // 
-            this.expenseDescription.Text = "Description";
-            this.expenseDescription.Width = 113;
-            // 
-            // expenseAmount
-            // 
-            this.expenseAmount.DisplayIndex = 3;
-            this.expenseAmount.Text = "Amount";
-            this.expenseAmount.Width = 102;
-            // 
-            // expenseCategory
-            // 
-            this.expenseCategory.DisplayIndex = 4;
-            this.expenseCategory.Text = "Category";
-            this.expenseCategory.Width = 92;
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.DarkGreen;
+            this.label2.Location = new System.Drawing.Point(329, 11);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(67, 19);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Earnings";
             // 
             // BudgetView
             // 
@@ -293,6 +293,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "BudgetView";
             this.Text = "BudgetView";
+            this.Load += new System.EventHandler(this.BudgetView_Load);
             this.budgetVewPnl.ResumeLayout(false);
             this.budgetVewPnl.PerformLayout();
             this.ResumeLayout(false);

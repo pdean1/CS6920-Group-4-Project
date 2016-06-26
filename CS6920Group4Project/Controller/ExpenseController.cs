@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace CS6920Group4Project.Controller
 {
-    class ExpenseController
+    public class ExpenseController
     {
         private static ExpenseController instance;
         private readonly ExpenseDAL _dal = new ExpenseDAL();
-        private ExpenseController() { }
+        
         public static ExpenseController Instance
         {
             get
