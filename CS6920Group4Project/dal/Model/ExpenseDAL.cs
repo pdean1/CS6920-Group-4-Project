@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 using CS6920Group4Project.Model;
 using CS6920Group4Project.Utilities;
+using CS6920Group4Project.Controller;
 
 namespace CS6920Group4Project.DAL.Model
 {
@@ -14,11 +15,46 @@ namespace CS6920Group4Project.DAL.Model
     {
         private MySqlConnection conn = new DBConnect().GetConnection();
 
-        private const string InsertExpenseStatment = "INSERT INTO sql5123046.earnings(EarningCategoryID, Amount, DateEarned) VALUES (@EarningCategoryID, @Amount, @DateEarned)";
+        private const string InsertExpenseStatment = "INSERT INTO `sql5123046`.`expenses` (`RecordID`, `ExpenseCategoryID`, `Amount`, `DateSpent`) " 
+            + "VALUES (@RecordID, @ExpenseCategoryID, @Amount, @DateSpent);";
 
         public long InsertExpense(Expense expense)
         {
-            return 0;
+            long id = RecordController.Instance.InsertRecord(expense);
+            if (id == 0)
+                return 0;
+            expense.ID = id;
+            using (MySqlCommand command = new MySqlCommand())
+            {
+                try
+                {
+                    conn.Open();
+                    command.Connection = conn;
+                    command.CommandText = InsertExpenseStatment;
+                    command.Prepare();
+                    command.Parameters.AddWithValue("@RecordID", expense.ID);
+                    command.Parameters.AddWithValue("@ExpenseCategoryID", expense.Category.ID);
+                    command.Parameters.AddWithValue("@Amount", expense.Amount);
+                    command.Parameters.AddWithValue("@DateSpent", expense.DateSpent);
+                    command.ExecuteNonQuery();
+                    id = command.LastInsertedId;
+                }
+                catch (MySqlException e)
+                {
+                    DatabaseErrorMessageUtility.SendMessageToUser("Unable to query for expenses in the database.", e);
+                    id = 0;
+                }
+                catch (Exception e)
+                {
+                    DatabaseErrorMessageUtility.SendMessageToUser("Unable to query for expenses in the database.", e);
+                    id = 0;
+                }
+                finally
+                {
+                    conn.Close();
+                }
+            }
+            return id;
         }
 
         private const string GetListOfExpensesByBudgetIDStatment = 
