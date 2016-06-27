@@ -17,7 +17,8 @@ namespace CS6920Group4Project.View
             InitializeComponent();
         }
 
-        private void label2_Click(object sender, EventArgs e)
+
+        private void expenseBtn_Click(object sender, EventArgs e)
         {
 
         }

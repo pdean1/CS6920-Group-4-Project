@@ -139,5 +139,48 @@ namespace CS6920Group4Project.DAL.Model
             }
             return expenses;
         }
+
+        public List<ExpenseCategory> GetExpenseCategoryList()
+        {
+            List<ExpenseCategory> expenseCategoryList = new List<ExpenseCategory>();
+            try
+            {
+                using (MySqlCommand cmd = new MySqlCommand())
+                {
+                    conn.Open();
+                    cmd.Connection = conn;
+                    cmd.CommandText = "SELECT * FROM expensecategories";
+                    cmd.Prepare();
+                    using (MySqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            var bid = reader.GetOrdinal("ExpenseCategoryID");
+                            var bTitle = reader.GetOrdinal("Title");
+                            var bDesc = reader.GetOrdinal("Description");
+
+                            ExpenseCategory expenseCategory = new ExpenseCategory();
+
+                            expenseCategory.ID = reader.GetInt32(bid);
+                            expenseCategory.Title = reader.GetString(bTitle);
+                            expenseCategoryList.Add(expenseCategory);
+                        }
+                        reader.Close();
+                    }
+                }
+            }
+            catch (MySqlException e)
+            {
+                DatabaseErrorMessageUtility.SendMessageToUser(
+                    "Unable to query the ExpenseCategory in the database.", e);
+               expenseCategoryList = null;
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return expenseCategoryList;
+        }
+    }
     }
 }

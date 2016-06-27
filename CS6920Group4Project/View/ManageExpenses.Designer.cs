@@ -128,6 +128,7 @@
             this.expenseBtn.TabStop = false;
             this.expenseBtn.Text = "Add Expense";
             this.expenseBtn.UseVisualStyleBackColor = false;
+            this.expenseBtn.Click += new System.EventHandler(this.expenseBtn_Click);
             // 
             // expenseAmountBox
             // 
