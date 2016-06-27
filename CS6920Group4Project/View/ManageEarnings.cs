@@ -16,13 +16,11 @@ namespace CS6920Group4Project.View
 {
     public partial class ManageEarnings : Form
     {
-        private User user;
         private String earnDesc;
         private String earnDate;
         private String earnTitle;
         private String earnAmount;
         public List<Budget> budgetList;
-        private List<EarningCategory> earnCategoryList;
 
         public ManageEarnings()
         {
