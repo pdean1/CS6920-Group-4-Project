@@ -37,7 +37,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashboard));
             this.HeaderPnl = new System.Windows.Forms.Panel();
             this.userNameLbl = new System.Windows.Forms.Label();
-            this.balanceLbl = new System.Windows.Forms.Label();
             this.welcomeLbl = new System.Windows.Forms.Label();
             this.rightDashPnl = new System.Windows.Forms.Panel();
             this.leftDashPnl = new System.Windows.Forms.Panel();
@@ -71,7 +70,6 @@
             // 
             this.HeaderPnl.BackColor = System.Drawing.Color.Transparent;
             this.HeaderPnl.Controls.Add(this.userNameLbl);
-            this.HeaderPnl.Controls.Add(this.balanceLbl);
             this.HeaderPnl.Controls.Add(this.welcomeLbl);
             this.HeaderPnl.Location = new System.Drawing.Point(22, 6);
             this.HeaderPnl.Name = "HeaderPnl";
@@ -88,18 +86,6 @@
             this.userNameLbl.Size = new System.Drawing.Size(98, 21);
             this.userNameLbl.TabIndex = 9;
             this.userNameLbl.Text = "User\'s Name";
-            // 
-            // balanceLbl
-            // 
-            this.balanceLbl.AutoSize = true;
-            this.balanceLbl.BackColor = System.Drawing.Color.Transparent;
-            this.balanceLbl.Font = new System.Drawing.Font("Calibri", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.balanceLbl.ForeColor = System.Drawing.Color.DarkGreen;
-            this.balanceLbl.Location = new System.Drawing.Point(540, 52);
-            this.balanceLbl.Name = "balanceLbl";
-            this.balanceLbl.Size = new System.Drawing.Size(183, 22);
-            this.balanceLbl.TabIndex = 8;
-            this.balanceLbl.Text = "Your Current balance is:";
             // 
             // welcomeLbl
             // 
@@ -411,7 +397,6 @@
  //       private System.Windows.Forms.Panel dashboardpnl;
         private System.Windows.Forms.Panel leftDashPnl;
         private System.Windows.Forms.Label welcomeLbl;
-        private System.Windows.Forms.Label balanceLbl;
         private System.Windows.Forms.DataVisualization.Charting.Chart percentageCht;
         private System.Windows.Forms.Panel mainDashPnl;
         private System.Windows.Forms.Label lblIncomeRemaining;

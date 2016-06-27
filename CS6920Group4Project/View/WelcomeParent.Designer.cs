@@ -125,21 +125,21 @@
             // incomeToolStripMenuItem
             // 
             this.incomeToolStripMenuItem.Name = "incomeToolStripMenuItem";
-            this.incomeToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.incomeToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
             this.incomeToolStripMenuItem.Text = "Earnings";
             this.incomeToolStripMenuItem.Click += new System.EventHandler(this.incomeToolStripMenuItem_Click);
             // 
             // expensesToolStripMenuItem
             // 
             this.expensesToolStripMenuItem.Name = "expensesToolStripMenuItem";
-            this.expensesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.expensesToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
             this.expensesToolStripMenuItem.Text = "Expenses";
             this.expensesToolStripMenuItem.Click += new System.EventHandler(this.expensesToolStripMenuItem_Click);
             // 
             // billsToolStripMenuItem
             // 
             this.billsToolStripMenuItem.Name = "billsToolStripMenuItem";
-            this.billsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.billsToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
             this.billsToolStripMenuItem.Text = "Bills";
             this.billsToolStripMenuItem.Click += new System.EventHandler(this.billsToolStripMenuItem_Click);
             // 
@@ -161,7 +161,7 @@
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "WelcomeParent";
-            this.Text = "Home";
+            this.Text = "Budget Buddy";
             this.Load += new System.EventHandler(this.WelcomeParent_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
