@@ -67,6 +67,7 @@
     <Compile Include="Model\Dashboard.cs" />
     <Compile Include="Session\SessionInformation.cs" />
     <Compile Include="Utilities\DatabaseErrorMessageUtility.cs" />
+    <Compile Include="Utilities\StringUtilities.cs" />
     <Compile Include="View\BudgetView.cs">
       <SubType>Form</SubType>
     </Compile>
