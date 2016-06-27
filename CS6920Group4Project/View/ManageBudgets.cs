@@ -16,5 +16,10 @@ namespace CS6920Group4Project.View
         {
             InitializeComponent();
         }
+
+        private void budgetBtn_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Add budget functionality reserved for Iteration II.");
+        }
     }
 }

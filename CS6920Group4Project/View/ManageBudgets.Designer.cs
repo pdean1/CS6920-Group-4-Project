@@ -72,6 +72,7 @@
             this.budgetBtn.TabStop = false;
             this.budgetBtn.Text = "Add Budget";
             this.budgetBtn.UseVisualStyleBackColor = false;
+            this.budgetBtn.Click += new System.EventHandler(this.budgetBtn_Click);
             // 
             // budgetBox
             // 

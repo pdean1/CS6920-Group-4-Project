@@ -15,23 +15,14 @@ namespace CS6920Group4Project.View
 {
     public partial class BudgetView : Form
     {
-        EarningController earnController;
-        ExpenseController expenseController;
-        BillController billController;
-
         public BudgetView()
         {
             InitializeComponent();
-            earnController = new EarningController();
-            expenseController = new ExpenseController();
-            billController = new BillController();
         }
 
         private void BudgetView_Load(object sender, EventArgs e)
         {
-            int budgetID = 1;
-
-            List<Earning> earningsList = earnController.GetEarningsByBudgetID(budgetID);
+            List<Earning> earningsList = Session.SessionInformation.GetListOfBudgets()[0].Earnings;
             for (int i = 0; i < earningsList.Count; i++)
             {
                 Earning earning = earningsList[i];
@@ -41,16 +32,15 @@ namespace CS6920Group4Project.View
                 earnView.Items.Add(item);
             }
 
-            List<Bill> billList = billController.GetBillsByBudgetID(budgetID);
+            List<Bill> billList = Session.SessionInformation.GetListOfBudgets()[0].Bills;
             for (int i = 0; i < billList.Count; i++)
             {
                 Bill bill = billList[i];
                 ListViewItem item = new ListViewItem(new[] {bill.Title.ToString(), StringUtilities.GetDisplayableDollarAmount(bill.Amount),
                 bill.DateDue.ToString(), bill.Description.ToString(), bill.DatePaid.ToString()});
                 billView.Items.Add(item);
-
             }
-            List<Expense> expenseList = expenseController.GetExpensesByBudgetID(budgetID);
+            List<Expense> expenseList = Session.SessionInformation.GetListOfBudgets()[0].Expenses;
             for (int i = 0; i < expenseList.Count; i++)
             {
                 Expense expense = expenseList[i];
@@ -58,10 +48,7 @@ namespace CS6920Group4Project.View
                 expense.Description.ToString(), StringUtilities.GetDisplayableDollarAmount(expense.Amount), 
                 expense.Category.Description.ToString()});
                 expenseView.Items.Add(item);
-
-
             }
         }
-
     }
 }
