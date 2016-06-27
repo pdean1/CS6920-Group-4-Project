@@ -39,6 +39,11 @@ namespace CS6920Group4Project.Controller
         {
             return _dal.InsertEarning(e);
         }
+
+        public List<EarningCategory> GetListOfEarningCategories()
+        {
+            return _dal.GetEarnCategoryList();
+        }
     }
 
 }

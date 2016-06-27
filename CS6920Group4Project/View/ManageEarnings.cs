@@ -21,6 +21,7 @@ namespace CS6920Group4Project.View
         private String earnTitle;
         private String earnAmount;
         public List<Budget> budgetList;
+        public List<EarningCategory> earningCategories;
 
         public ManageEarnings()
         {
@@ -39,8 +40,10 @@ namespace CS6920Group4Project.View
 
         private void ManageEarnings_Load(object sender, EventArgs e)
         {
-            
-            
+            earningCategories = EarningController.Instance.GetListOfEarningCategories();
+            cbEarnings.DataSource = earningCategories;
+            cbEarnings.ValueMember = "ID";
+            cbEarnings.DisplayMember = "Title";
         }
         /// <summary>
         /// method to load a combobox -stubbed out functionality for later use
@@ -106,12 +109,11 @@ namespace CS6920Group4Project.View
                 {
                     Earning newEarn = new Earning();
                     newEarn.Amount = Convert.ToDecimal(earnAmount);
-                    newEarn.DateCreated = DateTime.Now;
                     newEarn.DateEarned = DateTime.Parse(earnDate);
                     newEarn.Title = earnTitle;
                     newEarn.Description = earnDesc;
-                    newEarn.BudgetID = 1;
-
+                    newEarn.BudgetID = 1; // TODO Hard Coded value will need to change in the future
+                    newEarn.Category = earningCategories[cbEarnings.SelectedIndex];
                     long isEarningsAdded = EarningController.Instance.InsertEarning(newEarn);
                     if (isEarningsAdded == 0)
                     {
@@ -152,10 +154,9 @@ namespace CS6920Group4Project.View
         
         public bool validateData()
         {
-            earnDesc = earningDescBox.Text;
             earnAmount = earningAmountBox.Text;
             earnDate = monthCalendar.SelectionRange.Start.ToShortDateString();
-            earnTitle = titleTxt.Text;
+            earnTitle = tbTitle.Text;
 
             if (String.IsNullOrEmpty(earnTitle) || String.IsNullOrEmpty(earnAmount) || String.IsNullOrEmpty(earnDate))
             {
@@ -184,14 +185,13 @@ namespace CS6920Group4Project.View
         /// </summary>
         private void ClearText()
         {
-            titleTxt.Text = "";
-            earningDescBox.Text = "";
+            tbTitle.Text = "";
             earningAmountBox.Text = "";
         }
 
         private bool IsValidData()
         {
-            if(Validator.IsPresent(titleTxt))
+            if(Validator.IsPresent(tbTitle))
             {
                 return true;
             }

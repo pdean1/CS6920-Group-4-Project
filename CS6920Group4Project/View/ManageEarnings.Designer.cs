@@ -31,12 +31,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ManageEarnings));
             this.earningsWelcomeLbl = new System.Windows.Forms.Label();
             this.incomeLbl = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.monthCalendar = new System.Windows.Forms.MonthCalendar();
             this.addEarningsBtn = new System.Windows.Forms.Button();
-            this.earningDescBox = new System.Windows.Forms.TextBox();
             this.earningAmountBox = new System.Windows.Forms.TextBox();
             this.earningsDashBtn = new System.Windows.Forms.Button();
             this.manageExpensesBtn = new System.Windows.Forms.Button();
@@ -44,8 +42,10 @@
             this.viewBudgetBtn = new System.Windows.Forms.Button();
             this.userNameEarningsLbl = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.titleTxt = new System.Windows.Forms.TextBox();
             this.cancelBtn = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.cbEarnings = new System.Windows.Forms.ComboBox();
+            this.tbTitle = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // earningsWelcomeLbl
@@ -74,16 +74,6 @@
             this.incomeLbl.Text = "EARNINGS INFORMATION";
             this.incomeLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Location = new System.Drawing.Point(573, 316);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(93, 21);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Description:";
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -108,7 +98,7 @@
             // 
             this.monthCalendar.Location = new System.Drawing.Point(756, 422);
             this.monthCalendar.Name = "monthCalendar";
-            this.monthCalendar.TabIndex = 7;
+            this.monthCalendar.TabIndex = 4;
             // 
             // addEarningsBtn
             // 
@@ -117,25 +107,18 @@
             this.addEarningsBtn.Location = new System.Drawing.Point(842, 596);
             this.addEarningsBtn.Name = "addEarningsBtn";
             this.addEarningsBtn.Size = new System.Drawing.Size(141, 36);
-            this.addEarningsBtn.TabIndex = 8;
+            this.addEarningsBtn.TabIndex = 5;
             this.addEarningsBtn.TabStop = false;
             this.addEarningsBtn.Text = "Add Earnings";
             this.addEarningsBtn.UseVisualStyleBackColor = false;
             this.addEarningsBtn.Click += new System.EventHandler(this.addEarningsBtn_Click);
-            // 
-            // earningDescBox
-            // 
-            this.earningDescBox.Location = new System.Drawing.Point(756, 309);
-            this.earningDescBox.Name = "earningDescBox";
-            this.earningDescBox.Size = new System.Drawing.Size(227, 28);
-            this.earningDescBox.TabIndex = 10;
             // 
             // earningAmountBox
             // 
             this.earningAmountBox.Location = new System.Drawing.Point(756, 364);
             this.earningAmountBox.Name = "earningAmountBox";
             this.earningAmountBox.Size = new System.Drawing.Size(227, 28);
-            this.earningAmountBox.TabIndex = 11;
+            this.earningAmountBox.TabIndex = 3;
             // 
             // earningsDashBtn
             // 
@@ -199,18 +182,11 @@
             // 
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.Transparent;
-            this.label6.Location = new System.Drawing.Point(574, 268);
+            this.label6.Location = new System.Drawing.Point(574, 316);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(118, 21);
+            this.label6.Size = new System.Drawing.Size(133, 21);
             this.label6.TabIndex = 24;
-            this.label6.Text = "Category Title *";
-            // 
-            // titleTxt
-            // 
-            this.titleTxt.Location = new System.Drawing.Point(756, 268);
-            this.titleTxt.Name = "titleTxt";
-            this.titleTxt.Size = new System.Drawing.Size(100, 28);
-            this.titleTxt.TabIndex = 25;
+            this.label6.Text = "Earning Category:";
             // 
             // cancelBtn
             // 
@@ -219,10 +195,36 @@
             this.cancelBtn.Location = new System.Drawing.Point(756, 596);
             this.cancelBtn.Name = "cancelBtn";
             this.cancelBtn.Size = new System.Drawing.Size(75, 36);
-            this.cancelBtn.TabIndex = 26;
+            this.cancelBtn.TabIndex = 6;
             this.cancelBtn.Text = "Cancel";
             this.cancelBtn.UseVisualStyleBackColor = false;
             this.cancelBtn.Click += new System.EventHandler(this.cancelBtn_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Location = new System.Drawing.Point(574, 275);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(101, 21);
+            this.label1.TabIndex = 27;
+            this.label1.Text = "Earning Title:";
+            // 
+            // cbEarnings
+            // 
+            this.cbEarnings.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbEarnings.FormattingEnabled = true;
+            this.cbEarnings.Location = new System.Drawing.Point(756, 313);
+            this.cbEarnings.Name = "cbEarnings";
+            this.cbEarnings.Size = new System.Drawing.Size(227, 29);
+            this.cbEarnings.TabIndex = 2;
+            // 
+            // tbTitle
+            // 
+            this.tbTitle.Location = new System.Drawing.Point(756, 272);
+            this.tbTitle.Name = "tbTitle";
+            this.tbTitle.Size = new System.Drawing.Size(227, 28);
+            this.tbTitle.TabIndex = 1;
             // 
             // ManageEarnings
             // 
@@ -231,8 +233,10 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1437, 762);
+            this.Controls.Add(this.tbTitle);
+            this.Controls.Add(this.cbEarnings);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.cancelBtn);
-            this.Controls.Add(this.titleTxt);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.userNameEarningsLbl);
             this.Controls.Add(this.viewBudgetBtn);
@@ -240,17 +244,16 @@
             this.Controls.Add(this.manageExpensesBtn);
             this.Controls.Add(this.earningsDashBtn);
             this.Controls.Add(this.earningAmountBox);
-            this.Controls.Add(this.earningDescBox);
             this.Controls.Add(this.addEarningsBtn);
             this.Controls.Add(this.monthCalendar);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.incomeLbl);
             this.Controls.Add(this.earningsWelcomeLbl);
             this.Font = new System.Drawing.Font("Calibri", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.DarkGreen;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "ManageEarnings";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
@@ -265,12 +268,10 @@
 
         private System.Windows.Forms.Label earningsWelcomeLbl;
         private System.Windows.Forms.Label incomeLbl;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.MonthCalendar monthCalendar;
         private System.Windows.Forms.Button addEarningsBtn;
-        private System.Windows.Forms.TextBox earningDescBox;
         private System.Windows.Forms.TextBox earningAmountBox;
         private System.Windows.Forms.Button earningsDashBtn;
         private System.Windows.Forms.Button manageExpensesBtn;
@@ -278,8 +279,10 @@
         private System.Windows.Forms.Button viewBudgetBtn;
         private System.Windows.Forms.Label userNameEarningsLbl;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox titleTxt;
         private System.Windows.Forms.Button cancelBtn;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox cbEarnings;
+        private System.Windows.Forms.TextBox tbTitle;
 
     }
 }
