@@ -325,6 +325,7 @@
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "ManageBills";
             this.Text = "Manage Budget";
+            this.Load += new System.EventHandler(this.ManageBills_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

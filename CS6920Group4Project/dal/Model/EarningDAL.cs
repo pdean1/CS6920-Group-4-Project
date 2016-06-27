@@ -141,6 +141,49 @@ namespace CS6920Group4Project.DAL.Model
         {
            
         }
+        public List<EarningCategory> GetEarnCategoryList()
+        {
+            List<EarningCategory> earnCategoryList = new List<EarningCategory>();
+            try
+            {
+                using (MySqlCommand cmd = new MySqlCommand())
+                {
+                    conn.Open();
+                    cmd.Connection = conn;
+                    cmd.CommandText = "SELECT * FROM earningcategories";
+                    cmd.Prepare();
+                    using (MySqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            var eid = reader.GetOrdinal("EarningCategoryID");
+                            var eTitle = reader.GetOrdinal("Title");
+                            var eDesc = reader.GetOrdinal("Description");
+
+                            EarningCategory earningCategory = new EarningCategory();
+
+                            earningCategory.ID = reader.GetInt32(eid);
+                            earningCategory.Title = reader.GetString(eTitle);
+                            earnCategoryList.Add(earningCategory);
+                        }
+                        reader.Close();
+                    }
+                }
+            }
+            catch (MySqlException e)
+            {
+                DatabaseErrorMessageUtility.SendMessageToUser(
+                    "Unable to query the EarningCategory in the database.", e);
+                earnCategoryList = null;
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return earnCategoryList;
+        }
+
+
         /// <summary>
         /// series of query to add earnings to the database
         /// </summary>
@@ -172,7 +215,7 @@ namespace CS6920Group4Project.DAL.Model
             MySqlCommand insertEarnCommand = new MySqlCommand(InsertEarnStatement, conn);
             insertEarnCommand.Parameters.AddWithValue("@Amount", earn.Amount);
             insertEarnCommand.Parameters.AddWithValue("@DateEarned", earn.DateEarned);
-
+            
             //to check if we already have the same title/description in the earningcategory table
             String SelectEarnCategoryStatement = "SELECT `EarningCategoryID` FROM `sql5123046`.`earningscategory` WHERE `Title` = @Title AND `Description` = @Description";
             MySqlCommand selectEarnCategoryCommand = new MySqlCommand(SelectEarnCategoryStatement, conn);
@@ -186,7 +229,7 @@ namespace CS6920Group4Project.DAL.Model
             MySqlCommand insertEarnCategoryCommand = new MySqlCommand(InsertEarnCategoryStatement, conn);
             insertEarnCategoryCommand.Parameters.AddWithValue("@Title", earn.Category.Title);
             insertEarnCategoryCommand.Parameters.AddWithValue("@Description", earn.Category.Description);
-
+            
             try
             {
                 conn.Open();

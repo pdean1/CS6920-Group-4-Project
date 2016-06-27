@@ -10,13 +10,19 @@ using System.Windows.Forms;
 using CS6920Group4Project.Model;
 using CS6920Group4Project.View;
 using CS6920Group4Project.Controller;
+using System.Data.SqlClient;
 
 namespace CS6920Group4Project.View
 {
     public partial class ManageEarnings : Form
     {
         private User user;
-        public List<Budget> budgetType;
+        private String earnDesc;
+        private String earnDate;
+        private String earnTitle;
+        private String earnAmount;
+        public List<Budget> budgetList;
+        private List<EarningCategory> earnCategoryList;
 
         public ManageEarnings()
         {
@@ -27,8 +33,8 @@ namespace CS6920Group4Project.View
         public ManageEarnings(User userName)
         {
             InitializeComponent();
-            user = userName;
-            userNameEarningsLbl.Text = user.FirstName + "" + user.LastName;
+            userNameEarningsLbl.Text = Session.SessionInformation.GetSessionUser().FirstName + " "
+                + Session.SessionInformation.GetSessionUser().LastName;
         }
 
       
@@ -46,7 +52,7 @@ namespace CS6920Group4Project.View
            
             try
             { 
-                if (budgetType == null)
+                if (budgetList == null)
                 {
                     Close();
                 }
@@ -95,21 +101,84 @@ namespace CS6920Group4Project.View
         }
         private void addEarningsBtn_Click(object sender, EventArgs e)
         {
+            try
+            {
+                bool isValidData = this.validateData();
+                if (isValidData == true)
+                {
+                    Earning newEarn = new Earning();
+                    newEarn.Amount = Convert.ToDecimal(earnAmount);
+                    newEarn.DateCreated = DateTime.Now;
+                    newEarn.DateEarned = DateTime.Parse(earnDate);
+                    newEarn.Title = earnTitle;
+                    newEarn.Description = earnDesc;
+                    newEarn.BudgetID = 1;
+
+                    long isEarningsAdded = EarningController.Instance.InsertEarning(newEarn);
+                    if (isEarningsAdded == 0)
+                    {
+                        MessageBox.Show("An error occured, earnings was not added to your Budget",
+                                    "USER",
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Stop);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Earnings Successfully Added",
+                                    "USER",
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.None);
+                        this.ClearText();
+                    }
+                }
+                else
+                {
+                    this.ClearText();
+                }
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.Message, ex.GetType().ToString());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.GetType().ToString());
+            }
+            /*
             EarningController con = new EarningController();
             Record record = new Record();
             Earning earn = new Earning();
             this.PutEarningData(record, earn);
-            con.AddEarning(earn);
+            con.AddEarning(earn);*/
+        }
+        
+        public bool validateData()
+        {
+            earnDesc = earningDescBox.Text;
+            earnAmount = earningAmountBox.Text;
+            earnDate = monthCalendar.SelectionRange.Start.ToShortDateString();
+            earnTitle = titleTxt.Text;
+
+            if (String.IsNullOrEmpty(earnTitle) || String.IsNullOrEmpty(earnAmount) || String.IsNullOrEmpty(earnDate))
+            {
+                MessageBox.Show("All fields are required, Please Try Again",
+                                "USER",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Stop);
+                return false;
+            }
+
+            return true;
         }
 
         private void PutEarningData(Record record, Earning earn)
         {
-                  
+            /*      
             record.Title = titleTxt.Text;
             record.Description = earningDescBox.Text;
             earn.Amount = Decimal.Parse(earningAmountBox.Text);
-            
-           
+            earn.DateEarned = DateTime.Parse(earnDate);
+              */
         }
 
         /// <summary>
@@ -118,7 +187,6 @@ namespace CS6920Group4Project.View
         private void ClearText()
         {
             titleTxt.Text = "";
-            recordTypeBox.Text = "";
             earningDescBox.Text = "";
             earningAmountBox.Text = "";
         }

@@ -117,5 +117,10 @@ namespace CS6920Group4Project.View
         {
             budgetList = Session.SessionInformation.GetListOfBudgets();     
         }
+
+        private void ManageBills_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
