@@ -19,6 +19,7 @@ namespace CS6920Group4Project.DAL.Model
 
         public long InsertEarning(Earning earning)
         {
+            earning.RecordType = 'E';
             long id = RecordController.Instance.InsertRecord(earning);
             if (id == 0)
                 return 0;
@@ -34,7 +35,7 @@ namespace CS6920Group4Project.DAL.Model
                     command.Parameters.AddWithValue("@RecordID", earning.ID);
                     command.Parameters.AddWithValue("@EarningCategoryID", earning.Category.ID);
                     command.Parameters.AddWithValue("@Amount", earning.Amount);
-                    command.Parameters.AddWithValue("@DateEarned", earning.DateEarned);
+                    command.Parameters.AddWithValue("@DateEarned", earning.DateEarned.ToString("yyyy-MM-dd hh:mm:ss"));
                     command.ExecuteNonQuery();
                     id = command.LastInsertedId;
                 }

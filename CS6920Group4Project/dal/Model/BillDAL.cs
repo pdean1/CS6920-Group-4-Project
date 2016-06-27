@@ -21,6 +21,7 @@ namespace CS6920Group4Project.DAL.Model
 
         public long InsertBill(Bill bill)
         {
+            bill.RecordType = 'B';
             long id = RecordController.Instance.InsertRecord(bill);
             if (id == 0)
                 return 0;
@@ -35,7 +36,7 @@ namespace CS6920Group4Project.DAL.Model
                 command.Parameters.AddWithValue("@RecordID", bill.ID);
                 command.Parameters.AddWithValue("@BillCategoryID", bill.Category.ID);
                 command.Parameters.AddWithValue("@Amount", bill.Amount);
-                command.Parameters.AddWithValue("@DateDue", bill.DateDue.ToLongDateString());
+                command.Parameters.AddWithValue("@DateDue", bill.DateDue.ToString("yyyy-MM-dd hh:mm:ss"));
                 if (bill.DatePaid == null)
                 {
                     command.Parameters.AddWithValue("@DatePaid", DBNull.Value);
@@ -45,7 +46,6 @@ namespace CS6920Group4Project.DAL.Model
                     command.Parameters.AddWithValue("@DatePaid", bill.DatePaid.Value.ToLongDateString());
                 }
                 command.ExecuteNonQuery();
-                id = command.LastInsertedId;
             }
             catch (MySqlException e)
             {

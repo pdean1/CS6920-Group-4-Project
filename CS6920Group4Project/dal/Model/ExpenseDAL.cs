@@ -20,6 +20,7 @@ namespace CS6920Group4Project.DAL.Model
 
         public long InsertExpense(Expense expense)
         {
+            expense.RecordType = 'X';
             long id = RecordController.Instance.InsertRecord(expense);
             if (id == 0)
                 return 0;
@@ -35,7 +36,7 @@ namespace CS6920Group4Project.DAL.Model
                     command.Parameters.AddWithValue("@RecordID", expense.ID);
                     command.Parameters.AddWithValue("@ExpenseCategoryID", expense.Category.ID);
                     command.Parameters.AddWithValue("@Amount", expense.Amount);
-                    command.Parameters.AddWithValue("@DateSpent", expense.DateSpent);
+                    command.Parameters.AddWithValue("@DateSpent", expense.DateSpent.ToString("yyyy-MM-dd hh:mm:ss"));
                     command.ExecuteNonQuery();
                     id = command.LastInsertedId;
                 }
@@ -181,6 +182,5 @@ namespace CS6920Group4Project.DAL.Model
             }
             return expenseCategoryList;
         }
-    }
     }
 }
