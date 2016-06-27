@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using CS6920Group4Project.Model;
 using CS6920Group4Project.Controller;
+using CS6920Group4Project.Utilities;
 
 namespace CS6920Group4Project.View
 {
@@ -36,7 +37,7 @@ namespace CS6920Group4Project.View
                 Earning earning = earningsList[i];
                 ListViewItem item = new ListViewItem(new[] {earning.Title.ToString(), earning.Description.ToString(), 
                 earning.Category.Description.ToString(), earning.Category.Title.ToString(),
-                earning.Amount.ToString(), earning.DateEarned.ToString()});
+                StringUtilities.GetDisplayableDollarAmount(earning.Amount), earning.DateEarned.ToString()});
                 earnView.Items.Add(item);
             }
 
@@ -44,7 +45,7 @@ namespace CS6920Group4Project.View
             for (int i = 0; i < billList.Count; i++)
             {
                 Bill bill = billList[i];
-                ListViewItem item = new ListViewItem(new[] {bill.Title.ToString(), bill.Amount.ToString(),
+                ListViewItem item = new ListViewItem(new[] {bill.Title.ToString(), StringUtilities.GetDisplayableDollarAmount(bill.Amount),
                 bill.DateDue.ToString(), bill.Description.ToString(), bill.DatePaid.ToString()});
                 billView.Items.Add(item);
 
@@ -54,7 +55,8 @@ namespace CS6920Group4Project.View
             {
                 Expense expense = expenseList[i];
                 ListViewItem item = new ListViewItem(new[] {expense.Title.ToString(), expense.DateSpent.ToString(),
-                expense.Description.ToString(), expense.Amount.ToString(), expense.Category.Description.ToString()});
+                expense.Description.ToString(), StringUtilities.GetDisplayableDollarAmount(expense.Amount), 
+                expense.Category.Description.ToString()});
                 expenseView.Items.Add(item);
 
 

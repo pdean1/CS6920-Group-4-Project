@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using CS6920Group4Project.Model;
 using CS6920Group4Project.View;
 using CS6920Group4Project.DAL.Model;
+using CS6920Group4Project.Utilities;
 
 
 namespace CS6920Group4Project.View
@@ -83,11 +84,11 @@ namespace CS6920Group4Project.View
             EarningsAmount = Session.SessionInformation.GetListOfBudgets()[cbBudgets.SelectedIndex].GetTotalAmountOfEarnings();
             ExpensesAmount = Session.SessionInformation.GetListOfBudgets()[cbBudgets.SelectedIndex].GetTotalAmountOfExpenses();
 
-            lblBillAmount.Text = string.Format("{0:c}", BillsAmount);
-            lblExpenseAmount.Text = string.Format("{0:c}", ExpensesAmount);
-            lblIncomeAmount.Text = string.Format("{0:c}", EarningsAmount);
+            lblBillAmount.Text = StringUtilities.GetDisplayableDollarAmount(BillsAmount);
+            lblExpenseAmount.Text = StringUtilities.GetDisplayableDollarAmount(ExpensesAmount);
+            lblIncomeAmount.Text = StringUtilities.GetDisplayableDollarAmount(EarningsAmount);
 
-            lblIncomeRemaining.Text = string.Format("{0:c}", EarningsAmount - (BillsAmount + ExpensesAmount));
+            lblIncomeRemaining.Text = StringUtilities.GetDisplayableDollarAmount(EarningsAmount - (BillsAmount + ExpensesAmount));
 
             decimal[] yValues = { EarningsAmount, ExpensesAmount, BillsAmount };
             statisticsChart.Series[0].Points.DataBindXY(xValues, yValues);
