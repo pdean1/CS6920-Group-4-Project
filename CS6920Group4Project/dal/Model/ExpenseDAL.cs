@@ -125,7 +125,6 @@ namespace CS6920Group4Project.DAL.Model
                             expense.DateCreated = reader.GetDateTime(10);
                             expenses.Add(expense);
                         }
-                        reader.Close();
                     }
                 }
             }
@@ -173,7 +172,6 @@ namespace CS6920Group4Project.DAL.Model
                             expenseCategory.Title = reader.GetString(bTitle);
                             expenseCategoryList.Add(expenseCategory);
                         }
-                        reader.Close();
                     }
                 }
             }

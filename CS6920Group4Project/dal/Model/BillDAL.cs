@@ -138,7 +138,6 @@ namespace CS6920Group4Project.DAL.Model
                             bill.DateCreated = reader.GetDateTime(11);
                             bills.Add(bill);
                         }
-                        reader.Close();
                     }
                 }
             }
@@ -186,7 +185,6 @@ namespace CS6920Group4Project.DAL.Model
                             billCategory.Title = reader.GetString(bTitle);
                             billCategoryList.Add(billCategory);
                         }
-                        reader.Close();
                     }
                 }
             }

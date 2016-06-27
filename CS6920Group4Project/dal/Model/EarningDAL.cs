@@ -123,7 +123,6 @@ namespace CS6920Group4Project.DAL.Model
                             earning.DateCreated = reader.GetDateTime(10);
                             earnings.Add(earning);
                         }
-                        reader.Close();
                     }
                 }
             }
@@ -174,7 +173,6 @@ namespace CS6920Group4Project.DAL.Model
                             earningCategory.Title = reader.GetString(eTitle);
                             earnCategoryList.Add(earningCategory);
                         }
-                        reader.Close();
                     }
                 }
             }
@@ -253,7 +251,6 @@ namespace CS6920Group4Project.DAL.Model
                         earn.Category.EarningCategoryID = reader.GetInt32(0);
                         foundCategory = true;
                     }
-                    reader.Close();
                 }
                 if (!foundCategory)
                 {
@@ -266,9 +263,9 @@ namespace CS6920Group4Project.DAL.Model
                 insertEarnCommand.ExecuteNonQuery();
 
             }
-            catch (MySqlException ex)
+            catch (MySqlException)
             {
-                throw ex;
+                throw;
             }
             finally
             {

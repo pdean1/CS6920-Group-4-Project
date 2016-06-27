@@ -101,7 +101,6 @@ namespace CS6920Group4Project.DAL.Model
                             record.DateCreated = reader.GetDateTime(5);
                             records.Add(record);
                         }
-                        reader.Close();
                     }
                 }
             }

@@ -103,7 +103,6 @@ namespace CS6920Group4Project.DAL.Model
 					}
 					else
 						user = null;
-                    reader.Close();
                     conn.Close();
                     return user;
                 }
