@@ -36,7 +36,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.monthCalendar = new System.Windows.Forms.MonthCalendar();
             this.expenseBtn = new System.Windows.Forms.Button();
-            this.expenseAmountBox = new System.Windows.Forms.TextBox();
+            this.expenseAmountTxt = new System.Windows.Forms.TextBox();
             this.budgetLbl = new System.Windows.Forms.Label();
             this.currentBudgetLbl = new System.Windows.Forms.Label();
             this.incomeDashBtn = new System.Windows.Forms.Button();
@@ -47,7 +47,7 @@
             this.button4 = new System.Windows.Forms.Button();
             this.currencyLbl = new System.Windows.Forms.Label();
             this.expenseCategoryBox = new System.Windows.Forms.ComboBox();
-            this.expanseTitletxt = new System.Windows.Forms.TextBox();
+            this.expenseTitleTxt = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -130,12 +130,12 @@
             this.expenseBtn.UseVisualStyleBackColor = false;
             this.expenseBtn.Click += new System.EventHandler(this.expenseBtn_Click);
             // 
-            // expenseAmountBox
+            // expenseAmountTxt
             // 
-            this.expenseAmountBox.Location = new System.Drawing.Point(756, 395);
-            this.expenseAmountBox.Name = "expenseAmountBox";
-            this.expenseAmountBox.Size = new System.Drawing.Size(227, 28);
-            this.expenseAmountBox.TabIndex = 11;
+            this.expenseAmountTxt.Location = new System.Drawing.Point(756, 395);
+            this.expenseAmountTxt.Name = "expenseAmountTxt";
+            this.expenseAmountTxt.Size = new System.Drawing.Size(227, 28);
+            this.expenseAmountTxt.TabIndex = 11;
             // 
             // budgetLbl
             // 
@@ -243,12 +243,12 @@
             this.expenseCategoryBox.Size = new System.Drawing.Size(227, 29);
             this.expenseCategoryBox.TabIndex = 29;
             // 
-            // expanseTitletxt
+            // expenseTitleTxt
             // 
-            this.expanseTitletxt.Location = new System.Drawing.Point(756, 311);
-            this.expanseTitletxt.Name = "expanseTitletxt";
-            this.expanseTitletxt.Size = new System.Drawing.Size(227, 28);
-            this.expanseTitletxt.TabIndex = 28;
+            this.expenseTitleTxt.Location = new System.Drawing.Point(756, 311);
+            this.expenseTitleTxt.Name = "expenseTitleTxt";
+            this.expenseTitleTxt.Size = new System.Drawing.Size(227, 28);
+            this.expenseTitleTxt.TabIndex = 28;
             // 
             // label6
             // 
@@ -278,7 +278,7 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1437, 762);
             this.Controls.Add(this.expenseCategoryBox);
-            this.Controls.Add(this.expanseTitletxt);
+            this.Controls.Add(this.expenseTitleTxt);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.currencyLbl);
@@ -290,7 +290,7 @@
             this.Controls.Add(this.incomeDashBtn);
             this.Controls.Add(this.currentBudgetLbl);
             this.Controls.Add(this.budgetLbl);
-            this.Controls.Add(this.expenseAmountBox);
+            this.Controls.Add(this.expenseAmountTxt);
             this.Controls.Add(this.expenseBtn);
             this.Controls.Add(this.monthCalendar);
             this.Controls.Add(this.label5);
@@ -318,7 +318,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.MonthCalendar monthCalendar;
         private System.Windows.Forms.Button expenseBtn;
-        private System.Windows.Forms.TextBox expenseAmountBox;
+        private System.Windows.Forms.TextBox expenseAmountTxt;
         private System.Windows.Forms.Label budgetLbl;
         private System.Windows.Forms.Label currentBudgetLbl;
         private System.Windows.Forms.Button incomeDashBtn;
@@ -329,7 +329,7 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Label currencyLbl;
         private System.Windows.Forms.ComboBox expenseCategoryBox;
-        private System.Windows.Forms.TextBox expanseTitletxt;
+        private System.Windows.Forms.TextBox expenseTitleTxt;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label3;
 

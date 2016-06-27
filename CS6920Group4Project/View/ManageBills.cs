@@ -40,8 +40,6 @@ namespace CS6920Group4Project.View
                     Bill newBill = new Bill();
                     newBill.Amount = Convert.ToDecimal(billAmount);
                     newBill.DateCreated = DateTime.Now;
-                    DateTime formatedDate = DateTime.Parse(billDate);
- //                   DateTime formatedDate = billDate.ToString("yyyy-MM-dd HH:mm");
                     newBill.DateDue = DateTime.Parse(billDate);
                     newBill.Title = billTitle;
                     newBill.Description = billDesc;
@@ -61,7 +59,7 @@ namespace CS6920Group4Project.View
                         MessageBox.Show("Bill Successfully Added",
                                     "USER",
                                     MessageBoxButtons.OK,
-                                    MessageBoxIcon.Stop);
+                                    MessageBoxIcon.None);
                         this.clearData();
                     }
                 }

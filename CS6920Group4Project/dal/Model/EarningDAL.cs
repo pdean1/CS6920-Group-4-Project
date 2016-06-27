@@ -37,7 +37,6 @@ namespace CS6920Group4Project.DAL.Model
                     command.Parameters.AddWithValue("@Amount", earning.Amount);
                     command.Parameters.AddWithValue("@DateEarned", earning.DateEarned.ToString("yyyy-MM-dd hh:mm:ss"));
                     command.ExecuteNonQuery();
-                    id = command.LastInsertedId;
                 }
                 catch (MySqlException e)
                 {

@@ -38,7 +38,6 @@ namespace CS6920Group4Project.DAL.Model
                     command.Parameters.AddWithValue("@Amount", expense.Amount);
                     command.Parameters.AddWithValue("@DateSpent", expense.DateSpent.ToString("yyyy-MM-dd hh:mm:ss"));
                     command.ExecuteNonQuery();
-                    id = command.LastInsertedId;
                 }
                 catch (MySqlException e)
                 {
