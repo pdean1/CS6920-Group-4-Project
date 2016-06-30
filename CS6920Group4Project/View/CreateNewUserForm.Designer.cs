@@ -46,14 +46,14 @@
             this.tbUserName.Location = new System.Drawing.Point(595, 545);
             this.tbUserName.Name = "tbUserName";
             this.tbUserName.Size = new System.Drawing.Size(274, 20);
-            this.tbUserName.TabIndex = 2;
+            this.tbUserName.TabIndex = 3;
             // 
             // tbPassword
             // 
             this.tbPassword.Location = new System.Drawing.Point(595, 588);
             this.tbPassword.Name = "tbPassword";
             this.tbPassword.Size = new System.Drawing.Size(274, 20);
-            this.tbPassword.TabIndex = 3;
+            this.tbPassword.TabIndex = 4;
             // 
             // btnLogIn
             // 
@@ -63,7 +63,7 @@
             this.btnLogIn.Location = new System.Drawing.Point(650, 631);
             this.btnLogIn.Name = "btnLogIn";
             this.btnLogIn.Size = new System.Drawing.Size(103, 34);
-            this.btnLogIn.TabIndex = 4;
+            this.btnLogIn.TabIndex = 5;
             this.btnLogIn.Text = "Submit";
             this.btnLogIn.UseVisualStyleBackColor = false;
             // 
@@ -121,7 +121,7 @@
             this.textBox2.Location = new System.Drawing.Point(595, 456);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(274, 20);
-            this.textBox2.TabIndex = 8;
+            this.textBox2.TabIndex = 1;
             // 
             // label1
             // 
@@ -140,7 +140,7 @@
             this.textBox3.Location = new System.Drawing.Point(595, 503);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(274, 20);
-            this.textBox3.TabIndex = 12;
+            this.textBox3.TabIndex = 2;
             // 
             // CreateNewUserForm
             // 

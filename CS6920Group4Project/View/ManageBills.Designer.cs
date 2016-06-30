@@ -96,7 +96,7 @@
             this.billAmountTxt.Location = new System.Drawing.Point(756, 395);
             this.billAmountTxt.Name = "billAmountTxt";
             this.billAmountTxt.Size = new System.Drawing.Size(227, 28);
-            this.billAmountTxt.TabIndex = 11;
+            this.billAmountTxt.TabIndex = 4;
             // 
             // incomeDashBtn
             // 
@@ -105,7 +105,7 @@
             this.incomeDashBtn.Location = new System.Drawing.Point(1218, 257);
             this.incomeDashBtn.Name = "incomeDashBtn";
             this.incomeDashBtn.Size = new System.Drawing.Size(175, 53);
-            this.incomeDashBtn.TabIndex = 14;
+            this.incomeDashBtn.TabIndex = 90;
             this.incomeDashBtn.Text = "DashBoard";
             this.incomeDashBtn.UseVisualStyleBackColor = false;
             // 
@@ -116,7 +116,7 @@
             this.button1.Location = new System.Drawing.Point(1218, 322);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(175, 53);
-            this.button1.TabIndex = 16;
+            this.button1.TabIndex = 91;
             this.button1.Text = "Manage Income";
             this.button1.UseVisualStyleBackColor = false;
             // 
@@ -127,7 +127,7 @@
             this.button2.Location = new System.Drawing.Point(1218, 388);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(175, 53);
-            this.button2.TabIndex = 17;
+            this.button2.TabIndex = 92;
             this.button2.Text = "Manage Expenses";
             this.button2.UseVisualStyleBackColor = false;
             // 
@@ -138,7 +138,7 @@
             this.button3.Location = new System.Drawing.Point(1218, 456);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(175, 53);
-            this.button3.TabIndex = 18;
+            this.button3.TabIndex = 93;
             this.button3.Text = "Manage Bills";
             this.button3.UseVisualStyleBackColor = false;
             // 
@@ -149,7 +149,7 @@
             this.button4.Location = new System.Drawing.Point(1218, 521);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(175, 53);
-            this.button4.TabIndex = 19;
+            this.button4.TabIndex = 94;
             this.button4.Text = "View Budget";
             this.button4.UseVisualStyleBackColor = false;
             // 
@@ -160,7 +160,7 @@
             this.billBtn.Location = new System.Drawing.Point(842, 642);
             this.billBtn.Name = "billBtn";
             this.billBtn.Size = new System.Drawing.Size(141, 36);
-            this.billBtn.TabIndex = 23;
+            this.billBtn.TabIndex = 6;
             this.billBtn.TabStop = false;
             this.billBtn.Text = "Add Bill";
             this.billBtn.UseVisualStyleBackColor = false;
@@ -173,14 +173,14 @@
             this.billCategoryBox.Location = new System.Drawing.Point(757, 306);
             this.billCategoryBox.Name = "billCategoryBox";
             this.billCategoryBox.Size = new System.Drawing.Size(227, 29);
-            this.billCategoryBox.TabIndex = 24;
+            this.billCategoryBox.TabIndex = 2;
             // 
             // billTitleTxt
             // 
             this.billTitleTxt.Location = new System.Drawing.Point(756, 261);
             this.billTitleTxt.Name = "billTitleTxt";
             this.billTitleTxt.Size = new System.Drawing.Size(227, 28);
-            this.billTitleTxt.TabIndex = 30;
+            this.billTitleTxt.TabIndex = 1;
             // 
             // label6
             // 
@@ -207,13 +207,13 @@
             this.billDescTxt.Location = new System.Drawing.Point(756, 354);
             this.billDescTxt.Name = "billDescTxt";
             this.billDescTxt.Size = new System.Drawing.Size(227, 28);
-            this.billDescTxt.TabIndex = 32;
+            this.billDescTxt.TabIndex = 3;
             // 
             // monthCalendar
             // 
             this.monthCalendar.Location = new System.Drawing.Point(756, 440);
             this.monthCalendar.Name = "monthCalendar";
-            this.monthCalendar.TabIndex = 7;
+            this.monthCalendar.TabIndex = 5;
             // 
             // ManageBills
             // 

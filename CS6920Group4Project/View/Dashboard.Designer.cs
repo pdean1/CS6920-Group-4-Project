@@ -47,7 +47,6 @@
             this.button1 = new System.Windows.Forms.Button();
             this.percentageCht = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.mainDashPnl = new System.Windows.Forms.Panel();
-            this.cbBudgets = new System.Windows.Forms.ComboBox();
             this.lblIncomeRemaining = new System.Windows.Forms.Label();
             this.lblBillAmount = new System.Windows.Forms.Label();
             this.lblExpenseAmount = new System.Windows.Forms.Label();
@@ -59,6 +58,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.statisticsChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.lblBudgetTitle = new System.Windows.Forms.Label();
             this.HeaderPnl.SuspendLayout();
             this.leftDashPnl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.percentageCht)).BeginInit();
@@ -68,6 +68,7 @@
             // 
             // HeaderPnl
             // 
+            this.HeaderPnl.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.HeaderPnl.BackColor = System.Drawing.Color.Transparent;
             this.HeaderPnl.Controls.Add(this.userNameLbl);
             this.HeaderPnl.Controls.Add(this.welcomeLbl);
@@ -81,7 +82,7 @@
             this.userNameLbl.AutoSize = true;
             this.userNameLbl.Font = new System.Drawing.Font("Calibri", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.userNameLbl.ForeColor = System.Drawing.Color.DarkGreen;
-            this.userNameLbl.Location = new System.Drawing.Point(227, 54);
+            this.userNameLbl.Location = new System.Drawing.Point(226, 52);
             this.userNameLbl.Name = "userNameLbl";
             this.userNameLbl.Size = new System.Drawing.Size(98, 21);
             this.userNameLbl.TabIndex = 9;
@@ -129,7 +130,7 @@
             this.DashBudbtn.Location = new System.Drawing.Point(23, 311);
             this.DashBudbtn.Name = "DashBudbtn";
             this.DashBudbtn.Size = new System.Drawing.Size(175, 53);
-            this.DashBudbtn.TabIndex = 6;
+            this.DashBudbtn.TabIndex = 4;
             this.DashBudbtn.Text = "View Budget";
             this.DashBudbtn.UseVisualStyleBackColor = false;
             this.DashBudbtn.Click += new System.EventHandler(this.DashBudbtn_Click);
@@ -142,7 +143,7 @@
             this.dashBillBtn.Location = new System.Drawing.Point(23, 235);
             this.dashBillBtn.Name = "dashBillBtn";
             this.dashBillBtn.Size = new System.Drawing.Size(175, 53);
-            this.dashBillBtn.TabIndex = 5;
+            this.dashBillBtn.TabIndex = 3;
             this.dashBillBtn.Text = "Manage Bills";
             this.dashBillBtn.UseVisualStyleBackColor = false;
             this.dashBillBtn.Click += new System.EventHandler(this.dashBillBtn_Click);
@@ -155,7 +156,7 @@
             this.dashExpBtn.Location = new System.Drawing.Point(23, 161);
             this.dashExpBtn.Name = "dashExpBtn";
             this.dashExpBtn.Size = new System.Drawing.Size(175, 53);
-            this.dashExpBtn.TabIndex = 4;
+            this.dashExpBtn.TabIndex = 2;
             this.dashExpBtn.Text = "Manage Expenses";
             this.dashExpBtn.UseVisualStyleBackColor = false;
             this.dashExpBtn.Click += new System.EventHandler(this.dashExpBtn_Click);
@@ -168,7 +169,7 @@
             this.dashEarnBtn.Location = new System.Drawing.Point(23, 90);
             this.dashEarnBtn.Name = "dashEarnBtn";
             this.dashEarnBtn.Size = new System.Drawing.Size(175, 53);
-            this.dashEarnBtn.TabIndex = 3;
+            this.dashEarnBtn.TabIndex = 1;
             this.dashEarnBtn.Text = "Manage Earnings";
             this.dashEarnBtn.UseVisualStyleBackColor = false;
             this.dashEarnBtn.Click += new System.EventHandler(this.dashEarnBtn_Click);
@@ -207,7 +208,7 @@
             // 
             this.mainDashPnl.BackColor = System.Drawing.Color.White;
             this.mainDashPnl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.mainDashPnl.Controls.Add(this.cbBudgets);
+            this.mainDashPnl.Controls.Add(this.lblBudgetTitle);
             this.mainDashPnl.Controls.Add(this.lblIncomeRemaining);
             this.mainDashPnl.Controls.Add(this.lblBillAmount);
             this.mainDashPnl.Controls.Add(this.lblExpenseAmount);
@@ -223,17 +224,6 @@
             this.mainDashPnl.Name = "mainDashPnl";
             this.mainDashPnl.Size = new System.Drawing.Size(831, 577);
             this.mainDashPnl.TabIndex = 4;
-            // 
-            // cbBudgets
-            // 
-            this.cbBudgets.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbBudgets.Font = new System.Drawing.Font("Calibri", 15.75F);
-            this.cbBudgets.ForeColor = System.Drawing.Color.ForestGreen;
-            this.cbBudgets.FormattingEnabled = true;
-            this.cbBudgets.Location = new System.Drawing.Point(286, 86);
-            this.cbBudgets.Name = "cbBudgets";
-            this.cbBudgets.Size = new System.Drawing.Size(259, 34);
-            this.cbBudgets.TabIndex = 11;
             // 
             // lblIncomeRemaining
             // 
@@ -363,6 +353,17 @@
             this.statisticsChart.TabIndex = 0;
             this.statisticsChart.Text = "Budget Statistics";
             // 
+            // lblBudgetTitle
+            // 
+            this.lblBudgetTitle.AutoSize = true;
+            this.lblBudgetTitle.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBudgetTitle.ForeColor = System.Drawing.Color.DarkGreen;
+            this.lblBudgetTitle.Location = new System.Drawing.Point(281, 89);
+            this.lblBudgetTitle.Name = "lblBudgetTitle";
+            this.lblBudgetTitle.Size = new System.Drawing.Size(114, 26);
+            this.lblBudgetTitle.TabIndex = 11;
+            this.lblBudgetTitle.Text = "Budget Title";
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -378,7 +379,6 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Dashboard";
             this.Text = "Budget Buddy Dashboard";
-            this.Load += new System.EventHandler(this.Dashboard_Load);
             this.HeaderPnl.ResumeLayout(false);
             this.HeaderPnl.PerformLayout();
             this.leftDashPnl.ResumeLayout(false);
@@ -416,6 +416,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button DashBudbtn;
         private System.Windows.Forms.Label userNameLbl;
-        private System.Windows.Forms.ComboBox cbBudgets;
+        private System.Windows.Forms.Label lblBudgetTitle;
     }
 }

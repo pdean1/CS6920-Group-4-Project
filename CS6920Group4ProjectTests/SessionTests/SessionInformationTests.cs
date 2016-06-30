@@ -29,7 +29,7 @@ namespace CS6920Group4ProjectTests.SessionTests
         {
             SessionInformation.InitSession();
             Assert.IsTrue(SessionInformation.GetSessionUser() != null);
-            Assert.IsTrue(SessionInformation.GetListOfBudgets() != null);
+            Assert.IsTrue(SessionInformation.GetBudget() != null);
         }
     }
 }

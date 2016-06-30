@@ -83,7 +83,7 @@
             // 
             this.monthCalendar.Location = new System.Drawing.Point(756, 440);
             this.monthCalendar.Name = "monthCalendar";
-            this.monthCalendar.TabIndex = 7;
+            this.monthCalendar.TabIndex = 4;
             // 
             // expenseBtn
             // 
@@ -92,7 +92,7 @@
             this.expenseBtn.Location = new System.Drawing.Point(842, 629);
             this.expenseBtn.Name = "expenseBtn";
             this.expenseBtn.Size = new System.Drawing.Size(141, 36);
-            this.expenseBtn.TabIndex = 8;
+            this.expenseBtn.TabIndex = 5;
             this.expenseBtn.TabStop = false;
             this.expenseBtn.Text = "Add Expense";
             this.expenseBtn.UseVisualStyleBackColor = false;
@@ -103,7 +103,7 @@
             this.expenseAmountTxt.Location = new System.Drawing.Point(756, 395);
             this.expenseAmountTxt.Name = "expenseAmountTxt";
             this.expenseAmountTxt.Size = new System.Drawing.Size(227, 28);
-            this.expenseAmountTxt.TabIndex = 11;
+            this.expenseAmountTxt.TabIndex = 3;
             // 
             // incomeDashBtn
             // 
@@ -112,7 +112,7 @@
             this.incomeDashBtn.Location = new System.Drawing.Point(1218, 260);
             this.incomeDashBtn.Name = "incomeDashBtn";
             this.incomeDashBtn.Size = new System.Drawing.Size(175, 53);
-            this.incomeDashBtn.TabIndex = 14;
+            this.incomeDashBtn.TabIndex = 90;
             this.incomeDashBtn.Text = "DashBoard";
             this.incomeDashBtn.UseVisualStyleBackColor = false;
             // 
@@ -123,7 +123,7 @@
             this.button1.Location = new System.Drawing.Point(1218, 327);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(175, 53);
-            this.button1.TabIndex = 16;
+            this.button1.TabIndex = 91;
             this.button1.Text = "Manage Income";
             this.button1.UseVisualStyleBackColor = false;
             // 
@@ -134,7 +134,7 @@
             this.button2.Location = new System.Drawing.Point(1218, 395);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(175, 53);
-            this.button2.TabIndex = 17;
+            this.button2.TabIndex = 92;
             this.button2.Text = "Manage Expenses";
             this.button2.UseVisualStyleBackColor = false;
             // 
@@ -145,7 +145,7 @@
             this.button3.Location = new System.Drawing.Point(1218, 461);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(175, 53);
-            this.button3.TabIndex = 18;
+            this.button3.TabIndex = 93;
             this.button3.Text = "Manage Bills";
             this.button3.UseVisualStyleBackColor = false;
             // 
@@ -156,7 +156,7 @@
             this.button4.Location = new System.Drawing.Point(1218, 526);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(175, 53);
-            this.button4.TabIndex = 19;
+            this.button4.TabIndex = 94;
             this.button4.Text = "View Budget";
             this.button4.UseVisualStyleBackColor = false;
             // 
@@ -167,14 +167,14 @@
             this.expenseCategoryBox.Location = new System.Drawing.Point(756, 351);
             this.expenseCategoryBox.Name = "expenseCategoryBox";
             this.expenseCategoryBox.Size = new System.Drawing.Size(227, 29);
-            this.expenseCategoryBox.TabIndex = 29;
+            this.expenseCategoryBox.TabIndex = 2;
             // 
             // expenseTitleTxt
             // 
             this.expenseTitleTxt.Location = new System.Drawing.Point(756, 311);
             this.expenseTitleTxt.Name = "expenseTitleTxt";
             this.expenseTitleTxt.Size = new System.Drawing.Size(227, 28);
-            this.expenseTitleTxt.TabIndex = 28;
+            this.expenseTitleTxt.TabIndex = 1;
             // 
             // label6
             // 

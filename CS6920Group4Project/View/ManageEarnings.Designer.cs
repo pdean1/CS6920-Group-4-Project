@@ -127,7 +127,7 @@
             this.earningsDashBtn.Location = new System.Drawing.Point(1215, 243);
             this.earningsDashBtn.Name = "earningsDashBtn";
             this.earningsDashBtn.Size = new System.Drawing.Size(175, 53);
-            this.earningsDashBtn.TabIndex = 14;
+            this.earningsDashBtn.TabIndex = 90;
             this.earningsDashBtn.Text = "DashBoard";
             this.earningsDashBtn.UseVisualStyleBackColor = false;
             this.earningsDashBtn.Click += new System.EventHandler(this.earningsDashBtn_Click);
@@ -139,7 +139,7 @@
             this.manageExpensesBtn.Location = new System.Drawing.Point(1215, 316);
             this.manageExpensesBtn.Name = "manageExpensesBtn";
             this.manageExpensesBtn.Size = new System.Drawing.Size(175, 53);
-            this.manageExpensesBtn.TabIndex = 17;
+            this.manageExpensesBtn.TabIndex = 91;
             this.manageExpensesBtn.Text = "Manage Expenses";
             this.manageExpensesBtn.UseVisualStyleBackColor = false;
             this.manageExpensesBtn.Click += new System.EventHandler(this.manageExpensesBtn_Click);
@@ -151,7 +151,7 @@
             this.manageBillsBtn.Location = new System.Drawing.Point(1215, 391);
             this.manageBillsBtn.Name = "manageBillsBtn";
             this.manageBillsBtn.Size = new System.Drawing.Size(175, 53);
-            this.manageBillsBtn.TabIndex = 18;
+            this.manageBillsBtn.TabIndex = 92;
             this.manageBillsBtn.Text = "Manage Bills";
             this.manageBillsBtn.UseVisualStyleBackColor = false;
             this.manageBillsBtn.Click += new System.EventHandler(this.manageBillsBtn_Click);
@@ -163,7 +163,7 @@
             this.viewBudgetBtn.Location = new System.Drawing.Point(1215, 465);
             this.viewBudgetBtn.Name = "viewBudgetBtn";
             this.viewBudgetBtn.Size = new System.Drawing.Size(175, 53);
-            this.viewBudgetBtn.TabIndex = 19;
+            this.viewBudgetBtn.TabIndex = 94;
             this.viewBudgetBtn.Text = "View Budget";
             this.viewBudgetBtn.UseVisualStyleBackColor = false;
             this.viewBudgetBtn.Click += new System.EventHandler(this.viewBudgetBtn_Click);
@@ -253,7 +253,6 @@
             this.Font = new System.Drawing.Font("Calibri", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.DarkGreen;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "ManageEarnings";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;

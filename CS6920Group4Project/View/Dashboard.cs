@@ -25,6 +25,7 @@ namespace CS6920Group4Project.View
             InitializeComponent();
             userNameLbl.Text = Session.SessionInformation.GetSessionUser().FirstName + " " 
                 + Session.SessionInformation.GetSessionUser().LastName;
+            lblBudgetTitle.Text = Session.SessionInformation.GetBudget().Title;
             UpdateDashboard();
             
        }
@@ -32,11 +33,6 @@ namespace CS6920Group4Project.View
         private void welcomeLbl_Click(object sender, EventArgs e)
         {
 
-        }
-
-        private void Dashboard_Load(object sender, EventArgs e)
-        {
-            cbBudgets.SelectedIndex = 0;
         }
 
         private void cbBudgets_SelectedIndexChanged(Object sender, EventArgs e)
