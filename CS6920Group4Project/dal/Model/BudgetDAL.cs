@@ -22,9 +22,7 @@ namespace CS6920Group4Project.DAL.Model
             return 0;
         }
 
-        private const string SelectAllUsersBudgetsStatement = "SELECT `budgets`.`BudgetID`, `budgets`.`UserID`, `budgets`.`BudgetTypeID`, " +
-            "`budgets`.`Title`, `budgets`.`Description`, `budgets`.`DateCreated` FROM `sql5123046`.`budgets`" +
-            " WHERE `budgets`.`UserID` = @ID;";
+        private const string SelectAllUsersBudgetsStatement = "SELECT * FROM `sql5123046`.`budgets` WHERE `budgets`.`UserID` = @ID;";
 
         public List<Budget> GetAllUserBudgets (int UserID)
         {
@@ -45,17 +43,17 @@ namespace CS6920Group4Project.DAL.Model
                         Budget budget = new Budget();
                         budget.ID = reader.GetInt32(0);
                         budget.UserID = reader.GetInt32(1);
-                        budget.BudgetTypeID = reader.GetInt32(2);
-                        budget.Title = reader.GetString(3);
+                        budget.Title = reader.GetString(2);
                         try
                         {
-                            budget.Description = reader.GetString(4);
+                            budget.Description = reader.GetString(3);
                         }
                         catch (Exception)
                         {
                             budget.Description = "";
                         }
-                        budget.DateCreated = reader.GetDateTime(5);
+                        
+                        budget.DateCreated = reader.GetDateTime(4);
                         budgets.Add(budget);
                     }
                 }

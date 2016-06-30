@@ -32,10 +32,5 @@ namespace CS6920Group4Project.Controller
         {
             return _dal.InsertExpense(e);
         }
-        public List<ExpenseCategory> GetExpenseCategoryList()
-
-        {
-            return _dal.GetExpenseCategoryList();
-        }
     }
 }

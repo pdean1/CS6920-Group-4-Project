@@ -59,7 +59,6 @@
     <Compile Include="Controller\BudgetController.cs" />
     <Compile Include="DAL\Model\BillDAL.cs" />
     <Compile Include="DAL\Model\BudgetDAL.cs" />
-    <Compile Include="DAL\Model\CategoriesDAL.cs" />
     <Compile Include="DAL\Model\EarningDAL.cs" />
     <Compile Include="DAL\Model\ExpenseDAL.cs" />
     <Compile Include="DAL\Model\RecordDAL.cs" />
@@ -75,14 +74,9 @@
       <DependentUpon>BudgetView.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\Bill.cs" />
-    <Compile Include="Model\BillCategory.cs" />
     <Compile Include="Model\Budget.cs" />
-    <Compile Include="Model\BudgetType.cs" />
-    <Compile Include="Model\Category.cs" />
     <Compile Include="Model\Earning.cs" />
-    <Compile Include="Model\EarningCategory.cs" />
     <Compile Include="Model\Expense.cs" />
-    <Compile Include="Model\ExpenseCategory.cs" />
     <Compile Include="Model\Record.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="Controller\Program.cs" />

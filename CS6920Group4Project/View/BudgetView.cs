@@ -26,10 +26,11 @@ namespace CS6920Group4Project.View
             for (int i = 0; i < earningsList.Count; i++)
             {
                 Earning earning = earningsList[i];
-                ListViewItem item = new ListViewItem(new[] {earning.Title.ToString(), 
+                ListViewItem item = new ListViewItem(new[] {
+                    earning.Title.ToString(), 
                     (String.IsNullOrEmpty(earning.Description)) ? "" : earning.Description.ToString(), 
-                    /*earning.Category.Title.ToString()*/ "", earning.Category.Title.ToString(),
-                StringUtilities.GetDisplayableDollarAmount(earning.Amount), earning.DateEarned.ToString()});
+                    StringUtilities.GetDisplayableDollarAmount(earning.Amount), 
+                    earning.DateEarned.ToString()});
                 earnView.Items.Add(item);
             }
 
@@ -37,17 +38,25 @@ namespace CS6920Group4Project.View
             for (int i = 0; i < billList.Count; i++)
             {
                 Bill bill = billList[i];
-                ListViewItem item = new ListViewItem(new[] {bill.Title.ToString(), StringUtilities.GetDisplayableDollarAmount(bill.Amount),
-                bill.DateDue.ToString(), (String.IsNullOrEmpty(bill.Description)) ? "" : bill.Description.ToString(), bill.DatePaid.ToString()});
+                ListViewItem item = new ListViewItem(new[] {
+                    bill.Title.ToString(),
+                    (String.IsNullOrEmpty(bill.Description)) ? "" : bill.Description.ToString(), 
+                    StringUtilities.GetDisplayableDollarAmount(bill.Amount),
+                    bill.DateDue.ToString(), 
+                    bill.DatePaid.ToString()
+                });
                 billView.Items.Add(item);
             }
             List<Expense> expenseList = Session.SessionInformation.GetListOfBudgets()[0].Expenses;
             for (int i = 0; i < expenseList.Count; i++)
             {
                 Expense expense = expenseList[i];
-                ListViewItem item = new ListViewItem(new[] {expense.Title.ToString(), expense.DateSpent.ToString(), 
+                ListViewItem item = new ListViewItem(new[] {
+                    expense.Title.ToString(), 
+                    expense.DateSpent.ToString(), 
                     (String.IsNullOrEmpty(expense.Description)) ? "" : expense.Description.ToString(), 
-                    StringUtilities.GetDisplayableDollarAmount(expense.Amount), expense.Category.Title.ToString()});
+                    StringUtilities.GetDisplayableDollarAmount(expense.Amount)
+                });
                 expenseView.Items.Add(item);
             }
         }

@@ -20,30 +20,34 @@ namespace CS6920Group4Project.View
         private String billDate;
         private String billTitle;
 
-        private BillCategory billCategory;
-        private List<BillCategory> categoryList;
         private List<Budget> budgetList;
 
         public ManageBills()
         {
             InitializeComponent();
-            this.getBillCategoryList();
         }
 
         private void billBtn_Click(object sender, EventArgs e)
-        {
+        { 
             try
             {
                 bool isValidData = this.validateData();
                 if (isValidData == true)
                 {
                     Bill newBill = new Bill();
-                    newBill.Amount = Convert.ToDecimal(billAmount);
+                    try
+                    {
+                        newBill.Amount = Convert.ToDecimal(billAmount);
+                    }
+                    catch (FormatException fe)
+                    {
+                        Utilities.DatabaseErrorMessageUtility.SendMessageToUser("Invalid amount format!", fe);
+                        return;
+                    }
                     newBill.DateCreated = DateTime.Now;
                     newBill.DateDue = DateTime.Parse(billDate);
                     newBill.Title = billTitle;
                     newBill.Description = billDesc;
-                    newBill.Category = categoryList[billCategoryBox.SelectedIndex];
                     newBill.BudgetID = 1;
 
                     long isBillAdded = BillController.Instance.InsertBill(newBill);
@@ -105,22 +109,9 @@ namespace CS6920Group4Project.View
             monthCalendar.Text = "";
         }
 
-        private void getBillCategoryList()
-        {
-            categoryList = BillController.Instance.GetBillCategoryList();
-            billCategoryBox.DataSource = categoryList;
-            billCategoryBox.DisplayMember = "Title";
-            billCategoryBox.ValueMember = "ID";
-        }
-
         private void getUserID()
         {
             budgetList = Session.SessionInformation.GetListOfBudgets();     
-        }
-
-        private void ManageBills_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

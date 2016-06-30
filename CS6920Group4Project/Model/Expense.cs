@@ -8,8 +8,6 @@ namespace CS6920Group4Project.Model
 {
     public class Expense : Record
     {
-        // public int ExpenseCategoryID { get; set; }
-        public ExpenseCategory Category { get; set; }
         public decimal Amount { get; set; }
         public DateTime DateSpent { get; set; }
     }

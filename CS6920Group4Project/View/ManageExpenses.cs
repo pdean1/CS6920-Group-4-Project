@@ -20,14 +20,11 @@ namespace CS6920Group4Project.View
         private String expenseDate;
         private String expenseTitle;
 
-        private ExpenseCategory expenseCategory;
-        private List<ExpenseCategory> categoryList;
         private List<Budget> budgetList;
 
         public ManageExpenses()
         {
             InitializeComponent();
-            this.getExpenseCategoryList();
         }
 
 
@@ -39,12 +36,20 @@ namespace CS6920Group4Project.View
                 if (isValidData == true)
                 {
                     Expense newExpense = new Expense();
-                    newExpense.Amount = Convert.ToDecimal(expenseAmount);
+                    try
+                    {
+                        newExpense.Amount = Convert.ToDecimal(expenseAmount);
+                    } 
+                    catch (FormatException fe)
+                    {
+                        Utilities.DatabaseErrorMessageUtility.SendMessageToUser("Invalid amount format!", fe);
+                        return;
+                    }
+
                     newExpense.DateCreated = DateTime.Now;
                     newExpense.DateSpent = DateTime.Parse(expenseDate);
                     newExpense.Title = expenseTitle;
                     newExpense.Description = expenseDesc;
-                    newExpense.Category = categoryList[expenseCategoryBox.SelectedIndex];
                     newExpense.BudgetID = 1;
 
                     long isExpenseAdded = ExpenseController.Instance.InsertExpense(newExpense);
@@ -102,14 +107,6 @@ namespace CS6920Group4Project.View
             expenseCategoryBox.SelectedIndex = -1 ;
             expenseAmountTxt.Text = "";
             monthCalendar.Text = "";
-        }
-
-        private void getExpenseCategoryList()
-        {
-            categoryList = ExpenseController.Instance.GetExpenseCategoryList();
-            expenseCategoryBox.DataSource = categoryList;
-            expenseCategoryBox.DisplayMember = "Title";
-            expenseCategoryBox.ValueMember = "ID";
         }
 
         private void getUserID()

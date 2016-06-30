@@ -33,56 +33,17 @@ CREATE TABLE users (
    CONSTRAINT User_UserName_UK UNIQUE (UserName)
 ); 
 -- =====================================================================
--- BudgetTypes Table Creation Scripts                               
--- =====================================================================
-CREATE TABLE budgettypes (
-  BudgetTypeID INT UNSIGNED AUTO_INCREMENT NOT NULL,
-  Title        VARCHAR(64)                 NOT NULL,
-  Description  VARCHAR(256),
-  CONSTRAINT BudgetType_PK PRIMARY KEY (BudgetTypeID)
-);
--- =====================================================================
--- ExpenseCategories Table Creation Scripts                               
--- =====================================================================
-CREATE TABLE expensecategories (
-  ExpenseCategoryID INT UNSIGNED AUTO_INCREMENT NOT NULL,
-  Title             VARCHAR(64)                 NOT NULL,
-  Description       VARCHAR(256),
-  CONSTRAINT ExpenseCategory_PK PRIMARY KEY (ExpenseCategoryID)
-);
--- =====================================================================
--- BillCategories Table Creation Scripts                               
--- =====================================================================
-CREATE TABLE billcategories (
-  BillCategoryID INT UNSIGNED AUTO_INCREMENT NOT NULL,
-  Title VARCHAR(64)                          NOT NULL,
-  Description VARCHAR(256),
-  CONSTRAINT BillCategory_PK PRIMARY KEY (BillCategoryID)
-);
--- =====================================================================
--- EarningCategories Table Creation Scripts                               
--- =====================================================================
-CREATE TABLE earningcategories (
-  EarningCategoryID INT UNSIGNED AUTO_INCREMENT NOT NULL,
-  Title             VARCHAR(64) NOT NULL,
-  Description       VARCHAR(256),
-  CONSTRAINT EarningCategory_PK PRIMARY KEY (EarningCategoryID)
-);
--- =====================================================================
 -- Budgets Table Creation Scripts                               
 -- =====================================================================
 CREATE TABLE budgets (
   BudgetID     INT UNSIGNED AUTO_INCREMENT NOT NULL,
   UserID       INT UNSIGNED NOT NULL,
-  BudgetTypeID INT UNSIGNED NOT NULL,
   Title        VARCHAR(64)  NOT NULL,
   Description  VARCHAR(256),
   DateCreated  DATETIME     NOT NULL,
   CONSTRAINT Budget_PK PRIMARY KEY (BudgetID),
   CONSTRAINT Budget_User_FK FOREIGN KEY (UserID) 
     REFERENCES users (UserID),
-  CONSTRAINT Budget_BudgetType_FK FOREIGN KEY (BudgetTypeID) 
-    REFERENCES budgettypes (BudgetTypeID),
   CONSTRAINT Budget_UserID_Title_UK UNIQUE (UserID, Title)
 );
 -- =====================================================================
@@ -109,41 +70,32 @@ CREATE TABLE records (
 -- =====================================================================
 CREATE TABLE earnings (
     RecordID INT UNSIGNED NOT NULL,
-    EarningCategoryID INT UNSIGNED NOT NULL,
     Amount NUMERIC(19 , 4 ) NOT NULL,
     DateEarned DATETIME NOT NULL,
     CONSTRAINT Earning_PK PRIMARY KEY (RecordID),
     CONSTRAINT Earning_Record_PK FOREIGN KEY (RecordID)
-        REFERENCES records (RecordID),
-    CONSTRAINT Earning_EarningCategory_FK FOREIGN KEY (EarningCategoryID)
-        REFERENCES earningcategories (EarningCategoryID)
+        REFERENCES records (RecordID)
 );
 -- =====================================================================
 -- Bills Table Creation Scripts                               
 -- =====================================================================
 CREATE TABLE bills (
   RecordID       INT UNSIGNED  NOT NULL,
-  BillCategoryID INT UNSIGNED  NOT NULL,
   Amount         NUMERIC(19,4) NOT NULL,
   DateDue        DATETIME      NOT NULL,
   DatePaid       DATETIME,
   CONSTRAINT Bill_PK PRIMARY KEY (RecordID),
   CONSTRAINT Bill_Record_FK FOREIGN KEY (RecordID) 
-    REFERENCES records (RecordID),
-  CONSTRAINT Bill_BillCategory_FK FOREIGN KEY (BillCategoryID) 
-    REFERENCES billcategories (BillCategoryID)
+    REFERENCES records (RecordID)
 ); 
 -- =====================================================================
 -- Expenses Table Creation Scripts                               
 -- ===================================================================== 
 CREATE TABLE expenses (
   RecordID          INT UNSIGNED  NOT NULL,
-  ExpenseCategoryID INT UNSIGNED  NOT NULL,
   Amount            NUMERIC(19,4) NOT NULL,
   DateSpent         DateTime      NOT NULL,
   CONSTRAINT Expense_PK PRIMARY KEY (RecordID),
   CONSTRAINT Expense_Record_PK FOREIGN KEY (RecordID)  
-    REFERENCES records (RecordID),
-  CONSTRAINT Expense_Cateogry_FK FOREIGN KEY (ExpenseCategoryID)
-    REFERENCES expensecategories (ExpenseCategoryID)
+    REFERENCES records (RecordID)
 );

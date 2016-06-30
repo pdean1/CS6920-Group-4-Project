@@ -21,7 +21,6 @@ namespace CS6920Group4Project.View
         private String earnTitle;
         private String earnAmount;
         public List<Budget> budgetList;
-        public List<EarningCategory> earningCategories;
 
         public ManageEarnings()
         {
@@ -38,13 +37,6 @@ namespace CS6920Group4Project.View
 
       
 
-        private void ManageEarnings_Load(object sender, EventArgs e)
-        {
-            earningCategories = EarningController.Instance.GetListOfEarningCategories();
-            cbEarnings.DataSource = earningCategories;
-            cbEarnings.ValueMember = "ID";
-            cbEarnings.DisplayMember = "Title";
-        }
         /// <summary>
         /// method to load a combobox -stubbed out functionality for later use
         /// </summary>
@@ -108,12 +100,20 @@ namespace CS6920Group4Project.View
                 if (isValidData == true)
                 {
                     Earning newEarn = new Earning();
-                    newEarn.Amount = Convert.ToDecimal(earnAmount);
+                    try
+                    {
+                        newEarn.Amount = Convert.ToDecimal(earnAmount);
+                    }
+                    catch (FormatException fe)
+                    {
+                        Utilities.DatabaseErrorMessageUtility.SendMessageToUser("Invalid format for amount", fe);
+                        return;
+                    }
+
                     newEarn.DateEarned = DateTime.Parse(earnDate);
                     newEarn.Title = earnTitle;
                     newEarn.Description = earnDesc;
                     newEarn.BudgetID = 1; // TODO Hard Coded value will need to change in the future
-                    newEarn.Category = earningCategories[cbEarnings.SelectedIndex];
                     long isEarningsAdded = EarningController.Instance.InsertEarning(newEarn);
                     if (isEarningsAdded == 0)
                     {

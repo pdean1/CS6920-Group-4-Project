@@ -258,7 +258,6 @@
             this.Name = "ManageEarnings";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Manage Earnings";
-            this.Load += new System.EventHandler(this.ManageEarnings_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

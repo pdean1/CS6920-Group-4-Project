@@ -15,8 +15,8 @@ namespace CS6920Group4Project.DAL.Model
     {
         private MySqlConnection conn = new DBConnect().GetConnection();
 
-        private const string InsertExpenseStatment = "INSERT INTO `sql5123046`.`expenses` (`RecordID`, `ExpenseCategoryID`, `Amount`, `DateSpent`) " 
-            + "VALUES (@RecordID, @ExpenseCategoryID, @Amount, @DateSpent);";
+        private const string InsertExpenseStatment = "INSERT INTO `sql5123046`.`expenses` (`RecordID`, `Amount`, `DateSpent`) " 
+            + "VALUES (@RecordID, @Amount, @DateSpent);";
 
         public long InsertExpense(Expense expense)
         {
@@ -34,7 +34,6 @@ namespace CS6920Group4Project.DAL.Model
                     command.CommandText = InsertExpenseStatment;
                     command.Prepare();
                     command.Parameters.AddWithValue("@RecordID", expense.ID);
-                    command.Parameters.AddWithValue("@ExpenseCategoryID", expense.Category.ID);
                     command.Parameters.AddWithValue("@Amount", expense.Amount);
                     command.Parameters.AddWithValue("@DateSpent", expense.DateSpent.ToString("yyyy-MM-dd hh:mm:ss"));
                     command.ExecuteNonQuery();
@@ -65,19 +64,10 @@ namespace CS6920Group4Project.DAL.Model
             return id;
         }
 
+
+
         private const string GetListOfExpensesByBudgetIDStatment = 
-            "SELECT `viewexpenserecords`.`RecordID`," + 
-            "   `viewexpenserecords`.`BudgetID`," +  
-            "   `viewexpenserecords`.`RecordType`," +  
-            "   `viewexpenserecords`.`Title`," +  
-            "   `viewexpenserecords`.`Description`," +  
-            "   `viewexpenserecords`.`ExpenseCategoryID`," +  
-            "   `viewexpenserecords`.`ExpenseCategoryTitle`," +  
-            "   `viewexpenserecords`.`ExpenseCategoryDescription`," +  
-            "   `viewexpenserecords`.`Amount`," +  
-            "   `viewexpenserecords`.`DateSpent`," +  
-            "   `viewexpenserecords`.`DateCreated` " +
-            " FROM `sql5123046`.`viewexpenserecords` WHERE `viewexpenserecords`.`BudgetID` = @ID;";
+            "SELECT * FROM `sql5123046`.`viewexpenserecords` WHERE `viewexpenserecords`.`BudgetID` = @ID;";
 
         public List<Expense> GetListOfExpensesByBudgetID(int BudgetID)
         {
@@ -109,20 +99,9 @@ namespace CS6920Group4Project.DAL.Model
                             {
                                 expense.Description = "";
                             }
-                            expense.Category = new ExpenseCategory();
-                            expense.Category.ID = reader.GetInt32(5); ;
-                            expense.Category.Title = reader.GetString(6);
-                            try
-                            {
-                                expense.Category.Description = reader.GetString(7);
-                            }
-                            catch (Exception)
-                            {
-                                expense.Category.Description = "";
-                            }
-                            expense.Amount = reader.GetDecimal(8);
-                            expense.DateSpent = reader.GetDateTime(9);
-                            expense.DateCreated = reader.GetDateTime(10);
+                            expense.Amount = reader.GetDecimal(5);
+                            expense.DateSpent = reader.GetDateTime(6);
+                            expense.DateCreated = reader.GetDateTime(7);
                             expenses.Add(expense);
                         }
                     }
@@ -145,47 +124,6 @@ namespace CS6920Group4Project.DAL.Model
                 conn.Close();
             }
             return expenses;
-        }
-
-        public List<ExpenseCategory> GetExpenseCategoryList()
-        {
-            List<ExpenseCategory> expenseCategoryList = new List<ExpenseCategory>();
-            try
-            {
-                using (MySqlCommand cmd = new MySqlCommand())
-                {
-                    conn.Open();
-                    cmd.Connection = conn;
-                    cmd.CommandText = "SELECT * FROM expensecategories";
-                    cmd.Prepare();
-                    using (MySqlDataReader reader = cmd.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            var bid = reader.GetOrdinal("ExpenseCategoryID");
-                            var bTitle = reader.GetOrdinal("Title");
-                            var bDesc = reader.GetOrdinal("Description");
-
-                            ExpenseCategory expenseCategory = new ExpenseCategory();
-
-                            expenseCategory.ID = reader.GetInt32(bid);
-                            expenseCategory.Title = reader.GetString(bTitle);
-                            expenseCategoryList.Add(expenseCategory);
-                        }
-                    }
-                }
-            }
-            catch (MySqlException e)
-            {
-                DatabaseErrorMessageUtility.SendMessageToUser(
-                    "Unable to query the ExpenseCategory in the database.", e);
-               expenseCategoryList = null;
-            }
-            finally
-            {
-                conn.Close();
-            }
-            return expenseCategoryList;
         }
     }
 }

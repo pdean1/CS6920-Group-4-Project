@@ -16,8 +16,8 @@ namespace CS6920Group4Project.DAL.Model
         private MySqlConnection conn = new DBConnect().GetConnection();
 
         private const string InsertBillStatement = 
-            "INSERT INTO sql5123046.bills(RecordID, BillCategoryID, Amount, DateDue, DatePaid) VALUES" 
-            + " (@RecordID, @BillCategoryID, @Amount, @DateDue, @DatePaid)";
+            "INSERT INTO sql5123046.bills(RecordID, Amount, DateDue, DatePaid) VALUES" 
+            + " (@RecordID, @Amount, @DateDue, @DatePaid)";
 
         public long InsertBill(Bill bill)
         {
@@ -34,7 +34,6 @@ namespace CS6920Group4Project.DAL.Model
                 command.CommandText = InsertBillStatement;
                 command.Prepare();
                 command.Parameters.AddWithValue("@RecordID", bill.ID);
-                command.Parameters.AddWithValue("@BillCategoryID", bill.Category.ID);
                 command.Parameters.AddWithValue("@Amount", bill.Amount);
                 command.Parameters.AddWithValue("@DateDue", bill.DateDue.ToString("yyyy-MM-dd hh:mm:ss"));
                 if (bill.DatePaid == null)
@@ -71,19 +70,7 @@ namespace CS6920Group4Project.DAL.Model
         }
 
         private const string SelectBillsByBudgetID = 
-            "SELECT `viewbillrecords`.`RecordID`, " + 
-            "`viewbillrecords`.`BudgetID`, " + 
-            "`viewbillrecords`.`RecordType`, " + 
-            "`viewbillrecords`.`Title`, " +
-            "`viewbillrecords`.`Description`, " +
-            "`viewbillrecords`.`BillCategoryID`, " +
-            "`viewbillrecords`.`BillCategoryTitle`, " +
-            "`viewbillrecords`.`BillCategoryDescription`, " +
-            "`viewbillrecords`.`Amount`, " +
-            "`viewbillrecords`.`DateDue`, " +
-            "`viewbillrecords`.`DatePaid`, " +
-            "`viewbillrecords`.`DateCreated` " +
-            "FROM `sql5123046`.`viewbillrecords` WHERE `viewbillrecords`.`BudgetID` = @ID;";
+            "SELECT * FROM `sql5123046`.`viewbillrecords` WHERE `viewbillrecords`.`BudgetID` = @ID;";
 
         public List<Bill> GetBillsByBudgetID(int BudgetID)
         {
@@ -114,28 +101,17 @@ namespace CS6920Group4Project.DAL.Model
                             {
                                 bill.Description = "";
                             }
-                            bill.Category = new BillCategory();
-                            bill.Category.ID = reader.GetInt32(5);
-                            bill.Category.Title = reader.GetString(6);
+                            bill.Amount = reader.GetDecimal(5);
+                            bill.DateDue = reader.GetDateTime(6);
                             try
                             {
-                                bill.Category.Description = reader.GetString(7);
-                            }
-                            catch (Exception)
-                            {
-                                bill.Category.Description = "";
-                            }
-                            bill.Amount = reader.GetDecimal(8);
-                            bill.DateDue = reader.GetDateTime(9);
-                            try
-                            {
-                                bill.DateDue = reader.GetDateTime(10);
+                                bill.DatePaid = reader.GetDateTime(7);
                             }
                             catch (Exception)
                             {
                                 bill.DatePaid = null;
                             }
-                            bill.DateCreated = reader.GetDateTime(11);
+                            bill.DateCreated = reader.GetDateTime(8);
                             bills.Add(bill);
                         }
                     }
@@ -158,47 +134,6 @@ namespace CS6920Group4Project.DAL.Model
                 conn.Close();
             }
             return bills;
-        }
-
-        public List<BillCategory> GetBillCategoryList()
-        {
-            List<BillCategory> billCategoryList = new List<BillCategory>();
-            try
-            {
-                using (MySqlCommand cmd = new MySqlCommand())
-                {
-                    conn.Open();
-                    cmd.Connection = conn;
-                    cmd.CommandText = "SELECT * FROM billcategories";
-                    cmd.Prepare();
-                    using (MySqlDataReader reader = cmd.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            var bid = reader.GetOrdinal("BillCategoryID");
-                            var bTitle = reader.GetOrdinal("Title");
-                            var bDesc = reader.GetOrdinal("Description");
-
-                            BillCategory billCategory = new BillCategory();
-
-                            billCategory.ID = reader.GetInt32(bid);
-                            billCategory.Title = reader.GetString(bTitle);
-                            billCategoryList.Add(billCategory);
-                        }
-                    }
-                }
-            }
-            catch (MySqlException e)
-            {
-                DatabaseErrorMessageUtility.SendMessageToUser(
-                    "Unable to query the BillCategory in the database.", e);
-               billCategoryList = null;
-            }
-            finally
-            {
-                conn.Close();
-            }
-            return billCategoryList;
         }
     }
 }

@@ -31,19 +31,11 @@ namespace CS6920Group4Project.Controller
             return _dal.GetEarningsByBudgetID(ID);
         }
 
-        public void AddEarning(Earning earn)
-        {
-            _dal.AddEarning(earn);
-        }
         public long InsertEarning(Earning e)
         {
             return _dal.InsertEarning(e);
         }
 
-        public List<EarningCategory> GetListOfEarningCategories()
-        {
-            return _dal.GetEarnCategoryList();
-        }
     }
 
 }
