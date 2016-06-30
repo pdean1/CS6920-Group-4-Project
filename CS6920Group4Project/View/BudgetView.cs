@@ -22,7 +22,7 @@ namespace CS6920Group4Project.View
 
         private void BudgetView_Load(object sender, EventArgs e)
         {
-            List<Earning> earningsList = Session.SessionInformation.GetListOfBudgets()[0].Earnings;
+            List<Earning> earningsList = Session.SessionInformation.GetBudget().Earnings;
             for (int i = 0; i < earningsList.Count; i++)
             {
                 Earning earning = earningsList[i];
@@ -34,7 +34,7 @@ namespace CS6920Group4Project.View
                 earnView.Items.Add(item);
             }
 
-            List<Bill> billList = Session.SessionInformation.GetListOfBudgets()[0].Bills;
+            List<Bill> billList = Session.SessionInformation.GetBudget().Bills;
             for (int i = 0; i < billList.Count; i++)
             {
                 Bill bill = billList[i];
@@ -47,7 +47,7 @@ namespace CS6920Group4Project.View
                 });
                 billView.Items.Add(item);
             }
-            List<Expense> expenseList = Session.SessionInformation.GetListOfBudgets()[0].Expenses;
+            List<Expense> expenseList = Session.SessionInformation.GetBudget().Expenses;
             for (int i = 0; i < expenseList.Count; i++)
             {
                 Expense expense = expenseList[i];

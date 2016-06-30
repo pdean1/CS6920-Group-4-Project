@@ -57,11 +57,6 @@ namespace CS6920Group4Project.Controller
             if (u == null)
                 return false;
             Session.SessionInformation.SetSessionUser(u);
-            List<Budget> budgets = BudgetController.Instance.GetUsersBudgets(u.ID);
-            if (budgets == null)
-                budgets = new List<Budget>();
-            Session.SessionInformation.SetUserBudgets(budgets);
-            BudgetController.Instance.PopulateBudgetsWithRecords(Session.SessionInformation.GetListOfBudgets());
             return true;
         }
     }

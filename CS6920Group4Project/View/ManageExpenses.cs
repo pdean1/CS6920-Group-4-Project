@@ -109,10 +109,5 @@ namespace CS6920Group4Project.View
             monthCalendar.Text = "";
         }
 
-        private void getUserID()
-        {
-            budgetList = Session.SessionInformation.GetListOfBudgets();     
-        }
-    
     }
 }

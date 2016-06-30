@@ -51,13 +51,23 @@ namespace CS6920Group4Project.Controller
             
             foreach (Budget b in budgets)
             {
-                b.Earnings = EarningController.Instance.GetEarningsByBudgetID(b.ID);
-                b.Expenses = ExpenseController.Instance.GetExpensesByBudgetID(b.ID);
-                b.Bills = BillController.Instance.GetBillsByBudgetID(b.ID);
+                if (PopulateBudgetWithRecords(b))
+                    continue;
+                else
+                    return false;
             }
 
             return true;
         }
 
+        public Boolean PopulateBudgetWithRecords(Budget budget)
+        {
+            if (budget == null)
+                return false;
+            budget.Earnings = EarningController.Instance.GetEarningsByBudgetID(budget.ID);
+            budget.Expenses = ExpenseController.Instance.GetExpensesByBudgetID(budget.ID);
+            budget.Bills = BillController.Instance.GetBillsByBudgetID(budget.ID);
+            return true;
+        }
     }
 }

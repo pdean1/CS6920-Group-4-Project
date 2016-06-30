@@ -53,14 +53,7 @@ namespace CS6920Group4Project.DAL.Model
                     conn.Close();
                 }
             }
-            foreach (Budget b in Session.SessionInformation.GetListOfBudgets())
-            {
-                if (b.ID == expense.BudgetID)
-                {
-                    b.Expenses.Add(expense);
-                    break;
-                }   
-            }
+            Session.SessionInformation.GetBudget().Expenses.Add(expense);
             return id;
         }
 

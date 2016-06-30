@@ -47,10 +47,10 @@ namespace CS6920Group4Project.View
             Boolean findUser = UserController.Instance.Login(username, password);
             if (findUser == true)
             {
-                Form wpForm = new WelcomeParent();
-                wpForm.FormClosed += new FormClosedEventHandler(otherForm_FormClosed);
+                Form bpForm = new BudgetPickerForm();
+                bpForm.FormClosed += new FormClosedEventHandler(otherForm_FormClosed);
                 this.Hide();
-                wpForm.Show();
+                bpForm.Show();
             }  
             else
             {

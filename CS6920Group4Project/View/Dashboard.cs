@@ -25,6 +25,7 @@ namespace CS6920Group4Project.View
             InitializeComponent();
             userNameLbl.Text = Session.SessionInformation.GetSessionUser().FirstName + " " 
                 + Session.SessionInformation.GetSessionUser().LastName;
+            UpdateDashboard();
             
        }
 
@@ -35,17 +36,12 @@ namespace CS6920Group4Project.View
 
         private void Dashboard_Load(object sender, EventArgs e)
         {
-            cbBudgets.DataSource = Session.SessionInformation.GetListOfBudgets();
-            cbBudgets.DisplayMember = "Title";
-            cbBudgets.ValueMember = "ID";
-            cbBudgets.SelectedIndexChanged += cbBudgets_SelectedIndexChanged;
             cbBudgets.SelectedIndex = 0;
-            UpdateDashboard();
         }
 
         private void cbBudgets_SelectedIndexChanged(Object sender, EventArgs e)
         {
-            UpdateDashboard();
+            //UpdateDashboard();
             return; // working on this
         }
 
@@ -80,9 +76,9 @@ namespace CS6920Group4Project.View
         private void UpdateDashboard()
         {
             string[] xValues = { "Earnings", "Expenses", "Bills" };
-            BillsAmount = Session.SessionInformation.GetListOfBudgets()[cbBudgets.SelectedIndex].GetTotalAmountOfBills();
-            EarningsAmount = Session.SessionInformation.GetListOfBudgets()[cbBudgets.SelectedIndex].GetTotalAmountOfEarnings();
-            ExpensesAmount = Session.SessionInformation.GetListOfBudgets()[cbBudgets.SelectedIndex].GetTotalAmountOfExpenses();
+            BillsAmount = Session.SessionInformation.GetBudget().GetTotalAmountOfBills();
+            EarningsAmount = Session.SessionInformation.GetBudget().GetTotalAmountOfEarnings();
+            ExpensesAmount = Session.SessionInformation.GetBudget().GetTotalAmountOfExpenses();
 
             lblBillAmount.Text = StringUtilities.GetDisplayableDollarAmount(BillsAmount);
             lblExpenseAmount.Text = StringUtilities.GetDisplayableDollarAmount(ExpensesAmount);
