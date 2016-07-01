@@ -57,13 +57,12 @@ namespace CS6920Group4Project.View
                 MessageBox.Show("Invalid User Information, Please Try Again!"
                                , "USER"
                                , MessageBoxButtons.OK
-                               , MessageBoxIcon.Stop);  
+                               , MessageBoxIcon.Stop); 
             }
         }
 
         private void llCreateAccount_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            MessageBox.Show("Create User not yet implemented");
             Form cuForm = new CreateNewUserForm();
             cuForm.FormClosed += new FormClosedEventHandler(otherForm_FormClosed);
             this.Hide();

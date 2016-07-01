@@ -29,31 +29,31 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CreateNewUserForm));
-            this.tbUserName = new System.Windows.Forms.TextBox();
-            this.tbPassword = new System.Windows.Forms.TextBox();
+            this.txtUserName = new System.Windows.Forms.TextBox();
+            this.txtPassword = new System.Windows.Forms.TextBox();
             this.btnLogIn = new System.Windows.Forms.Button();
             this.llCreateAccount = new System.Windows.Forms.LinkLabel();
             this.userLbl = new System.Windows.Forms.Label();
             this.PassLbl = new System.Windows.Forms.Label();
             this.labelFirstName = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtFirstName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtLastName = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
-            // tbUserName
+            // txtUserName
             // 
-            this.tbUserName.Location = new System.Drawing.Point(595, 545);
-            this.tbUserName.Name = "tbUserName";
-            this.tbUserName.Size = new System.Drawing.Size(274, 20);
-            this.tbUserName.TabIndex = 3;
+            this.txtUserName.Location = new System.Drawing.Point(595, 545);
+            this.txtUserName.Name = "txtUserName";
+            this.txtUserName.Size = new System.Drawing.Size(274, 20);
+            this.txtUserName.TabIndex = 3;
             // 
-            // tbPassword
+            // txtPassword
             // 
-            this.tbPassword.Location = new System.Drawing.Point(595, 588);
-            this.tbPassword.Name = "tbPassword";
-            this.tbPassword.Size = new System.Drawing.Size(274, 20);
-            this.tbPassword.TabIndex = 4;
+            this.txtPassword.Location = new System.Drawing.Point(595, 588);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.Size = new System.Drawing.Size(274, 20);
+            this.txtPassword.TabIndex = 4;
             // 
             // btnLogIn
             // 
@@ -66,6 +66,7 @@
             this.btnLogIn.TabIndex = 5;
             this.btnLogIn.Text = "Submit";
             this.btnLogIn.UseVisualStyleBackColor = false;
+            this.btnLogIn.Click += new System.EventHandler(this.btnLogIn_Click);
             // 
             // llCreateAccount
             // 
@@ -116,12 +117,12 @@
             this.labelFirstName.TabIndex = 10;
             this.labelFirstName.Text = "First Name:";
             // 
-            // textBox2
+            // txtFirstName
             // 
-            this.textBox2.Location = new System.Drawing.Point(595, 456);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(274, 20);
-            this.textBox2.TabIndex = 1;
+            this.txtFirstName.Location = new System.Drawing.Point(595, 456);
+            this.txtFirstName.Name = "txtFirstName";
+            this.txtFirstName.Size = new System.Drawing.Size(274, 20);
+            this.txtFirstName.TabIndex = 1;
             // 
             // label1
             // 
@@ -135,12 +136,12 @@
             this.label1.TabIndex = 13;
             this.label1.Text = "Last Name:";
             // 
-            // textBox3
+            // txtLastName
             // 
-            this.textBox3.Location = new System.Drawing.Point(595, 503);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(274, 20);
-            this.textBox3.TabIndex = 2;
+            this.txtLastName.Location = new System.Drawing.Point(595, 503);
+            this.txtLastName.Name = "txtLastName";
+            this.txtLastName.Size = new System.Drawing.Size(274, 20);
+            this.txtLastName.TabIndex = 2;
             // 
             // CreateNewUserForm
             // 
@@ -148,17 +149,17 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1384, 762);
+            this.ClientSize = new System.Drawing.Size(1362, 741);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.txtLastName);
             this.Controls.Add(this.labelFirstName);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txtFirstName);
             this.Controls.Add(this.PassLbl);
             this.Controls.Add(this.userLbl);
             this.Controls.Add(this.llCreateAccount);
             this.Controls.Add(this.btnLogIn);
-            this.Controls.Add(this.tbPassword);
-            this.Controls.Add(this.tbUserName);
+            this.Controls.Add(this.txtPassword);
+            this.Controls.Add(this.txtUserName);
             this.DoubleBuffered = true;
             this.Name = "CreateNewUserForm";
             this.Text = "Create New User";
@@ -170,15 +171,15 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox tbUserName;
-        private System.Windows.Forms.TextBox tbPassword;
+        private System.Windows.Forms.TextBox txtUserName;
+        private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.Button btnLogIn;
         private System.Windows.Forms.LinkLabel llCreateAccount;
         private System.Windows.Forms.Label userLbl;
         private System.Windows.Forms.Label PassLbl;
         private System.Windows.Forms.Label labelFirstName;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtFirstName;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtLastName;
     }
 }
