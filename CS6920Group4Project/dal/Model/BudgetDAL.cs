@@ -43,17 +43,17 @@ namespace CS6920Group4Project.DAL.Model
                         Budget budget = new Budget();
                         budget.ID = reader.GetInt32(0);
                         budget.UserID = reader.GetInt32(1);
-                        budget.Title = reader.GetString(2);
+                        budget.Title = reader.GetString(3);
                         try
                         {
-                            budget.Description = reader.GetString(3);
+                            budget.Description = reader.GetString(4);
                         }
                         catch (Exception)
                         {
                             budget.Description = "";
                         }
                         
-                        budget.DateCreated = reader.GetDateTime(4);
+                        budget.DateCreated = reader.GetDateTime(5);
                         budgets.Add(budget);
                     }
                 }
