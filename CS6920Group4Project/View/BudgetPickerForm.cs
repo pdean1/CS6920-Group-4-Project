@@ -47,10 +47,15 @@ namespace CS6920Group4Project.View
                 MessageBox.Show("Unable to populate budget with it's records.");
                 return;
             }
-            Form welcomeParentForm = new WelcomeParent();
+/*            Form welcomeParentForm = new WelcomeParent();
             welcomeParentForm.FormClosed += new FormClosedEventHandler(otherForm_FormClosed);
             this.Hide();
             welcomeParentForm.Show();
+*/
+            Form myBForm = new MyBudgetForm();
+            myBForm.FormClosed += new FormClosedEventHandler(otherForm_FormClosed);
+            this.Hide();
+            myBForm.Show();
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
