@@ -20,12 +20,18 @@ namespace CS6920Group4Project.View
         Dashboard dbform;
         ManageExpenses exform;
         ExpenseView exViewForm;
+        ManageEarnings earnForm;
+        ManageBills billForm;
+        BudgetView budView;
 
         public MyBudgetForm()
         {
             InitializeComponent();
             this.tabDashBoad();
             this.tabManageExpense();
+            this.tabManageEarnings();
+            this.tabManageBills();
+            this.tabBudgetView();
         }
         
         private void tabDashBoad()
@@ -48,5 +54,41 @@ namespace CS6920Group4Project.View
             tabControl1.TabPages[2].Controls.Add(exViewForm);
         }
 
+        private void MyBudgetForm_Load(object sender, EventArgs e)
+        {
+
+        }
+        private void tabManageEarnings()
+        {
+             earnForm = new ManageEarnings();
+             this.earnForm.TopLevel = false;
+             this.earnForm.Visible = true;
+             this.earnForm.FormBorderStyle = FormBorderStyle.None;
+             this.earnForm.Dock = DockStyle.Fill;
+             tabControl1.TabPages[1].Controls.Add(earnForm);        
+          
+        }
+        private void tabManageBills()
+        {
+             billForm = new ManageBills();
+             this.billForm.TopLevel = false;
+             this.billForm.Visible = true;
+             this.billForm.FormBorderStyle = FormBorderStyle.None;
+             this.billForm.Dock = DockStyle.Fill;
+             tabControl1.TabPages[3].Controls.Add(billForm);
+           
+        }
+
+        private void tabBudgetView()
+        {
+             budView = new BudgetView();
+             this.budView.TopLevel = false;
+             this.budView.Visible = true;
+             this.budView.FormBorderStyle = FormBorderStyle.None;
+             this.budView.Dock = DockStyle.Fill;
+             tabControl1.TabPages[4].Controls.Add(budView);
+            
+        }
+       
     }
 }

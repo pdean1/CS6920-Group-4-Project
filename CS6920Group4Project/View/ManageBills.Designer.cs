@@ -34,11 +34,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.billAmountTxt = new System.Windows.Forms.TextBox();
-            this.incomeDashBtn = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
             this.billBtn = new System.Windows.Forms.Button();
             this.billCategoryBox = new System.Windows.Forms.ComboBox();
             this.billTitleTxt = new System.Windows.Forms.TextBox();
@@ -97,61 +92,6 @@
             this.billAmountTxt.Name = "billAmountTxt";
             this.billAmountTxt.Size = new System.Drawing.Size(227, 28);
             this.billAmountTxt.TabIndex = 4;
-            // 
-            // incomeDashBtn
-            // 
-            this.incomeDashBtn.BackColor = System.Drawing.Color.ForestGreen;
-            this.incomeDashBtn.ForeColor = System.Drawing.Color.White;
-            this.incomeDashBtn.Location = new System.Drawing.Point(1218, 257);
-            this.incomeDashBtn.Name = "incomeDashBtn";
-            this.incomeDashBtn.Size = new System.Drawing.Size(175, 53);
-            this.incomeDashBtn.TabIndex = 90;
-            this.incomeDashBtn.Text = "DashBoard";
-            this.incomeDashBtn.UseVisualStyleBackColor = false;
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.ForestGreen;
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(1218, 322);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(175, 53);
-            this.button1.TabIndex = 91;
-            this.button1.Text = "Manage Income";
-            this.button1.UseVisualStyleBackColor = false;
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.ForestGreen;
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(1218, 388);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(175, 53);
-            this.button2.TabIndex = 92;
-            this.button2.Text = "Manage Expenses";
-            this.button2.UseVisualStyleBackColor = false;
-            // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.Color.ForestGreen;
-            this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(1218, 456);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(175, 53);
-            this.button3.TabIndex = 93;
-            this.button3.Text = "Manage Bills";
-            this.button3.UseVisualStyleBackColor = false;
-            // 
-            // button4
-            // 
-            this.button4.BackColor = System.Drawing.Color.ForestGreen;
-            this.button4.ForeColor = System.Drawing.Color.White;
-            this.button4.Location = new System.Drawing.Point(1218, 521);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(175, 53);
-            this.button4.TabIndex = 94;
-            this.button4.Text = "View Budget";
-            this.button4.UseVisualStyleBackColor = false;
             // 
             // billBtn
             // 
@@ -228,11 +168,6 @@
             this.Controls.Add(this.label6);
             this.Controls.Add(this.billCategoryBox);
             this.Controls.Add(this.billBtn);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.incomeDashBtn);
             this.Controls.Add(this.billAmountTxt);
             this.Controls.Add(this.monthCalendar);
             this.Controls.Add(this.label5);
@@ -260,11 +195,6 @@
  //       private System.Windows.Forms.TextBox incomeBox;
  //       private System.Windows.Forms.TextBox incomeDescBox;
         private System.Windows.Forms.TextBox billAmountTxt;
-        private System.Windows.Forms.Button incomeDashBtn;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button billBtn;
         private System.Windows.Forms.ComboBox billCategoryBox;
         private System.Windows.Forms.TextBox billTitleTxt;

@@ -91,5 +91,10 @@ namespace CS6920Group4Project.View
                 ((DataTable)dataGridView1.DataSource).AcceptChanges();
             }
         }
+
+        private void ExpenseView_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

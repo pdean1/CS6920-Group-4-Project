@@ -36,10 +36,6 @@
             this.monthCalendar = new System.Windows.Forms.MonthCalendar();
             this.addEarningsBtn = new System.Windows.Forms.Button();
             this.earningAmountBox = new System.Windows.Forms.TextBox();
-            this.earningsDashBtn = new System.Windows.Forms.Button();
-            this.manageExpensesBtn = new System.Windows.Forms.Button();
-            this.manageBillsBtn = new System.Windows.Forms.Button();
-            this.viewBudgetBtn = new System.Windows.Forms.Button();
             this.userNameEarningsLbl = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.cancelBtn = new System.Windows.Forms.Button();
@@ -120,54 +116,6 @@
             this.earningAmountBox.Size = new System.Drawing.Size(227, 28);
             this.earningAmountBox.TabIndex = 3;
             // 
-            // earningsDashBtn
-            // 
-            this.earningsDashBtn.BackColor = System.Drawing.Color.ForestGreen;
-            this.earningsDashBtn.ForeColor = System.Drawing.Color.White;
-            this.earningsDashBtn.Location = new System.Drawing.Point(1215, 243);
-            this.earningsDashBtn.Name = "earningsDashBtn";
-            this.earningsDashBtn.Size = new System.Drawing.Size(175, 53);
-            this.earningsDashBtn.TabIndex = 90;
-            this.earningsDashBtn.Text = "DashBoard";
-            this.earningsDashBtn.UseVisualStyleBackColor = false;
-            this.earningsDashBtn.Click += new System.EventHandler(this.earningsDashBtn_Click);
-            // 
-            // manageExpensesBtn
-            // 
-            this.manageExpensesBtn.BackColor = System.Drawing.Color.ForestGreen;
-            this.manageExpensesBtn.ForeColor = System.Drawing.Color.White;
-            this.manageExpensesBtn.Location = new System.Drawing.Point(1215, 316);
-            this.manageExpensesBtn.Name = "manageExpensesBtn";
-            this.manageExpensesBtn.Size = new System.Drawing.Size(175, 53);
-            this.manageExpensesBtn.TabIndex = 91;
-            this.manageExpensesBtn.Text = "Manage Expenses";
-            this.manageExpensesBtn.UseVisualStyleBackColor = false;
-            this.manageExpensesBtn.Click += new System.EventHandler(this.manageExpensesBtn_Click);
-            // 
-            // manageBillsBtn
-            // 
-            this.manageBillsBtn.BackColor = System.Drawing.Color.ForestGreen;
-            this.manageBillsBtn.ForeColor = System.Drawing.Color.White;
-            this.manageBillsBtn.Location = new System.Drawing.Point(1215, 391);
-            this.manageBillsBtn.Name = "manageBillsBtn";
-            this.manageBillsBtn.Size = new System.Drawing.Size(175, 53);
-            this.manageBillsBtn.TabIndex = 92;
-            this.manageBillsBtn.Text = "Manage Bills";
-            this.manageBillsBtn.UseVisualStyleBackColor = false;
-            this.manageBillsBtn.Click += new System.EventHandler(this.manageBillsBtn_Click);
-            // 
-            // viewBudgetBtn
-            // 
-            this.viewBudgetBtn.BackColor = System.Drawing.Color.ForestGreen;
-            this.viewBudgetBtn.ForeColor = System.Drawing.Color.White;
-            this.viewBudgetBtn.Location = new System.Drawing.Point(1215, 465);
-            this.viewBudgetBtn.Name = "viewBudgetBtn";
-            this.viewBudgetBtn.Size = new System.Drawing.Size(175, 53);
-            this.viewBudgetBtn.TabIndex = 94;
-            this.viewBudgetBtn.Text = "View Budget";
-            this.viewBudgetBtn.UseVisualStyleBackColor = false;
-            this.viewBudgetBtn.Click += new System.EventHandler(this.viewBudgetBtn_Click);
-            // 
             // userNameEarningsLbl
             // 
             this.userNameEarningsLbl.AutoSize = true;
@@ -239,10 +187,6 @@
             this.Controls.Add(this.cancelBtn);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.userNameEarningsLbl);
-            this.Controls.Add(this.viewBudgetBtn);
-            this.Controls.Add(this.manageBillsBtn);
-            this.Controls.Add(this.manageExpensesBtn);
-            this.Controls.Add(this.earningsDashBtn);
             this.Controls.Add(this.earningAmountBox);
             this.Controls.Add(this.addEarningsBtn);
             this.Controls.Add(this.monthCalendar);
@@ -271,10 +215,6 @@
         private System.Windows.Forms.MonthCalendar monthCalendar;
         private System.Windows.Forms.Button addEarningsBtn;
         private System.Windows.Forms.TextBox earningAmountBox;
-        private System.Windows.Forms.Button earningsDashBtn;
-        private System.Windows.Forms.Button manageExpensesBtn;
-        private System.Windows.Forms.Button manageBillsBtn;
-        private System.Windows.Forms.Button viewBudgetBtn;
         private System.Windows.Forms.Label userNameEarningsLbl;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button cancelBtn;
