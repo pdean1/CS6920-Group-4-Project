@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MySql.Data.MySqlClient;
 
 namespace CS6920Group4Project.Controller
 {
@@ -31,6 +32,10 @@ namespace CS6920Group4Project.Controller
         public long InsertExpense(Expense e)
         {
             return _dal.InsertExpense(e);
+        }
+        public MySqlDataAdapter GetExpensesByBudgetIDDataGridView(int ID)
+        {
+            return _dal.GetListOfExpensesByBudgetIDDataGridView(ID);
         }
     }
 }

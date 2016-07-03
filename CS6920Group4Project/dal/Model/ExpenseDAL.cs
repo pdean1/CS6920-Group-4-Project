@@ -118,5 +118,39 @@ namespace CS6920Group4Project.DAL.Model
             }
             return expenses;
         }
+
+        public MySqlDataAdapter GetListOfExpensesByBudgetIDDataGridView(int BudgetID)
+        {
+            MySqlDataAdapter mySqlDataAdapter = null;
+
+            try
+            {
+                using (MySqlCommand cmd = new MySqlCommand())
+                {
+                    conn.Open();
+                    cmd.Connection = conn;
+                    cmd.CommandText = "SELECT Title, Description, Amount, DateSpent, DateCreated " +
+                                      "FROM `sql5123046`.`viewexpenserecords` WHERE `viewexpenserecords`.`BudgetID` = @ID;";
+                    cmd.Prepare();
+                    cmd.Parameters.AddWithValue("@ID", BudgetID);
+                    mySqlDataAdapter = new MySqlDataAdapter(cmd);
+                }
+            }
+            catch (MySqlException e)
+            {
+                DatabaseErrorMessageUtility.SendMessageToUser(
+                    "Unable to query for expense view in the database.", e);
+            }
+            catch (Exception e)
+            {
+                DatabaseErrorMessageUtility.SendMessageToUser(
+                    "Unable to query for expense view in the database.", e);
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return mySqlDataAdapter;
+        }
     }
 }

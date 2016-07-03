@@ -26,7 +26,7 @@ namespace CS6920Group4Project.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=KESCIASLAPTOP;Initial Catalog=sql5123046;Integrated Security=True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=localhost;Initial Catalog=sql5123046;Integrated Security=True")]
         public string sql5123046ConnectionString {
             get {
                 return ((string)(this["sql5123046ConnectionString"]));
