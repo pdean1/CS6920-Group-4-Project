@@ -34,5 +34,17 @@ namespace CS6920Group4Project.Controller
         {
             return _dal.InsertBill(bill);
         }
+        public bool EditBills(Bill bill)
+        {
+            try
+            {
+                BillDAL.EditBill(bill);
+                return true;
+            }
+            catch 
+            {
+                return false;
+            }
+        }
     }
 }

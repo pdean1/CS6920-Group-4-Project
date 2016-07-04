@@ -51,6 +51,8 @@ namespace CS6920Group4Project.View
                 //This column displays a edit Button in each row
                 DataGridViewButtonColumn editbut = new DataGridViewButtonColumn();
                 editbut.Text = "EDIT";
+                editbut.HeaderText = "Select";
+                editbut.Name = "editBtn";
                 editbut.Width = 100;
                 editbut.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
                 editbut.UseColumnTextForButtonValue = true;
@@ -114,6 +116,6 @@ namespace CS6920Group4Project.View
         {
             manageExpenses = null;
         }
-        
+                
     }
 }

@@ -13,7 +13,7 @@ namespace CS6920Group4Project.Controller
         private static EarningController instance;
 
         private readonly EarningDAL _dal = new EarningDAL();
-
+        
         public static EarningController Instance
         {
             get
@@ -35,7 +35,19 @@ namespace CS6920Group4Project.Controller
         {
             return _dal.InsertEarning(e);
         }
-
+        public bool EditEarnings(Earning earn)
+        {
+            try
+            {
+                EarningDAL.EditEarnings(earn);
+                return true;
+            }
+            catch 
+            {
+                return false;
+            }
+        }
+        
     }
 
 }

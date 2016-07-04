@@ -118,6 +118,42 @@ namespace CS6920Group4Project.DAL.Model
             }
             return expenses;
         }
+        public static void editExpenses(Expense exp)
+        {
+            MySqlConnection connection = new DBConnect().GetConnection();
+
+            String editExpenseStatement = "UPDATE sql5123046.expenses (`RecordID`, `Amount`, `DateSpent`)" +
+                                                "SET (@RecordID, @Amount, @DateSpent)" +
+                                                    " WHERE `RecordID` = @RecordID";
+
+
+
+            MySqlCommand editExpenseCommand = new MySqlCommand(editExpenseStatement, connection);
+
+            editExpenseCommand.Parameters.AddWithValue("@RecordID", exp.ID);
+            editExpenseCommand.Parameters.AddWithValue("@Amount", exp.Amount);
+            editExpenseCommand.Parameters.AddWithValue("@DateSpent", exp.DateSpent.ToString("yyyy-MM-dd hh:mm:ss"));
+
+            try
+            {
+                connection.Open();
+                editExpenseCommand.ExecuteNonQuery();
+
+            }
+            catch (MySqlException ex)
+            {
+                DatabaseErrorMessageUtility.SendMessageToUser("Unable to update earnings in the database.", ex);
+            }
+            catch (Exception ex)
+            {
+                DatabaseErrorMessageUtility.SendMessageToUser("Unable to update earnings in the database.", ex);
+            }
+            finally
+            {
+                editExpenseCommand.Dispose();
+                connection.Close();
+            }
+        }
 
         public MySqlDataAdapter GetListOfExpensesByBudgetIDDataGridView(int BudgetID)
         {

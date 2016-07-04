@@ -10,5 +10,6 @@ namespace CS6920Group4Project.Model
     {
         public decimal Amount { get; set; }
         public DateTime DateSpent { get; set; }
-    }
+
+      }
 }

@@ -128,5 +128,40 @@ namespace CS6920Group4Project.DAL.Model
             }
             return bills;
         }
+        public static void EditBill(Bill bill)
+        {
+            MySqlConnection connection = new DBConnect().GetConnection();
+            String editBillStatement = "UPDATE sql5123046.bills (`RecordID`, `Amount`, `DateDue`, DatePaid)" +
+                                                "SET (RecordID, @Amount, @DateDue, @DatePaid)" +
+                                                    " WHERE `RecordID` = @RecordID";
+
+            MySqlCommand editBillCommand = new MySqlCommand(editBillStatement, connection);
+
+            editBillCommand.Parameters.AddWithValue("@RecordID", bill.ID);
+            editBillCommand.Parameters.AddWithValue("@Amount", bill.Amount);
+            editBillCommand.Parameters.AddWithValue("@DateDue", bill.DateDue.ToString("yyyy-MM-dd hh:mm:ss"));
+            //editBillCommand.Parameters.AddWithValue("@DatePaid", bill.DatePaid.ToString("yyyy-MM-dd hh:mm:ss"));
+
+            try
+            {
+                connection.Open();
+                editBillCommand.ExecuteNonQuery();
+        
+            }
+            catch (MySqlException ex)
+            {
+                DatabaseErrorMessageUtility.SendMessageToUser("Unable to update billing information in the database.", ex);
+            }
+            catch (Exception ex)
+            {
+                DatabaseErrorMessageUtility.SendMessageToUser("Unable to update billing information in the database.", ex);
+            }
+            finally 
+            {
+                editBillCommand.Dispose();
+                connection.Close();
+            }
+        }
+                    
     }
 }

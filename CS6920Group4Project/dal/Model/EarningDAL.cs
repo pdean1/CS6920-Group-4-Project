@@ -114,9 +114,44 @@ namespace CS6920Group4Project.DAL.Model
             }
             return earnings;
         }
-        public void showEarnings()
+
+
+        public static void EditEarnings(Earning earn) 
         {
-           
-        }
+            MySqlConnection connection = new DBConnect().GetConnection();
+
+            String editEarningsStatement = "UPDATE sql5123046.earnings (`RecordID`, `Amount`, `DateEarned`)" +
+                                                "SET (RecordID, @Amount, @DateEarned)" +
+                                                    " WHERE `RecordID` = @RecordID";
+
+            MySqlCommand editEarnCommand = new MySqlCommand(editEarningsStatement, connection);
+
+            editEarnCommand.Parameters.AddWithValue("@RecordID", earn.ID);
+            editEarnCommand.Parameters.AddWithValue("@Amount", earn.Amount);
+            editEarnCommand.Parameters.AddWithValue("@DateEarned", earn.DateEarned.ToString("yyyy-MM-dd hh:mm:ss"));
+
+            try
+            {
+                connection.Open();
+                editEarnCommand.ExecuteNonQuery();
+        
+            }
+            catch (MySqlException ex)
+            {
+                DatabaseErrorMessageUtility.SendMessageToUser("Unable to update earnings in the database.", ex);
+            }
+            catch (Exception ex)
+            {
+                DatabaseErrorMessageUtility.SendMessageToUser("Unable to update earnings in the database.", ex);
+            }
+            finally 
+            {
+                editEarnCommand.Dispose();
+                connection.Close();
+            }
+
+
+
+    }
     }
 }

@@ -144,12 +144,7 @@ namespace CS6920Group4Project.View
             {
                 MessageBox.Show(ex.Message, ex.GetType().ToString());
             }
-            /*
-            EarningController con = new EarningController();
-            Record record = new Record();
-            Earning earn = new Earning();
-            this.PutEarningData(record, earn);
-            con.AddEarning(earn);*/
+           
         }
         
         public bool validateData()
@@ -170,16 +165,7 @@ namespace CS6920Group4Project.View
             return true;
         }
 
-        private void PutEarningData(Record record, Earning earn)
-        {
-            /*      
-            record.Title = titleTxt.Text;
-            record.Description = earningDescBox.Text;
-            earn.Amount = Decimal.Parse(earningAmountBox.Text);
-            earn.DateEarned = DateTime.Parse(earnDate);
-              */
-        }
-
+       
         /// <summary>
         /// if desired method to clear all fields before closing or if the user wants to start again (reset)
         /// </summary>
@@ -204,7 +190,17 @@ namespace CS6920Group4Project.View
             Close();
         }
 
-       
+        private void ManageEarnings_Load(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void incomeLbl_Click(object sender, EventArgs e)
+        {
+
+        }
+
+          
 
         
     }
