@@ -17,6 +17,7 @@ namespace CS6920Group4Project.View
     public partial class ExpenseView : Form
     {
         MySqlDataAdapter mySqlDataAdapter;
+        private ManageExpenses manageExpenses;
 
         public ExpenseView()
         {
@@ -24,7 +25,7 @@ namespace CS6920Group4Project.View
             this.getExpenselist();
         }  
 
-        private void getExpenselist()
+        public void getExpenselist()
         {
             try
             {
@@ -96,5 +97,23 @@ namespace CS6920Group4Project.View
         {
 
         }
+
+        private void expenseBtn_Click(object sender, EventArgs e)
+        {
+            if (manageExpenses == null)
+            {
+                manageExpenses = new ManageExpenses(this);
+                manageExpenses.FormClosed += new FormClosedEventHandler(ManageExpenses_FormClosed);
+                manageExpenses.Show();
+            }
+            else
+                manageExpenses.Activate();
+        }
+
+        private void ManageExpenses_FormClosed(object sender, System.Windows.Forms.FormClosedEventArgs e)
+        {
+            manageExpenses = null;
+        }
+        
     }
 }

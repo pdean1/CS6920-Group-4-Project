@@ -130,7 +130,8 @@ namespace CS6920Group4Project.DAL.Model
                     conn.Open();
                     cmd.Connection = conn;
                     cmd.CommandText = "SELECT Title, Description, Amount, DateSpent, DateCreated " +
-                                      "FROM `sql5123046`.`viewexpenserecords` WHERE `viewexpenserecords`.`BudgetID` = @ID;";
+                                      "FROM `sql5123046`.`viewexpenserecords` WHERE `viewexpenserecords`.`BudgetID` = @ID " +
+                                      "ORDER BY DateSpent DESC;";
                     cmd.Prepare();
                     cmd.Parameters.AddWithValue("@ID", BudgetID);
                     mySqlDataAdapter = new MySqlDataAdapter(cmd);

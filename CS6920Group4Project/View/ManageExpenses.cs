@@ -19,15 +19,20 @@ namespace CS6920Group4Project.View
         private String expenseAmount;
         private String expenseDate;
         private String expenseTitle;
+        private ExpenseView expView;
 
         private List<Budget> budgetList;
+
 
         public ManageExpenses()
         {
             InitializeComponent();
         }
-
-
+        public ManageExpenses(ExpenseView expViewForm)
+        {
+            InitializeComponent();
+            expView = expViewForm;
+        }
         private void expenseBtn_Click(object sender, EventArgs e)
         {
             try
@@ -67,6 +72,8 @@ namespace CS6920Group4Project.View
                                     MessageBoxButtons.OK,
                                     MessageBoxIcon.None);
                         this.clearData();
+                        expView.getExpenselist();
+                        this.Close();
                     }
                 }
                 else
