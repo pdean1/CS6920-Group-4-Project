@@ -187,7 +187,7 @@ namespace CS6920Group4Project.View
         private void cancelBtn_Click(object sender, EventArgs e)
         {
             this.ClearText();
-            Close();
+            
         }
 
         private void ManageEarnings_Load(object sender, EventArgs e)

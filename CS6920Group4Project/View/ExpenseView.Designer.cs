@@ -40,7 +40,7 @@
             this.incomeLbl.AutoSize = true;
             this.incomeLbl.BackColor = System.Drawing.Color.Transparent;
             this.incomeLbl.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.incomeLbl.Location = new System.Drawing.Point(352, 202);
+            this.incomeLbl.Location = new System.Drawing.Point(334, 228);
             this.incomeLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.incomeLbl.Name = "incomeLbl";
             this.incomeLbl.Size = new System.Drawing.Size(218, 26);
@@ -52,7 +52,7 @@
             // 
             this.expenseBtn.BackColor = System.Drawing.Color.ForestGreen;
             this.expenseBtn.ForeColor = System.Drawing.Color.White;
-            this.expenseBtn.Location = new System.Drawing.Point(795, 339);
+            this.expenseBtn.Location = new System.Drawing.Point(959, 652);
             this.expenseBtn.Name = "expenseBtn";
             this.expenseBtn.Size = new System.Drawing.Size(141, 36);
             this.expenseBtn.TabIndex = 5;
@@ -63,12 +63,13 @@
             // 
             // dataGridView1
             // 
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.SkyBlue;
+            this.dataGridView1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.Beige;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(287, 446);
+            this.dataGridView1.Location = new System.Drawing.Point(351, 272);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.Size = new System.Drawing.Size(842, 192);
+            this.dataGridView1.Size = new System.Drawing.Size(775, 329);
             this.dataGridView1.TabIndex = 6;
             // 
             // ExpenseView

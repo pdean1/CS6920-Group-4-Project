@@ -111,9 +111,13 @@ namespace CS6920Group4Project.View
 
         private void clearData()
         {
-            expenseCategoryBox.SelectedIndex = -1 ;
             expenseAmountTxt.Text = "";
             monthCalendar.Text = "";
+        }
+        
+        private void resetBtn_Click(object sender, EventArgs e)
+        {
+            this.clearData();
         }
 
     }

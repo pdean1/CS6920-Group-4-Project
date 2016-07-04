@@ -35,10 +35,10 @@
             this.monthCalendar = new System.Windows.Forms.MonthCalendar();
             this.expenseBtn = new System.Windows.Forms.Button();
             this.expenseAmountTxt = new System.Windows.Forms.TextBox();
-            this.expenseCategoryBox = new System.Windows.Forms.ComboBox();
             this.expenseTitleTxt = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.resetBtn = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // incomeLbl
@@ -46,7 +46,7 @@
             this.incomeLbl.AutoSize = true;
             this.incomeLbl.BackColor = System.Drawing.Color.Transparent;
             this.incomeLbl.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.incomeLbl.Location = new System.Drawing.Point(353, 236);
+            this.incomeLbl.Location = new System.Drawing.Point(318, 195);
             this.incomeLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.incomeLbl.Name = "incomeLbl";
             this.incomeLbl.Size = new System.Drawing.Size(218, 26);
@@ -58,7 +58,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Location = new System.Drawing.Point(574, 395);
+            this.label4.Location = new System.Drawing.Point(1229, 311);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(72, 21);
             this.label4.TabIndex = 5;
@@ -68,7 +68,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Location = new System.Drawing.Point(573, 440);
+            this.label5.Location = new System.Drawing.Point(1230, 366);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(78, 21);
             this.label5.TabIndex = 6;
@@ -76,7 +76,7 @@
             // 
             // monthCalendar
             // 
-            this.monthCalendar.Location = new System.Drawing.Point(756, 440);
+            this.monthCalendar.Location = new System.Drawing.Point(1149, 392);
             this.monthCalendar.Name = "monthCalendar";
             this.monthCalendar.TabIndex = 4;
             // 
@@ -84,9 +84,9 @@
             // 
             this.expenseBtn.BackColor = System.Drawing.Color.ForestGreen;
             this.expenseBtn.ForeColor = System.Drawing.Color.White;
-            this.expenseBtn.Location = new System.Drawing.Point(842, 629);
+            this.expenseBtn.Location = new System.Drawing.Point(1265, 563);
             this.expenseBtn.Name = "expenseBtn";
-            this.expenseBtn.Size = new System.Drawing.Size(141, 36);
+            this.expenseBtn.Size = new System.Drawing.Size(110, 29);
             this.expenseBtn.TabIndex = 5;
             this.expenseBtn.TabStop = false;
             this.expenseBtn.Text = "Add Expense";
@@ -95,46 +95,50 @@
             // 
             // expenseAmountTxt
             // 
-            this.expenseAmountTxt.Location = new System.Drawing.Point(756, 395);
+            this.expenseAmountTxt.Location = new System.Drawing.Point(1164, 332);
             this.expenseAmountTxt.Name = "expenseAmountTxt";
-            this.expenseAmountTxt.Size = new System.Drawing.Size(227, 28);
+            this.expenseAmountTxt.Size = new System.Drawing.Size(196, 28);
             this.expenseAmountTxt.TabIndex = 3;
-            // 
-            // expenseCategoryBox
-            // 
-            this.expenseCategoryBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.expenseCategoryBox.FormattingEnabled = true;
-            this.expenseCategoryBox.Location = new System.Drawing.Point(756, 351);
-            this.expenseCategoryBox.Name = "expenseCategoryBox";
-            this.expenseCategoryBox.Size = new System.Drawing.Size(227, 29);
-            this.expenseCategoryBox.TabIndex = 2;
             // 
             // expenseTitleTxt
             // 
-            this.expenseTitleTxt.Location = new System.Drawing.Point(756, 311);
+            this.expenseTitleTxt.Location = new System.Drawing.Point(1165, 280);
             this.expenseTitleTxt.Name = "expenseTitleTxt";
-            this.expenseTitleTxt.Size = new System.Drawing.Size(227, 28);
+            this.expenseTitleTxt.Size = new System.Drawing.Size(196, 28);
             this.expenseTitleTxt.TabIndex = 1;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.Transparent;
-            this.label6.Location = new System.Drawing.Point(574, 311);
+            this.label6.Location = new System.Drawing.Point(1210, 256);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(105, 21);
             this.label6.TabIndex = 27;
             this.label6.Text = "Expense Title:";
             // 
-            // label3
+            // resetBtn
             // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Location = new System.Drawing.Point(574, 352);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(137, 21);
-            this.label3.TabIndex = 25;
-            this.label3.Text = "Expense Category:";
+            this.resetBtn.BackColor = System.Drawing.Color.ForestGreen;
+            this.resetBtn.ForeColor = System.Drawing.Color.White;
+            this.resetBtn.Location = new System.Drawing.Point(1180, 564);
+            this.resetBtn.Name = "resetBtn";
+            this.resetBtn.Size = new System.Drawing.Size(79, 29);
+            this.resetBtn.TabIndex = 28;
+            this.resetBtn.Text = "Reset";
+            this.resetBtn.UseVisualStyleBackColor = false;
+            this.resetBtn.Click += new System.EventHandler(this.resetBtn_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(1174, 207);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(178, 24);
+            this.label1.TabIndex = 29;
+            this.label1.Text = "Add A New Expense";
             // 
             // ManageExpenses
             // 
@@ -142,11 +146,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1437, 762);
-            this.Controls.Add(this.expenseCategoryBox);
+            this.ClientSize = new System.Drawing.Size(1384, 762);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.resetBtn);
             this.Controls.Add(this.expenseTitleTxt);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.expenseAmountTxt);
             this.Controls.Add(this.expenseBtn);
             this.Controls.Add(this.monthCalendar);
@@ -172,10 +176,10 @@
         private System.Windows.Forms.MonthCalendar monthCalendar;
         private System.Windows.Forms.Button expenseBtn;
         private System.Windows.Forms.TextBox expenseAmountTxt;
-        private System.Windows.Forms.ComboBox expenseCategoryBox;
         private System.Windows.Forms.TextBox expenseTitleTxt;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button resetBtn;
+        private System.Windows.Forms.Label label1;
 
     }
 }

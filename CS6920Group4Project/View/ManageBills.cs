@@ -103,10 +103,15 @@ namespace CS6920Group4Project.View
 
         private void clearData()
         {
+            billTitleTxt.Text = "";
             billDescTxt.Text = "";
-            billCategoryBox.SelectedIndex = -1 ;
             billAmountTxt.Text = "";
             monthCalendar.Text = "";
+        }
+
+        private void resetBtn_Click(object sender, EventArgs e)
+        {
+            this.clearData();
         }
 
     }

@@ -56,7 +56,7 @@ namespace CS6920Group4Project.View
                 editbut.Width = 100;
                 editbut.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
                 editbut.UseColumnTextForButtonValue = true;
-                editbut.DefaultCellStyle.BackColor = Color.SkyBlue;
+                editbut.DefaultCellStyle.BackColor = Color.AntiqueWhite;
                 dataGridView1.Columns.Add(editbut);
 
                 //add new button column to the DataGridView
@@ -66,11 +66,11 @@ namespace CS6920Group4Project.View
                 delbut.Width = 100;
                 delbut.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
                 delbut.UseColumnTextForButtonValue = true;
-                delbut.DefaultCellStyle.BackColor = Color.SkyBlue;
+                delbut.DefaultCellStyle.BackColor = Color.AntiqueWhite;
                 dataGridView1.Columns.Add(delbut);
 
-                dataGridView1.DefaultCellStyle.ForeColor = Color.Black;
-                dataGridView1.DefaultCellStyle.BackColor = Color.SkyBlue;              
+                dataGridView1.DefaultCellStyle.ForeColor = Color.DarkGreen;
+                dataGridView1.DefaultCellStyle.BackColor = Color.AntiqueWhite;              
             }
             catch (SqlException ex)
             {
