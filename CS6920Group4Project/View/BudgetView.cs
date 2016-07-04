@@ -60,5 +60,10 @@ namespace CS6920Group4Project.View
                 expenseView.Items.Add(item);
             }
         }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
