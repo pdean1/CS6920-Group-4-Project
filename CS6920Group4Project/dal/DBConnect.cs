@@ -36,7 +36,8 @@ namespace CS6920Group4Project.DAL
             server = "127.0.0.1";
             /// modify these values as you wish
             uid = "root";
-            password = "password";
+    //        password = "password";
+            password = "sesame";
             /// END
             string connection_string;
             connection_string =

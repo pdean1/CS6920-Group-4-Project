@@ -165,7 +165,7 @@ namespace CS6920Group4Project.DAL.Model
                 {
                     conn.Open();
                     cmd.Connection = conn;
-                    cmd.CommandText = "SELECT Title, Description, Amount, DateSpent, DateCreated " +
+                    cmd.CommandText = "SELECT * " +
                                       "FROM `sql5123046`.`viewexpenserecords` WHERE `viewexpenserecords`.`BudgetID` = @ID " +
                                       "ORDER BY DateSpent DESC;";
                     cmd.Prepare();
@@ -189,5 +189,86 @@ namespace CS6920Group4Project.DAL.Model
             }
             return mySqlDataAdapter;
         }
+
+        public bool DeleteExpense(Expense delExpense)
+        {
+          //  MySqlDataReader reader = null;
+            MySqlTransaction delExpenseTran = null;
+            bool expenseDelete = true;
+
+            try
+            {
+               //  delete expense
+               string deleteStatement1 = "DELETE from expenses WHERE RecordID = @ID " +
+                                                                "and Amount = @amount " +
+                                                                "and DateSpent = @dateSpent ";
+
+               MySqlCommand deleteCommand1 = new MySqlCommand(deleteStatement1, conn);
+               deleteCommand1.Parameters.AddWithValue("@ID", delExpense.ID);
+               deleteCommand1.Parameters.AddWithValue("@amount", delExpense.Amount);
+               deleteCommand1.Parameters.AddWithValue("@dateSpent", delExpense.DateSpent);
+
+                // delete record
+                string deleteStatement2 = "DELETE from record WHERE RecordID = @ID " +
+                                                               "and BudgetID = @bID " +
+                                                               "and RecordType = @recType " +
+                                                               "and Title = @title " +
+                                                               "and Description = @desc " +
+                                                               "and DateCreated = @dateCreated"; 
+
+               MySqlCommand deleteCommand2 = new MySqlCommand(deleteStatement2, conn);
+               deleteCommand2.Parameters.AddWithValue("@ID", delExpense.ID);
+               deleteCommand2.Parameters.AddWithValue("@bID", delExpense.BudgetID);
+               deleteCommand2.Parameters.AddWithValue("@recType", delExpense.RecordType);
+               deleteCommand2.Parameters.AddWithValue("@title", delExpense.Title);
+               deleteCommand2.Parameters.AddWithValue("@desc", delExpense.Description);
+               deleteCommand2.Parameters.AddWithValue("@dateCreated", delExpense.DateCreated);
+
+               conn.Open();
+               delExpenseTran = conn.BeginTransaction();
+               deleteCommand1.Transaction = delExpenseTran;
+               deleteCommand2.Transaction = delExpenseTran;
+
+               int isExpenseDeleted = deleteCommand1.ExecuteNonQuery();
+               if (isExpenseDeleted > 0)
+               {
+                   int isRecordDeleted = deleteCommand2.ExecuteNonQuery();
+                   if (isRecordDeleted > 0)
+                   {
+                       delExpenseTran.Commit();
+                       return expenseDelete = true;
+                   }
+                   else
+                   {
+                       delExpenseTran.Rollback();
+                       return expenseDelete = false;
+                   }
+               }
+               else
+               {
+                   delExpenseTran.Rollback();
+                   return expenseDelete = false;
+               }
+            }
+            catch (MySqlException e)
+            {
+                DatabaseErrorMessageUtility.SendMessageToUser(
+                    "Unable to query for delete expense in the database.", e);
+            }
+            catch (Exception e)
+            {
+                if (delExpenseTran != null)
+                    delExpenseTran.Rollback();
+
+                DatabaseErrorMessageUtility.SendMessageToUser(
+                    "Unable to query for delete expense in the database.", e);
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return expenseDelete;
+        }
+        
     }
 }

@@ -49,5 +49,9 @@ namespace CS6920Group4Project.Controller
                 return false;
             }
         }
+        public bool DeleteExpense(Expense delExpense)
+        {
+            return _dal.DeleteExpense(delExpense);
+        }
     }
 }
