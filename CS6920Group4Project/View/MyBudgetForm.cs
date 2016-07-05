@@ -19,7 +19,6 @@ namespace CS6920Group4Project.View
     {
         Dashboard dbform;
         ManageExpenses exform;
-        ExpenseView exViewForm;
         ManageEarnings earnForm;
         ManageBills billForm;
         BudgetView budView;
@@ -46,12 +45,12 @@ namespace CS6920Group4Project.View
 
         private void tabManageExpense()
         {
-            exViewForm = new ExpenseView();
-            exViewForm.TopLevel = false;
-            exViewForm.Visible = true;
-            exViewForm.FormBorderStyle = FormBorderStyle.None;
-            exViewForm.Dock = DockStyle.Fill;
-            tabControl1.TabPages[2].Controls.Add(exViewForm);
+            exform = new ManageExpenses(); 
+            exform.TopLevel = false;
+            exform.Visible = true;
+            exform.FormBorderStyle = FormBorderStyle.None;
+            exform.Dock = DockStyle.Fill;
+            tabControl1.TabPages[2].Controls.Add(exform);
         }
 
         private void MyBudgetForm_Load(object sender, EventArgs e)

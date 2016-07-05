@@ -39,6 +39,10 @@
             this.label6 = new System.Windows.Forms.Label();
             this.resetBtn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // incomeLbl
@@ -140,13 +144,32 @@
             this.label1.TabIndex = 29;
             this.label1.Text = "Add A New Expense";
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.dataGridView1);
+            this.panel1.Location = new System.Drawing.Point(299, 280);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(807, 343);
+            this.panel1.TabIndex = 30;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersVisible = false;
+            this.dataGridView1.Size = new System.Drawing.Size(807, 343);
+            this.dataGridView1.TabIndex = 0;
+            // 
             // ManageExpenses
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1384, 762);
+            this.ClientSize = new System.Drawing.Size(1362, 741);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.resetBtn);
             this.Controls.Add(this.expenseTitleTxt);
@@ -163,6 +186,9 @@
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "ManageExpenses";
             this.Text = "Manage Expenses";
+            this.Load += new System.EventHandler(this.ManageExpenses_Load);
+            this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -180,6 +206,8 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button resetBtn;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.DataGridView dataGridView1;
 
     }
 }

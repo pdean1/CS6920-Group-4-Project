@@ -209,7 +209,7 @@ namespace CS6920Group4Project.DAL.Model
                deleteCommand1.Parameters.AddWithValue("@dateSpent", delExpense.DateSpent);
 
                 // delete record
-                string deleteStatement2 = "DELETE from record WHERE RecordID = @ID " +
+                string deleteStatement2 = "DELETE from records WHERE RecordID = @ID " +
                                                                "and BudgetID = @bID " +
                                                                "and RecordType = @recType " +
                                                                "and Title = @title " +
