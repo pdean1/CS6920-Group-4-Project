@@ -114,5 +114,14 @@ namespace CS6920Group4Project.View
             this.clearData();
         }
 
+        private void ManageBills_Load(object sender, EventArgs e)
+        {
+            lblTitle.Text += " " + Session.SessionInformation.GetBudget().Title;
+            var BillList = new BindingList<Bill>(Session.SessionInformation.GetBudget().Bills);
+            var _BindingSource = new BindingSource(BillList, null);
+            dgBills.DataSource = _BindingSource;
+        }
+
+
     }
 }
