@@ -21,7 +21,7 @@ namespace CS6920Group4Project.View
         private String billDate;
         private String billTitle;
 
-        private List<Budget> budgetList;
+       // private List<Budget> budgetList;
 
         public ManageBills()
         {

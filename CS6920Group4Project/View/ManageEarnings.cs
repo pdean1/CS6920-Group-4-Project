@@ -11,11 +11,13 @@ using CS6920Group4Project.Model;
 using CS6920Group4Project.View;
 using CS6920Group4Project.Controller;
 using System.Data.SqlClient;
+using MySql.Data.MySqlClient;
 
 namespace CS6920Group4Project.View
 {
     public partial class ManageEarnings : Form
     {
+        MySqlDataAdapter mySqlDataAdapter;
         private String earnDesc;
         private String earnDate;
         private String earnTitle;
@@ -146,7 +148,66 @@ namespace CS6920Group4Project.View
             }
            
         }
-        
+
+        public void populateGridView()
+        {
+            try
+            {
+                int budgetID = 1;
+                mySqlDataAdapter = EarningController.Instance.ListEarningDataGridView(budgetID);
+
+                DataTable table = new DataTable();
+                mySqlDataAdapter.Fill(table);
+
+                BindingSource bind = new BindingSource();
+                bind.DataSource = table;
+                earnGridView.DataSource = bind;
+                earnGridView.Columns[0].Visible = false;
+                earnGridView.Columns[1].Visible = false;
+                earnGridView.Columns[2].Visible = false;
+                earnGridView.Columns[3].Visible = true;
+                earnGridView.Columns[4].Visible = true;
+                earnGridView.Columns[5].Visible = true;
+                earnGridView.Columns[5].MinimumWidth = 200;
+                earnGridView.Columns[6].Visible = true;
+                earnGridView.Columns[7].ReadOnly = true;
+
+                DataGridViewButtonColumn editbut = new DataGridViewButtonColumn();
+                editbut.Text = "EDIT";
+                editbut.Name = "EDIT";
+                editbut.HeaderText = "SELECT";
+                editbut.Name = "editBtn";
+                editbut.Width = 100;
+                editbut.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                editbut.UseColumnTextForButtonValue = true;
+                editbut.DefaultCellStyle.BackColor = Color.DarkGreen;
+                editbut.DefaultCellStyle.ForeColor = Color.White;
+                earnGridView.Columns.Add(editbut);
+
+                DataGridViewButtonColumn delbut = new DataGridViewButtonColumn();
+                delbut.Text = "DELETE";
+                delbut.Name = "DELETE";
+                delbut.Width = 100;
+                delbut.HeaderText = "SELECT";
+                delbut.Name = "delBtn";
+                delbut.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                delbut.UseColumnTextForButtonValue = true;
+                delbut.DefaultCellStyle.BackColor = Color.DarkGreen;
+                delbut.DefaultCellStyle.ForeColor = Color.White;
+                earnGridView.Columns.Add(delbut);
+               
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.Message, ex.GetType().ToString());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.GetType().ToString());
+            }
+
+        }
+                
         public bool validateData()
         {
             earnAmount = earningAmountBox.Text;
@@ -192,12 +253,44 @@ namespace CS6920Group4Project.View
 
         private void ManageEarnings_Load(object sender, EventArgs e)
         {
-            
+            this.populateGridView();
         }
 
-        private void incomeLbl_Click(object sender, EventArgs e)
+       
+        private void earnGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            var gridSend = (DataGridView)sender;
 
+            if (gridSend.Columns[e.ColumnIndex] is DataGridViewButtonColumn &&
+                e.RowIndex >= 0)
+            {
+
+                if (earnGridView.Columns[e.ColumnIndex].Name == "EDIT")
+                {
+                    int recordI = Convert.ToInt32(earnGridView.Rows[e.RowIndex].Cells[0].Value.ToString());
+                    int budgetID = Convert.ToInt32(earnGridView.Rows[e.RowIndex].Cells[1].Value.ToString());
+                    string recordType = earnGridView.Rows[e.RowIndex].Cells[2].Value.ToString();
+                    string title = earnGridView.Rows[e.RowIndex].Cells[3].Value.ToString();
+                    string desc = earnGridView.Rows[e.RowIndex].Cells[4].Value.ToString();
+                    string sendAmount = earnGridView.Rows[e.RowIndex].Cells[5].Value.ToString();
+                    string sendDateEarned = earnGridView.Rows[e.RowIndex].Cells[6].Value.ToString();
+                    DateTime dateCreated = Convert.ToDateTime(earnGridView.Rows[e.RowIndex].Cells[7].Value.ToString());
+
+                    decimal amount = Convert.ToDecimal(sendAmount);
+                    DateTime dateEarned = Convert.ToDateTime(sendDateEarned);
+
+                    Earning editEarn = new Earning();
+                    editEarn.ID = recordI;
+                    editEarn.BudgetID = budgetID;
+                    editEarn.Title = title;
+                    editEarn.Description = desc;
+                    editEarn.Amount = amount;
+                    editEarn.DateEarned = dateEarned;
+                    editEarn.DateCreated = dateCreated;
+                    //bool update = EarningController.Instance.EditEarnings(newEarning, oldEarning);
+
+                }
+            }
         }
 
           

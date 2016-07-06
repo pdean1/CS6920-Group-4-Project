@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MySql.Data.MySqlClient;
 
 namespace CS6920Group4Project.Controller
 {
@@ -13,6 +14,7 @@ namespace CS6920Group4Project.Controller
         private static EarningController instance;
 
         private readonly EarningDAL _dal = new EarningDAL();
+       
         
         public static EarningController Instance
         {
@@ -35,17 +37,22 @@ namespace CS6920Group4Project.Controller
         {
             return _dal.InsertEarning(e);
         }
-        public bool EditEarnings(Earning earn)
+        
+        public bool EditEarnings(Earning newEarning, Earning oldEarning)
         {
             try
             {
-                EarningDAL.EditEarnings(earn);
-                return true;
+                return _dal.EditEarnings(newEarning, oldEarning);
             }
-            catch 
+            catch
             {
                 return false;
             }
+
+        }
+        public MySqlDataAdapter ListEarningDataGridView(int ID)
+        {
+            return _dal.listEarningsForDataGrid(ID);
         }
         
     }

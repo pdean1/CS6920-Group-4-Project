@@ -116,42 +116,93 @@ namespace CS6920Group4Project.DAL.Model
         }
 
 
-        public static void EditEarnings(Earning earn) 
+        public bool EditEarnings(Earning newEarning, Earning oldEarning) 
         {
             MySqlConnection connection = new DBConnect().GetConnection();
+            bool update = true;
 
-            String editEarningsStatement = "UPDATE sql5123046.earnings (`RecordID`, `Amount`, `DateEarned`)" +
-                                                "SET (RecordID, @Amount, @DateEarned)" +
-                                                    " WHERE `RecordID` = @RecordID";
+            String updateEarningsStatement = "UPDATE `sql5123046.records` as r join `sql5123046.earnings` as e on r.RecordID = e.RecordID " +
+                                                  "SET Title = (updateTitle, Description = updateDesc, " +
+                                                      "Amount = updateAmount, DateEarned = updateDateEarned " +
+                                              "where r.RecordID = @ID and e.Amount = @Amount and eDateEarned = @DateEarned" +
+                                                      "and r.BudgetID = @BID and r.RecordType = @RecType and r.Title = @Title" +
+                                                         "and r.Description = @Desc and r.DateCreated = @DateCreated";
 
-            MySqlCommand editEarnCommand = new MySqlCommand(editEarningsStatement, connection);
+            MySqlCommand updateEarnCommand = new MySqlCommand(updateEarningsStatement, connection);
 
-            editEarnCommand.Parameters.AddWithValue("@RecordID", earn.ID);
-            editEarnCommand.Parameters.AddWithValue("@Amount", earn.Amount);
-            editEarnCommand.Parameters.AddWithValue("@DateEarned", earn.DateEarned.ToString("yyyy-MM-dd hh:mm:ss"));
+            updateEarnCommand.Parameters.AddWithValue("@ID", newEarning.ID);
+            updateEarnCommand.Parameters.AddWithValue("@Amount", newEarning.Amount);
+            updateEarnCommand.Parameters.AddWithValue("@DateEarned", newEarning.DateEarned);
+            updateEarnCommand.Parameters.AddWithValue("@Desc", newEarning.Description);
+            updateEarnCommand.Parameters.AddWithValue("@ID", oldEarning.ID);
+            updateEarnCommand.Parameters.AddWithValue("@BID", oldEarning.BudgetID);
+            updateEarnCommand.Parameters.AddWithValue("@RecType", oldEarning.RecordType);
+            updateEarnCommand.Parameters.AddWithValue("@Title", oldEarning.Title);
+            updateEarnCommand.Parameters.AddWithValue("@Desc", oldEarning.Description);
+            updateEarnCommand.Parameters.AddWithValue("@DateCreated", oldEarning.DateCreated);
 
+            MySqlTransaction trans = null;
+            MySqlDataReader reader = null;
             try
             {
                 connection.Open();
-                editEarnCommand.ExecuteNonQuery();
-        
+                trans = connection.BeginTransaction();
+
+                updateEarnCommand.Transaction = trans;
+                reader = updateEarnCommand.ExecuteReader();
+
+                int updateCode = updateEarnCommand.ExecuteNonQuery();
+                if (updateCode > 0)
+
+                    return update = true;
+                else
+                    return update = false;
             }
             catch (MySqlException ex)
             {
-                DatabaseErrorMessageUtility.SendMessageToUser("Unable to update earnings in the database.", ex);
+                trans.Rollback();
+                DatabaseErrorMessageUtility.SendMessageToUser("Unable to update Database with Earnings.", ex);
             }
             catch (Exception ex)
             {
-                DatabaseErrorMessageUtility.SendMessageToUser("Unable to update earnings in the database.", ex);
+                DatabaseErrorMessageUtility.SendMessageToUser("Unable to update Database with Earnings.", ex);
             }
-            finally 
+            finally
             {
-                editEarnCommand.Dispose();
+                updateEarnCommand.Dispose();
                 connection.Close();
             }
+            return update;
+            }
+        public MySqlDataAdapter listEarningsForDataGrid(int BudgetID)
+        {
+            MySqlDataAdapter mySqlDataAdapter = null;
 
-
-
-    }
-    }
+            try
+            {
+                using (MySqlCommand command = new MySqlCommand())
+                {
+                    conn.Open();
+                    command.Connection = conn;
+                    command.CommandText = "SELECT * FROM `sql5123046`.`viewearningrecords` WHERE `viewearningrecords`.`BudgetID` = @ID;";
+                    command.Prepare();
+                    command.Parameters.AddWithValue("@ID", BudgetID);
+                    mySqlDataAdapter = new MySqlDataAdapter(command);
+                }
+            }
+            catch (MySqlException ex)
+            {
+                DatabaseErrorMessageUtility.SendMessageToUser("Unable to query for earnings view in the database.", ex);
+            }
+            catch (Exception ex)
+            {
+                DatabaseErrorMessageUtility.SendMessageToUser("Unable to query for earnings view in the database.", ex);
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return mySqlDataAdapter;
+        }
+      }
 }
