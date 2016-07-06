@@ -11,6 +11,7 @@ using CS6920Group4Project.Model;
 using CS6920Group4Project.View;
 using CS6920Group4Project.DAL.Model;
 using CS6920Group4Project.Utilities;
+using CS6920Group4Project.Controller;
 
 
 namespace CS6920Group4Project.View
@@ -23,22 +24,8 @@ namespace CS6920Group4Project.View
         public Dashboard()
         {
             InitializeComponent();
-            userNameLbl.Text = Session.SessionInformation.GetSessionUser().FirstName + " " 
-                + Session.SessionInformation.GetSessionUser().LastName;
             lblBudgetTitle.Text = Session.SessionInformation.GetBudget().Title;
             UpdateDashboard();
-            
-       }
-
-        private void welcomeLbl_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cbBudgets_SelectedIndexChanged(Object sender, EventArgs e)
-        {
-            //UpdateDashboard();
-            return; // working on this
         }
 
         private void dashEarnBtn_Click(object sender, EventArgs e)
@@ -71,6 +58,12 @@ namespace CS6920Group4Project.View
 
         private void UpdateDashboard()
         {
+            UpdatePieChartArea();
+            UpdateBillsDueDataGrid();
+        }
+
+        private void UpdatePieChartArea()
+        {
             string[] xValues = { "Earnings", "Expenses", "Bills" };
             BillsAmount = Session.SessionInformation.GetBudget().GetTotalAmountOfBills();
             EarningsAmount = Session.SessionInformation.GetBudget().GetTotalAmountOfEarnings();
@@ -83,8 +76,32 @@ namespace CS6920Group4Project.View
             lblIncomeRemaining.Text = StringUtilities.GetDisplayableDollarAmount(EarningsAmount - (BillsAmount + ExpensesAmount));
 
             decimal[] yValues = { EarningsAmount, ExpensesAmount, BillsAmount };
+
             statisticsChart.Series[0].Points.DataBindXY(xValues, yValues);
             statisticsChart.Series[0].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+        }
+
+        private void UpdateBillsDueDataGrid()
+        {
+            dgDueBills.ColumnCount = 3;
+            dgDueBills.Columns[0].Name = "Title";
+            dgDueBills.Columns[1].Name = "Amount";
+            dgDueBills.Columns[2].Name = "Date Due";
+
+            foreach (Bill b in Session.SessionInformation.GetBudget().Bills)
+            {
+                if (String.IsNullOrEmpty(b.DatePaid.ToString()))
+                {
+                    string[] row = new string[] {
+                        b.Title,  
+                        StringUtilities.GetDisplayableDollarAmount(b.Amount), 
+                        b.DateDue.ToShortDateString()
+                    };
+                    dgDueBills.Rows.Add(row);
+                    dgDueBills.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                }
+            }
+            
         }
     }
 }
