@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using CS6920Group4Project.Controller;
 using CS6920Group4Project.Model;
 using System.Data.SqlClient;
+using CS6920Group4Project.Utilities;
 
 namespace CS6920Group4Project.View
 {
@@ -117,11 +118,57 @@ namespace CS6920Group4Project.View
         private void ManageBills_Load(object sender, EventArgs e)
         {
             lblTitle.Text += " " + Session.SessionInformation.GetBudget().Title;
-            var BillList = new BindingList<Bill>(Session.SessionInformation.GetBudget().Bills);
-            var _BindingSource = new BindingSource(BillList, null);
-            dgBills.DataSource = _BindingSource;
+
+            dgBills.ColumnCount = 5;
+
+            dgBills.Columns[0].Name = "Record ID";
+            dgBills.Columns[1].Name = "Title";
+            dgBills.Columns[2].Name = "Amount";
+            dgBills.Columns[3].Name = "Date Due";
+            dgBills.Columns[4].Name = "Date Paid";
+
+            foreach (Bill b in Session.SessionInformation.GetBudget().Bills)
+            {
+                string[] row = new string[] { 
+                    b.ID.ToString(), 
+                    b.Title, 
+                    StringUtilities.GetDisplayableDollarAmount(b.Amount),
+                    b.DateDue.ToShortDateString(),
+                    b.DatePaid.ToString()
+                };
+                dgBills.Rows.Add(row);
+            }
+
+            DataGridViewButtonColumn editBtnCol = new DataGridViewButtonColumn();
+            dgBills.Columns.Add(editBtnCol);
+            editBtnCol.HeaderText = " ";
+            editBtnCol.Text = "Edit Bill";
+            editBtnCol.Name = "btnEdit";
+            editBtnCol.UseColumnTextForButtonValue = true;
+            DataGridViewButtonColumn deleteBtnCol = new DataGridViewButtonColumn();
+            dgBills.Columns.Add(deleteBtnCol);
+            deleteBtnCol.HeaderText = " ";
+            deleteBtnCol.Text = "Delete Bill";
+            deleteBtnCol.Name = "btnDelete";
+            deleteBtnCol.UseColumnTextForButtonValue = true;
+            dgBills.CellClick += dgBills_CellClick;
+
+            dgBills.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
 
+        private void dgBills_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == 5)
+            {
+                int id = Int32.Parse(dgBills.Rows[e.RowIndex].Cells[0].Value.ToString());
+                MessageBox.Show("Edit bill not yet needed.");
+            }
+            else if (e.ColumnIndex == 6)
+            {
+                int id = Int32.Parse(dgBills.Rows[e.RowIndex].Cells[0].Value.ToString());
+                MessageBox.Show("Delete bill not yet implemented.");
+            }
+        }
 
     }
 }

@@ -52,7 +52,7 @@ namespace CS6920Group4Project.View
                     newExpense.DateCreated = DateTime.Now;
                     newExpense.DateSpent = DateTime.Parse(expenseDate);
                     newExpense.Title = expenseTitle;
-                    newExpense.Description = expenseDesc;
+                    newExpense.Description = "";
                     newExpense.BudgetID = 1;
 
                     long isExpenseAdded = ExpenseController.Instance.InsertExpense(newExpense);
