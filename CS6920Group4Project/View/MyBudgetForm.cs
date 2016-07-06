@@ -23,6 +23,8 @@ namespace CS6920Group4Project.View
         ManageBills billForm;
         BudgetView budView;
 
+        private decimal BillsAmount = 0, ExpensesAmount = 0, EarningsAmount = 0;
+
         public MyBudgetForm()
         {
             InitializeComponent();
@@ -55,7 +57,12 @@ namespace CS6920Group4Project.View
 
         private void MyBudgetForm_Load(object sender, EventArgs e)
         {
-
+            lblUser.Text += Session.SessionInformation.GetSessionUser().FirstName 
+                + " " + Session.SessionInformation.GetSessionUser().LastName;
+            BillsAmount = Session.SessionInformation.GetBudget().GetTotalAmountOfBills();
+            EarningsAmount = Session.SessionInformation.GetBudget().GetTotalAmountOfEarnings();
+            ExpensesAmount = Session.SessionInformation.GetBudget().GetTotalAmountOfExpenses();
+            lblIncomeRemaining.Text += StringUtilities.GetDisplayableDollarAmount(EarningsAmount - (BillsAmount + ExpensesAmount));
         }
         private void tabManageEarnings()
         {

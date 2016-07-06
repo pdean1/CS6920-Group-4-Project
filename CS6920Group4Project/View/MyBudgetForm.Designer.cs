@@ -36,6 +36,8 @@
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.lblUser = new System.Windows.Forms.Label();
+            this.lblIncomeRemaining = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.percentageCht)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.SuspendLayout();
@@ -108,6 +110,30 @@
             this.tabPage5.Text = "Budget View";
             this.tabPage5.UseVisualStyleBackColor = true;
             // 
+            // lblUser
+            // 
+            this.lblUser.AutoSize = true;
+            this.lblUser.BackColor = System.Drawing.Color.Transparent;
+            this.lblUser.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold);
+            this.lblUser.ForeColor = System.Drawing.Color.ForestGreen;
+            this.lblUser.Location = new System.Drawing.Point(13, 13);
+            this.lblUser.Name = "lblUser";
+            this.lblUser.Size = new System.Drawing.Size(209, 24);
+            this.lblUser.TabIndex = 4;
+            this.lblUser.Text = "Current Signed in User: ";
+            // 
+            // lblIncomeRemaining
+            // 
+            this.lblIncomeRemaining.AutoSize = true;
+            this.lblIncomeRemaining.BackColor = System.Drawing.Color.Transparent;
+            this.lblIncomeRemaining.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold);
+            this.lblIncomeRemaining.ForeColor = System.Drawing.Color.ForestGreen;
+            this.lblIncomeRemaining.Location = new System.Drawing.Point(13, 37);
+            this.lblIncomeRemaining.Name = "lblIncomeRemaining";
+            this.lblIncomeRemaining.Size = new System.Drawing.Size(260, 24);
+            this.lblIncomeRemaining.TabIndex = 5;
+            this.lblIncomeRemaining.Text = "Income Remaining in Budget: ";
+            // 
             // MyBudgetForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -115,8 +141,11 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1362, 855);
+            this.Controls.Add(this.lblIncomeRemaining);
+            this.Controls.Add(this.lblUser);
             this.Controls.Add(this.tabControl1);
             this.DoubleBuffered = true;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MyBudgetForm";
             this.Text = "My Buddy";
@@ -124,6 +153,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.percentageCht)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -137,5 +167,7 @@
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.TabPage tabPage5;
         private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.Label lblUser;
+        private System.Windows.Forms.Label lblIncomeRemaining;
     }
 }
