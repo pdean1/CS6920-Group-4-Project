@@ -62,7 +62,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Location = new System.Drawing.Point(1005, 148);
+            this.label4.Location = new System.Drawing.Point(1005, 173);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(97, 21);
             this.label4.TabIndex = 5;
@@ -72,7 +72,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Location = new System.Drawing.Point(1005, 203);
+            this.label5.Location = new System.Drawing.Point(1005, 228);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(104, 21);
             this.label5.TabIndex = 6;
@@ -80,7 +80,7 @@
             // 
             // billAmountTxt
             // 
-            this.billAmountTxt.Location = new System.Drawing.Point(1009, 172);
+            this.billAmountTxt.Location = new System.Drawing.Point(1009, 197);
             this.billAmountTxt.Name = "billAmountTxt";
             this.billAmountTxt.Size = new System.Drawing.Size(183, 28);
             this.billAmountTxt.TabIndex = 4;
@@ -89,7 +89,7 @@
             // 
             this.billBtn.BackColor = System.Drawing.Color.ForestGreen;
             this.billBtn.ForeColor = System.Drawing.Color.White;
-            this.billBtn.Location = new System.Drawing.Point(1143, 407);
+            this.billBtn.Location = new System.Drawing.Point(1143, 432);
             this.billBtn.Name = "billBtn";
             this.billBtn.Size = new System.Drawing.Size(94, 30);
             this.billBtn.TabIndex = 6;
@@ -100,7 +100,7 @@
             // 
             // billTitleTxt
             // 
-            this.billTitleTxt.Location = new System.Drawing.Point(1009, 62);
+            this.billTitleTxt.Location = new System.Drawing.Point(1009, 87);
             this.billTitleTxt.Name = "billTitleTxt";
             this.billTitleTxt.Size = new System.Drawing.Size(183, 28);
             this.billTitleTxt.TabIndex = 1;
@@ -109,7 +109,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.Transparent;
-            this.label6.Location = new System.Drawing.Point(1005, 38);
+            this.label6.Location = new System.Drawing.Point(1005, 63);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(70, 21);
             this.label6.TabIndex = 29;
@@ -119,7 +119,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Location = new System.Drawing.Point(1005, 93);
+            this.label2.Location = new System.Drawing.Point(1005, 118);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(118, 21);
             this.label2.TabIndex = 31;
@@ -127,14 +127,14 @@
             // 
             // billDescTxt
             // 
-            this.billDescTxt.Location = new System.Drawing.Point(1009, 117);
+            this.billDescTxt.Location = new System.Drawing.Point(1009, 142);
             this.billDescTxt.Name = "billDescTxt";
             this.billDescTxt.Size = new System.Drawing.Size(183, 28);
             this.billDescTxt.TabIndex = 3;
             // 
             // monthCalendar
             // 
-            this.monthCalendar.Location = new System.Drawing.Point(1010, 233);
+            this.monthCalendar.Location = new System.Drawing.Point(1010, 258);
             this.monthCalendar.Name = "monthCalendar";
             this.monthCalendar.TabIndex = 5;
             // 
@@ -142,7 +142,7 @@
             // 
             this.resetBtn.BackColor = System.Drawing.Color.Goldenrod;
             this.resetBtn.ForeColor = System.Drawing.Color.White;
-            this.resetBtn.Location = new System.Drawing.Point(1010, 407);
+            this.resetBtn.Location = new System.Drawing.Point(1010, 432);
             this.resetBtn.Name = "resetBtn";
             this.resetBtn.Size = new System.Drawing.Size(92, 30);
             this.resetBtn.TabIndex = 32;
@@ -155,7 +155,7 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(1005, 11);
+            this.label1.Location = new System.Drawing.Point(1005, 36);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(135, 24);
             this.label1.TabIndex = 33;

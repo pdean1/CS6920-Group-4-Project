@@ -160,6 +160,7 @@ namespace CS6920Group4Project.View
                 mySqlDataAdapter.Fill(table);
 
                 BindingSource bind = new BindingSource();
+
                 bind.DataSource = table;
                 earnGridView.DataSource = bind;
                 earnGridView.Columns[0].Visible = false;
@@ -207,7 +208,7 @@ namespace CS6920Group4Project.View
             }
 
         }
-                
+        
         public bool validateData()
         {
             earnAmount = earningAmountBox.Text;
@@ -291,6 +292,11 @@ namespace CS6920Group4Project.View
 
                 }
             }
+        }
+
+        private void earningAmountBox_TextChanged(object sender, EventArgs e)
+        {
+
         }
 
           
