@@ -122,7 +122,7 @@ namespace CS6920Group4Project.View
         {
             try
             {
-                int budgetID = 1;
+                int budgetID = Session.SessionInformation.GetBudget().ID;
                 mySqlDataAdapter = ExpenseController.Instance.GetExpensesByBudgetIDDataGridView(budgetID);
 
                 DataTable table = new DataTable();
@@ -192,12 +192,14 @@ namespace CS6920Group4Project.View
                 //TODO - Button Clicked - Execute Code Here
                 if (dataGridView1.Columns[e.ColumnIndex].Name == "DELETE")
                 {
-                    string title = dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString();
-                    string sAmount = dataGridView1.Rows[e.RowIndex].Cells[7].Value.ToString();
-                    string sDateSpent = dataGridView1.Rows[e.RowIndex].Cells[8].Value.ToString();
-                    int recid = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString());
-                    int budgetid = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString());
-                    string sbType = dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString();
+
+                    Expense selectedExpense = new Expense();
+                    selectedExpense = Session.SessionInformation.GetBudget().
+                            GetSelectedExpense(Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString()));
+
+                    string title = selectedExpense.Title.ToString();
+                    string sAmount = selectedExpense.Amount.ToString();
+                    string sDateSpent = selectedExpense.DateSpent.ToString();
                     DialogResult result = MessageBox.Show("Do you want to delete EXPENSE (Title - "
                                                            + title + " Amount - " + sAmount
                                                            + " DateSpent - " + sDateSpent + ")?",
@@ -206,29 +208,11 @@ namespace CS6920Group4Project.View
                                                           MessageBoxIcon.Question);
                     if (result == DialogResult.Yes)
                     {
-                        decimal amount = Convert.ToDecimal(sAmount);
-                        DateTime dateSpent = Convert.ToDateTime(sDateSpent);
-                        char bType = Convert.ToChar(sbType);
-                        string desc = dataGridView1.Rows[e.RowIndex].Cells[6].Value.ToString();
-                        DateTime dateCreated = Convert.ToDateTime(dataGridView1.Rows[e.RowIndex].Cells[9].Value.ToString());
-
-                        Expense delExpense = new Expense();
-                        delExpense.ID = recid;
-                        delExpense.Amount = amount;
-                        delExpense.DateSpent = dateSpent;
-                        delExpense.ID = recid;
-                        delExpense.BudgetID = budgetid;
-                        delExpense.RecordType = bType;
-                        delExpense.Title = title;
-                        delExpense.Description = desc;
-                        delExpense.DateCreated = dateCreated;
-
-
-                        bool isExpenseDeleted = ExpenseController.Instance.DeleteExpense(delExpense);
+                        bool isExpenseDeleted = ExpenseController.Instance.DeleteExpense(selectedExpense);
                         if (isExpenseDeleted == true)
                         {
                             MessageBox.Show("EXPENSE (Title - " + title + " Amount - " + sAmount
-                                                                + " has been DELETED )?",
+                                                                + ") has been DELETED!",
                                                           "DELETE EXPENSE",
                                                           MessageBoxButtons.OK,
                                                           MessageBoxIcon.Information);
@@ -236,8 +220,8 @@ namespace CS6920Group4Project.View
                         }
                         else
                         {
-                            MessageBox.Show("EXPENSE (Title - " + title + " Amount - " + sAmount
-                                                                + " unable to DELETED )?",
+                            MessageBox.Show("Unable to Delete (Title - " + title + " Amount - " + sAmount
+                                                                + ") EXPENSE!",
                                                           "DELETE EXPENSE",
                                                           MessageBoxButtons.OK,
                                                           MessageBoxIcon.Information);
