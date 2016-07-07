@@ -74,5 +74,41 @@ namespace CS6920Group4Project.DAL.Model
             }
             return budgets;
         }
+
+        private const string DeleteBudgetStatement = "DELETE FROM `sql5123046`.`budgets` WHERE `budgets`.`BudgetID` = @ID;";
+        public Boolean DeleteBudget(int id)
+        {
+            var success = false;
+            using (MySqlCommand cmd = new MySqlCommand())
+            {
+                try
+                {
+                    conn.Open();
+                    cmd.Connection = conn;
+                    cmd.CommandText = DeleteBudgetStatement;
+                    cmd.Prepare();
+                    cmd.Parameters.AddWithValue("@ID", id);
+                    if (cmd.ExecuteNonQuery() != 0)
+                    {
+                        success = true;
+                    }
+                }
+                catch (MySqlException e)
+                {
+                    DatabaseErrorMessageUtility.SendMessageToUser("Unable to delete budget in the database.", e);
+                    success = false;
+                }
+                catch (Exception e)
+                {
+                    DatabaseErrorMessageUtility.SendMessageToUser("Unable to delete budget in the database.", e);
+                    success = false;
+                }
+                finally
+                {
+                    conn.Close();
+                }
+            }
+            return success;
+        }
     }
 }

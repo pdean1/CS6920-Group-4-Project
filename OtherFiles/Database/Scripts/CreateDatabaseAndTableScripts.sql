@@ -64,6 +64,8 @@ CREATE TABLE records (
   CONSTRAINT Record_PK PRIMARY KEY (RecordID),
   CONSTRAINT Record_Budget FOREIGN KEY (BudgetID) 
     REFERENCES budgets (BudgetID)
+	  ON DELETE CASCADE
+	  ON UPDATE CASCADE
 );
 -- =====================================================================
 -- Earnings Table Creation Scripts                               
@@ -74,7 +76,9 @@ CREATE TABLE earnings (
     DateEarned DATETIME NOT NULL,
     CONSTRAINT Earning_PK PRIMARY KEY (RecordID),
     CONSTRAINT Earning_Record_PK FOREIGN KEY (RecordID)
-        REFERENCES records (RecordID)
+      REFERENCES records (RecordID)
+		ON DELETE CASCADE
+	    ON UPDATE CASCADE
 );
 -- =====================================================================
 -- Bills Table Creation Scripts                               
@@ -87,6 +91,8 @@ CREATE TABLE bills (
   CONSTRAINT Bill_PK PRIMARY KEY (RecordID),
   CONSTRAINT Bill_Record_FK FOREIGN KEY (RecordID) 
     REFERENCES records (RecordID)
+	  ON DELETE CASCADE
+	  ON UPDATE CASCADE
 ); 
 -- =====================================================================
 -- Expenses Table Creation Scripts                               
@@ -98,4 +104,6 @@ CREATE TABLE expenses (
   CONSTRAINT Expense_PK PRIMARY KEY (RecordID),
   CONSTRAINT Expense_Record_PK FOREIGN KEY (RecordID)  
     REFERENCES records (RecordID)
+	  ON DELETE CASCADE
+	  ON UPDATE CASCADE
 );

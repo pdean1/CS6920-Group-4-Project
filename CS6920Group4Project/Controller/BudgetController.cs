@@ -15,7 +15,7 @@ namespace CS6920Group4Project.Controller
     {
         private static BudgetController instance;
 
-        private readonly BudgetDAL budgetDAL = new BudgetDAL();
+        private readonly BudgetDAL _dal = new BudgetDAL();
 
         public BudgetController() { }
 
@@ -41,7 +41,7 @@ namespace CS6920Group4Project.Controller
         {
             if (ID <= 0)
                 return null;
-            return budgetDAL.GetAllUserBudgets(ID);
+            return _dal.GetAllUserBudgets(ID);
         }
 
         public Boolean PopulateBudgetsWithRecords(List<Budget> budgets)
@@ -68,6 +68,11 @@ namespace CS6920Group4Project.Controller
             budget.Expenses = ExpenseController.Instance.GetExpensesByBudgetID(budget.ID);
             budget.Bills = BillController.Instance.GetBillsByBudgetID(budget.ID);
             return true;
+        }
+
+        public Boolean DeleteBudget(int id)
+        {
+            return _dal.DeleteBudget(id);
         }
     }
 }
