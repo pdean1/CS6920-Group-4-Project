@@ -60,11 +60,7 @@ namespace CS6920Group4Project.View
                                  "USER",
                                  MessageBoxButtons.OK,
                                  MessageBoxIcon.None);
-
-                    Form wsForm = new WelcomeScreen();
-                    wsForm.FormClosed += new FormClosedEventHandler(wsForm_FormClosed);
                     this.Close();
-                    wsForm.Show();
                 }
                 else
                 {
@@ -75,11 +71,6 @@ namespace CS6920Group4Project.View
                     this.clearData();
                 }
             }
-        }
-
-        void wsForm_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            this.Close();
         }
 
         private void clearData()
