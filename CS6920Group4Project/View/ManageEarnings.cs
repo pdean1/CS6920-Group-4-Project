@@ -131,6 +131,7 @@ namespace CS6920Group4Project.View
                                     MessageBoxButtons.OK,
                                     MessageBoxIcon.None);
                         this.ClearText();
+                        this.populateGridView();
                     }
                 }
                 else
@@ -153,7 +154,7 @@ namespace CS6920Group4Project.View
         {
             try
             {
-                int budgetID = 1;
+                int budgetID = Session.SessionInformation.GetBudget().ID;                
                 mySqlDataAdapter = EarningController.Instance.ListEarningDataGridView(budgetID);
 
                 DataTable table = new DataTable();
@@ -163,21 +164,15 @@ namespace CS6920Group4Project.View
 
                 bind.DataSource = table;
                 earnGridView.DataSource = bind;
+
                 earnGridView.Columns[0].Visible = false;
                 earnGridView.Columns[1].Visible = false;
                 earnGridView.Columns[2].Visible = false;
-                earnGridView.Columns[3].Visible = true;
-                earnGridView.Columns[4].Visible = true;
-                earnGridView.Columns[5].Visible = true;
-                earnGridView.Columns[5].MinimumWidth = 200;
-                earnGridView.Columns[6].Visible = true;
-                earnGridView.Columns[7].ReadOnly = true;
 
                 DataGridViewButtonColumn editbut = new DataGridViewButtonColumn();
                 editbut.Text = "EDIT";
                 editbut.Name = "EDIT";
-                editbut.HeaderText = "SELECT";
-                editbut.Name = "editBtn";
+                editbut.HeaderText = "Select";
                 editbut.Width = 100;
                 editbut.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
                 editbut.UseColumnTextForButtonValue = true;
@@ -185,17 +180,19 @@ namespace CS6920Group4Project.View
                 editbut.DefaultCellStyle.ForeColor = Color.White;
                 earnGridView.Columns.Add(editbut);
 
+                //add new button column to the DataGridView
+                //This column displays a delete Button in each row
                 DataGridViewButtonColumn delbut = new DataGridViewButtonColumn();
                 delbut.Text = "DELETE";
                 delbut.Name = "DELETE";
                 delbut.Width = 100;
-                delbut.HeaderText = "SELECT";
-                delbut.Name = "delBtn";
                 delbut.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
                 delbut.UseColumnTextForButtonValue = true;
-                delbut.DefaultCellStyle.BackColor = Color.DarkGreen;
-                delbut.DefaultCellStyle.ForeColor = Color.White;
+                delbut.DefaultCellStyle.BackColor = Color.AntiqueWhite;
                 earnGridView.Columns.Add(delbut);
+
+                earnGridView.DefaultCellStyle.ForeColor = Color.DarkGreen;
+                earnGridView.DefaultCellStyle.BackColor = Color.AntiqueWhite;
                
             }
             catch (SqlException ex)
@@ -260,9 +257,7 @@ namespace CS6920Group4Project.View
        
         private void earnGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            var gridSend = (DataGridView)sender;
-
-            if (gridSend.Columns[e.ColumnIndex] is DataGridViewButtonColumn &&
+            if (earnGridView.Columns[e.ColumnIndex] is DataGridViewButtonColumn &&
                 e.RowIndex >= 0)
             {
 
@@ -288,18 +283,50 @@ namespace CS6920Group4Project.View
                     editEarn.Amount = amount;
                     editEarn.DateEarned = dateEarned;
                     editEarn.DateCreated = dateCreated;
+                    
                     //bool update = EarningController.Instance.EditEarnings(newEarning, oldEarning);
 
                 }
+                else if (earnGridView.Columns[e.ColumnIndex].Name == "DELETE")
+                {
+                    Earning selectedEarning = new Earning();
+                    selectedEarning = Session.SessionInformation.GetBudget().
+                            GetSelectedEarning(Convert.ToInt32(earnGridView.Rows[e.RowIndex].Cells[0].Value.ToString()));
+
+                    string title = selectedEarning.Title.ToString();
+                    string sAmount = selectedEarning.Amount.ToString();
+                    string sDateSpent = selectedEarning.DateEarned.ToString();
+                    DialogResult result = MessageBox.Show("Do you want to delete Earning (Title - "
+                                                           + title + " Amount - " + sAmount
+                                                           + " DateSpent - " + sDateSpent + ")?",
+                                                          "DELETE Earning",
+                                                          MessageBoxButtons.YesNo,
+                                                          MessageBoxIcon.Question);
+                    if (result == DialogResult.Yes)
+                    {
+                        bool isEarningDeleted = EarningController.Instance.DeleteEarning(selectedEarning);
+                        if (isEarningDeleted == true)
+                        {
+                            MessageBox.Show("Earning (Title - " + title + " Amount - " + sAmount
+                                                                + ") has been DELETED!",
+                                                          "DELETE Earning",
+                                                          MessageBoxButtons.OK,
+                                                          MessageBoxIcon.Information);
+                            this.populateGridView();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Unable to Delete (Title - " + title + " Amount - " + sAmount
+                                                                + ") Earning!",
+                                                          "DELETE Earning",
+                                                          MessageBoxButtons.OK,
+                                                          MessageBoxIcon.Information);
+                        }
+
+                    }
+                }
             }
         }
-
-        private void earningAmountBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-          
 
         
     }

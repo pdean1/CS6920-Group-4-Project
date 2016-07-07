@@ -192,7 +192,6 @@ namespace CS6920Group4Project.DAL.Model
 
         public bool DeleteExpense(Expense delExpense)
         {
-          //  MySqlDataReader reader = null;
             MySqlTransaction delExpenseTran = null;
             bool expenseDelete = true;
 

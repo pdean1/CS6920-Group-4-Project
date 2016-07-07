@@ -116,7 +116,7 @@
             this.earningAmountBox.Name = "earningAmountBox";
             this.earningAmountBox.Size = new System.Drawing.Size(198, 28);
             this.earningAmountBox.TabIndex = 3;
-            this.earningAmountBox.TextChanged += new System.EventHandler(this.earningAmountBox_TextChanged);
+ //           this.earningAmountBox.TextChanged += new System.EventHandler(this.earningAmountBox_TextChanged);
             // 
             // userNameEarningsLbl
             // 

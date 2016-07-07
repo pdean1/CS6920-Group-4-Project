@@ -204,5 +204,84 @@ namespace CS6920Group4Project.DAL.Model
             }
             return mySqlDataAdapter;
         }
+
+        public bool DeleteEarning(Earning delEarning)
+        {
+            MySqlTransaction delEarningTran = null;
+            bool earningDelete = true;
+
+            try
+            {
+                //  delete Earning
+                string deleteStatement1 = "DELETE from earnings WHERE RecordID = @ID " +
+                                                                 "and Amount = @amount " +
+                                                                 "and DateEarned = @dateEarned";
+
+                MySqlCommand deleteCommand1 = new MySqlCommand(deleteStatement1, conn);
+                deleteCommand1.Parameters.AddWithValue("@ID", delEarning.ID);
+                deleteCommand1.Parameters.AddWithValue("@amount", delEarning.Amount);
+                deleteCommand1.Parameters.AddWithValue("@dateEarned", delEarning.DateEarned);
+
+                // delete record
+                string deleteStatement2 = "DELETE from records WHERE RecordID = @ID " +
+                                                               "and BudgetID = @bID " +
+                                                               "and RecordType = @recType " +
+                                                               "and Title = @title " +
+                                                               "and Description = @desc " +
+                                                               "and DateCreated = @dateCreated";
+
+                MySqlCommand deleteCommand2 = new MySqlCommand(deleteStatement2, conn);
+                deleteCommand2.Parameters.AddWithValue("@ID", delEarning.ID);
+                deleteCommand2.Parameters.AddWithValue("@bID", delEarning.BudgetID);
+                deleteCommand2.Parameters.AddWithValue("@recType", delEarning.RecordType);
+                deleteCommand2.Parameters.AddWithValue("@title", delEarning.Title);
+                deleteCommand2.Parameters.AddWithValue("@desc", delEarning.Description);
+                deleteCommand2.Parameters.AddWithValue("@dateCreated", delEarning.DateCreated);
+
+                conn.Open();
+                delEarningTran = conn.BeginTransaction();
+                deleteCommand1.Transaction = delEarningTran;
+                deleteCommand2.Transaction = delEarningTran;
+
+                int isEarningDeleted = deleteCommand1.ExecuteNonQuery();
+                if (isEarningDeleted > 0)
+                {
+                    int isRecordDeleted = deleteCommand2.ExecuteNonQuery();
+                    if (isRecordDeleted > 0)
+                    {
+                        delEarningTran.Commit();
+                        return earningDelete = true;
+                    }
+                    else
+                    {
+                        delEarningTran.Rollback();
+                        return earningDelete = false;
+                    }
+                }
+                else
+                {
+                    delEarningTran.Rollback();
+                    return earningDelete = false;
+                }
+            }
+            catch (MySqlException e)
+            {
+                DatabaseErrorMessageUtility.SendMessageToUser(
+                    "Unable to query for delete Earning in the database.", e);
+            }
+            catch (Exception e)
+            {
+                if (delEarningTran != null)
+                    delEarningTran.Rollback();
+
+                DatabaseErrorMessageUtility.SendMessageToUser(
+                    "Unable to query for delete Earning in the database.", e);
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return earningDelete;
+        }
       }
 }

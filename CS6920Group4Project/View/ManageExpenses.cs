@@ -53,7 +53,7 @@ namespace CS6920Group4Project.View
                     newExpense.DateSpent = DateTime.Parse(expenseDate);
                     newExpense.Title = expenseTitle;
                     newExpense.Description = "";
-                    newExpense.BudgetID = 1;
+                    newExpense.BudgetID = Session.SessionInformation.GetBudget().ID;
 
                     long isExpenseAdded = ExpenseController.Instance.InsertExpense(newExpense);
                     if (isExpenseAdded == 0)
@@ -151,7 +151,6 @@ namespace CS6920Group4Project.View
                 editbut.Text = "EDIT";
                 editbut.Name = "EDIT";
                 editbut.HeaderText = "Select";
-                editbut.Name = "editBtn";
                 editbut.Width = 100;
                 editbut.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
                 editbut.UseColumnTextForButtonValue = true;
@@ -184,9 +183,7 @@ namespace CS6920Group4Project.View
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            var senderGrid = (DataGridView)sender;
-
-            if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn &&
+            if (dataGridView1.Columns[e.ColumnIndex] is DataGridViewButtonColumn &&
                 e.RowIndex >= 0)
             {
                 //TODO - Button Clicked - Execute Code Here
@@ -228,6 +225,11 @@ namespace CS6920Group4Project.View
                         }
 
                     }
+                }
+
+                if (dataGridView1.Columns[e.ColumnIndex].Name == "EDIT")
+                {
+
                 }
             }
         }

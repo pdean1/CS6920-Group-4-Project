@@ -54,6 +54,11 @@ namespace CS6920Group4Project.Controller
         {
             return _dal.listEarningsForDataGrid(ID);
         }
+
+        public bool DeleteEarning(Earning delEarning)
+        {
+            return _dal.DeleteEarning(delEarning);
+        }
         
     }
 
