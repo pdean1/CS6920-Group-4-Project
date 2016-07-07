@@ -56,19 +56,18 @@
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Controls.Add(this.tabPage5);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.tabControl1.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabControl1.Location = new System.Drawing.Point(0, 78);
+            this.tabControl1.Location = new System.Drawing.Point(0, 64);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1362, 777);
+            this.tabControl1.Size = new System.Drawing.Size(1362, 677);
             this.tabControl1.TabIndex = 3;
             // 
             // tabPage1
             // 
             this.tabPage1.Location = new System.Drawing.Point(4, 28);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Size = new System.Drawing.Size(1354, 745);
+            this.tabPage1.Size = new System.Drawing.Size(1354, 707);
             this.tabPage1.TabIndex = 6;
             this.tabPage1.Text = "DashBoard";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -78,7 +77,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 28);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1354, 709);
+            this.tabPage2.Size = new System.Drawing.Size(1354, 745);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Manage Earnings";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -87,7 +86,7 @@
             // 
             this.tabPage3.Location = new System.Drawing.Point(4, 28);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(1354, 709);
+            this.tabPage3.Size = new System.Drawing.Size(1354, 745);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Manage Expenses";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -96,7 +95,7 @@
             // 
             this.tabPage4.Location = new System.Drawing.Point(4, 28);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(1354, 709);
+            this.tabPage4.Size = new System.Drawing.Size(1354, 745);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Manage Bills";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -105,7 +104,7 @@
             // 
             this.tabPage5.Location = new System.Drawing.Point(4, 28);
             this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Size = new System.Drawing.Size(1354, 709);
+            this.tabPage5.Size = new System.Drawing.Size(1354, 645);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "Budget View";
             this.tabPage5.UseVisualStyleBackColor = true;
@@ -140,7 +139,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1362, 855);
+            this.ClientSize = new System.Drawing.Size(1362, 741);
             this.Controls.Add(this.lblIncomeRemaining);
             this.Controls.Add(this.lblUser);
             this.Controls.Add(this.tabControl1);

@@ -47,5 +47,47 @@ namespace CS6920Group4Project.Model
             }
             return amount;
         }
+
+        public Expense GetSelectedExpense(int recID)
+        {
+            Expense selectedExpense = new Expense();
+            foreach (Expense e in Expenses)
+            {
+                if(e.ID == recID)
+                {
+                    selectedExpense = e;
+                    break;
+                }
+            }
+            return selectedExpense;
+        }
+
+        public Bill GetSelectedBill(int recID)
+        {
+            Bill selectedBill = new Bill();
+            foreach (Bill b in Bills)
+            {
+                if (b.ID == recID)
+                {
+                    selectedBill = b;
+                    break;
+                }
+            }
+            return selectedBill;
+        }
+
+        public Earning GetSelectedEarning(int recID)
+        {
+            Earning selectedEarning = new Earning();
+            foreach (Earning e in Earnings)
+            {
+                if (e.ID == recID)
+                {
+                    selectedEarning = e;
+                    break;
+                }
+            }
+            return selectedEarning;
+        }
     }
 }
