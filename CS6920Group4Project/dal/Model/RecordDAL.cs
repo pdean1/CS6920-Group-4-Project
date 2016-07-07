@@ -122,5 +122,64 @@ namespace CS6920Group4Project.DAL.Model
             }
             return records;
         }
+
+        /// <summary>
+        /// Statement to delete a record
+        /// </summary>
+        private const string DeleteRecordStatement = 
+            "DELETE FROM `sql5123046`.`records` WHERE " +
+            "`records`.`RecordID` = @RecordID AND " +
+            "`records`.`BudgetID` = @BudgetID";// AND " +
+            //"`records`.`RecordType` = @RecordType AND " +
+            //"`records`.`Title` = @Title AND " +
+            //"`records`.`Description` = @Description AND " +
+            //"`records`.`DateCreated` = @DateCreated;";
+
+        /// <summary>
+        /// Deletes a record from the database.
+        /// </summary>
+        /// <param name="record">The record to delete from the database</param>
+        /// <returns>True if record was deleted, false otherwise</returns>
+        public bool DeleteRecord(Record record)
+        {
+            var success = false;
+            using (MySqlCommand cmd = new MySqlCommand())
+            {
+                try
+                {
+                    conn.Open();
+                    cmd.Connection = conn;
+                    cmd.CommandText = DeleteRecordStatement;
+                    cmd.Prepare();
+                    cmd.Parameters.AddWithValue("@RecordID", record.ID);
+                    cmd.Parameters.AddWithValue("@BudgetID", record.BudgetID);
+                    //cmd.Parameters.AddWithValue("@RecordType", record.RecordType);
+                    //cmd.Parameters.AddWithValue("@Title", record.Title);
+                    //cmd.Parameters.AddWithValue("@Description", ((String.IsNullOrEmpty(record.Description)) ? "" : record.Description));
+                    //cmd.Parameters.AddWithValue("@DateCreated", record.DateCreated);
+                    if (cmd.ExecuteNonQuery() != 0)
+                    {
+                        success = true;
+                    }
+                }
+                catch (MySqlException e)
+                {
+                    DatabaseErrorMessageUtility.SendMessageToUser(
+                        "Unable to delete record from database.", e);
+                    success = false;
+                }
+                catch (Exception e)
+                {
+                    DatabaseErrorMessageUtility.SendMessageToUser(
+                        "Unable to delete record from database.", e);
+                    success = false;
+                }
+                finally
+                {
+                    conn.Close();
+                }
+            }
+            return success;
+        }
     }
 }

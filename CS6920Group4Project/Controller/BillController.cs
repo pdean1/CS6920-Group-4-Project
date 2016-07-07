@@ -46,5 +46,9 @@ namespace CS6920Group4Project.Controller
                 return false;
             }
         }
+        public bool DeleteBill(Bill b) 
+        {
+            return _dal.DeleteBill(b);
+        }
     }
 }

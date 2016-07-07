@@ -12,5 +12,11 @@ namespace CS6920Group4Project.Utilities
         {
             return string.Format("{0:c}", amount);
         }
+        public static string GetLongDateString(DateTime dt)
+        {
+            if (dt == null)
+                return "";
+            return dt.ToString("yyyy-MM-dd hh:mm:ss");
+        }
     }
 }

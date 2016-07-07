@@ -66,6 +66,7 @@ namespace CS6920Group4Project.View
                                     MessageBoxButtons.OK,
                                     MessageBoxIcon.None);
                         this.clearData();
+                        AddRowToDataGrid(newBill);
                     }
                 }
                 else
@@ -129,14 +130,7 @@ namespace CS6920Group4Project.View
 
             foreach (Bill b in Session.SessionInformation.GetBudget().Bills)
             {
-                string[] row = new string[] { 
-                    b.ID.ToString(), 
-                    b.Title, 
-                    StringUtilities.GetDisplayableDollarAmount(b.Amount),
-                    b.DateDue.ToShortDateString(),
-                    b.DatePaid.ToString()
-                };
-                dgBills.Rows.Add(row);
+                AddRowToDataGrid(b);
             }
 
             DataGridViewButtonColumn editBtnCol = new DataGridViewButtonColumn();
@@ -166,8 +160,48 @@ namespace CS6920Group4Project.View
             else if (e.ColumnIndex == 6)
             {
                 int id = Int32.Parse(dgBills.Rows[e.RowIndex].Cells[0].Value.ToString());
-                MessageBox.Show("Delete bill not yet implemented.");
+                if (DeleteBillClicked(id))
+                {
+                    dgBills.Rows.RemoveAt(e.RowIndex);
+                }
+            }   
+        }
+
+        private void AddRowToDataGrid(Bill b)
+        {
+            string[] row = new string[] { 
+                    b.ID.ToString(), 
+                    b.Title, 
+                    StringUtilities.GetDisplayableDollarAmount(b.Amount),
+                    b.DateDue.ToShortDateString(),
+                    b.DatePaid.ToString()
+                };
+            dgBills.Rows.Add(row);
+        }
+
+        private Boolean DeleteBillClicked(int id)
+        {
+            Bill bill = null;
+            foreach (Bill b in Session.SessionInformation.GetBudget().Bills)
+            {
+                if (b.ID == id)
+                {
+                    bill = b;
+                    break;
+                }
             }
+            if (bill == null)
+            {
+                MessageBox.Show("Unable to delete bill!");
+                return false;
+            }
+            if (!BillController.Instance.DeleteBill(bill))
+            {
+                MessageBox.Show("Unable to delete bill!");
+                return false;
+            }
+            Session.SessionInformation.GetBudget().Bills.Remove(bill);
+            return true;
         }
 
     }

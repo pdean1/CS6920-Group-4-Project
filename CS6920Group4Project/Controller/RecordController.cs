@@ -28,5 +28,9 @@ namespace CS6920Group4Project.Controller
         {
             return _dal.InsertRecord(record);
         }
+        public Boolean  DeleteRecord(Record r)
+        {
+            return _dal.DeleteRecord(r);
+        }
     }
 }
