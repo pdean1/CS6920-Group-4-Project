@@ -51,7 +51,7 @@
             this.earningsWelcomeLbl.BackColor = System.Drawing.Color.Transparent;
             this.earningsWelcomeLbl.Font = new System.Drawing.Font("Calibri", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.earningsWelcomeLbl.ForeColor = System.Drawing.Color.DarkGreen;
-            this.earningsWelcomeLbl.Location = new System.Drawing.Point(654, 16);
+            this.earningsWelcomeLbl.Location = new System.Drawing.Point(654, 14);
             this.earningsWelcomeLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.earningsWelcomeLbl.Name = "earningsWelcomeLbl";
             this.earningsWelcomeLbl.Size = new System.Drawing.Size(175, 21);
@@ -116,13 +116,12 @@
             this.earningAmountBox.Name = "earningAmountBox";
             this.earningAmountBox.Size = new System.Drawing.Size(198, 28);
             this.earningAmountBox.TabIndex = 3;
- //           this.earningAmountBox.TextChanged += new System.EventHandler(this.earningAmountBox_TextChanged);
             // 
             // userNameEarningsLbl
             // 
             this.userNameEarningsLbl.AutoSize = true;
             this.userNameEarningsLbl.BackColor = System.Drawing.Color.Transparent;
-            this.userNameEarningsLbl.Location = new System.Drawing.Point(836, 16);
+            this.userNameEarningsLbl.Location = new System.Drawing.Point(836, 15);
             this.userNameEarningsLbl.Name = "userNameEarningsLbl";
             this.userNameEarningsLbl.Size = new System.Drawing.Size(98, 21);
             this.userNameEarningsLbl.TabIndex = 21;

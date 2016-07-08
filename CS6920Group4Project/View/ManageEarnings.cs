@@ -168,15 +168,14 @@ namespace CS6920Group4Project.View
                 earnGridView.Columns[0].Visible = false;
                 earnGridView.Columns[1].Visible = false;
                 earnGridView.Columns[2].Visible = false;
+                earnGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
                 DataGridViewButtonColumn editbut = new DataGridViewButtonColumn();
                 editbut.Text = "EDIT";
                 editbut.Name = "EDIT";
-                editbut.HeaderText = "Select";
-                editbut.Width = 100;
+                editbut.HeaderText = "";
                 editbut.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
                 editbut.UseColumnTextForButtonValue = true;
-                editbut.DefaultCellStyle.BackColor = Color.DarkGreen;
                 editbut.DefaultCellStyle.ForeColor = Color.White;
                 earnGridView.Columns.Add(editbut);
 
@@ -185,15 +184,12 @@ namespace CS6920Group4Project.View
                 DataGridViewButtonColumn delbut = new DataGridViewButtonColumn();
                 delbut.Text = "DELETE";
                 delbut.Name = "DELETE";
-                delbut.Width = 100;
                 delbut.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
                 delbut.UseColumnTextForButtonValue = true;
-                delbut.DefaultCellStyle.BackColor = Color.AntiqueWhite;
+                delbut.DefaultCellStyle.BackColor = Color.White;
                 earnGridView.Columns.Add(delbut);
 
-                earnGridView.DefaultCellStyle.ForeColor = Color.DarkGreen;
-                earnGridView.DefaultCellStyle.BackColor = Color.AntiqueWhite;
-               
+                               
             }
             catch (SqlException ex)
             {

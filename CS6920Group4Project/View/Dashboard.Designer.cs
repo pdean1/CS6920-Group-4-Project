@@ -53,6 +53,7 @@
             this.dgDueBills = new System.Windows.Forms.DataGridView();
             this.label7 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.valueLbl = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.resultsTxt = new System.Windows.Forms.TextBox();
             this.addBtn = new System.Windows.Forms.Button();
@@ -73,7 +74,6 @@
             this.nineBtn = new System.Windows.Forms.Button();
             this.eightBtn = new System.Windows.Forms.Button();
             this.sevenBtn = new System.Windows.Forms.Button();
-            this.valueLbl = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.percentageCht)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.statisticsChart)).BeginInit();
             this.panel1.SuspendLayout();
@@ -341,6 +341,15 @@
             this.panel3.Size = new System.Drawing.Size(233, 248);
             this.panel3.TabIndex = 15;
             // 
+            // valueLbl
+            // 
+            this.valueLbl.AutoSize = true;
+            this.valueLbl.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.valueLbl.Location = new System.Drawing.Point(98, 25);
+            this.valueLbl.Name = "valueLbl";
+            this.valueLbl.Size = new System.Drawing.Size(0, 13);
+            this.valueLbl.TabIndex = 20;
+            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -557,22 +566,13 @@
             this.sevenBtn.UseVisualStyleBackColor = true;
             this.sevenBtn.Click += new System.EventHandler(this.button_Click);
             // 
-            // valueLbl
-            // 
-            this.valueLbl.AutoSize = true;
-            this.valueLbl.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.valueLbl.Location = new System.Drawing.Point(98, 25);
-            this.valueLbl.Name = "valueLbl";
-            this.valueLbl.Size = new System.Drawing.Size(0, 13);
-            this.valueLbl.TabIndex = 20;
-            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Ivory;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1434, 812);
+            this.ClientSize = new System.Drawing.Size(1246, 637);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);

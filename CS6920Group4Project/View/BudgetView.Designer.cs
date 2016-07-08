@@ -62,11 +62,12 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.DarkGreen;
-            this.label1.Location = new System.Drawing.Point(663, 228);
+            this.label1.Location = new System.Drawing.Point(542, 101);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(134, 33);
             this.label1.TabIndex = 0;
             this.label1.Text = "My Budget";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // expenseView
             // 
@@ -80,7 +81,7 @@
             this.expenseCategory});
             this.expenseView.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.expenseView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
-            this.expenseView.Location = new System.Drawing.Point(458, 550);
+            this.expenseView.Location = new System.Drawing.Point(362, 419);
             this.expenseView.Name = "expenseView";
             this.expenseView.Size = new System.Drawing.Size(500, 85);
             this.expenseView.TabIndex = 1;
@@ -125,7 +126,7 @@
             this.dateEarned});
             this.earnView.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.earnView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
-            this.earnView.Location = new System.Drawing.Point(458, 302);
+            this.earnView.Location = new System.Drawing.Point(362, 171);
             this.earnView.Name = "earnView";
             this.earnView.Size = new System.Drawing.Size(500, 85);
             this.earnView.TabIndex = 2;
@@ -176,7 +177,7 @@
             this.billView.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.billView.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.billView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
-            this.billView.Location = new System.Drawing.Point(458, 425);
+            this.billView.Location = new System.Drawing.Point(362, 294);
             this.billView.Name = "billView";
             this.billView.Size = new System.Drawing.Size(500, 85);
             this.billView.TabIndex = 3;
@@ -223,7 +224,7 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.DarkGreen;
-            this.label2.Location = new System.Drawing.Point(677, 270);
+            this.label2.Location = new System.Drawing.Point(581, 139);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(67, 19);
             this.label2.TabIndex = 4;
@@ -236,7 +237,7 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.DarkGreen;
-            this.label3.Location = new System.Drawing.Point(690, 394);
+            this.label3.Location = new System.Drawing.Point(594, 263);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(36, 19);
             this.label3.TabIndex = 5;
@@ -250,7 +251,7 @@
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.DarkGreen;
-            this.label4.Location = new System.Drawing.Point(677, 520);
+            this.label4.Location = new System.Drawing.Point(581, 389);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(70, 19);
             this.label4.TabIndex = 6;
@@ -260,9 +261,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(242)))), ((int)(((byte)(196)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1384, 762);
+            this.ClientSize = new System.Drawing.Size(1249, 641);
             this.Controls.Add(this.expenseView);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);

@@ -50,7 +50,7 @@
             this.incomeLbl.AutoSize = true;
             this.incomeLbl.BackColor = System.Drawing.Color.Transparent;
             this.incomeLbl.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.incomeLbl.Location = new System.Drawing.Point(318, 195);
+            this.incomeLbl.Location = new System.Drawing.Point(22, 15);
             this.incomeLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.incomeLbl.Name = "incomeLbl";
             this.incomeLbl.Size = new System.Drawing.Size(218, 26);
@@ -62,7 +62,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Location = new System.Drawing.Point(1229, 311);
+            this.label4.Location = new System.Drawing.Point(970, 143);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(72, 21);
             this.label4.TabIndex = 5;
@@ -72,7 +72,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Location = new System.Drawing.Point(1230, 366);
+            this.label5.Location = new System.Drawing.Point(970, 198);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(78, 21);
             this.label5.TabIndex = 6;
@@ -80,7 +80,7 @@
             // 
             // monthCalendar
             // 
-            this.monthCalendar.Location = new System.Drawing.Point(1149, 392);
+            this.monthCalendar.Location = new System.Drawing.Point(973, 225);
             this.monthCalendar.Name = "monthCalendar";
             this.monthCalendar.TabIndex = 4;
             // 
@@ -88,7 +88,7 @@
             // 
             this.expenseBtn.BackColor = System.Drawing.Color.ForestGreen;
             this.expenseBtn.ForeColor = System.Drawing.Color.White;
-            this.expenseBtn.Location = new System.Drawing.Point(1265, 563);
+            this.expenseBtn.Location = new System.Drawing.Point(1089, 394);
             this.expenseBtn.Name = "expenseBtn";
             this.expenseBtn.Size = new System.Drawing.Size(110, 29);
             this.expenseBtn.TabIndex = 5;
@@ -99,14 +99,14 @@
             // 
             // expenseAmountTxt
             // 
-            this.expenseAmountTxt.Location = new System.Drawing.Point(1164, 332);
+            this.expenseAmountTxt.Location = new System.Drawing.Point(973, 167);
             this.expenseAmountTxt.Name = "expenseAmountTxt";
             this.expenseAmountTxt.Size = new System.Drawing.Size(196, 28);
             this.expenseAmountTxt.TabIndex = 3;
             // 
             // expenseTitleTxt
             // 
-            this.expenseTitleTxt.Location = new System.Drawing.Point(1165, 280);
+            this.expenseTitleTxt.Location = new System.Drawing.Point(973, 113);
             this.expenseTitleTxt.Name = "expenseTitleTxt";
             this.expenseTitleTxt.Size = new System.Drawing.Size(196, 28);
             this.expenseTitleTxt.TabIndex = 1;
@@ -115,7 +115,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.Transparent;
-            this.label6.Location = new System.Drawing.Point(1210, 256);
+            this.label6.Location = new System.Drawing.Point(970, 89);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(105, 21);
             this.label6.TabIndex = 27;
@@ -123,9 +123,9 @@
             // 
             // resetBtn
             // 
-            this.resetBtn.BackColor = System.Drawing.Color.ForestGreen;
+            this.resetBtn.BackColor = System.Drawing.Color.Goldenrod;
             this.resetBtn.ForeColor = System.Drawing.Color.White;
-            this.resetBtn.Location = new System.Drawing.Point(1180, 564);
+            this.resetBtn.Location = new System.Drawing.Point(974, 395);
             this.resetBtn.Name = "resetBtn";
             this.resetBtn.Size = new System.Drawing.Size(79, 29);
             this.resetBtn.TabIndex = 28;
@@ -138,7 +138,7 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(1174, 207);
+            this.label1.Location = new System.Drawing.Point(970, 50);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(178, 24);
             this.label1.TabIndex = 29;
@@ -147,19 +147,18 @@
             // panel1
             // 
             this.panel1.Controls.Add(this.dataGridView1);
-            this.panel1.Location = new System.Drawing.Point(299, 280);
+            this.panel1.Location = new System.Drawing.Point(21, 46);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(807, 343);
+            this.panel1.Size = new System.Drawing.Size(932, 546);
             this.panel1.TabIndex = 30;
             // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
+            this.dataGridView1.Location = new System.Drawing.Point(0, -2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.Size = new System.Drawing.Size(807, 343);
+            this.dataGridView1.Size = new System.Drawing.Size(932, 545);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -167,9 +166,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(242)))), ((int)(((byte)(196)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1362, 741);
+            this.ClientSize = new System.Drawing.Size(1249, 641);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.resetBtn);

@@ -65,5 +65,10 @@ namespace CS6920Group4Project.View
         {
 
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
