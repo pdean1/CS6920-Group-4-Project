@@ -18,6 +18,9 @@ namespace CS6920Group4Project.View
 {
     public partial class Dashboard : Form
     {
+        Double result = 0;
+        String calculations = "";
+        bool isCalculationPerformed = false;
 
         private decimal BillsAmount = 0, ExpensesAmount = 0, EarningsAmount = 0;
 
@@ -103,5 +106,80 @@ namespace CS6920Group4Project.View
             }
             
         }
+
+        private void button_Click(object sender, EventArgs e)
+        {
+            if ((resultsTxt.Text == "0") || (isCalculationPerformed))
+                resultsTxt.Clear();
+
+            isCalculationPerformed = false;
+            Button button = (Button)sender;
+            if(button.Text == ".")
+            {
+                if (!resultsTxt.Text.Contains("."))
+                    resultsTxt.Text = resultsTxt.Text + button.Text;
+            }
+                else
+            resultsTxt.Text = resultsTxt.Text + button.Text;
+        }
+
+        private void operator_Click(object sender, EventArgs e)
+        {
+            Button button = (Button)sender;
+
+            if (result != 0)
+            {
+                equalBtn.PerformClick();
+                calculations = button.Text;
+                valueLbl.Text = result + " " + calculations;
+                isCalculationPerformed = true;
+            }
+            else
+            {
+                calculations = button.Text;
+                result = Double.Parse(resultsTxt.Text);
+                valueLbl.Text = result + " " + calculations;
+                isCalculationPerformed = true;
+            }
+        }
+
+        private void clear_Click(object sender, EventArgs e)
+        {
+            resultsTxt.Text = "0";
+        }
+
+        private void clearAll_Click(object sender, EventArgs e)
+        {
+            resultsTxt.Text = "0";
+            result = 0;
+        }
+
+        private void equal_Click(object sender, EventArgs e)
+            {
+            switch(calculations)
+            {
+                case "+":
+                resultsTxt.Text = (result + Double.Parse(resultsTxt.Text)).ToString();
+                    break;
+
+                case "-":
+                    resultsTxt.Text = (result - Double.Parse(resultsTxt.Text)).ToString();
+                    break;
+
+                case "*":
+                    resultsTxt.Text = (result * Double.Parse(resultsTxt.Text)).ToString();
+                    break;
+
+                case "/":
+                    resultsTxt.Text = (result / Double.Parse(resultsTxt.Text)).ToString();
+                    break;
+                default:
+                    break;
+
+            }
+            result = Double.Parse(resultsTxt.Text);
+            valueLbl.Text = "";
+        }
+       
     }
 }
