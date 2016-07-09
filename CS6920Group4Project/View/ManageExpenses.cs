@@ -132,6 +132,7 @@ namespace CS6920Group4Project.View
                 BindingSource bSource = new BindingSource();
                 bSource.DataSource = table;
 
+                dataGridView1.Refresh();
                 dataGridView1.DataSource = bSource;
 
                 dataGridView1.Columns[0].Visible = false;
@@ -165,12 +166,12 @@ namespace CS6920Group4Project.View
                 DataGridViewButtonColumn delbut = new DataGridViewButtonColumn();
                 delbut.Text = "DELETE";
                 delbut.Name = "DELETE";
+                delbut.HeaderText = "";
                 delbut.Width = 100;
                 delbut.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
                 delbut.UseColumnTextForButtonValue = true;
                 delbut.DefaultCellStyle.BackColor = Color.White;
                 dataGridView1.Columns.Add(delbut);
-
             }
             catch (SqlException ex)
             {
@@ -184,57 +185,69 @@ namespace CS6920Group4Project.View
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dataGridView1.Columns[e.ColumnIndex] is DataGridViewButtonColumn &&
-                e.RowIndex >= 0)
+            try
             {
-                //TODO - Button Clicked - Execute Code Here
-                if (dataGridView1.Columns[e.ColumnIndex].Name == "DELETE")
+                if (dataGridView1.Columns[e.ColumnIndex] is DataGridViewButtonColumn &&
+                    e.RowIndex >= 0)                 
                 {
-
-                    Expense selectedExpense = new Expense();
-                    selectedExpense = Session.SessionInformation.GetBudget().
-                            GetSelectedExpense(Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString()));
-
-                    string title = selectedExpense.Title.ToString();
-                    string sAmount = selectedExpense.Amount.ToString();
-                    string sDateSpent = selectedExpense.DateSpent.ToString();
-                    DialogResult result = MessageBox.Show("Do you want to delete EXPENSE (Title - "
-                                                           + title + " Amount - " + sAmount
-                                                           + " DateSpent - " + sDateSpent + ")?",
-                                                          "DELETE EXPENSE",
-                                                          MessageBoxButtons.YesNo,
-                                                          MessageBoxIcon.Question);
-                    if (result == DialogResult.Yes)
+                    string value = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
+                    if (!String.IsNullOrEmpty(value))
                     {
-                        bool isExpenseDeleted = ExpenseController.Instance.DeleteExpense(selectedExpense);
-                        if (isExpenseDeleted == true)
-                        {
-                            MessageBox.Show("EXPENSE (Title - " + title + " Amount - " + sAmount
-                                                                + ") has been DELETED!",
-                                                          "DELETE EXPENSE",
-                                                          MessageBoxButtons.OK,
-                                                          MessageBoxIcon.Information);
-                            Session.SessionInformation.GetBudget().Expenses.Remove(selectedExpense);
-                            Session.SessionInformation.RefreshSessionLabels();
-                            this.getExpenselist();
-                        }
-                        else
-                        {
-                            MessageBox.Show("Unable to Delete (Title - " + title + " Amount - " + sAmount
-                                                                + ") EXPENSE!",
-                                                          "DELETE EXPENSE",
-                                                          MessageBoxButtons.OK,
-                                                          MessageBoxIcon.Information);
-                        }
+                        
+                        Expense selectedExpense = Session.SessionInformation.GetBudget().
+                                                    GetSelectedExpense(Convert.ToInt32(value));
 
+                        if (dataGridView1.Columns[e.ColumnIndex].Name == "DELETE")
+                        {
+                            string title = selectedExpense.Title.ToString();
+                            string sAmount = selectedExpense.Amount.ToString();
+                            string sDateSpent = selectedExpense.DateSpent.ToString();
+                            DialogResult result = MessageBox.Show("Do you want to delete EXPENSE (Title - "
+                                                                 + title + " Amount - " + sAmount
+                                                                 + " DateSpent - " + sDateSpent + ")?",
+                                                                   "DELETE EXPENSE",
+                                                                    MessageBoxButtons.YesNo,
+                                                                     MessageBoxIcon.Question);
+                            if (result == DialogResult.Yes)
+                            {
+                                bool isExpenseDeleted = ExpenseController.Instance.DeleteExpense(selectedExpense);
+                                if (isExpenseDeleted == true)
+                                {
+                                    MessageBox.Show("EXPENSE (Title - " + title + " Amount - " + sAmount
+                                                                        + ") has been DELETED!",
+                                                                 "DELETE EXPENSE",
+                                                                  MessageBoxButtons.OK,
+                                                                  MessageBoxIcon.Information);
+                                    Session.SessionInformation.GetBudget().Expenses.Remove(selectedExpense);
+                                    Session.SessionInformation.RefreshSessionLabels();
+                                    this.getExpenselist();
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Unable to Delete (Title - " + title + " Amount - " + sAmount
+                                                                      + ") EXPENSE!",
+                                                                     "DELETE EXPENSE",
+                                                                      MessageBoxButtons.OK,
+                                                                      MessageBoxIcon.Information);
+                                }
+
+                            }
+                        }
+                        if (dataGridView1.Columns[e.ColumnIndex].Name == "EDIT")
+                        {
+                            // Add this once implemented
+                            // Session.SessionInformation.RefreshSessionLabels();
+                        }
                     }
                 }
-
-                if (dataGridView1.Columns[e.ColumnIndex].Name == "EDIT")
-                {
-                    // Add this once implemented
-                    // Session.SessionInformation.RefreshSessionLabels();
-                }
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.Message, ex.GetType().ToString());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.GetType().ToString());
             }
         }
 
