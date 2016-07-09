@@ -38,6 +38,8 @@
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.lblUser = new System.Windows.Forms.Label();
             this.lblIncomeRemaining = new System.Windows.Forms.Label();
+            this.lblIncomeRemainingPlaceholder = new System.Windows.Forms.Label();
+            this.lblUserNamePlaceholder = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.percentageCht)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.SuspendLayout();
@@ -77,7 +79,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 28);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1354, 645);
+            this.tabPage2.Size = new System.Drawing.Size(1354, 720);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Manage Earnings";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -86,7 +88,7 @@
             // 
             this.tabPage3.Location = new System.Drawing.Point(4, 28);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(1354, 645);
+            this.tabPage3.Size = new System.Drawing.Size(1354, 720);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Manage Expenses";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -95,7 +97,7 @@
             // 
             this.tabPage4.Location = new System.Drawing.Point(4, 28);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(1354, 645);
+            this.tabPage4.Size = new System.Drawing.Size(1354, 720);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Manage Bills";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -104,7 +106,7 @@
             // 
             this.tabPage5.Location = new System.Drawing.Point(4, 28);
             this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Size = new System.Drawing.Size(1354, 645);
+            this.tabPage5.Size = new System.Drawing.Size(1354, 720);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "Budget View";
             this.tabPage5.UseVisualStyleBackColor = true;
@@ -133,6 +135,30 @@
             this.lblIncomeRemaining.TabIndex = 5;
             this.lblIncomeRemaining.Text = "Income Remaining in Budget: ";
             // 
+            // lblIncomeRemainingPlaceholder
+            // 
+            this.lblIncomeRemainingPlaceholder.AutoSize = true;
+            this.lblIncomeRemainingPlaceholder.BackColor = System.Drawing.Color.Transparent;
+            this.lblIncomeRemainingPlaceholder.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold);
+            this.lblIncomeRemainingPlaceholder.ForeColor = System.Drawing.Color.ForestGreen;
+            this.lblIncomeRemainingPlaceholder.Location = new System.Drawing.Point(279, 37);
+            this.lblIncomeRemainingPlaceholder.Name = "lblIncomeRemainingPlaceholder";
+            this.lblIncomeRemainingPlaceholder.Size = new System.Drawing.Size(268, 24);
+            this.lblIncomeRemainingPlaceholder.TabIndex = 6;
+            this.lblIncomeRemainingPlaceholder.Text = "Income Remaining Placeholder";
+            // 
+            // lblUserNamePlaceholder
+            // 
+            this.lblUserNamePlaceholder.AutoSize = true;
+            this.lblUserNamePlaceholder.BackColor = System.Drawing.Color.Transparent;
+            this.lblUserNamePlaceholder.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold);
+            this.lblUserNamePlaceholder.ForeColor = System.Drawing.Color.ForestGreen;
+            this.lblUserNamePlaceholder.Location = new System.Drawing.Point(228, 13);
+            this.lblUserNamePlaceholder.Name = "lblUserNamePlaceholder";
+            this.lblUserNamePlaceholder.Size = new System.Drawing.Size(219, 24);
+            this.lblUserNamePlaceholder.TabIndex = 7;
+            this.lblUserNamePlaceholder.Text = "User\'s Name Placeholder";
+            // 
             // MyBudgetForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -140,6 +166,8 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1362, 812);
+            this.Controls.Add(this.lblUserNamePlaceholder);
+            this.Controls.Add(this.lblIncomeRemainingPlaceholder);
             this.Controls.Add(this.lblIncomeRemaining);
             this.Controls.Add(this.lblUser);
             this.Controls.Add(this.tabControl1);
@@ -168,5 +196,7 @@
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.Label lblUser;
         private System.Windows.Forms.Label lblIncomeRemaining;
+        private System.Windows.Forms.Label lblIncomeRemainingPlaceholder;
+        private System.Windows.Forms.Label lblUserNamePlaceholder;
     }
 }

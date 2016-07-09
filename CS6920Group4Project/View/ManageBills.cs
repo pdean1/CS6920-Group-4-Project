@@ -67,6 +67,7 @@ namespace CS6920Group4Project.View
                                     MessageBoxIcon.None);
                         this.clearData();
                         AddRowToDataGrid(newBill);
+                        Session.SessionInformation.RefreshSessionLabels();
                     }
                 }
                 else
@@ -156,6 +157,7 @@ namespace CS6920Group4Project.View
             {
                 int id = Int32.Parse(dgBills.Rows[e.RowIndex].Cells[0].Value.ToString());
                 MessageBox.Show("Edit bill not yet needed.");
+                // Session.SessionInformation.RefreshSessionLabels(); // uncomment once implemented
             }
             else if (e.ColumnIndex == 6)
             {
@@ -181,15 +183,7 @@ namespace CS6920Group4Project.View
 
         private Boolean DeleteBillClicked(int id)
         {
-            Bill bill = null;
-            foreach (Bill b in Session.SessionInformation.GetBudget().Bills)
-            {
-                if (b.ID == id)
-                {
-                    bill = b;
-                    break;
-                }
-            }
+            Bill bill = Session.SessionInformation.GetBudget().GetSelectedBill(id);
             if (bill == null)
             {
                 MessageBox.Show("Unable to delete bill!");
@@ -201,6 +195,7 @@ namespace CS6920Group4Project.View
                 return false;
             }
             Session.SessionInformation.GetBudget().Bills.Remove(bill);
+            Session.SessionInformation.RefreshSessionLabels();
             return true;
         }
 

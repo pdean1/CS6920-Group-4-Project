@@ -132,6 +132,7 @@ namespace CS6920Group4Project.View
                                     MessageBoxIcon.None);
                         this.ClearText();
                         this.populateGridView();
+                        Session.SessionInformation.RefreshSessionLabels();
                     }
                 }
                 else
@@ -281,14 +282,19 @@ namespace CS6920Group4Project.View
                     editEarn.DateCreated = dateCreated;
                     
                     //bool update = EarningController.Instance.EditEarnings(newEarning, oldEarning);
-
+                    //TODO update the earning in session by 1. deleting the earning in session 2. then adding the
+                    //  edited earning back to the session. This is one way, there are many other ways to do this
+                    // Session.SessionInformation.RefreshSessionLabels(); // uncomment after implementation 
                 }
                 else if (earnGridView.Columns[e.ColumnIndex].Name == "DELETE")
                 {
-                    Earning selectedEarning = new Earning();
-                    selectedEarning = Session.SessionInformation.GetBudget().
+                    Earning selectedEarning = Session.SessionInformation.GetBudget().
                             GetSelectedEarning(Convert.ToInt32(earnGridView.Rows[e.RowIndex].Cells[0].Value.ToString()));
-
+                    if (selectedEarning == null)
+                    {
+                        MessageBox.Show("Unable to delete Earning!");
+                        return;
+                    }
                     string title = selectedEarning.Title.ToString();
                     string sAmount = selectedEarning.Amount.ToString();
                     string sDateSpent = selectedEarning.DateEarned.ToString();
@@ -309,6 +315,8 @@ namespace CS6920Group4Project.View
                                                           MessageBoxButtons.OK,
                                                           MessageBoxIcon.Information);
                             this.populateGridView();
+                            Session.SessionInformation.GetBudget().Earnings.Remove(selectedEarning);
+                            Session.SessionInformation.RefreshSessionLabels();
                         }
                         else
                         {

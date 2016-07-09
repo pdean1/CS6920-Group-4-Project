@@ -71,6 +71,7 @@ namespace CS6920Group4Project.View
                                     MessageBoxIcon.None);
                         this.clearData();
                         this.getExpenselist();
+                        Session.SessionInformation.RefreshSessionLabels();
                     }
                 }
                 else
@@ -213,6 +214,8 @@ namespace CS6920Group4Project.View
                                                           "DELETE EXPENSE",
                                                           MessageBoxButtons.OK,
                                                           MessageBoxIcon.Information);
+                            Session.SessionInformation.GetBudget().Expenses.Remove(selectedExpense);
+                            Session.SessionInformation.RefreshSessionLabels();
                             this.getExpenselist();
                         }
                         else
@@ -229,7 +232,8 @@ namespace CS6920Group4Project.View
 
                 if (dataGridView1.Columns[e.ColumnIndex].Name == "EDIT")
                 {
-
+                    // Add this once implemented
+                    // Session.SessionInformation.RefreshSessionLabels();
                 }
             }
         }

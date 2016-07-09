@@ -50,7 +50,7 @@ namespace CS6920Group4Project.Model
 
         public Expense GetSelectedExpense(int recID)
         {
-            Expense selectedExpense = new Expense();
+            Expense selectedExpense = null;
             foreach (Expense e in Expenses)
             {
                 if(e.ID == recID)
@@ -64,7 +64,7 @@ namespace CS6920Group4Project.Model
 
         public Bill GetSelectedBill(int recID)
         {
-            Bill selectedBill = new Bill();
+            Bill selectedBill = null;
             foreach (Bill b in Bills)
             {
                 if (b.ID == recID)
@@ -78,7 +78,7 @@ namespace CS6920Group4Project.Model
 
         public Earning GetSelectedEarning(int recID)
         {
-            Earning selectedEarning = new Earning();
+            Earning selectedEarning = null;
             foreach (Earning e in Earnings)
             {
                 if (e.ID == recID)

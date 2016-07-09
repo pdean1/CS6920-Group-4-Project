@@ -105,6 +105,7 @@
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.cbBudgets);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "BudgetPickerForm";
             this.Text = "Let\'s manage!";
             this.ResumeLayout(false);

@@ -41,12 +41,12 @@ namespace CS6920Group4Project.DAL.Model
                 catch (MySqlException e)
                 {
                     DatabaseErrorMessageUtility.SendMessageToUser("Unable to query for expenses in the database.", e);
-                    id = 0;
+                    return 0;
                 }
                 catch (Exception e)
                 {
                     DatabaseErrorMessageUtility.SendMessageToUser("Unable to query for expenses in the database.", e);
-                    id = 0;
+                    return 0;
                 }
                 finally
                 {
@@ -54,6 +54,7 @@ namespace CS6920Group4Project.DAL.Model
                 }
             }
             Session.SessionInformation.GetBudget().Expenses.Add(expense);
+            Session.SessionInformation.RefreshSessionLabels();
             return id;
         }
 

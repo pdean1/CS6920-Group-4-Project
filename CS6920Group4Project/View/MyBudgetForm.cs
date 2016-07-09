@@ -57,12 +57,9 @@ namespace CS6920Group4Project.View
 
         private void MyBudgetForm_Load(object sender, EventArgs e)
         {
-            lblUser.Text += Session.SessionInformation.GetSessionUser().FirstName 
-                + " " + Session.SessionInformation.GetSessionUser().LastName;
-            BillsAmount = Session.SessionInformation.GetBudget().GetTotalAmountOfBills();
-            EarningsAmount = Session.SessionInformation.GetBudget().GetTotalAmountOfEarnings();
-            ExpensesAmount = Session.SessionInformation.GetBudget().GetTotalAmountOfExpenses();
-            lblIncomeRemaining.Text += StringUtilities.GetDisplayableDollarAmount(EarningsAmount - (BillsAmount + ExpensesAmount));
+            Session.SessionInformation.SetUserNameSessionLabel(lblUserNamePlaceholder);
+            Session.SessionInformation.SetIncomeRemainingSessionLabel(lblIncomeRemainingPlaceholder);
+            Session.SessionInformation.RefreshSessionLabels();
         }
         private void tabManageEarnings()
         {

@@ -49,10 +49,12 @@ namespace CS6920Group4Project.DAL.Model
             catch (MySqlException e)
             {
                 DatabaseErrorMessageUtility.SendMessageToUser("Problem adding Record information to the database.", e);
+                return 0;
             }
             catch (Exception e)
             {
                 DatabaseErrorMessageUtility.SendMessageToUser("Problem adding Record information to the database.", e);
+                return 0;
             }
             finally
             {

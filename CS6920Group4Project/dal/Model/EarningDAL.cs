@@ -40,12 +40,12 @@ namespace CS6920Group4Project.DAL.Model
                 catch (MySqlException e)
                 {
                     DatabaseErrorMessageUtility.SendMessageToUser("Unable to insert earning into the database.", e);
-                    id = 0;
+                    return 0;
                 }
                 catch (Exception e)
                 {
                     DatabaseErrorMessageUtility.SendMessageToUser("Unable to insert earning into the database.", e);
-                    id = 0;
+                    return 0;
                 }
                 finally
                 {
