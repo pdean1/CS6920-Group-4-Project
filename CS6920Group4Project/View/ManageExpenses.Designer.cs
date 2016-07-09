@@ -41,6 +41,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.label2 = new System.Windows.Forms.Label();
+            this.descTxt = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -72,15 +74,15 @@
             // 
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Location = new System.Drawing.Point(970, 198);
+            this.label5.Location = new System.Drawing.Point(970, 270);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(78, 21);
+            this.label5.Size = new System.Drawing.Size(91, 21);
             this.label5.TabIndex = 6;
-            this.label5.Text = "Due Date:";
+            this.label5.Text = "Spent Date:";
             // 
             // monthCalendar
             // 
-            this.monthCalendar.Location = new System.Drawing.Point(973, 225);
+            this.monthCalendar.Location = new System.Drawing.Point(973, 297);
             this.monthCalendar.Name = "monthCalendar";
             this.monthCalendar.TabIndex = 4;
             // 
@@ -88,7 +90,7 @@
             // 
             this.expenseBtn.BackColor = System.Drawing.Color.ForestGreen;
             this.expenseBtn.ForeColor = System.Drawing.Color.White;
-            this.expenseBtn.Location = new System.Drawing.Point(1089, 394);
+            this.expenseBtn.Location = new System.Drawing.Point(1089, 466);
             this.expenseBtn.Name = "expenseBtn";
             this.expenseBtn.Size = new System.Drawing.Size(110, 29);
             this.expenseBtn.TabIndex = 5;
@@ -117,15 +119,15 @@
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Location = new System.Drawing.Point(970, 89);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(105, 21);
+            this.label6.Size = new System.Drawing.Size(45, 21);
             this.label6.TabIndex = 27;
-            this.label6.Text = "Expense Title:";
+            this.label6.Text = "Title:";
             // 
             // resetBtn
             // 
             this.resetBtn.BackColor = System.Drawing.Color.Goldenrod;
             this.resetBtn.ForeColor = System.Drawing.Color.White;
-            this.resetBtn.Location = new System.Drawing.Point(974, 395);
+            this.resetBtn.Location = new System.Drawing.Point(974, 467);
             this.resetBtn.Name = "resetBtn";
             this.resetBtn.Size = new System.Drawing.Size(79, 29);
             this.resetBtn.TabIndex = 28;
@@ -164,6 +166,22 @@
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(973, 203);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(88, 21);
+            this.label2.TabIndex = 31;
+            this.label2.Text = "Description";
+            // 
+            // descTxt
+            // 
+            this.descTxt.Location = new System.Drawing.Point(976, 234);
+            this.descTxt.Name = "descTxt";
+            this.descTxt.Size = new System.Drawing.Size(191, 28);
+            this.descTxt.TabIndex = 32;
+            // 
             // ManageExpenses
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
@@ -171,6 +189,8 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(242)))), ((int)(((byte)(196)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1249, 641);
+            this.Controls.Add(this.descTxt);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.resetBtn);
@@ -210,6 +230,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox descTxt;
 
     }
 }

@@ -119,43 +119,59 @@ namespace CS6920Group4Project.DAL.Model
             }
             return expenses;
         }
-        public static void editExpenses(Expense exp)
+        public bool EditExpenses(Expense expense)
         {
+            bool update = false;
             MySqlConnection connection = new DBConnect().GetConnection();
 
-            String editExpenseStatement = "UPDATE sql5123046.expenses (`RecordID`, `Amount`, `DateSpent`)" +
-                                                "SET (@RecordID, @Amount, @DateSpent)" +
-                                                    " WHERE `RecordID` = @RecordID";
-
-
+            String editExpenseStatement = "UPDATE `sql5123046`.`records` as r join `sql5123046`.`expenses` as e on r.RecordID = e.RecordID " +
+                                             "SET Title = @Title, Description = @Description, Amount = @Amount, DateSpent = @DateSpent " +
+                                             "where r.RecordID = @RecordID";
 
             MySqlCommand editExpenseCommand = new MySqlCommand(editExpenseStatement, connection);
 
-            editExpenseCommand.Parameters.AddWithValue("@RecordID", exp.ID);
-            editExpenseCommand.Parameters.AddWithValue("@Amount", exp.Amount);
-            editExpenseCommand.Parameters.AddWithValue("@DateSpent", exp.DateSpent.ToString("yyyy-MM-dd hh:mm:ss"));
+            editExpenseCommand.Parameters.AddWithValue("@RecordID", expense.ID);
+            editExpenseCommand.Parameters.AddWithValue("@Title", expense.Title);
+            editExpenseCommand.Parameters.AddWithValue("@Description", expense.Description);
+            editExpenseCommand.Parameters.AddWithValue("@Amount", expense.Amount);
+            editExpenseCommand.Parameters.AddWithValue("@DateSpent", expense.DateSpent);
 
+            MySqlTransaction trans = null;
             try
             {
                 connection.Open();
-                editExpenseCommand.ExecuteNonQuery();
+                trans = connection.BeginTransaction();
 
+                editExpenseCommand.Transaction = trans;
+
+                int updateCode = editExpenseCommand.ExecuteNonQuery();
+                if (updateCode > 0)
+                {
+                    trans.Commit();
+                    update = true;
+                }
+                else
+                {
+                    update = false;
+                }
             }
             catch (MySqlException ex)
             {
-                DatabaseErrorMessageUtility.SendMessageToUser("Unable to update earnings in the database.", ex);
+                trans.Rollback();
+                DatabaseErrorMessageUtility.SendMessageToUser("Unable to update Database with Expenses.", ex);
             }
             catch (Exception ex)
             {
-                DatabaseErrorMessageUtility.SendMessageToUser("Unable to update earnings in the database.", ex);
+                DatabaseErrorMessageUtility.SendMessageToUser("Unable to update Database with Expenses.", ex);
             }
             finally
             {
                 editExpenseCommand.Dispose();
                 connection.Close();
             }
+            return update;
         }
-
+       
         public MySqlDataAdapter GetListOfExpensesByBudgetIDDataGridView(int BudgetID)
         {
             MySqlDataAdapter mySqlDataAdapter = null;

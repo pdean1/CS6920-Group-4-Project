@@ -37,17 +37,10 @@ namespace CS6920Group4Project.Controller
         {
             return _dal.GetListOfExpensesByBudgetIDDataGridView(ID);
         }
-        public bool EditExpenses(Expense exp)
+        public bool EditExpenses(Expense expense)
         {
-            try
-            {
-                ExpenseDAL.editExpenses(exp);
-                return true;
-            }
-            catch 
-            {
-                return false;
-            }
+          return _dal.EditExpenses(expense);
+           
         }
         public bool DeleteExpense(Expense delExpense)
         {

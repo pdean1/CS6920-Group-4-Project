@@ -170,7 +170,7 @@
             // desc
             // 
             this.desc.AutoSize = true;
-            this.desc.Location = new System.Drawing.Point(972, 194);
+            this.desc.Location = new System.Drawing.Point(976, 194);
             this.desc.Name = "desc";
             this.desc.Size = new System.Drawing.Size(88, 21);
             this.desc.TabIndex = 31;
