@@ -29,34 +29,22 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ManageEarnings));
-            this.earningsWelcomeLbl = new System.Windows.Forms.Label();
             this.incomeLbl = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.monthCalendar = new System.Windows.Forms.MonthCalendar();
             this.addEarningsBtn = new System.Windows.Forms.Button();
             this.earningAmountBox = new System.Windows.Forms.TextBox();
-            this.userNameEarningsLbl = new System.Windows.Forms.Label();
             this.cancelBtn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.tbTitle = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.earnGridView = new System.Windows.Forms.DataGridView();
+            this.label3 = new System.Windows.Forms.Label();
+            this.desc = new System.Windows.Forms.Label();
+            this.descTxt = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.earnGridView)).BeginInit();
             this.SuspendLayout();
-            // 
-            // earningsWelcomeLbl
-            // 
-            this.earningsWelcomeLbl.AutoSize = true;
-            this.earningsWelcomeLbl.BackColor = System.Drawing.Color.Transparent;
-            this.earningsWelcomeLbl.Font = new System.Drawing.Font("Calibri", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.earningsWelcomeLbl.ForeColor = System.Drawing.Color.DarkGreen;
-            this.earningsWelcomeLbl.Location = new System.Drawing.Point(654, 14);
-            this.earningsWelcomeLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.earningsWelcomeLbl.Name = "earningsWelcomeLbl";
-            this.earningsWelcomeLbl.Size = new System.Drawing.Size(175, 21);
-            this.earningsWelcomeLbl.TabIndex = 0;
-            this.earningsWelcomeLbl.Text = "Currently Logged in As: ";
             // 
             // incomeLbl
             // 
@@ -85,7 +73,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Location = new System.Drawing.Point(972, 190);
+            this.label5.Location = new System.Drawing.Point(972, 258);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(104, 21);
             this.label5.TabIndex = 6;
@@ -93,15 +81,16 @@
             // 
             // monthCalendar
             // 
-            this.monthCalendar.Location = new System.Drawing.Point(973, 224);
+            this.monthCalendar.Location = new System.Drawing.Point(973, 292);
             this.monthCalendar.Name = "monthCalendar";
             this.monthCalendar.TabIndex = 4;
+            this.monthCalendar.Tag = "Calendar";
             // 
             // addEarningsBtn
             // 
             this.addEarningsBtn.BackColor = System.Drawing.Color.ForestGreen;
             this.addEarningsBtn.ForeColor = System.Drawing.Color.White;
-            this.addEarningsBtn.Location = new System.Drawing.Point(1072, 398);
+            this.addEarningsBtn.Location = new System.Drawing.Point(1072, 466);
             this.addEarningsBtn.Name = "addEarningsBtn";
             this.addEarningsBtn.Size = new System.Drawing.Size(109, 34);
             this.addEarningsBtn.TabIndex = 5;
@@ -116,22 +105,13 @@
             this.earningAmountBox.Name = "earningAmountBox";
             this.earningAmountBox.Size = new System.Drawing.Size(198, 28);
             this.earningAmountBox.TabIndex = 3;
-            // 
-            // userNameEarningsLbl
-            // 
-            this.userNameEarningsLbl.AutoSize = true;
-            this.userNameEarningsLbl.BackColor = System.Drawing.Color.Transparent;
-            this.userNameEarningsLbl.Location = new System.Drawing.Point(836, 15);
-            this.userNameEarningsLbl.Name = "userNameEarningsLbl";
-            this.userNameEarningsLbl.Size = new System.Drawing.Size(98, 21);
-            this.userNameEarningsLbl.TabIndex = 21;
-            this.userNameEarningsLbl.Text = "User\'s Name";
+            this.earningAmountBox.Tag = "Amount";
             // 
             // cancelBtn
             // 
             this.cancelBtn.BackColor = System.Drawing.Color.Goldenrod;
             this.cancelBtn.ForeColor = System.Drawing.Color.White;
-            this.cancelBtn.Location = new System.Drawing.Point(976, 398);
+            this.cancelBtn.Location = new System.Drawing.Point(976, 466);
             this.cancelBtn.Name = "cancelBtn";
             this.cancelBtn.Size = new System.Drawing.Size(67, 34);
             this.cancelBtn.TabIndex = 6;
@@ -155,6 +135,7 @@
             this.tbTitle.Name = "tbTitle";
             this.tbTitle.Size = new System.Drawing.Size(194, 28);
             this.tbTitle.TabIndex = 1;
+            this.tbTitle.Tag = "Title";
             // 
             // label2
             // 
@@ -177,6 +158,32 @@
             this.earnGridView.TabIndex = 29;
             this.earnGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.earnGridView_CellContentClick);
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(1177, 159);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(18, 21);
+            this.label3.TabIndex = 30;
+            this.label3.Text = "*";
+            // 
+            // desc
+            // 
+            this.desc.AutoSize = true;
+            this.desc.Location = new System.Drawing.Point(972, 194);
+            this.desc.Name = "desc";
+            this.desc.Size = new System.Drawing.Size(88, 21);
+            this.desc.TabIndex = 31;
+            this.desc.Text = "Description";
+            // 
+            // descTxt
+            // 
+            this.descTxt.Location = new System.Drawing.Point(973, 218);
+            this.descTxt.Name = "descTxt";
+            this.descTxt.Size = new System.Drawing.Size(197, 28);
+            this.descTxt.TabIndex = 32;
+            this.descTxt.Tag = "Description";
+            // 
             // ManageEarnings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
@@ -184,19 +191,20 @@
             this.BackColor = System.Drawing.Color.LightGoldenrodYellow;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1249, 641);
+            this.Controls.Add(this.descTxt);
+            this.Controls.Add(this.desc);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.earnGridView);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.tbTitle);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cancelBtn);
-            this.Controls.Add(this.userNameEarningsLbl);
             this.Controls.Add(this.earningAmountBox);
             this.Controls.Add(this.addEarningsBtn);
             this.Controls.Add(this.monthCalendar);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.incomeLbl);
-            this.Controls.Add(this.earningsWelcomeLbl);
             this.Font = new System.Drawing.Font("Calibri", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.DarkGreen;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -213,19 +221,20 @@
 
         #endregion
 
-        private System.Windows.Forms.Label earningsWelcomeLbl;
         private System.Windows.Forms.Label incomeLbl;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.MonthCalendar monthCalendar;
         private System.Windows.Forms.Button addEarningsBtn;
         private System.Windows.Forms.TextBox earningAmountBox;
-        private System.Windows.Forms.Label userNameEarningsLbl;
         private System.Windows.Forms.Button cancelBtn;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox tbTitle;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridView earnGridView;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label desc;
+        private System.Windows.Forms.TextBox descTxt;
 
     }
 }

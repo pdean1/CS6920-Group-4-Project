@@ -39,8 +39,6 @@
             this.earnView = new System.Windows.Forms.ListView();
             this.title = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.description = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.category = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.earning = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.amount = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.dateEarned = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.billView = new System.Windows.Forms.ListView();
@@ -120,8 +118,6 @@
             this.earnView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.title,
             this.description,
-            this.category,
-            this.earning,
             this.amount,
             this.dateEarned});
             this.earnView.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -136,22 +132,12 @@
             // title
             // 
             this.title.Text = "Title";
-            this.title.Width = 52;
+            this.title.Width = 84;
             // 
             // description
             // 
             this.description.Text = "Description";
-            this.description.Width = 92;
-            // 
-            // category
-            // 
-            this.category.Text = "Category";
-            this.category.Width = 74;
-            // 
-            // earning
-            // 
-            this.earning.Text = "Earning Title";
-            this.earning.Width = 117;
+            this.description.Width = 168;
             // 
             // amount
             // 
@@ -289,8 +275,6 @@
         private System.Windows.Forms.ListView earnView;
         private System.Windows.Forms.ColumnHeader title;
         private System.Windows.Forms.ColumnHeader description;
-        private System.Windows.Forms.ColumnHeader category;
-        private System.Windows.Forms.ColumnHeader earning;
         private System.Windows.Forms.ColumnHeader amount;
         private System.Windows.Forms.ColumnHeader dateEarned;
         private System.Windows.Forms.ColumnHeader expenseDescription;

@@ -27,7 +27,8 @@ namespace CS6920Group4Project.View
         public Dashboard()
         {
             InitializeComponent();
-            lblBudgetTitle.Text = Session.SessionInformation.GetBudget().Title;
+            budgetTitleBox.Text = Session.SessionInformation.GetBudget().Title;
+            budgetDescBox.Text = Session.SessionInformation.GetBudget().Description;
             UpdateDashboard();
         }
 
@@ -179,6 +180,24 @@ namespace CS6920Group4Project.View
             }
             result = Double.Parse(resultsTxt.Text);
             valueLbl.Text = "";
+        }
+
+        private void budgetEditBtn_Click(object sender, EventArgs e)
+        {
+            Budget budget = new Budget();
+            budget.ID = Session.SessionInformation.GetBudget().ID;
+            budget.Title = budgetTitleBox.Text;
+            budget.Description = budgetDescBox.Text;
+            bool update = BudgetController.Instance.EditBudget(budget);
+            if (update == true)
+            {
+                MessageBox.Show("Update was completed!");
+            }
+            else
+            {
+                MessageBox.Show("Update was not completed!");
+            }
+           
         }
        
     }

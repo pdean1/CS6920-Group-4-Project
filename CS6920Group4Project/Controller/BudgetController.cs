@@ -70,6 +70,11 @@ namespace CS6920Group4Project.Controller
             return true;
         }
 
+        public bool EditBudget(Budget budget)
+        {
+            return _dal.EditBudget(budget);
+        }
+
         public Boolean DeleteBudget(int id)
         {
             return _dal.DeleteBudget(id);

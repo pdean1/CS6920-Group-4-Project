@@ -116,47 +116,42 @@ namespace CS6920Group4Project.DAL.Model
         }
 
 
-        public bool EditEarnings(Earning newEarning, Earning oldEarning) 
+        public bool EditEarnings(Earning earning) 
         {
-            MySqlConnection connection = new DBConnect().GetConnection();
-            bool update = true;
+            bool update = false;
 
-            String updateEarningsStatement = "UPDATE `sql5123046.records` as r join `sql5123046.earnings` as e on r.RecordID = e.RecordID " +
-                                                  "SET Title = (updateTitle, Description = updateDesc, " +
-                                                      "Amount = updateAmount, DateEarned = updateDateEarned " +
-                                              "where r.RecordID = @ID and e.Amount = @Amount and eDateEarned = @DateEarned" +
-                                                      "and r.BudgetID = @BID and r.RecordType = @RecType and r.Title = @Title" +
-                                                         "and r.Description = @Desc and r.DateCreated = @DateCreated";
+            MySqlConnection connection = new DBConnect().GetConnection();
+
+            String updateEarningsStatement = "UPDATE `sql5123046`.`records` as r join `sql5123046`.`earnings` as e on r.RecordID = e.RecordID " +
+                                             "SET Title = @Title, Description = @Description, Amount = @Amount, DateEarned = @DateEarned " +
+                                             "where r.RecordID = @RecordID";
 
             MySqlCommand updateEarnCommand = new MySqlCommand(updateEarningsStatement, connection);
 
-            updateEarnCommand.Parameters.AddWithValue("@ID", newEarning.ID);
-            updateEarnCommand.Parameters.AddWithValue("@Amount", newEarning.Amount);
-            updateEarnCommand.Parameters.AddWithValue("@DateEarned", newEarning.DateEarned);
-            updateEarnCommand.Parameters.AddWithValue("@Desc", newEarning.Description);
-            updateEarnCommand.Parameters.AddWithValue("@ID", oldEarning.ID);
-            updateEarnCommand.Parameters.AddWithValue("@BID", oldEarning.BudgetID);
-            updateEarnCommand.Parameters.AddWithValue("@RecType", oldEarning.RecordType);
-            updateEarnCommand.Parameters.AddWithValue("@Title", oldEarning.Title);
-            updateEarnCommand.Parameters.AddWithValue("@Desc", oldEarning.Description);
-            updateEarnCommand.Parameters.AddWithValue("@DateCreated", oldEarning.DateCreated);
+            updateEarnCommand.Parameters.AddWithValue("@RecordID", earning.ID);
+            updateEarnCommand.Parameters.AddWithValue("@Title", earning.Title);
+            updateEarnCommand.Parameters.AddWithValue("@Description", earning.Description);
+            updateEarnCommand.Parameters.AddWithValue("@Amount", earning.Amount);
+            updateEarnCommand.Parameters.AddWithValue("@DateEarned", earning.DateEarned);
 
             MySqlTransaction trans = null;
-            MySqlDataReader reader = null;
             try
             {
                 connection.Open();
                 trans = connection.BeginTransaction();
 
                 updateEarnCommand.Transaction = trans;
-                reader = updateEarnCommand.ExecuteReader();
 
                 int updateCode = updateEarnCommand.ExecuteNonQuery();
                 if (updateCode > 0)
-
-                    return update = true;
+                {
+                    trans.Commit();
+                    update = true;
+                }
                 else
-                    return update = false;
+                {
+                    update = false;
+                }
             }
             catch (MySqlException ex)
             {

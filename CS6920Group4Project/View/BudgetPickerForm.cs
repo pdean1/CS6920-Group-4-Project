@@ -95,5 +95,10 @@ namespace CS6920Group4Project.View
         {
             this.Show();
         }
+
+        private void BudgetPickerForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

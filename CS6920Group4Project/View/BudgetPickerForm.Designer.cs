@@ -108,6 +108,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "BudgetPickerForm";
             this.Text = "Let\'s manage!";
+            this.Load += new System.EventHandler(this.BudgetPickerForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

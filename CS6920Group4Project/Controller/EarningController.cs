@@ -38,17 +38,9 @@ namespace CS6920Group4Project.Controller
             return _dal.InsertEarning(e);
         }
         
-        public bool EditEarnings(Earning newEarning, Earning oldEarning)
+        public bool EditEarnings(Earning earning)
         {
-            try
-            {
-                return _dal.EditEarnings(newEarning, oldEarning);
-            }
-            catch
-            {
-                return false;
-            }
-
+            return _dal.EditEarnings(earning);
         }
         public MySqlDataAdapter ListEarningDataGridView(int ID)
         {

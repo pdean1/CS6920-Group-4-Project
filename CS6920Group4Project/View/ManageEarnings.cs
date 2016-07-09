@@ -32,9 +32,9 @@ namespace CS6920Group4Project.View
 
         public ManageEarnings(User userName)
         {
-            InitializeComponent();
+           /* InitializeComponent();
             userNameEarningsLbl.Text = Session.SessionInformation.GetSessionUser().FirstName + " "
-                + Session.SessionInformation.GetSessionUser().LastName;
+                + Session.SessionInformation.GetSessionUser().LastName;*/
         }
 
       
@@ -98,17 +98,20 @@ namespace CS6920Group4Project.View
         {
             try
             {
-                bool isValidData = this.validateData();
-                if (isValidData == true)
+                if (this.IsValidData())
                 {
                     Earning newEarn = new Earning();
+                    earnAmount = earningAmountBox.Text;
+                    earnDate = monthCalendar.SelectionRange.Start.ToShortDateString();
+                    earnTitle = tbTitle.Text;
+                    earnDesc = descTxt.Text;
                     try
                     {
                         newEarn.Amount = Convert.ToDecimal(earnAmount);
                     }
-                    catch (FormatException fe)
+                    catch (FormatException fex)
                     {
-                        Utilities.DatabaseErrorMessageUtility.SendMessageToUser("Invalid format for amount", fe);
+                        Utilities.DatabaseErrorMessageUtility.SendMessageToUser("Invalid format for amount", fex);
                         return;
                     }
 
@@ -229,11 +232,13 @@ namespace CS6920Group4Project.View
         {
             tbTitle.Text = "";
             earningAmountBox.Text = "";
+            descTxt.Text = "";
         }
 
         private bool IsValidData()
         {
-            if(Validator.IsPresent(tbTitle))
+            if(Validator.IsPresent(tbTitle) && Validator.IsAmountNonNegative(earningAmountBox) &&
+                Validator.IsPresent(descTxt) && Validator.IsPresent(monthCalendar))
             {
                 return true;
             }
@@ -262,29 +267,37 @@ namespace CS6920Group4Project.View
                 {
                     int recordI = Convert.ToInt32(earnGridView.Rows[e.RowIndex].Cells[0].Value.ToString());
                     int budgetID = Convert.ToInt32(earnGridView.Rows[e.RowIndex].Cells[1].Value.ToString());
-                    string recordType = earnGridView.Rows[e.RowIndex].Cells[2].Value.ToString();
+                    char recordType = (earnGridView.Rows[e.RowIndex].Cells[2].Value.ToString())[0];
                     string title = earnGridView.Rows[e.RowIndex].Cells[3].Value.ToString();
                     string desc = earnGridView.Rows[e.RowIndex].Cells[4].Value.ToString();
-                    string sendAmount = earnGridView.Rows[e.RowIndex].Cells[5].Value.ToString();
-                    string sendDateEarned = earnGridView.Rows[e.RowIndex].Cells[6].Value.ToString();
+                    decimal amount = Convert.ToDecimal(earnGridView.Rows[e.RowIndex].Cells[5].Value.ToString());
+                    DateTime dateEarned = Convert.ToDateTime(earnGridView.Rows[e.RowIndex].Cells[6].Value.ToString());
                     DateTime dateCreated = Convert.ToDateTime(earnGridView.Rows[e.RowIndex].Cells[7].Value.ToString());
 
-                    decimal amount = Convert.ToDecimal(sendAmount);
-                    DateTime dateEarned = Convert.ToDateTime(sendDateEarned);
+                    //Earning currentEarning = Session.SessionInformation.GetBudget().GetSelectedEarning(recordI);
 
-                    Earning editEarn = new Earning();
-                    editEarn.ID = recordI;
-                    editEarn.BudgetID = budgetID;
-                    editEarn.Title = title;
-                    editEarn.Description = desc;
-                    editEarn.Amount = amount;
-                    editEarn.DateEarned = dateEarned;
-                    editEarn.DateCreated = dateCreated;
+                    Earning earning = new Earning();
+                    earning.ID = recordI;
+                    earning.BudgetID = budgetID;
+                    earning.RecordType = recordType;
+                    earning.Title = title;
+                    earning.Description = desc;
+                    earning.Amount = amount;
+                    earning.DateEarned = dateEarned;
+                    earning.DateCreated = dateCreated;
                     
-                    //bool update = EarningController.Instance.EditEarnings(newEarning, oldEarning);
-                    //TODO update the earning in session by 1. deleting the earning in session 2. then adding the
-                    //  edited earning back to the session. This is one way, there are many other ways to do this
-                    // Session.SessionInformation.RefreshSessionLabels(); // uncomment after implementation 
+                    
+                    bool update = EarningController.Instance.EditEarnings(earning);
+                    
+                        if (update == true)
+                        {
+                            MessageBox.Show("Earnings Successfully Updated");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Earnings not Updated, please try again!");
+                        }
+
                 }
                 else if (earnGridView.Columns[e.ColumnIndex].Name == "DELETE")
                 {

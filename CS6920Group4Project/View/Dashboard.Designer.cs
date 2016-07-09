@@ -36,7 +36,6 @@
             System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashboard));
             this.percentageCht = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.lblBudgetTitle = new System.Windows.Forms.Label();
             this.lblIncomeRemaining = new System.Windows.Forms.Label();
             this.lblBillAmount = new System.Windows.Forms.Label();
             this.lblExpenseAmount = new System.Windows.Forms.Label();
@@ -49,6 +48,9 @@
             this.statisticsChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.budgetEditBtn = new System.Windows.Forms.Button();
+            this.budgetDescBox = new System.Windows.Forms.TextBox();
+            this.budgetTitleBox = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.dgDueBills = new System.Windows.Forms.DataGridView();
             this.label7 = new System.Windows.Forms.Label();
@@ -100,19 +102,6 @@
             this.percentageCht.TabIndex = 0;
             this.percentageCht.Text = "Budget";
             // 
-            // lblBudgetTitle
-            // 
-            this.lblBudgetTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblBudgetTitle.AutoSize = true;
-            this.lblBudgetTitle.BackColor = System.Drawing.Color.Transparent;
-            this.lblBudgetTitle.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBudgetTitle.ForeColor = System.Drawing.Color.DarkGreen;
-            this.lblBudgetTitle.Location = new System.Drawing.Point(162, 59);
-            this.lblBudgetTitle.Name = "lblBudgetTitle";
-            this.lblBudgetTitle.Size = new System.Drawing.Size(117, 26);
-            this.lblBudgetTitle.TabIndex = 11;
-            this.lblBudgetTitle.Text = "Budget Title";
-            // 
             // lblIncomeRemaining
             // 
             this.lblIncomeRemaining.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -129,7 +118,7 @@
             this.lblBillAmount.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblBillAmount.AutoSize = true;
             this.lblBillAmount.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBillAmount.Location = new System.Drawing.Point(163, 175);
+            this.lblBillAmount.Location = new System.Drawing.Point(163, 190);
             this.lblBillAmount.Name = "lblBillAmount";
             this.lblBillAmount.Size = new System.Drawing.Size(60, 23);
             this.lblBillAmount.TabIndex = 9;
@@ -140,7 +129,7 @@
             this.lblExpenseAmount.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblExpenseAmount.AutoSize = true;
             this.lblExpenseAmount.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblExpenseAmount.Location = new System.Drawing.Point(163, 134);
+            this.lblExpenseAmount.Location = new System.Drawing.Point(163, 149);
             this.lblExpenseAmount.Name = "lblExpenseAmount";
             this.lblExpenseAmount.Size = new System.Drawing.Size(60, 23);
             this.lblExpenseAmount.TabIndex = 8;
@@ -151,7 +140,7 @@
             this.lblIncomeAmount.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblIncomeAmount.AutoSize = true;
             this.lblIncomeAmount.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIncomeAmount.Location = new System.Drawing.Point(163, 98);
+            this.lblIncomeAmount.Location = new System.Drawing.Point(163, 113);
             this.lblIncomeAmount.Name = "lblIncomeAmount";
             this.lblIncomeAmount.Size = new System.Drawing.Size(60, 23);
             this.lblIncomeAmount.TabIndex = 7;
@@ -177,7 +166,7 @@
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.DarkGreen;
-            this.label5.Location = new System.Drawing.Point(104, 173);
+            this.label5.Location = new System.Drawing.Point(104, 188);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(52, 26);
             this.label5.TabIndex = 5;
@@ -190,7 +179,7 @@
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.DarkGreen;
-            this.label4.Location = new System.Drawing.Point(61, 132);
+            this.label4.Location = new System.Drawing.Point(61, 147);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(95, 26);
             this.label4.TabIndex = 4;
@@ -203,7 +192,7 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.DarkGreen;
-            this.label3.Location = new System.Drawing.Point(75, 96);
+            this.label3.Location = new System.Drawing.Point(75, 111);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(81, 26);
             this.label3.TabIndex = 3;
@@ -214,11 +203,11 @@
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.DarkGreen;
             this.label2.Location = new System.Drawing.Point(6, 59);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(150, 26);
+            this.label2.Size = new System.Drawing.Size(118, 19);
             this.label2.TabIndex = 2;
             this.label2.Text = "Current Budget:";
             // 
@@ -234,7 +223,7 @@
             this.statisticsChart.ChartAreas.Add(chartArea2);
             legend2.Name = "Legend1";
             this.statisticsChart.Legends.Add(legend2);
-            this.statisticsChart.Location = new System.Drawing.Point(11, 202);
+            this.statisticsChart.Location = new System.Drawing.Point(11, 217);
             this.statisticsChart.Name = "statisticsChart";
             this.statisticsChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Pastel;
             series2.ChartArea = "ChartArea1";
@@ -262,12 +251,14 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.budgetEditBtn);
+            this.panel1.Controls.Add(this.budgetDescBox);
+            this.panel1.Controls.Add(this.budgetTitleBox);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.lblIncomeRemaining);
             this.panel1.Controls.Add(this.statisticsChart);
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.lblBudgetTitle);
             this.panel1.Controls.Add(this.lblBillAmount);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.label3);
@@ -278,6 +269,30 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(335, 449);
             this.panel1.TabIndex = 13;
+            // 
+            // budgetEditBtn
+            // 
+            this.budgetEditBtn.Location = new System.Drawing.Point(273, 82);
+            this.budgetEditBtn.Name = "budgetEditBtn";
+            this.budgetEditBtn.Size = new System.Drawing.Size(40, 23);
+            this.budgetEditBtn.TabIndex = 15;
+            this.budgetEditBtn.Text = "Edit";
+            this.budgetEditBtn.UseVisualStyleBackColor = true;
+            this.budgetEditBtn.Click += new System.EventHandler(this.budgetEditBtn_Click);
+            // 
+            // budgetDescBox
+            // 
+            this.budgetDescBox.Location = new System.Drawing.Point(167, 84);
+            this.budgetDescBox.Name = "budgetDescBox";
+            this.budgetDescBox.Size = new System.Drawing.Size(100, 20);
+            this.budgetDescBox.TabIndex = 14;
+            // 
+            // budgetTitleBox
+            // 
+            this.budgetTitleBox.Location = new System.Drawing.Point(166, 58);
+            this.budgetTitleBox.Name = "budgetTitleBox";
+            this.budgetTitleBox.Size = new System.Drawing.Size(100, 20);
+            this.budgetTitleBox.TabIndex = 13;
             // 
             // panel2
             // 
@@ -607,7 +622,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataVisualization.Charting.Chart statisticsChart;
-        private System.Windows.Forms.Label lblBudgetTitle;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
@@ -635,5 +649,8 @@
         private System.Windows.Forms.Button eightBtn;
         private System.Windows.Forms.Button sevenBtn;
         private System.Windows.Forms.Label valueLbl;
+        private System.Windows.Forms.Button budgetEditBtn;
+        private System.Windows.Forms.TextBox budgetDescBox;
+        private System.Windows.Forms.TextBox budgetTitleBox;
     }
 }

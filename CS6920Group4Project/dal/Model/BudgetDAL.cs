@@ -75,6 +75,58 @@ namespace CS6920Group4Project.DAL.Model
             return budgets;
         }
 
+        public bool EditBudget(Budget budget)
+        {
+            bool update = false;
+
+            MySqlConnection connection = new DBConnect().GetConnection();
+
+            String updateBudgetsStatement = "UPDATE `sql5123046`.`budgets` " +
+                                             "SET Title = @Title, Description = @Description " +
+                                             "where BudgetID = @BudgetID";
+
+            MySqlCommand updateBudgetCommand = new MySqlCommand(updateBudgetsStatement, connection);
+
+            updateBudgetCommand.Parameters.AddWithValue("@BudgetID", budget.ID);
+            updateBudgetCommand.Parameters.AddWithValue("@Title", budget.Title);
+            updateBudgetCommand.Parameters.AddWithValue("@Description", budget.Description);
+
+            MySqlTransaction trans = null;
+            try
+            {
+                connection.Open();
+                trans = connection.BeginTransaction();
+
+                updateBudgetCommand.Transaction = trans;
+
+                int updateCode = updateBudgetCommand.ExecuteNonQuery();
+                if (updateCode > 0)
+                {
+                    trans.Commit();
+                    update = true;
+                }
+                else
+                {
+                    update = false;
+                }
+            }
+            catch (MySqlException ex)
+            {
+                trans.Rollback();
+                DatabaseErrorMessageUtility.SendMessageToUser("Unable to update Database with Budgets.", ex);
+            }
+            catch (Exception ex)
+            {
+                DatabaseErrorMessageUtility.SendMessageToUser("Unable to update Database with Budgets.", ex);
+            }
+            finally
+            {
+                updateBudgetCommand.Dispose();
+                connection.Close();
+            }
+            return update;
+        }
+
         private const string DeleteBudgetStatement = "DELETE FROM `sql5123046`.`budgets` WHERE `budgets`.`BudgetID` = @ID;";
         public Boolean DeleteBudget(int id)
         {
