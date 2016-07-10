@@ -18,5 +18,9 @@ namespace CS6920Group4Project.Utilities
                 return "";
             return dt.ToString("yyyy-MM-dd HH:mm:ss");
         }
+        public static String Get4PointDecimal(Decimal d)
+        {
+            return d.ToString("#.0000");
+        }
     }
 }

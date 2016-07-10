@@ -34,7 +34,7 @@ namespace CS6920Group4Project.DAL.Model
                     command.CommandText = InsertExpenseStatment;
                     command.Prepare();
                     command.Parameters.AddWithValue("@RecordID", expense.ID);
-                    command.Parameters.AddWithValue("@Amount", expense.Amount);
+                    command.Parameters.AddWithValue("@Amount", Utilities.StringUtilities.Get4PointDecimal(expense.Amount));
                     command.Parameters.AddWithValue("@DateSpent", Utilities.StringUtilities.GetLongDateString(expense.DateSpent));
                     command.ExecuteNonQuery();
                 }
@@ -133,7 +133,7 @@ namespace CS6920Group4Project.DAL.Model
             editExpenseCommand.Parameters.AddWithValue("@RecordID", expense.ID);
             editExpenseCommand.Parameters.AddWithValue("@Title", expense.Title);
             editExpenseCommand.Parameters.AddWithValue("@Description", expense.Description);
-            editExpenseCommand.Parameters.AddWithValue("@Amount", expense.Amount);
+            editExpenseCommand.Parameters.AddWithValue("@Amount", Utilities.StringUtilities.Get4PointDecimal(expense.Amount));
             editExpenseCommand.Parameters.AddWithValue("@DateSpent", Utilities.StringUtilities.GetLongDateString(expense.DateSpent));
 
             MySqlTransaction trans = null;
@@ -214,57 +214,34 @@ namespace CS6920Group4Project.DAL.Model
 
             try
             {
-               //  delete expense
-               string deleteStatement1 = "DELETE from expenses WHERE RecordID = @ID " +
-                                                                "and Amount = @amount " +
-                                                                "and DateSpent = @dateSpent ";
-
-               MySqlCommand deleteCommand1 = new MySqlCommand(deleteStatement1, conn);
-               deleteCommand1.Parameters.AddWithValue("@ID", delExpense.ID);
-               deleteCommand1.Parameters.AddWithValue("@amount", delExpense.Amount);
-               deleteCommand1.Parameters.AddWithValue("@dateSpent", Utilities.StringUtilities.GetLongDateString(delExpense.DateSpent));
-
                 // delete record
                 string deleteStatement2 = "DELETE from records WHERE RecordID = @ID " +
                                                                "and BudgetID = @bID " +
                                                                "and RecordType = @recType " +
                                                                "and Title = @title " +
-                                                               "and Description = @desc " +
-                                                               "and DateCreated = @dateCreated"; 
+                                                               "and DateCreated = @dateCreated";
 
-               MySqlCommand deleteCommand2 = new MySqlCommand(deleteStatement2, conn);
-               deleteCommand2.Parameters.AddWithValue("@ID", delExpense.ID);
-               deleteCommand2.Parameters.AddWithValue("@bID", delExpense.BudgetID);
-               deleteCommand2.Parameters.AddWithValue("@recType", delExpense.RecordType);
-               deleteCommand2.Parameters.AddWithValue("@title", delExpense.Title);
-               deleteCommand2.Parameters.AddWithValue("@desc", delExpense.Description);
-               deleteCommand2.Parameters.AddWithValue("@dateCreated", Utilities.StringUtilities.GetLongDateString(delExpense.DateCreated));
+                MySqlCommand deleteCommand2 = new MySqlCommand(deleteStatement2, conn);
+                deleteCommand2.Parameters.AddWithValue("@ID", delExpense.ID);
+                deleteCommand2.Parameters.AddWithValue("@bID", delExpense.BudgetID);
+                deleteCommand2.Parameters.AddWithValue("@recType", delExpense.RecordType);
+                deleteCommand2.Parameters.AddWithValue("@title", delExpense.Title);
+                deleteCommand2.Parameters.AddWithValue("@dateCreated", Utilities.StringUtilities.GetLongDateString(delExpense.DateCreated));
 
-               conn.Open();
-               delExpenseTran = conn.BeginTransaction();
-               deleteCommand1.Transaction = delExpenseTran;
-               deleteCommand2.Transaction = delExpenseTran;
-
-               int isExpenseDeleted = deleteCommand1.ExecuteNonQuery();
-               if (isExpenseDeleted != 0)
-               {
-                   int isRecordDeleted = deleteCommand2.ExecuteNonQuery();
-                   if (isRecordDeleted != 0)
-                   {
-                       delExpenseTran.Commit();
-                       return expenseDelete = true;
-                   }
-                   else
-                   {
-                       delExpenseTran.Rollback();
-                       return expenseDelete = false;
-                   }
-               }
-               else
-               {
-                   delExpenseTran.Rollback();
-                   return expenseDelete = false;
-               }
+                conn.Open();
+                delExpenseTran = conn.BeginTransaction();
+                deleteCommand2.Transaction = delExpenseTran;
+                int isRecordDeleted = deleteCommand2.ExecuteNonQuery();
+                if (isRecordDeleted != 0)
+                {
+                    delExpenseTran.Commit();
+                    return expenseDelete = true;
+                }
+                else
+                {
+                    delExpenseTran.Rollback();
+                    return expenseDelete = false;
+                }
             }
             catch (MySqlException e)
             {

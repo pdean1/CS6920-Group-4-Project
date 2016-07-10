@@ -34,7 +34,7 @@ namespace CS6920Group4Project.DAL.Model
                 command.CommandText = InsertBillStatement;
                 command.Prepare();
                 command.Parameters.AddWithValue("@RecordID", bill.ID);
-                command.Parameters.AddWithValue("@Amount", bill.Amount);
+                command.Parameters.AddWithValue("@Amount", Utilities.StringUtilities.Get4PointDecimal(bill.Amount));
                 command.Parameters.AddWithValue("@DateDue", Utilities.StringUtilities.GetLongDateString(bill.DateDue));
                 if (bill.DatePaid == null)
                 {
@@ -140,7 +140,7 @@ namespace CS6920Group4Project.DAL.Model
             MySqlCommand editBillCommand = new MySqlCommand(editBillStatement, connection);
 
             editBillCommand.Parameters.AddWithValue("@RecordID", bill.ID);
-            editBillCommand.Parameters.AddWithValue("@Amount", bill.Amount);
+            editBillCommand.Parameters.AddWithValue("@Amount", Utilities.StringUtilities.Get4PointDecimal(bill.Amount));
             editBillCommand.Parameters.AddWithValue("@DateDue", Utilities.StringUtilities.GetLongDateString(bill.DateDue));
             if (String.IsNullOrEmpty(bill.DatePaid.ToString()))
                 editBillCommand.Parameters.AddWithValue("@DatePaid", DBNull.Value);

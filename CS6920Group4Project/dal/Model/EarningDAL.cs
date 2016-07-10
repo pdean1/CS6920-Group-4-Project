@@ -33,7 +33,7 @@ namespace CS6920Group4Project.DAL.Model
                     command.CommandText = InsertEarningStatement;
                     command.Prepare();
                     command.Parameters.AddWithValue("@RecordID", earning.ID);
-                    command.Parameters.AddWithValue("@Amount", earning.Amount);
+                    command.Parameters.AddWithValue("@Amount", Utilities.StringUtilities.Get4PointDecimal(earning.Amount));
                     command.Parameters.AddWithValue("@DateEarned", Utilities.StringUtilities.GetLongDateString(earning.DateEarned));
                     command.ExecuteNonQuery();
                 }
@@ -131,7 +131,7 @@ namespace CS6920Group4Project.DAL.Model
             updateEarnCommand.Parameters.AddWithValue("@RecordID", earning.ID);
             updateEarnCommand.Parameters.AddWithValue("@Title", earning.Title);
             updateEarnCommand.Parameters.AddWithValue("@Description", earning.Description);
-            updateEarnCommand.Parameters.AddWithValue("@Amount", earning.Amount);
+            updateEarnCommand.Parameters.AddWithValue("@Amount", Utilities.StringUtilities.Get4PointDecimal(earning.Amount));
             updateEarnCommand.Parameters.AddWithValue("@DateEarned", Utilities.StringUtilities.GetLongDateString(earning.DateEarned));
 
             MySqlTransaction trans = null;
