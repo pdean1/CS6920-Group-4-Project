@@ -30,6 +30,27 @@ namespace CS6920Group4Project.View
             budgetTitleBox.Text = Session.SessionInformation.GetBudget().Title;
             budgetDescBox.Text = Session.SessionInformation.GetBudget().Description;
             UpdateDashboard();
+            resultsTxt.KeyUp += resultsTxt_KeyUp;
+            resultsTxt.Enabled = false; // Added this here as a quick fix for user entered errors
+            resultsTxt.BackColor = Color.White;
+        }
+        /// <summary>
+        ///  Consider using this in the future...
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void resultsTxt_KeyUp(object sender, KeyEventArgs e)
+        {
+            char[] text = resultsTxt.Text.ToCharArray();
+            String newText = "";
+            foreach (char c in text)
+            {
+                if (char.IsDigit(c) || c == '/' || c == '*' || c == '-' || c == '+')
+                {
+                    newText += c;
+                }
+            }
+            resultsTxt.Text = newText;
         }
 
         private void dashEarnBtn_Click(object sender, EventArgs e)
