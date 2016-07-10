@@ -175,7 +175,7 @@ namespace CS6920Group4Project.View
                     b.ID.ToString(), 
                     b.Title, 
                     StringUtilities.GetDisplayableDollarAmount(b.Amount),
-                    b.DateDue.ToShortDateString(),
+                    b.DateDue.ToString(),
                     b.DatePaid.ToString()
                 };
             dgBills.Rows.Add(row);

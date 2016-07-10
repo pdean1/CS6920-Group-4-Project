@@ -35,14 +35,14 @@ namespace CS6920Group4Project.DAL.Model
                 command.Prepare();
                 command.Parameters.AddWithValue("@RecordID", bill.ID);
                 command.Parameters.AddWithValue("@Amount", bill.Amount);
-                command.Parameters.AddWithValue("@DateDue", bill.DateDue.ToString("yyyy-MM-dd hh:mm:ss"));
+                command.Parameters.AddWithValue("@DateDue", Utilities.StringUtilities.GetLongDateString(bill.DateDue));
                 if (bill.DatePaid == null)
                 {
                     command.Parameters.AddWithValue("@DatePaid", DBNull.Value);
                 }
                 else
                 {
-                    command.Parameters.AddWithValue("@DatePaid", bill.DatePaid.Value.ToLongDateString());
+                    command.Parameters.AddWithValue("@DatePaid", Utilities.StringUtilities.GetLongDateString((DateTime)bill.DatePaid));
                 }
                 command.ExecuteNonQuery();
             }
@@ -141,9 +141,11 @@ namespace CS6920Group4Project.DAL.Model
 
             editBillCommand.Parameters.AddWithValue("@RecordID", bill.ID);
             editBillCommand.Parameters.AddWithValue("@Amount", bill.Amount);
-            editBillCommand.Parameters.AddWithValue("@DateDue", bill.DateDue.ToString("yyyy-MM-dd hh:mm:ss"));
-            //editBillCommand.Parameters.AddWithValue("@DatePaid", bill.DatePaid.ToString("yyyy-MM-dd hh:mm:ss"));
-
+            editBillCommand.Parameters.AddWithValue("@DateDue", Utilities.StringUtilities.GetLongDateString(bill.DateDue));
+            if (String.IsNullOrEmpty(bill.DatePaid.ToString()))
+                editBillCommand.Parameters.AddWithValue("@DatePaid", DBNull.Value);
+            else
+                editBillCommand.Parameters.AddWithValue("@DatePaid", Utilities.StringUtilities.GetLongDateString((DateTime)bill.DatePaid));
             try
             {
                 connection.Open();

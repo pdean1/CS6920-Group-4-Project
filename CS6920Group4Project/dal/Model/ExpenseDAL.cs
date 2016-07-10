@@ -35,7 +35,7 @@ namespace CS6920Group4Project.DAL.Model
                     command.Prepare();
                     command.Parameters.AddWithValue("@RecordID", expense.ID);
                     command.Parameters.AddWithValue("@Amount", expense.Amount);
-                    command.Parameters.AddWithValue("@DateSpent", expense.DateSpent.ToString("yyyy-MM-dd hh:mm:ss"));
+                    command.Parameters.AddWithValue("@DateSpent", Utilities.StringUtilities.GetLongDateString(expense.DateSpent));
                     command.ExecuteNonQuery();
                 }
                 catch (MySqlException e)
@@ -134,7 +134,7 @@ namespace CS6920Group4Project.DAL.Model
             editExpenseCommand.Parameters.AddWithValue("@Title", expense.Title);
             editExpenseCommand.Parameters.AddWithValue("@Description", expense.Description);
             editExpenseCommand.Parameters.AddWithValue("@Amount", expense.Amount);
-            editExpenseCommand.Parameters.AddWithValue("@DateSpent", expense.DateSpent);
+            editExpenseCommand.Parameters.AddWithValue("@DateSpent", Utilities.StringUtilities.GetLongDateString(expense.DateSpent));
 
             MySqlTransaction trans = null;
             try
@@ -222,7 +222,7 @@ namespace CS6920Group4Project.DAL.Model
                MySqlCommand deleteCommand1 = new MySqlCommand(deleteStatement1, conn);
                deleteCommand1.Parameters.AddWithValue("@ID", delExpense.ID);
                deleteCommand1.Parameters.AddWithValue("@amount", delExpense.Amount);
-               deleteCommand1.Parameters.AddWithValue("@dateSpent", delExpense.DateSpent);
+               deleteCommand1.Parameters.AddWithValue("@dateSpent", Utilities.StringUtilities.GetLongDateString(delExpense.DateSpent));
 
                 // delete record
                 string deleteStatement2 = "DELETE from records WHERE RecordID = @ID " +
@@ -238,7 +238,7 @@ namespace CS6920Group4Project.DAL.Model
                deleteCommand2.Parameters.AddWithValue("@recType", delExpense.RecordType);
                deleteCommand2.Parameters.AddWithValue("@title", delExpense.Title);
                deleteCommand2.Parameters.AddWithValue("@desc", delExpense.Description);
-               deleteCommand2.Parameters.AddWithValue("@dateCreated", delExpense.DateCreated);
+               deleteCommand2.Parameters.AddWithValue("@dateCreated", Utilities.StringUtilities.GetLongDateString(delExpense.DateCreated));
 
                conn.Open();
                delExpenseTran = conn.BeginTransaction();
@@ -246,10 +246,10 @@ namespace CS6920Group4Project.DAL.Model
                deleteCommand2.Transaction = delExpenseTran;
 
                int isExpenseDeleted = deleteCommand1.ExecuteNonQuery();
-               if (isExpenseDeleted > 0)
+               if (isExpenseDeleted != 0)
                {
                    int isRecordDeleted = deleteCommand2.ExecuteNonQuery();
-                   if (isRecordDeleted > 0)
+                   if (isRecordDeleted != 0)
                    {
                        delExpenseTran.Commit();
                        return expenseDelete = true;

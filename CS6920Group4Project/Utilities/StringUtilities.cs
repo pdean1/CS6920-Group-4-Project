@@ -16,7 +16,7 @@ namespace CS6920Group4Project.Utilities
         {
             if (dt == null)
                 return "";
-            return dt.ToString("yyyy-MM-dd hh:mm:ss");
+            return dt.ToString("yyyy-MM-dd HH:mm:ss");
         }
     }
 }

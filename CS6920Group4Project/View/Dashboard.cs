@@ -120,7 +120,7 @@ namespace CS6920Group4Project.View
                     string[] row = new string[] {
                         b.Title,  
                         StringUtilities.GetDisplayableDollarAmount(b.Amount), 
-                        b.DateDue.ToShortDateString()
+                        b.DateDue.ToString()
                     };
                     dgDueBills.Rows.Add(row);
                     dgDueBills.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;

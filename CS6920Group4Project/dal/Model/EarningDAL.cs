@@ -34,7 +34,7 @@ namespace CS6920Group4Project.DAL.Model
                     command.Prepare();
                     command.Parameters.AddWithValue("@RecordID", earning.ID);
                     command.Parameters.AddWithValue("@Amount", earning.Amount);
-                    command.Parameters.AddWithValue("@DateEarned", earning.DateEarned.ToString("yyyy-MM-dd hh:mm:ss"));
+                    command.Parameters.AddWithValue("@DateEarned", Utilities.StringUtilities.GetLongDateString(earning.DateEarned));
                     command.ExecuteNonQuery();
                 }
                 catch (MySqlException e)
@@ -132,7 +132,7 @@ namespace CS6920Group4Project.DAL.Model
             updateEarnCommand.Parameters.AddWithValue("@Title", earning.Title);
             updateEarnCommand.Parameters.AddWithValue("@Description", earning.Description);
             updateEarnCommand.Parameters.AddWithValue("@Amount", earning.Amount);
-            updateEarnCommand.Parameters.AddWithValue("@DateEarned", earning.DateEarned);
+            updateEarnCommand.Parameters.AddWithValue("@DateEarned", Utilities.StringUtilities.GetLongDateString(earning.DateEarned));
 
             MySqlTransaction trans = null;
             try
@@ -207,51 +207,36 @@ namespace CS6920Group4Project.DAL.Model
 
             try
             {
-                //  delete Earning
-                string selectStatement = "Select count(*) from earnings WHERE RecordID = @ID " +
-                                                                 "and Amount = @amount " +
-                                                                 "and DateEarned = @dateEarned";
-
-                MySqlCommand selectCommand = new MySqlCommand(selectStatement, conn);
-                selectCommand.Parameters.AddWithValue("@ID", delEarning.ID);
-                selectCommand.Parameters.AddWithValue("@amount", delEarning.Amount);
-                selectCommand.Parameters.AddWithValue("@dateEarned", delEarning.DateEarned);
-
-                // delete record
-                string deleteStatement = "DELETE from records WHERE RecordID = @ID " +
-                                                               "and BudgetID = @bID " +
-                                                               "and RecordType = @recType " +
-                                                               "and Title = @title " +
+                string deleteStatement = "DELETE from records WHERE RecordID    = @ID " +
+                                                               "and BudgetID    = @bID " +
+                                                               "and RecordType  = @recType " +
+                                                               "and Title       = @title " +
                                                                "and Description = @desc " +
                                                                "and DateCreated = @dateCreated";
-
                 MySqlCommand deleteCommand = new MySqlCommand(deleteStatement, conn);
                 deleteCommand.Parameters.AddWithValue("@ID", delEarning.ID);
                 deleteCommand.Parameters.AddWithValue("@bID", delEarning.BudgetID);
                 deleteCommand.Parameters.AddWithValue("@recType", delEarning.RecordType);
                 deleteCommand.Parameters.AddWithValue("@title", delEarning.Title);
-                deleteCommand.Parameters.AddWithValue("@desc", delEarning.Description);
-                deleteCommand.Parameters.AddWithValue("@dateCreated", delEarning.DateCreated);
+                if (String.IsNullOrEmpty(delEarning.Description))
+                    deleteCommand.Parameters.AddWithValue("@desc", DBNull.Value);
+                else
+                    deleteCommand.Parameters.AddWithValue("@desc", delEarning.Description);
+                deleteCommand.Parameters.AddWithValue("@dateCreated", Utilities.StringUtilities.GetLongDateString(delEarning.DateCreated));
 
                 conn.Open();
                 delEarningTran = conn.BeginTransaction();
-                selectCommand.Transaction = delEarningTran;
                 deleteCommand.Transaction = delEarningTran;
-
-                int isEarningtheSame = selectCommand.ExecuteNonQuery();
-                if (isEarningtheSame == 1)
+                int isRecordDeleted = deleteCommand.ExecuteNonQuery();
+                if (isRecordDeleted > 0)
                 {
-                    int isRecordDeleted = deleteCommand.ExecuteNonQuery();
-                    if (isRecordDeleted > 0)
-                    {
-                        delEarningTran.Commit();
-                        return earningDelete = true;
-                    }
-                    else
-                    {
-                        delEarningTran.Rollback();
-                        return earningDelete = false;
-                    }
+                    delEarningTran.Commit();
+                    return earningDelete = true;
+                }
+                else
+                {
+                    delEarningTran.Rollback();
+                    return earningDelete = false;
                 }
             }
             catch (MySqlException e)
