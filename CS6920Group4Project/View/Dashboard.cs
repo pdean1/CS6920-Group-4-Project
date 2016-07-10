@@ -193,6 +193,12 @@ namespace CS6920Group4Project.View
                     break;
 
                 case "/":
+                    if (Double.Parse(resultsTxt.Text) == 0)
+                    {
+                        MessageBox.Show("Cannot Divide by Zero, please enter a different value");
+                        resultsTxt.Text = "";
+                        return;
+                    }
                     resultsTxt.Text = (result / Double.Parse(resultsTxt.Text)).ToString();
                     break;
                 default:
