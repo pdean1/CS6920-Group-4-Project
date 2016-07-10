@@ -20,7 +20,7 @@ namespace CS6920Group4Project.View
         private String billAmount;
         private String billDate;
         private String billTitle;
-
+        private const int EditCol = 6, DeleteCol = 7;
        // private List<Budget> budgetList;
 
         public ManageBills()
@@ -119,15 +119,14 @@ namespace CS6920Group4Project.View
 
         private void ManageBills_Load(object sender, EventArgs e)
         {
-            lblTitle.Text += " " + Session.SessionInformation.GetBudget().Title;
-
-            dgBills.ColumnCount = 5;
+            dgBills.ColumnCount = 6;
 
             dgBills.Columns[0].Name = "Record ID";
             dgBills.Columns[1].Name = "Title";
-            dgBills.Columns[2].Name = "Amount";
-            dgBills.Columns[3].Name = "Date Due";
-            dgBills.Columns[4].Name = "Date Paid";
+            dgBills.Columns[2].Name = "Description";
+            dgBills.Columns[3].Name = "Amount";
+            dgBills.Columns[4].Name = "Date Due";
+            dgBills.Columns[5].Name = "Date Paid";
 
             foreach (Bill b in Session.SessionInformation.GetBudget().Bills)
             {
@@ -153,13 +152,13 @@ namespace CS6920Group4Project.View
 
         private void dgBills_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == 5)
+            if (e.ColumnIndex == EditCol)
             {
                 int id = Int32.Parse(dgBills.Rows[e.RowIndex].Cells[0].Value.ToString());
                 MessageBox.Show("Edit bill not yet needed.");
                 // Session.SessionInformation.RefreshSessionLabels(); // uncomment once implemented
             }
-            else if (e.ColumnIndex == 6)
+            else if (e.ColumnIndex == DeleteCol)
             {
                 int id = Int32.Parse(dgBills.Rows[e.RowIndex].Cells[0].Value.ToString());
                 if (DeleteBillClicked(id))
@@ -174,6 +173,7 @@ namespace CS6920Group4Project.View
             string[] row = new string[] { 
                     b.ID.ToString(), 
                     b.Title, 
+                    (String.IsNullOrEmpty(b.Description)) ? "" : b.Description,
                     StringUtilities.GetDisplayableDollarAmount(b.Amount),
                     b.DateDue.ToString(),
                     b.DatePaid.ToString()

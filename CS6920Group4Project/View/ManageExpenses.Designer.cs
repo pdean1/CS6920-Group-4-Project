@@ -55,9 +55,9 @@
             this.incomeLbl.Location = new System.Drawing.Point(22, 15);
             this.incomeLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.incomeLbl.Name = "incomeLbl";
-            this.incomeLbl.Size = new System.Drawing.Size(218, 26);
+            this.incomeLbl.Size = new System.Drawing.Size(89, 26);
             this.incomeLbl.TabIndex = 2;
-            this.incomeLbl.Text = "EXPENSE INFORMATION";
+            this.incomeLbl.Text = "Expenses";
             this.incomeLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label4

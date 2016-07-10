@@ -54,9 +54,9 @@
             this.incomeLbl.Location = new System.Drawing.Point(13, 11);
             this.incomeLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.incomeLbl.Name = "incomeLbl";
-            this.incomeLbl.Size = new System.Drawing.Size(217, 26);
+            this.incomeLbl.Size = new System.Drawing.Size(84, 26);
             this.incomeLbl.TabIndex = 2;
-            this.incomeLbl.Text = "EARNINGS AT A GLANCE";
+            this.incomeLbl.Text = "Earnings";
             this.incomeLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label4
@@ -188,7 +188,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.LightGoldenrodYellow;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(242)))), ((int)(((byte)(196)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1249, 641);
             this.Controls.Add(this.descTxt);

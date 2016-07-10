@@ -53,9 +53,9 @@
             this.lblTitle.Location = new System.Drawing.Point(13, 9);
             this.lblTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(277, 26);
+            this.lblTitle.Size = new System.Drawing.Size(46, 26);
             this.lblTitle.TabIndex = 2;
-            this.lblTitle.Text = "Bill Information for the budget:";
+            this.lblTitle.Text = "Bills";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label4
