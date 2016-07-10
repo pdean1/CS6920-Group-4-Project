@@ -76,15 +76,16 @@ namespace CS6920Group4Project.Controller
         public static bool IsAmountNonNegative(TextBox textBox)
         {
             var regex = new Regex(@"\d+\.\d{2}");
+            var regexNoDecimals = new Regex(@"\d");
 
-            if (regex.IsMatch(textBox.Text))
+            if (regex.IsMatch(textBox.Text) || regexNoDecimals.IsMatch(textBox.Text))
             {
                 return true;
             }
             else
             {
                 MessageBox.Show(
-                    textBox.Tag.ToString() + " must be a whole non-negative number", Title);
+                    textBox.Tag.ToString() + " must be a whole non-negative number with a max of two decimal points", Title);
                 textBox.Focus();
                 return false;
             }
