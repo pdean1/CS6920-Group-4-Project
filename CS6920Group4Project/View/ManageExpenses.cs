@@ -19,17 +19,23 @@ namespace CS6920Group4Project.View
         private String expenseAmount;
         private String expenseDate;
         private String expenseTitle;
+        private DataTable table;
+        private BindingSource bSource;
 
         private MySqlDataAdapter mySqlDataAdapter;
 
         public ManageExpenses()
         {
             InitializeComponent();
+            table = new DataTable();
+            bSource = new BindingSource();
         }
 
         private void ManageExpenses_Load(object sender, EventArgs e)
         {
             this.getExpenselist();
+            this.buildView();
+            dataGridView1.AutoGenerateColumns = false;
         }
         private void expenseBtn_Click(object sender, EventArgs e)
         {
@@ -135,11 +141,40 @@ namespace CS6920Group4Project.View
 
                 dataGridView1.Refresh();
                 dataGridView1.DataSource = bSource;
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.Message, ex.GetType().ToString());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.GetType().ToString());
+            }
+        }
 
+        private void refreshView()
+        {
+            table.Clear();
+            dataGridView1.DataSource = null;
+            dataGridView1.Update();
+            dataGridView1.Refresh();
+        }
+        private void buildView()
+        {
+            try
+            {
                 dataGridView1.Columns[0].Visible = false;
                 dataGridView1.Columns[1].Visible = false;
                 dataGridView1.Columns[2].Visible = false;
-                
+                dataGridView1.Columns[3].ReadOnly = true;
+                dataGridView1.Columns[3].Width = 175;
+                dataGridView1.Columns[3].Selected = false;
+
+                dataGridView1.Columns[4].ReadOnly = true;
+                dataGridView1.Columns[4].Width = 200;
+                dataGridView1.Columns[5].ReadOnly = true;
+                dataGridView1.Columns[6].ReadOnly = true;
+                dataGridView1.Columns[7].ReadOnly = true;
 
                 dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
@@ -153,7 +188,7 @@ namespace CS6920Group4Project.View
                 editbut.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
                 editbut.UseColumnTextForButtonValue = true;
                 editbut.DefaultCellStyle.BackColor = Color.White;
-                dataGridView1.Columns.Add(editbut);
+                dataGridView1.Columns.Insert(8, editbut);
 
                 //add new button column to the DataGridView
                 //This column displays a delete Button in each row
@@ -165,7 +200,7 @@ namespace CS6920Group4Project.View
                 delbut.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
                 delbut.UseColumnTextForButtonValue = true;
                 delbut.DefaultCellStyle.BackColor = Color.White;
-                dataGridView1.Columns.Add(delbut);
+                dataGridView1.Columns.Insert(9, delbut);
             }
             catch (SqlException ex)
             {
@@ -179,33 +214,20 @@ namespace CS6920Group4Project.View
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            try
+            {
                 if (dataGridView1.Columns[e.ColumnIndex] is DataGridViewButtonColumn &&
-                    e.RowIndex >= 0)                 
+                    e.RowIndex >= 0)
                 {
-                    if (dataGridView1.Columns[e.ColumnIndex].Name == "EDIT")
+                    string value = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
+                    if (!String.IsNullOrEmpty(value))
+                    {
+                        Expense selectedExpense = Session.SessionInformation.GetBudget().
+                                                    GetSelectedExpense(Convert.ToInt32(value));
+
+                        if (dataGridView1.Columns[e.ColumnIndex].Name == "EDIT")
                         {
-                            int recordI = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
-                            int budgetID = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString());
-                            char recordType = (dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString())[0];
-                            string title = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
-                            string desc = dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString();
-                            decimal amount = Convert.ToDecimal(dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString());
-                            DateTime dateSpent = Convert.ToDateTime(dataGridView1.Rows[e.RowIndex].Cells[6].Value.ToString());
-                            DateTime dateCreated = Convert.ToDateTime(dataGridView1.Rows[e.RowIndex].Cells[7].Value.ToString());
-
-                            //Earning currentEarning = Session.SessionInformation.GetBudget().GetSelectedEarning(recordI);
-
-                            Expense expense = new Expense();
-                            expense.ID = recordI;
-                            expense.BudgetID = budgetID;
-                            expense.RecordType = recordType;
-                            expense.Title = title;
-                            expense.Description = desc;
-                            expense.Amount = amount;
-                            expense.DateSpent = dateSpent;
-                            expense.DateCreated = dateCreated;
-                        
-                            bool update = ExpenseController.Instance.EditExpenses(expense);
+                            bool update = ExpenseController.Instance.EditExpenses(selectedExpense);
 
                             if (update == true)
                             {
@@ -215,18 +237,10 @@ namespace CS6920Group4Project.View
                             {
                                 MessageBox.Show("Expense is not Updated, please try again!");
                             }
-
                         }
+
                         else if (dataGridView1.Columns[e.ColumnIndex].Name == "DELETE")
                         {
-                           Expense selectedExpense = Session.SessionInformation.GetBudget().
-                               GetSelectedExpense(Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString()));
-                                                       
-                            if (selectedExpense == null)
-                            {
-                               MessageBox.Show("Unable to delete Expense!");
-                               return;
-                            }
                             string title = selectedExpense.Title.ToString();
                             string sAmount = selectedExpense.Amount.ToString();
                             string sDateSpent = selectedExpense.DateSpent.ToString();
@@ -246,9 +260,10 @@ namespace CS6920Group4Project.View
                                                                  "DELETE EXPENSE",
                                                                   MessageBoxButtons.OK,
                                                                   MessageBoxIcon.Information);
-                                    this.getExpenselist();
                                     Session.SessionInformation.GetBudget().Expenses.Remove(selectedExpense);
                                     Session.SessionInformation.RefreshSessionLabels();
+                                    this.refreshView();
+                                    this.getExpenselist();
                                 }
                                 else
                                 {
@@ -258,12 +273,20 @@ namespace CS6920Group4Project.View
                                                                       MessageBoxButtons.OK,
                                                                       MessageBoxIcon.Information);
                                 }
-
                             }
                         }
-                        
                     }
                 }
             }
-            
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.Message, ex.GetType().ToString());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.GetType().ToString());
+            }
         }
+
+    }    
+ }
