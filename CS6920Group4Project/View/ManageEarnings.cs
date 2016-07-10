@@ -23,11 +23,15 @@ namespace CS6920Group4Project.View
         private String earnTitle;
         private String earnAmount;
         public List<Budget> budgetList;
+        private DataTable table;
+        private BindingSource bind;
 
         public ManageEarnings()
         {
             InitializeComponent();
-            
+            mySqlDataAdapter = new MySqlDataAdapter();
+            table = new DataTable();
+            bind = new BindingSource();
         }
 
         public ManageEarnings(User userName)
@@ -37,7 +41,13 @@ namespace CS6920Group4Project.View
                 + Session.SessionInformation.GetSessionUser().LastName;*/
         }
 
-      
+        private void ManageEarnings_Load(object sender, EventArgs e)
+        {
+            this.populateGridView();
+            this.buildView();
+            earnGridView.AutoGenerateColumns = false;
+            
+        }
 
         /// <summary>
         /// method to load a combobox -stubbed out functionality for later use
@@ -118,7 +128,7 @@ namespace CS6920Group4Project.View
                     newEarn.DateEarned = DateTime.Parse(earnDate);
                     newEarn.Title = earnTitle;
                     newEarn.Description = earnDesc;
-                    newEarn.BudgetID = 1; // TODO Hard Coded value will need to change in the future
+                    newEarn.BudgetID = Session.SessionInformation.GetBudget().ID;
                     long isEarningsAdded = EarningController.Instance.InsertEarning(newEarn);
                     if (isEarningsAdded == 0)
                     {
@@ -134,6 +144,7 @@ namespace CS6920Group4Project.View
                                     MessageBoxButtons.OK,
                                     MessageBoxIcon.None);
                         this.ClearText();
+                        this.refreshView();
                         this.populateGridView();
                         Session.SessionInformation.RefreshSessionLabels();
                     }
@@ -154,46 +165,15 @@ namespace CS6920Group4Project.View
            
         }
 
-        public void populateGridView()
+        private void populateGridView()
         {
             try
             {
-                int budgetID = Session.SessionInformation.GetBudget().ID;                
+                int budgetID = Session.SessionInformation.GetBudget().ID;
                 mySqlDataAdapter = EarningController.Instance.ListEarningDataGridView(budgetID);
-
-                DataTable table = new DataTable();
                 mySqlDataAdapter.Fill(table);
-
-                BindingSource bind = new BindingSource();
-
                 bind.DataSource = table;
                 earnGridView.DataSource = bind;
-
-                earnGridView.Columns[0].Visible = false;
-                earnGridView.Columns[1].Visible = false;
-                earnGridView.Columns[2].Visible = false;
-                earnGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-
-                DataGridViewButtonColumn editbut = new DataGridViewButtonColumn();
-                editbut.Text = "EDIT";
-                editbut.Name = "EDIT";
-                editbut.HeaderText = "";
-                editbut.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-                editbut.UseColumnTextForButtonValue = true;
-                editbut.DefaultCellStyle.ForeColor = Color.White;
-                earnGridView.Columns.Add(editbut);
-
-                //add new button column to the DataGridView
-                //This column displays a delete Button in each row
-                DataGridViewButtonColumn delbut = new DataGridViewButtonColumn();
-                delbut.Text = "DELETE";
-                delbut.Name = "DELETE";
-                delbut.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-                delbut.UseColumnTextForButtonValue = true;
-                delbut.DefaultCellStyle.BackColor = Color.White;
-                earnGridView.Columns.Add(delbut);
-
-                               
             }
             catch (SqlException ex)
             {
@@ -203,9 +183,68 @@ namespace CS6920Group4Project.View
             {
                 MessageBox.Show(ex.Message, ex.GetType().ToString());
             }
-
         }
         
+        private void refreshView()
+        {
+            table.Clear();
+            earnGridView.DataSource = null;
+            earnGridView.Update();
+            earnGridView.Refresh();
+        }
+        private void buildView()
+        {
+            try
+            {
+                earnGridView.Columns[0].Visible = false;
+                earnGridView.Columns[1].Visible = false;
+                earnGridView.Columns[2].Visible = false;
+                earnGridView.Columns[3].ReadOnly = true;
+                earnGridView.Columns[3].Width = 175;
+                earnGridView.Columns[3].Selected = false;
+
+                earnGridView.Columns[4].ReadOnly = true;
+                earnGridView.Columns[4].Width = 200;
+                earnGridView.Columns[5].ReadOnly = true;
+                earnGridView.Columns[6].ReadOnly = true;
+                earnGridView.Columns[7].ReadOnly = true;
+
+                earnGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+                //add new button column to the DataGridView
+                //This column displays a edit Button in each row
+                DataGridViewButtonColumn editbut = new DataGridViewButtonColumn();
+                editbut.Text = "EDIT";
+                editbut.Name = "EDIT";
+                editbut.HeaderText = "";
+                editbut.Width = 100;
+                editbut.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                editbut.UseColumnTextForButtonValue = true;
+                editbut.DefaultCellStyle.BackColor = Color.White;
+                earnGridView.Columns.Insert(8, editbut);
+
+                //add new button column to the DataGridView
+                //This column displays a delete Button in each row
+                DataGridViewButtonColumn delbut = new DataGridViewButtonColumn();
+                delbut.Text = "DELETE";
+                delbut.Name = "DELETE";
+                delbut.HeaderText = "";
+                delbut.Width = 100;
+                delbut.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                delbut.UseColumnTextForButtonValue = true;
+                delbut.DefaultCellStyle.BackColor = Color.White;
+                earnGridView.Columns.Insert(9, delbut);
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.Message, ex.GetType().ToString());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.GetType().ToString());
+            }
+        }
+
         public bool validateData()
         {
             earnAmount = earningAmountBox.Text;
@@ -250,101 +289,82 @@ namespace CS6920Group4Project.View
             this.ClearText();
             
         }
-
-        private void ManageEarnings_Load(object sender, EventArgs e)
-        {
-            this.populateGridView();
-        }
-
        
         private void earnGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (earnGridView.Columns[e.ColumnIndex] is DataGridViewButtonColumn &&
-                e.RowIndex >= 0)
+            try
             {
-
-                if (earnGridView.Columns[e.ColumnIndex].Name == "EDIT")
+                if (earnGridView.Columns[e.ColumnIndex] is DataGridViewButtonColumn &&
+                    e.RowIndex >= 0)
                 {
-                    int recordI = Convert.ToInt32(earnGridView.Rows[e.RowIndex].Cells[0].Value.ToString());
-                    int budgetID = Convert.ToInt32(earnGridView.Rows[e.RowIndex].Cells[1].Value.ToString());
-                    char recordType = (earnGridView.Rows[e.RowIndex].Cells[2].Value.ToString())[0];
-                    string title = earnGridView.Rows[e.RowIndex].Cells[3].Value.ToString();
-                    string desc = earnGridView.Rows[e.RowIndex].Cells[4].Value.ToString();
-                    decimal amount = Convert.ToDecimal(earnGridView.Rows[e.RowIndex].Cells[5].Value.ToString());
-                    DateTime dateEarned = Convert.ToDateTime(earnGridView.Rows[e.RowIndex].Cells[6].Value.ToString());
-                    DateTime dateCreated = Convert.ToDateTime(earnGridView.Rows[e.RowIndex].Cells[7].Value.ToString());
-
-                    //Earning currentEarning = Session.SessionInformation.GetBudget().GetSelectedEarning(recordI);
-
-                    Earning earning = new Earning();
-                    earning.ID = recordI;
-                    earning.BudgetID = budgetID;
-                    earning.RecordType = recordType;
-                    earning.Title = title;
-                    earning.Description = desc;
-                    earning.Amount = amount;
-                    earning.DateEarned = dateEarned;
-                    earning.DateCreated = dateCreated;
-                    
-                    
-                    bool update = EarningController.Instance.EditEarnings(earning);
-                    
-                        if (update == true)
-                        {
-                            MessageBox.Show("Earnings Successfully Updated");
-                        }
-                        else
-                        {
-                            MessageBox.Show("Earnings not Updated, please try again!");
-                        }
-
-                }
-                else if (earnGridView.Columns[e.ColumnIndex].Name == "DELETE")
-                {
-                    Earning selectedEarning = Session.SessionInformation.GetBudget().
-                            GetSelectedEarning(Convert.ToInt32(earnGridView.Rows[e.RowIndex].Cells[0].Value.ToString()));
-                    if (selectedEarning == null)
+                    string value = earnGridView.Rows[e.RowIndex].Cells[0].Value.ToString();
+                    if (!String.IsNullOrEmpty(value))
                     {
-                        MessageBox.Show("Unable to delete Earning!");
-                        return;
-                    }
-                    string title = selectedEarning.Title.ToString();
-                    string sAmount = selectedEarning.Amount.ToString();
-                    string sDateSpent = selectedEarning.DateEarned.ToString();
-                    DialogResult result = MessageBox.Show("Do you want to delete Earning (Title - "
-                                                           + title + " Amount - " + sAmount
-                                                           + " DateSpent - " + sDateSpent + ")?",
-                                                          "DELETE Earning",
-                                                          MessageBoxButtons.YesNo,
-                                                          MessageBoxIcon.Question);
-                    if (result == DialogResult.Yes)
-                    {
-                        bool isEarningDeleted = EarningController.Instance.DeleteEarning(selectedEarning);
-                        if (isEarningDeleted == true)
+                        Earning selectedEarning = Session.SessionInformation.GetBudget().
+                                                    GetSelectedEarning(Convert.ToInt32(value));
+
+                        if (earnGridView.Columns[e.ColumnIndex].Name == "EDIT")
                         {
-                            MessageBox.Show("Earning (Title - " + title + " Amount - " + sAmount
-                                                                + ") has been DELETED!",
-                                                          "DELETE Earning",
-                                                          MessageBoxButtons.OK,
-                                                          MessageBoxIcon.Information);
-                            this.populateGridView();
-                            Session.SessionInformation.GetBudget().Earnings.Remove(selectedEarning);
-                            Session.SessionInformation.RefreshSessionLabels();
-                        }
-                        else
-                        {
-                            MessageBox.Show("Unable to Delete (Title - " + title + " Amount - " + sAmount
-                                                                + ") Earning!",
-                                                          "DELETE Earning",
-                                                          MessageBoxButtons.OK,
-                                                          MessageBoxIcon.Information);
+                            bool update = EarningController.Instance.EditEarnings(selectedEarning);
+
+                            if (update == true)
+                            {
+                                MessageBox.Show("Earnings Successfully Updated");
+                            }
+                            else
+                            {
+                                MessageBox.Show("Earnings not Updated, please try again!");
+                            }
                         }
 
+                        else if (earnGridView.Columns[e.ColumnIndex].Name == "DELETE")
+                        {
+                            string title = selectedEarning.Title.ToString();
+                            string sAmount = selectedEarning.Amount.ToString();
+                            string sDateEarned = selectedEarning.DateEarned.ToString();
+                            DialogResult result = MessageBox.Show("Do you want to delete EARNING (Title - "
+                                                                 + title + " Amount - " + sAmount
+                                                                 + " DateEarned - " + sDateEarned + ")?",
+                                                                   "DELETE EARNING",
+                                                                    MessageBoxButtons.YesNo,
+                                                                     MessageBoxIcon.Question);
+                            if (result == DialogResult.Yes)
+                            {
+                                bool isExpenseDeleted = EarningController.Instance.DeleteEarning(selectedEarning);
+                                if (isExpenseDeleted == true)
+                                {
+                                    MessageBox.Show("EXPENSE (Title - " + title + " Amount - " + sAmount
+                                                                        + ") has been DELETED!",
+                                                                 "DELETE EARNING",
+                                                                  MessageBoxButtons.OK,
+                                                                  MessageBoxIcon.Information);
+                                    Session.SessionInformation.GetBudget().Earnings.Remove(selectedEarning);
+                                    Session.SessionInformation.RefreshSessionLabels();
+                                    this.refreshView();
+                                    this.populateGridView();
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Unable to Delete (Title - " + title + " Amount - " + sAmount
+                                                                      + ") EARNING!",
+                                                                     "DELETE EARNING",
+                                                                      MessageBoxButtons.OK,
+                                                                      MessageBoxIcon.Information);
+                                }
+                            }
+                        }
                     }
                 }
             }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.Message, ex.GetType().ToString());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.GetType().ToString());
+            }
         }
-
         
     }
 }

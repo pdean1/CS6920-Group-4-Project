@@ -210,7 +210,7 @@ namespace CS6920Group4Project.DAL.Model
         public bool DeleteExpense(Expense delExpense)
         {
             MySqlTransaction delExpenseTran = null;
-            bool expenseDelete = true;
+            bool expenseDelete = false;
 
             try
             {

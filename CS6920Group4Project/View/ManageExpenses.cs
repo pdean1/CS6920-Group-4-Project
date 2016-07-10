@@ -27,6 +27,7 @@ namespace CS6920Group4Project.View
         public ManageExpenses()
         {
             InitializeComponent();
+            mySqlDataAdapter = new MySqlDataAdapter();
             table = new DataTable();
             bSource = new BindingSource();
         }
@@ -76,6 +77,7 @@ namespace CS6920Group4Project.View
                                     MessageBoxButtons.OK,
                                     MessageBoxIcon.None);
                         this.clearData();
+                        this.refreshView();
                         this.getExpenselist();
                         Session.SessionInformation.RefreshSessionLabels();
                     }
@@ -132,14 +134,8 @@ namespace CS6920Group4Project.View
             {
                 int budgetID = Session.SessionInformation.GetBudget().ID;
                 mySqlDataAdapter = ExpenseController.Instance.GetExpensesByBudgetIDDataGridView(budgetID);
-
-                DataTable table = new DataTable();
                 mySqlDataAdapter.Fill(table);
-
-                BindingSource bSource = new BindingSource();
                 bSource.DataSource = table;
-
-                dataGridView1.Refresh();
                 dataGridView1.DataSource = bSource;
             }
             catch (SqlException ex)
@@ -235,7 +231,7 @@ namespace CS6920Group4Project.View
                             }
                             else
                             {
-                                MessageBox.Show("Expense is not Updated, please try again!");
+                                MessageBox.Show("Expense not Updated, please try again!");
                             }
                         }
 

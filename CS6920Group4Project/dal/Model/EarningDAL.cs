@@ -203,45 +203,45 @@ namespace CS6920Group4Project.DAL.Model
         public bool DeleteEarning(Earning delEarning)
         {
             MySqlTransaction delEarningTran = null;
-            bool earningDelete = true;
+            bool earningDelete = false;
 
             try
             {
                 //  delete Earning
-                string deleteStatement1 = "DELETE from earnings WHERE RecordID = @ID " +
+                string selectStatement = "Select count(*) from earnings WHERE RecordID = @ID " +
                                                                  "and Amount = @amount " +
                                                                  "and DateEarned = @dateEarned";
 
-                MySqlCommand deleteCommand1 = new MySqlCommand(deleteStatement1, conn);
-                deleteCommand1.Parameters.AddWithValue("@ID", delEarning.ID);
-                deleteCommand1.Parameters.AddWithValue("@amount", delEarning.Amount);
-                deleteCommand1.Parameters.AddWithValue("@dateEarned", delEarning.DateEarned);
+                MySqlCommand selectCommand = new MySqlCommand(selectStatement, conn);
+                selectCommand.Parameters.AddWithValue("@ID", delEarning.ID);
+                selectCommand.Parameters.AddWithValue("@amount", delEarning.Amount);
+                selectCommand.Parameters.AddWithValue("@dateEarned", delEarning.DateEarned);
 
                 // delete record
-                string deleteStatement2 = "DELETE from records WHERE RecordID = @ID " +
+                string deleteStatement = "DELETE from records WHERE RecordID = @ID " +
                                                                "and BudgetID = @bID " +
                                                                "and RecordType = @recType " +
                                                                "and Title = @title " +
                                                                "and Description = @desc " +
                                                                "and DateCreated = @dateCreated";
 
-                MySqlCommand deleteCommand2 = new MySqlCommand(deleteStatement2, conn);
-                deleteCommand2.Parameters.AddWithValue("@ID", delEarning.ID);
-                deleteCommand2.Parameters.AddWithValue("@bID", delEarning.BudgetID);
-                deleteCommand2.Parameters.AddWithValue("@recType", delEarning.RecordType);
-                deleteCommand2.Parameters.AddWithValue("@title", delEarning.Title);
-                deleteCommand2.Parameters.AddWithValue("@desc", delEarning.Description);
-                deleteCommand2.Parameters.AddWithValue("@dateCreated", delEarning.DateCreated);
+                MySqlCommand deleteCommand = new MySqlCommand(deleteStatement, conn);
+                deleteCommand.Parameters.AddWithValue("@ID", delEarning.ID);
+                deleteCommand.Parameters.AddWithValue("@bID", delEarning.BudgetID);
+                deleteCommand.Parameters.AddWithValue("@recType", delEarning.RecordType);
+                deleteCommand.Parameters.AddWithValue("@title", delEarning.Title);
+                deleteCommand.Parameters.AddWithValue("@desc", delEarning.Description);
+                deleteCommand.Parameters.AddWithValue("@dateCreated", delEarning.DateCreated);
 
                 conn.Open();
                 delEarningTran = conn.BeginTransaction();
-                deleteCommand1.Transaction = delEarningTran;
-                deleteCommand2.Transaction = delEarningTran;
+                selectCommand.Transaction = delEarningTran;
+                deleteCommand.Transaction = delEarningTran;
 
-                int isEarningDeleted = deleteCommand1.ExecuteNonQuery();
-                if (isEarningDeleted > 0)
+                int isEarningtheSame = selectCommand.ExecuteNonQuery();
+                if (isEarningtheSame == 1)
                 {
-                    int isRecordDeleted = deleteCommand2.ExecuteNonQuery();
+                    int isRecordDeleted = deleteCommand.ExecuteNonQuery();
                     if (isRecordDeleted > 0)
                     {
                         delEarningTran.Commit();
@@ -252,11 +252,6 @@ namespace CS6920Group4Project.DAL.Model
                         delEarningTran.Rollback();
                         return earningDelete = false;
                     }
-                }
-                else
-                {
-                    delEarningTran.Rollback();
-                    return earningDelete = false;
                 }
             }
             catch (MySqlException e)
@@ -279,4 +274,5 @@ namespace CS6920Group4Project.DAL.Model
             return earningDelete;
         }
       }
+
 }
