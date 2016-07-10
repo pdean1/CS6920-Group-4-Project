@@ -93,6 +93,7 @@ namespace CS6920Group4Project.View
 
         void otherForm_FormClosed(object sender, FormClosedEventArgs e)
         {
+            UpdateBudgets();
             this.Show();
         }
 

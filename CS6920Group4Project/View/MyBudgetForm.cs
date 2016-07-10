@@ -22,19 +22,52 @@ namespace CS6920Group4Project.View
         ManageEarnings earnForm;
         ManageBills billForm;
         BudgetView budView;
-
-        private decimal BillsAmount = 0, ExpensesAmount = 0, EarningsAmount = 0;
-
+        private const int Dashboard = 0,
+                          ManageEarning = 1,
+                          ManageExpense = 2,
+                          ManageBill = 3,
+                          BudgetView = 4;
         public MyBudgetForm()
         {
             InitializeComponent();
             this.tabDashBoad();
-            this.tabManageExpense();
+            this.tabManageExpenses();
             this.tabManageEarnings();
             this.tabManageBills();
             this.tabBudgetView();
+            tabControl1.SelectedIndexChanged += tabControl1_SelectedIndexChanged;
         }
-        
+        void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            switch (tabControl1.SelectedIndex)
+            {
+                case Dashboard:
+                    tabControl1.TabPages[Dashboard].Controls.Remove(dbform);
+                    tabDashBoad();
+                    break;
+                case ManageEarning:
+                    tabControl1.TabPages[ManageEarning].Controls.Add(earnForm);
+                    tabManageEarnings();
+                    break;
+                case ManageExpense:
+                    tabControl1.TabPages[ManageExpense].Controls.Add(exform);
+                    tabManageExpenses();
+                    break;
+                case ManageBill:
+                    tabControl1.TabPages[ManageBill].Controls.Remove(billForm);
+                    tabManageBills();
+                    break;
+                case BudgetView:
+                    tabControl1.TabPages[BudgetView].Controls.Remove(budView);
+                    tabBudgetView();
+                    break;
+                default:
+                    throw new NotImplementedException("Tab at index: " + tabControl1.SelectedIndex.ToString() + ", not created.");
+                
+            }
+            return;
+        }
         private void tabDashBoad()
         {
             dbform = new Dashboard();
@@ -42,19 +75,18 @@ namespace CS6920Group4Project.View
             dbform.Visible = true;
             dbform.FormBorderStyle = FormBorderStyle.None;
             dbform.Dock = DockStyle.Fill;
-            tabControl1.TabPages[0].Controls.Add(dbform);
+            tabControl1.TabPages[Dashboard].Controls.Add(dbform);
+            
         }
-
-        private void tabManageExpense()
+        private void tabManageExpenses()
         {
             exform = new ManageExpenses(); 
             exform.TopLevel = false;
             exform.Visible = true;
             exform.FormBorderStyle = FormBorderStyle.None;
             exform.Dock = DockStyle.Fill;
-            tabControl1.TabPages[2].Controls.Add(exform);
+            tabControl1.TabPages[ManageExpense].Controls.Add(exform);
         }
-
         private void MyBudgetForm_Load(object sender, EventArgs e)
         {
             Session.SessionInformation.SetUserNameSessionLabel(lblUserNamePlaceholder);
@@ -68,7 +100,7 @@ namespace CS6920Group4Project.View
              this.earnForm.Visible = true;
              this.earnForm.FormBorderStyle = FormBorderStyle.None;
              this.earnForm.Dock = DockStyle.Fill;
-             tabControl1.TabPages[1].Controls.Add(earnForm);        
+             tabControl1.TabPages[ManageEarning].Controls.Add(earnForm);
           
         }
         private void tabManageBills()
@@ -78,10 +110,8 @@ namespace CS6920Group4Project.View
              this.billForm.Visible = true;
              this.billForm.FormBorderStyle = FormBorderStyle.None;
              this.billForm.Dock = DockStyle.Fill;
-             tabControl1.TabPages[3].Controls.Add(billForm);
-           
+             tabControl1.TabPages[ManageBill].Controls.Add(billForm);
         }
-
         private void tabBudgetView()
         {
              budView = new BudgetView();
@@ -89,9 +119,7 @@ namespace CS6920Group4Project.View
              this.budView.Visible = true;
              this.budView.FormBorderStyle = FormBorderStyle.None;
              this.budView.Dock = DockStyle.Fill;
-             tabControl1.TabPages[4].Controls.Add(budView);
-            
+             tabControl1.TabPages[BudgetView].Controls.Add(budView);
         }
-       
     }
 }
