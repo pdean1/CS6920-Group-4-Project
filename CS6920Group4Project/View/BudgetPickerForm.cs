@@ -88,7 +88,10 @@ namespace CS6920Group4Project.View
 
         private void btnCreate_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            MessageBox.Show("Create budget functionality not yet implemented");
+            Form cbForm = new CreateBudgetForm();
+            cbForm.FormClosed += new FormClosedEventHandler(otherForm_FormClosed);
+            this.Hide();
+            cbForm.Show();
         }
 
         void otherForm_FormClosed(object sender, FormClosedEventArgs e)

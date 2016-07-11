@@ -162,5 +162,45 @@ namespace CS6920Group4Project.DAL.Model
             }
             return success;
         }
+
+        private const string CreateBudgetStatment = "INSERT INTO `sql5123046`.`budgets` (`UserID`, `Title`, `Description`, `DateCreated`) " +
+                                                        "VALUES (@ID, @Title, @Desc, @DateCreated);";
+
+        public bool CreateBudget(int userID, String title, String desc)
+        {
+            try
+                {
+                    MySqlCommand cmd = new MySqlCommand();
+                    conn.Open();
+                    cmd.Connection = conn;
+                    cmd.CommandText = CreateBudgetStatment;
+                    cmd.Prepare();
+                    cmd.Parameters.AddWithValue("@ID", userID);
+                    cmd.Parameters.AddWithValue("@Title", title);
+                    cmd.Parameters.AddWithValue("@Desc", desc);
+                    cmd.Parameters.AddWithValue("@DateCreated", DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss"));
+
+                    int isCreated = cmd.ExecuteNonQuery();
+                    if (isCreated > 0)
+                        return true;
+                    else
+                        return false;
+
+                }
+                catch (MySqlException e)
+                {
+                    DatabaseErrorMessageUtility.SendMessageToUser("Unable to add Budget in the database.", e);
+                    return false;
+                }
+                catch (Exception e)
+                {
+                    DatabaseErrorMessageUtility.SendMessageToUser("Unable to add Budget in the database.", e);
+                    return false;
+                }
+                finally
+                {
+                    conn.Close();
+                }
+        }
     }
 }
