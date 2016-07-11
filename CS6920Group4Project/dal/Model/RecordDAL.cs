@@ -36,7 +36,8 @@ namespace CS6920Group4Project.DAL.Model
                 command.Parameters.AddWithValue("@RecordType", record.RecordType);
                 command.Parameters.AddWithValue("@Title", record.Title);
                 command.Parameters.AddWithValue("@Description", (String.IsNullOrEmpty(record.Description)) ? "" : record.Description);
-                command.Parameters.AddWithValue("@DateCreated", DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss"));
+                record.DateCreated = DateTime.Now;
+                command.Parameters.AddWithValue("@DateCreated", record.DateCreated.ToString("yyyy-MM-dd hh:mm:ss"));
                 command.ExecuteNonQuery();
                 id = command.LastInsertedId;
             }
