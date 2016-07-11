@@ -130,41 +130,66 @@ namespace CS6920Group4Project.DAL.Model
             }
             return bills;
         }
-        public static void EditBill(Bill bill)
+        public bool EditBill(Bill bill)
         {
+            bool update = false;
+
             MySqlConnection connection = new DBConnect().GetConnection();
-            String editBillStatement = "UPDATE sql5123046.bills (`RecordID`, `Amount`, `DateDue`, DatePaid)" +
-                                                "SET (RecordID, @Amount, @DateDue, @DatePaid)" +
-                                                    " WHERE `RecordID` = @RecordID";
 
-            MySqlCommand editBillCommand = new MySqlCommand(editBillStatement, connection);
+            String updateBillsStatement = "UPDATE `sql5123046`.`records` as r join `sql5123046`.`bills` as b on r.RecordID = b.RecordID " +
+                                             "SET Title = @Title, Description = @Description, Amount = @Amount, DateDue = @DateDue, DatePaid = @DatePaid" +
+                                             "where r.RecordID = @RecordID";
 
-            editBillCommand.Parameters.AddWithValue("@RecordID", bill.ID);
-            editBillCommand.Parameters.AddWithValue("@Amount", Utilities.StringUtilities.Get4PointDecimal(bill.Amount));
-            editBillCommand.Parameters.AddWithValue("@DateDue", Utilities.StringUtilities.GetLongDateString(bill.DateDue));
-            if (String.IsNullOrEmpty(bill.DatePaid.ToString()))
-                editBillCommand.Parameters.AddWithValue("@DatePaid", DBNull.Value);
+            MySqlCommand updateBillCommand = new MySqlCommand(updateBillsStatement, connection);
+
+            updateBillCommand.Parameters.AddWithValue("@RecordID", bill.ID);
+            updateBillCommand.Parameters.AddWithValue("@Title", bill.Title);
+            updateBillCommand.Parameters.AddWithValue("@Description", bill.Description);
+            updateBillCommand.Parameters.AddWithValue("@Amount", Utilities.StringUtilities.Get4PointDecimal(bill.Amount));
+            updateBillCommand.Parameters.AddWithValue("@DateDue", Utilities.StringUtilities.GetLongDateString(bill.DateDue));
+            if (bill.DatePaid == null)
+            {
+                updateBillCommand.Parameters.AddWithValue("@DatePaid", DBNull.Value);
+            }
             else
-                editBillCommand.Parameters.AddWithValue("@DatePaid", Utilities.StringUtilities.GetLongDateString((DateTime)bill.DatePaid));
+            {
+                updateBillCommand.Parameters.AddWithValue("@DatePaid", Utilities.StringUtilities.GetLongDateString((DateTime)bill.DatePaid));
+            }
+
+            MySqlTransaction trans = null;
             try
             {
                 connection.Open();
-                editBillCommand.ExecuteNonQuery();
-        
+                trans = connection.BeginTransaction();
+
+                updateBillCommand.Transaction = trans;
+
+                int updateCode = updateBillCommand.ExecuteNonQuery();
+                if (updateCode > 0)
+                {
+                    trans.Commit();
+                    update = true;
+                }
+                else
+                {
+                    update = false;
+                }
             }
             catch (MySqlException ex)
             {
-                DatabaseErrorMessageUtility.SendMessageToUser("Unable to update billing information in the database.", ex);
+                trans.Rollback();
+                DatabaseErrorMessageUtility.SendMessageToUser("Unable to update Database with Bills.", ex);
             }
             catch (Exception ex)
             {
-                DatabaseErrorMessageUtility.SendMessageToUser("Unable to update billing information in the database.", ex);
+                DatabaseErrorMessageUtility.SendMessageToUser("Unable to update Database with Bills.", ex);
             }
-            finally 
+            finally
             {
-                editBillCommand.Dispose();
+                updateBillCommand.Dispose();
                 connection.Close();
             }
+            return update;
         }
         private const string DeleteBillStatement = "DELETE FROM `sql5123046`.`bills` WHERE " + 
             "`bills`.`RecordID` = @RecordID";// AND " + 

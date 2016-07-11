@@ -22,6 +22,11 @@ namespace CS6920Group4Project.View
             InitializeComponent();
         }
 
+        private void CreateBudgetForm_Load(object sender, EventArgs e)
+        {
+            this.Show();
+        }
+
         private void btnAdd_Click(object sender, EventArgs e)
         {
             String title = txtTitle.Text;

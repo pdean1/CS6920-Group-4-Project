@@ -36,15 +36,7 @@ namespace CS6920Group4Project.Controller
         }
         public bool EditBills(Bill bill)
         {
-            try
-            {
-                BillDAL.EditBill(bill);
-                return true;
-            }
-            catch 
-            {
-                return false;
-            }
+            return _dal.EditBill(bill);
         }
         public bool DeleteBill(Bill b) 
         {

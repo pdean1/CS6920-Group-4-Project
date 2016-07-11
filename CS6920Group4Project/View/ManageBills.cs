@@ -155,8 +155,19 @@ namespace CS6920Group4Project.View
             if (e.ColumnIndex == EditCol)
             {
                 int id = Int32.Parse(dgBills.Rows[e.RowIndex].Cells[0].Value.ToString());
-                MessageBox.Show("Edit bill not yet needed.");
-                // Session.SessionInformation.RefreshSessionLabels(); // uncomment once implemented
+                Bill selectedBill = Session.SessionInformation.GetBudget().
+                                                    GetSelectedBill(id);
+
+                bool update = BillController.Instance.EditBills(selectedBill);
+
+                if (update == true)
+                {
+                    MessageBox.Show("Earnings Successfully Updated");
+                }
+                else
+                {
+                    MessageBox.Show("Earnings not Updated, please try again!");
+                }
             }
             else if (e.ColumnIndex == DeleteCol)
             {

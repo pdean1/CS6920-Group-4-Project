@@ -168,7 +168,6 @@
             this.dgBills.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgBills.Location = new System.Drawing.Point(12, 38);
             this.dgBills.Name = "dgBills";
-            this.dgBills.ReadOnly = true;
             this.dgBills.Size = new System.Drawing.Size(986, 592);
             this.dgBills.TabIndex = 34;
             // 
