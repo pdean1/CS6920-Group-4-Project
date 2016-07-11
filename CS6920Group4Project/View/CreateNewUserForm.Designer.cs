@@ -161,6 +161,7 @@
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.txtUserName);
             this.DoubleBuffered = true;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "CreateNewUserForm";
             this.Text = "Create New User";
             this.Load += new System.EventHandler(this.CreateNewUserForm_Load);
