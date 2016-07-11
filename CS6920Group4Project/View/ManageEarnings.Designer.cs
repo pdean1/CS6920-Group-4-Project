@@ -43,6 +43,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.desc = new System.Windows.Forms.Label();
             this.descTxt = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.earnGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -63,7 +65,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Location = new System.Drawing.Point(969, 135);
+            this.label4.Location = new System.Drawing.Point(972, 135);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(72, 21);
             this.label4.TabIndex = 5;
@@ -104,7 +106,7 @@
             this.earningAmountBox.Location = new System.Drawing.Point(972, 159);
             this.earningAmountBox.Name = "earningAmountBox";
             this.earningAmountBox.Size = new System.Drawing.Size(198, 28);
-            this.earningAmountBox.TabIndex = 3;
+            this.earningAmountBox.TabIndex = 2;
             this.earningAmountBox.Tag = "Amount";
             // 
             // cancelBtn
@@ -161,7 +163,8 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(1177, 159);
+            this.label3.ForeColor = System.Drawing.Color.Red;
+            this.label3.Location = new System.Drawing.Point(1176, 159);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(18, 21);
             this.label3.TabIndex = 30;
@@ -170,7 +173,7 @@
             // desc
             // 
             this.desc.AutoSize = true;
-            this.desc.Location = new System.Drawing.Point(976, 194);
+            this.desc.Location = new System.Drawing.Point(972, 194);
             this.desc.Name = "desc";
             this.desc.Size = new System.Drawing.Size(88, 21);
             this.desc.TabIndex = 31;
@@ -181,8 +184,28 @@
             this.descTxt.Location = new System.Drawing.Point(973, 218);
             this.descTxt.Name = "descTxt";
             this.descTxt.Size = new System.Drawing.Size(197, 28);
-            this.descTxt.TabIndex = 32;
+            this.descTxt.TabIndex = 3;
             this.descTxt.Tag = "Description";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.ForeColor = System.Drawing.Color.Red;
+            this.label6.Location = new System.Drawing.Point(1176, 218);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(18, 21);
+            this.label6.TabIndex = 32;
+            this.label6.Text = "*";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.ForeColor = System.Drawing.Color.Red;
+            this.label7.Location = new System.Drawing.Point(1176, 104);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(18, 21);
+            this.label7.TabIndex = 33;
+            this.label7.Text = "*";
             // 
             // ManageEarnings
             // 
@@ -191,6 +214,8 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(242)))), ((int)(((byte)(196)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1249, 641);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.descTxt);
             this.Controls.Add(this.desc);
             this.Controls.Add(this.label3);
@@ -235,6 +260,8 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label desc;
         private System.Windows.Forms.TextBox descTxt;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
 
     }
 }

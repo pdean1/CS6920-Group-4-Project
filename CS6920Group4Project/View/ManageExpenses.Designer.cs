@@ -43,6 +43,9 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
             this.descTxt = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -104,7 +107,7 @@
             this.expenseAmountTxt.Location = new System.Drawing.Point(973, 167);
             this.expenseAmountTxt.Name = "expenseAmountTxt";
             this.expenseAmountTxt.Size = new System.Drawing.Size(196, 28);
-            this.expenseAmountTxt.TabIndex = 3;
+            this.expenseAmountTxt.TabIndex = 2;
             // 
             // expenseTitleTxt
             // 
@@ -162,7 +165,7 @@
             this.dataGridView1.Location = new System.Drawing.Point(0, -2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.Size = new System.Drawing.Size(932, 545);
+            this.dataGridView1.Size = new System.Drawing.Size(932, 585);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -180,7 +183,37 @@
             this.descTxt.Location = new System.Drawing.Point(976, 234);
             this.descTxt.Name = "descTxt";
             this.descTxt.Size = new System.Drawing.Size(191, 28);
-            this.descTxt.TabIndex = 32;
+            this.descTxt.TabIndex = 3;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.Color.Red;
+            this.label3.Location = new System.Drawing.Point(1175, 113);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(18, 21);
+            this.label3.TabIndex = 33;
+            this.label3.Text = "*";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.ForeColor = System.Drawing.Color.Red;
+            this.label7.Location = new System.Drawing.Point(1175, 167);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(18, 21);
+            this.label7.TabIndex = 34;
+            this.label7.Text = "*";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.ForeColor = System.Drawing.Color.Red;
+            this.label8.Location = new System.Drawing.Point(1173, 234);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(18, 21);
+            this.label8.TabIndex = 35;
+            this.label8.Text = "*";
             // 
             // ManageExpenses
             // 
@@ -189,6 +222,9 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(242)))), ((int)(((byte)(196)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1249, 641);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.descTxt);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.panel1);
@@ -232,6 +268,9 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox descTxt;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
 
     }
 }
