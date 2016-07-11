@@ -137,7 +137,7 @@ namespace CS6920Group4Project.DAL.Model
             MySqlConnection connection = new DBConnect().GetConnection();
 
             String updateBillsStatement = "UPDATE `sql5123046`.`records` as r join `sql5123046`.`bills` as b on r.RecordID = b.RecordID " +
-                                             "SET Title = @Title, Description = @Description, Amount = @Amount, DateDue = @DateDue, DatePaid = @DatePaid" +
+                                             "SET Title = @Title, Description = @Description, Amount = @Amount, DateDue = @DateDue, DatePaid = @DatePaid " +
                                              "where r.RecordID = @RecordID";
 
             MySqlCommand updateBillCommand = new MySqlCommand(updateBillsStatement, connection);
