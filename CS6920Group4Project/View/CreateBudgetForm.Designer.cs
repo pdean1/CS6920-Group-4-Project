@@ -123,7 +123,7 @@
             this.txtTitle.Location = new System.Drawing.Point(243, 299);
             this.txtTitle.Name = "txtTitle";
             this.txtTitle.Size = new System.Drawing.Size(274, 20);
-            this.txtTitle.TabIndex = 9;
+            this.txtTitle.TabIndex = 1;
             // 
             // label3
             // 
@@ -142,7 +142,7 @@
             this.txtDesc.Location = new System.Drawing.Point(243, 341);
             this.txtDesc.Name = "txtDesc";
             this.txtDesc.Size = new System.Drawing.Size(274, 20);
-            this.txtDesc.TabIndex = 11;
+            this.txtDesc.TabIndex = 2;
             // 
             // label1
             // 
@@ -165,12 +165,12 @@
             this.btnAdd.Location = new System.Drawing.Point(289, 376);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(116, 34);
-            this.btnAdd.TabIndex = 14;
+            this.btnAdd.TabIndex = 3;
             this.btnAdd.Text = "Create a Budget";
             this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
-            // AddBudgetForm
+            // CreateBudgetForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -190,8 +190,9 @@
             this.Controls.Add(this.tbPassword);
             this.Controls.Add(this.tbUserName);
             this.DoubleBuffered = true;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "AddBudgetForm";
+            this.Name = "CreateBudgetForm";
             this.Text = "Budget Buddy";
             this.ResumeLayout(false);
             this.PerformLayout();

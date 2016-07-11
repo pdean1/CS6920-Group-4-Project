@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BudgetPickerForm));
             this.cbBudgets = new System.Windows.Forms.ComboBox();
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
@@ -50,7 +51,7 @@
             this.btnEdit.BackColor = System.Drawing.Color.ForestGreen;
             this.btnEdit.Font = new System.Drawing.Font("Calibri", 11.25F);
             this.btnEdit.ForeColor = System.Drawing.Color.MintCream;
-            this.btnEdit.Location = new System.Drawing.Point(12, 86);
+            this.btnEdit.Location = new System.Drawing.Point(12, 70);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(125, 35);
             this.btnEdit.TabIndex = 1;
@@ -63,7 +64,7 @@
             this.btnDelete.BackColor = System.Drawing.Color.Crimson;
             this.btnDelete.Font = new System.Drawing.Font("Calibri", 11.25F);
             this.btnDelete.ForeColor = System.Drawing.Color.MintCream;
-            this.btnDelete.Location = new System.Drawing.Point(147, 86);
+            this.btnDelete.Location = new System.Drawing.Point(147, 70);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(125, 35);
             this.btnDelete.TabIndex = 2;
@@ -86,7 +87,7 @@
             this.btnCreate.ActiveLinkColor = System.Drawing.Color.Green;
             this.btnCreate.AutoSize = true;
             this.btnCreate.LinkColor = System.Drawing.Color.Magenta;
-            this.btnCreate.Location = new System.Drawing.Point(12, 128);
+            this.btnCreate.Location = new System.Drawing.Point(9, 119);
             this.btnCreate.Name = "btnCreate";
             this.btnCreate.Size = new System.Drawing.Size(107, 13);
             this.btnCreate.TabIndex = 4;
@@ -99,13 +100,14 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MintCream;
-            this.ClientSize = new System.Drawing.Size(284, 153);
+            this.ClientSize = new System.Drawing.Size(284, 138);
             this.Controls.Add(this.btnCreate);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.cbBudgets);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "BudgetPickerForm";
             this.Text = "Let\'s manage!";
             this.Load += new System.EventHandler(this.BudgetPickerForm_Load);
