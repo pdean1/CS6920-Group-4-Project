@@ -230,6 +230,8 @@ namespace CS6920Group4Project.View
                 delbut.UseColumnTextForButtonValue = true;
                 delbut.DefaultCellStyle.BackColor = Color.White;
                 earnGridView.Columns.Insert(9, delbut);
+
+                earnGridView.DataError += earnGridView_DataError;
             }
             catch (SqlException ex)
             {
@@ -238,6 +240,16 @@ namespace CS6920Group4Project.View
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, ex.GetType().ToString());
+            }
+        }
+
+        void earnGridView_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            if (e.ColumnIndex == 5)
+            {
+                MessageBox.Show("Invalid Amount!");
+                e.ThrowException = false;
+                return;
             }
         }
 
@@ -307,13 +319,24 @@ namespace CS6920Group4Project.View
 
                             selectedEarning.Title = title;
                             selectedEarning.Description = desc;
-                            selectedEarning.Amount = Convert.ToDecimal(sendAmount);
+                            try
+                            {
+                                Decimal d = Convert.ToDecimal(sendAmount);
+                                selectedEarning.Amount = d;
+                            }
+                            catch (Exception)
+                            {
+                                MessageBox.Show("Invalid amount: " + sendAmount);
+                                earnGridView.Rows[e.RowIndex].Cells[5].Value = Utilities.StringUtilities.Get4PointDecimal(selectedEarning.Amount);
+                                return;
+                            }
 
                             bool update = EarningController.Instance.EditEarnings(selectedEarning);
 
                             if (update == true)
                             {
                                 MessageBox.Show("Earnings Successfully Updated");
+                                Session.SessionInformation.RefreshSessionLabels();
                             }
                             else
                             {

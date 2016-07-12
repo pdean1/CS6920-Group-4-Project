@@ -167,13 +167,25 @@ namespace CS6920Group4Project.View
 
                 selectedBill.Title = title;
                 selectedBill.Description = desc;
-                selectedBill.Amount = Convert.ToDecimal(sendAmount);
+                try
+                {
+                    Decimal d = Convert.ToDecimal(sendAmount);
+                    selectedBill.Amount = d;
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Amount invalid: " + dgBills.Rows[e.RowIndex].Cells[3].Value.ToString());
+                    dgBills.Rows[e.RowIndex].Cells[3].Value = Utilities.StringUtilities.Get4PointDecimal(selectedBill.Amount);
+                    return;
+
+                }
 
                 bool update = BillController.Instance.EditBills(selectedBill);
 
                 if (update == true)
                 {
                     MessageBox.Show("Bills Successfully Updated");
+                    Session.SessionInformation.RefreshSessionLabels();
                 }
                 else
                 {
