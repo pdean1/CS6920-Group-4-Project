@@ -162,15 +162,9 @@ namespace CS6920Group4Project.View
                 dataGridView1.Columns[0].Visible = false;
                 dataGridView1.Columns[1].Visible = false;
                 dataGridView1.Columns[2].Visible = false;
-                dataGridView1.Columns[3].ReadOnly = true;
                 dataGridView1.Columns[3].Width = 175;
                 dataGridView1.Columns[3].Selected = false;
-
-                dataGridView1.Columns[4].ReadOnly = true;
                 dataGridView1.Columns[4].Width = 200;
-                dataGridView1.Columns[5].ReadOnly = true;
-                dataGridView1.Columns[6].ReadOnly = true;
-                dataGridView1.Columns[7].ReadOnly = true;
 
                 dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
@@ -223,6 +217,14 @@ namespace CS6920Group4Project.View
 
                         if (dataGridView1.Columns[e.ColumnIndex].Name == "EDIT")
                         {
+                            String title = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
+                            String desc = dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString();
+                            String sendAmount = dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString();
+
+                            selectedExpense.Title = title;
+                            selectedExpense.Description = desc;
+                            selectedExpense.Amount = Convert.ToDecimal(sendAmount);
+
                             bool update = ExpenseController.Instance.EditExpenses(selectedExpense);
 
                             if (update == true)

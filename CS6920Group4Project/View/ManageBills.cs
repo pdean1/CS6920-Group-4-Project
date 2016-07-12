@@ -49,7 +49,7 @@ namespace CS6920Group4Project.View
                     newBill.DateDue = DateTime.Parse(billDate);
                     newBill.Title = billTitle;
                     newBill.Description = billDesc;
-                    newBill.BudgetID = 1;
+                    newBill.BudgetID = Session.SessionInformation.GetBudget().ID;
 
                     long isBillAdded = BillController.Instance.InsertBill(newBill);
                     if (isBillAdded == 0)
@@ -158,15 +158,23 @@ namespace CS6920Group4Project.View
                 Bill selectedBill = Session.SessionInformation.GetBudget().
                                                     GetSelectedBill(id);
 
+                String title = dgBills.Rows[e.RowIndex].Cells[1].Value.ToString();
+                String desc = dgBills.Rows[e.RowIndex].Cells[2].Value.ToString();
+                String sendAmount = dgBills.Rows[e.RowIndex].Cells[3].Value.ToString();
+
+                selectedBill.Title = title;
+                selectedBill.Description = desc;
+                selectedBill.Amount = Convert.ToDecimal(sendAmount);
+
                 bool update = BillController.Instance.EditBills(selectedBill);
 
                 if (update == true)
                 {
-                    MessageBox.Show("Earnings Successfully Updated");
+                    MessageBox.Show("Bills Successfully Updated");
                 }
                 else
                 {
-                    MessageBox.Show("Earnings not Updated, please try again!");
+                    MessageBox.Show("Bills not Updated, please try again!");
                 }
             }
             else if (e.ColumnIndex == DeleteCol)
@@ -185,7 +193,7 @@ namespace CS6920Group4Project.View
                     b.ID.ToString(), 
                     b.Title, 
                     (String.IsNullOrEmpty(b.Description)) ? "" : b.Description,
-                    StringUtilities.GetDisplayableDollarAmount(b.Amount),
+                    StringUtilities.Get4PointDecimal(b.Amount),
                     b.DateDue.ToString(),
                     b.DatePaid.ToString()
                 };

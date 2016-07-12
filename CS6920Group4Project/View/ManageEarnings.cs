@@ -199,15 +199,9 @@ namespace CS6920Group4Project.View
                 earnGridView.Columns[0].Visible = false;
                 earnGridView.Columns[1].Visible = false;
                 earnGridView.Columns[2].Visible = false;
-                earnGridView.Columns[3].ReadOnly = true;
                 earnGridView.Columns[3].Width = 175;
                 earnGridView.Columns[3].Selected = false;
-
-                earnGridView.Columns[4].ReadOnly = true;
                 earnGridView.Columns[4].Width = 200;
-                earnGridView.Columns[5].ReadOnly = true;
-                earnGridView.Columns[6].ReadOnly = true;
-                earnGridView.Columns[7].ReadOnly = true;
 
                 earnGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
@@ -305,6 +299,14 @@ namespace CS6920Group4Project.View
 
                         if (earnGridView.Columns[e.ColumnIndex].Name == "EDIT")
                         {
+                            String title = earnGridView.Rows[e.RowIndex].Cells[3].Value.ToString();
+                            String desc = earnGridView.Rows[e.RowIndex].Cells[4].Value.ToString();
+                            String sendAmount = earnGridView.Rows[e.RowIndex].Cells[5].Value.ToString();
+
+                            selectedEarning.Title = title;
+                            selectedEarning.Description = desc;
+                            selectedEarning.Amount = Convert.ToDecimal(sendAmount);
+
                             bool update = EarningController.Instance.EditEarnings(selectedEarning);
 
                             if (update == true)
