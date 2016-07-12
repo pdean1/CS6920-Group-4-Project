@@ -127,6 +127,9 @@ namespace CS6920Group4Project.View
             dgBills.Columns[3].Name = "Amount";
             dgBills.Columns[4].Name = "Date Due";
             dgBills.Columns[5].Name = "Date Paid";
+            dgBills.Columns[4].ReadOnly = true;
+            dgBills.Columns[5].ReadOnly = true;
+            
 
             foreach (Bill b in Session.SessionInformation.GetBudget().Bills)
             {

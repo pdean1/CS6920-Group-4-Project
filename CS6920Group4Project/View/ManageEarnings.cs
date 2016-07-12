@@ -202,6 +202,8 @@ namespace CS6920Group4Project.View
                 earnGridView.Columns[3].Width = 175;
                 earnGridView.Columns[3].Selected = false;
                 earnGridView.Columns[4].Width = 200;
+                earnGridView.Columns[6].ReadOnly = true;
+                earnGridView.Columns[7].ReadOnly = true;
 
                 earnGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 

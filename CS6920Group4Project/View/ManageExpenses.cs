@@ -165,6 +165,8 @@ namespace CS6920Group4Project.View
                 dataGridView1.Columns[3].Width = 175;
                 dataGridView1.Columns[3].Selected = false;
                 dataGridView1.Columns[4].Width = 200;
+                dataGridView1.Columns[6].ReadOnly = true;
+                dataGridView1.Columns[7].ReadOnly = true;
 
                 dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
