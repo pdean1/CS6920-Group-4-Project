@@ -195,18 +195,27 @@ namespace CS6920Group4Project.View
         private Boolean DeleteBillClicked(int id)
         {
             Bill bill = Session.SessionInformation.GetBudget().GetSelectedBill(id);
-            if (bill == null)
+            DialogResult dr = MessageBox.Show(
+                "Do you want to delete BILL (Title - " + bill.Title + " Amount - " 
+                + Utilities.StringUtilities.GetDisplayableDollarAmount(bill.Amount) + ")?"
+                , "DELETE BILL"
+                , MessageBoxButtons.YesNo
+                , MessageBoxIcon.Question);
+            if (dr == DialogResult.Yes)
             {
-                MessageBox.Show("Unable to delete bill!");
-                return false;
+                if (bill == null)
+                {
+                    MessageBox.Show("Unable to delete bill!");
+                    return false;
+                }
+                if (!BillController.Instance.DeleteBill(bill))
+                {
+                    MessageBox.Show("Unable to delete bill!");
+                    return false;
+                }
+                Session.SessionInformation.GetBudget().Bills.Remove(bill);
+                Session.SessionInformation.RefreshSessionLabels();
             }
-            if (!BillController.Instance.DeleteBill(bill))
-            {
-                MessageBox.Show("Unable to delete bill!");
-                return false;
-            }
-            Session.SessionInformation.GetBudget().Bills.Remove(bill);
-            Session.SessionInformation.RefreshSessionLabels();
             return true;
         }
 

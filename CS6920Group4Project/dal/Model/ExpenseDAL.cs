@@ -218,15 +218,13 @@ namespace CS6920Group4Project.DAL.Model
                 string deleteStatement2 = "DELETE from records WHERE RecordID = @ID " +
                                                                "and BudgetID = @bID " +
                                                                "and RecordType = @recType " +
-                                                               "and Title = @title " +
-                                                               "and DateCreated = @dateCreated";
+                                                               "and Title = @title ";
 
                 MySqlCommand deleteCommand2 = new MySqlCommand(deleteStatement2, conn);
                 deleteCommand2.Parameters.AddWithValue("@ID", delExpense.ID);
                 deleteCommand2.Parameters.AddWithValue("@bID", delExpense.BudgetID);
                 deleteCommand2.Parameters.AddWithValue("@recType", delExpense.RecordType);
                 deleteCommand2.Parameters.AddWithValue("@title", delExpense.Title);
-                deleteCommand2.Parameters.AddWithValue("@dateCreated", Utilities.StringUtilities.GetLongDateString(delExpense.DateCreated));
 
                 conn.Open();
                 delExpenseTran = conn.BeginTransaction();

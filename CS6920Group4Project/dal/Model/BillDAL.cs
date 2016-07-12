@@ -130,6 +130,7 @@ namespace CS6920Group4Project.DAL.Model
             }
             return bills;
         }
+
         public bool EditBill(Bill bill)
         {
             bool update = false;
@@ -191,58 +192,10 @@ namespace CS6920Group4Project.DAL.Model
             }
             return update;
         }
-        private const string DeleteBillStatement = "DELETE FROM `sql5123046`.`bills` WHERE " + 
-            "`bills`.`RecordID` = @RecordID";// AND " + 
-            //"`bills`.`Amount` = @Amount AND " + 
-            //"`bills`.`DateDue` = @DateDue;";// AND " + 
-            //"`bills`.`DatePaid` = @DatePaid;"
+
         public Boolean DeleteBill(Bill b)
         {
-            var success = false;
-            using (MySqlCommand cmd = new MySqlCommand())
-            {
-                try
-                {
-                    conn.Open();
-                    cmd.Connection = conn;
-                    cmd.CommandText = DeleteBillStatement;
-                    cmd.Prepare();
-                    cmd.Parameters.AddWithValue("@RecordID", b.ID);
-                    //cmd.Parameters.AddWithValue("@Amount", b.Amount);
-                    //cmd.Parameters.AddWithValue("@DateDue", b.DateDue);
-              //      if (String.IsNullOrEmpty(b.DatePaid.ToString()))
-              //      {
-              //          cmd.Parameters.AddWithValue("@DatePaid", "");
-              //      }
-              //      else
-              //      {
-              //          cmd.Parameters.AddWithValue("@DatePaid", b.DatePaid);
-              //      }
-                    if (cmd.ExecuteNonQuery() != 0)
-                    {
-                        success = true;
-                    }
-                }
-                catch (MySqlException e)
-                {
-                    DatabaseErrorMessageUtility.SendMessageToUser(
-                        "Unable to delete bill from database.", e);
-                    success = false;
-                }
-                catch (Exception e)
-                {
-                    DatabaseErrorMessageUtility.SendMessageToUser(
-                        "Unable to delete bill from database.", e);
-                    success = false;
-                }
-                finally
-                {
-                    conn.Close();
-                }
-                if (success)
-                    success = RecordController.Instance.DeleteRecord(b);
-                return success;
-            }
+            return RecordController.Instance.DeleteRecord(b);
         }
     }
 }

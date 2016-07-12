@@ -210,20 +210,12 @@ namespace CS6920Group4Project.DAL.Model
                 string deleteStatement = "DELETE from records WHERE RecordID    = @ID " +
                                                                "and BudgetID    = @bID " +
                                                                "and RecordType  = @recType " +
-                                                               "and Title       = @title " +
-                                                               "and Description = @desc " +
-                                                               "and DateCreated = @dateCreated";
+                                                               "and Title       = @title";
                 MySqlCommand deleteCommand = new MySqlCommand(deleteStatement, conn);
                 deleteCommand.Parameters.AddWithValue("@ID", delEarning.ID);
                 deleteCommand.Parameters.AddWithValue("@bID", delEarning.BudgetID);
                 deleteCommand.Parameters.AddWithValue("@recType", delEarning.RecordType);
                 deleteCommand.Parameters.AddWithValue("@title", delEarning.Title);
-                if (String.IsNullOrEmpty(delEarning.Description))
-                    deleteCommand.Parameters.AddWithValue("@desc", DBNull.Value);
-                else
-                    deleteCommand.Parameters.AddWithValue("@desc", delEarning.Description);
-                deleteCommand.Parameters.AddWithValue("@dateCreated", Utilities.StringUtilities.GetLongDateString(delEarning.DateCreated));
-
                 conn.Open();
                 delEarningTran = conn.BeginTransaction();
                 deleteCommand.Transaction = delEarningTran;

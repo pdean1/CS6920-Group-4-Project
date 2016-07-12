@@ -16,7 +16,7 @@ namespace CS6920Group4Project.Utilities
         {
             if (dt == null)
                 return "";
-            return dt.ToString("yyyy-MM-dd HH:mm:ss");
+            return dt.ToString("yyyy-MM-dd 00:00:00");
         }
         public static String Get4PointDecimal(Decimal d)
         {
