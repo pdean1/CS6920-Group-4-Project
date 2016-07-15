@@ -62,7 +62,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Location = new System.Drawing.Point(1005, 173);
+            this.label4.Location = new System.Drawing.Point(1005, 118);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(97, 21);
             this.label4.TabIndex = 5;
@@ -80,7 +80,7 @@
             // 
             // billAmountTxt
             // 
-            this.billAmountTxt.Location = new System.Drawing.Point(1009, 197);
+            this.billAmountTxt.Location = new System.Drawing.Point(1009, 142);
             this.billAmountTxt.Name = "billAmountTxt";
             this.billAmountTxt.Size = new System.Drawing.Size(183, 28);
             this.billAmountTxt.TabIndex = 4;
@@ -119,7 +119,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Location = new System.Drawing.Point(1005, 118);
+            this.label2.Location = new System.Drawing.Point(1006, 173);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(118, 21);
             this.label2.TabIndex = 31;
@@ -127,7 +127,7 @@
             // 
             // billDescTxt
             // 
-            this.billDescTxt.Location = new System.Drawing.Point(1009, 142);
+            this.billDescTxt.Location = new System.Drawing.Point(1010, 197);
             this.billDescTxt.Name = "billDescTxt";
             this.billDescTxt.Size = new System.Drawing.Size(183, 28);
             this.billDescTxt.TabIndex = 3;

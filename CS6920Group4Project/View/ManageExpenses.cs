@@ -72,10 +72,6 @@ namespace CS6920Group4Project.View
                     }
                     else
                     {
-                        MessageBox.Show("Expense Successfully Added",
-                                    "USER",
-                                    MessageBoxButtons.OK,
-                                    MessageBoxIcon.None);
                         this.clearData();
                         this.refreshView();
                         this.getExpenselist();
@@ -284,11 +280,6 @@ namespace CS6920Group4Project.View
                             bool isExpenseDeleted = ExpenseController.Instance.DeleteExpense(selectedExpense);
                             if (isExpenseDeleted == true)
                             {
-                                MessageBox.Show("EXPENSE (Title - " + title + " Amount - " + sAmount
-                                                                    + ") has been DELETED!",
-                                                             "DELETE EXPENSE",
-                                                              MessageBoxButtons.OK,
-                                                              MessageBoxIcon.Information);
                                 Session.SessionInformation.GetBudget().Expenses.Remove(selectedExpense);
                                 Session.SessionInformation.RefreshSessionLabels();
                                 this.refreshView();

@@ -21,7 +21,6 @@ namespace CS6920Group4Project.View
         private String billDate;
         private String billTitle;
         private const int EditCol = 6, DeleteCol = 7;
-       // private List<Budget> budgetList;
 
         public ManageBills()
         {
@@ -61,10 +60,6 @@ namespace CS6920Group4Project.View
                     }
                     else
                     {
-                        MessageBox.Show("Bill Successfully Added",
-                                    "USER",
-                                    MessageBoxButtons.OK,
-                                    MessageBoxIcon.None);
                         this.clearData();
                         AddRowToDataGrid(newBill);
                         Session.SessionInformation.RefreshSessionLabels();

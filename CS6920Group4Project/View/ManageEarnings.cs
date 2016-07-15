@@ -34,13 +34,6 @@ namespace CS6920Group4Project.View
             bind = new BindingSource();
         }
 
-        public ManageEarnings(User userName)
-        {
-           /* InitializeComponent();
-            userNameEarningsLbl.Text = Session.SessionInformation.GetSessionUser().FirstName + " "
-                + Session.SessionInformation.GetSessionUser().LastName;*/
-        }
-
         private void ManageEarnings_Load(object sender, EventArgs e)
         {
             this.populateGridView();
@@ -69,41 +62,6 @@ namespace CS6920Group4Project.View
             }
         }
 
-        private void earningsDashBtn_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            Dashboard dash = new Dashboard();
-            dash.Show();
-        }
-
-        private void manageEarningsBtn_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            ManageEarnings earn = new ManageEarnings();
-            earn.Show();
-
-        }
-
-        private void manageExpensesBtn_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            ManageExpenses expense = new ManageExpenses();
-            expense.Show();
-        }
-
-        private void manageBillsBtn_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            ManageBills bills = new ManageBills();
-            bills.Show();
-        }
-        private void viewBudgetBtn_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            BudgetView view = new BudgetView();
-            view.Show();
-            
-        }
         private void addEarningsBtn_Click(object sender, EventArgs e)
         {
             try
@@ -139,10 +97,6 @@ namespace CS6920Group4Project.View
                     }
                     else
                     {
-                        MessageBox.Show("Earnings Successfully Added",
-                                    "USER",
-                                    MessageBoxButtons.OK,
-                                    MessageBoxIcon.None);
                         this.ClearText();
                         this.refreshView();
                         this.populateGridView();
@@ -360,11 +314,6 @@ namespace CS6920Group4Project.View
                                 bool isExpenseDeleted = EarningController.Instance.DeleteEarning(selectedEarning);
                                 if (isExpenseDeleted == true)
                                 {
-                                    MessageBox.Show("EXPENSE (Title - " + title + " Amount - " + sAmount
-                                                                        + ") has been DELETED!",
-                                                                 "DELETE EARNING",
-                                                                  MessageBoxButtons.OK,
-                                                                  MessageBoxIcon.Information);
                                     Session.SessionInformation.GetBudget().Earnings.Remove(selectedEarning);
                                     Session.SessionInformation.RefreshSessionLabels();
                                     this.refreshView();
