@@ -66,6 +66,7 @@
     <Compile Include="DAL\Model\UserDAL.cs" />
     <Compile Include="Model\Dashboard.cs" />
     <Compile Include="Session\SessionInformation.cs" />
+    <Compile Include="Utilities\CsvExport.cs" />
     <Compile Include="Utilities\DatabaseErrorMessageUtility.cs" />
     <Compile Include="Utilities\StringUtilities.cs" />
     <Compile Include="View\BudgetPickerForm.cs">
