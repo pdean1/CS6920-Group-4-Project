@@ -121,5 +121,28 @@ namespace CS6920Group4Project.View
              this.budView.Dock = DockStyle.Fill;
              tabControl1.TabPages[BudgetView].Controls.Add(budView);
         }
+
+        /// <summary>
+        /// Allows the user to save the current budget as a csv to their desired destination
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void exportToCSVToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog sfd = new SaveFileDialog();
+            sfd.DefaultExt = "csv";
+            sfd.AddExtension = true;
+            sfd.Filter = "CSV (Comma Delimited *.csv)|*.csv";
+            sfd.Title = "Save Budget " + Session.SessionInformation.GetBudget().Title + " to CSV";
+            sfd.FileName = Session.SessionInformation.GetBudget().Title;
+            if (sfd.ShowDialog() == DialogResult.OK)
+            {
+                BudgetCSV csv = new BudgetCSV();
+                if (!csv.ExportCSVToFile(sfd.FileName))
+                {
+                    MessageBox.Show("Unable to export to CSV! Please try again.");
+                }
+            }
+        }
     }
 }
