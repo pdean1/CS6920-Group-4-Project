@@ -20,6 +20,7 @@ namespace CS6920Group4Project.View
         {
             InitializeComponent();
             txtPassword.PasswordChar = '●';
+            txtPasswordTwo.PasswordChar = '●';
         }
 
         private void CreateNewUserForm_Load(object sender, EventArgs e)
@@ -33,9 +34,11 @@ namespace CS6920Group4Project.View
             String lastName = txtLastName.Text;
             String username = txtUserName.Text;
             String password = txtPassword.Text;
+            String passwordTwo = txtPasswordTwo.Text;
 
             if (String.IsNullOrEmpty(firstName) || String.IsNullOrEmpty(lastName) ||
-                String.IsNullOrEmpty(username) || String.IsNullOrEmpty(password))
+                String.IsNullOrEmpty(username) || String.IsNullOrEmpty(password) ||
+                String.IsNullOrEmpty(passwordTwo))
             {
                 MessageBox.Show("Please fill in each field, Please Try Again",
                                 "USER",
@@ -45,40 +48,46 @@ namespace CS6920Group4Project.View
                 return;
             }
 
-            else
+            if (!password.Equals(passwordTwo))
             {
-                User newUser = new User();
-                newUser.FirstName = firstName;
-                newUser.LastName = lastName;
-                newUser.UserName = username;
-                newUser.Password = password;
-
-                long newUserAdded = UserController.Instance.InsertUser(newUser);
-                if (newUserAdded > 0)
-                {
-                    MessageBox.Show("New User Successfully added!",
-                                 "USER",
-                                 MessageBoxButtons.OK,
-                                 MessageBoxIcon.None);
-                    this.Close();
-                }
-                else
-                {
-                    MessageBox.Show("Unable to add new user, Please Try Again",
+                MessageBox.Show("Passwords do not match, please try again.",
                                 "USER",
                                 MessageBoxButtons.OK,
                                 MessageBoxIcon.Stop);
-                    this.clearData();
-                }
+                this.clearData();
+                return;
+            }
+
+            User newUser = new User();
+            newUser.FirstName = firstName;
+            newUser.LastName = lastName;
+            newUser.UserName = username;
+            newUser.Password = password;
+
+            long newUserAdded = UserController.Instance.InsertUser(newUser);
+
+            if (newUserAdded > 0)
+            {
+                MessageBox.Show("New user successfully added!",
+                             "USER",
+                             MessageBoxButtons.OK,
+                             MessageBoxIcon.None);
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Unable to add new user, please try again",
+                            "USER",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Stop);
+                this.clearData();
             }
         }
 
         private void clearData()
         {
-            txtFirstName.Text = "";
-            txtLastName.Text = "";
-            txtUserName.Text = "";
             txtPassword.Text = "";
+            txtPasswordTwo.Text = "";
         }
 
     }
