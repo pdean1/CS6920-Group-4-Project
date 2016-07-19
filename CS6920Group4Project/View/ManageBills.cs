@@ -114,6 +114,11 @@ namespace CS6920Group4Project.View
 
         private void ManageBills_Load(object sender, EventArgs e)
         {
+            this.buildView();
+        }
+
+        private void buildView()
+        {
             dgBills.ColumnCount = 6;
 
             dgBills.Columns[0].Name = "Record ID";
@@ -124,6 +129,9 @@ namespace CS6920Group4Project.View
             dgBills.Columns[5].Name = "Date Paid";
             dgBills.Columns[4].ReadOnly = true;
             dgBills.Columns[5].ReadOnly = true;
+            dgBills.Columns[3].DefaultCellStyle.Format = "c";
+            dgBills.Columns[4].DefaultCellStyle.Format = "d";
+            dgBills.Columns[5].DefaultCellStyle.Format = "d";
             
 
             foreach (Bill b in Session.SessionInformation.GetBudget().Bills)
@@ -199,13 +207,29 @@ namespace CS6920Group4Project.View
 
         private void AddRowToDataGrid(Bill b)
         {
+            String sDatePaid;
+            DateTime billDatePaid;
+
+            if (b.DatePaid != null)
+            {
+                billDatePaid = Convert.ToDateTime(b.DatePaid);
+                sDatePaid = billDatePaid.ToShortDateString();
+            }
+            else
+            {
+                sDatePaid = null;
+            }
+            
             string[] row = new string[] { 
                     b.ID.ToString(), 
                     b.Title, 
                     (String.IsNullOrEmpty(b.Description)) ? "" : b.Description,
-                    StringUtilities.Get4PointDecimal(b.Amount),
-                    b.DateDue.ToString(),
-                    b.DatePaid.ToString()
+                    // StringUtilities.Get4PointDecimal(b.Amount),
+                    // b.DateDue.ToString(),
+                    // b.DatePaid.ToString()
+                    StringUtilities.GetDisplayableDollarAmount(b.Amount),
+                    b.DateDue.ToShortDateString(),
+                    sDatePaid                    
                 };
             dgBills.Rows.Add(row);
         }

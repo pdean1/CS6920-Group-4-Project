@@ -21,6 +21,8 @@ namespace CS6920Group4Project.View
         private String expenseTitle;
         private DataTable table;
         private BindingSource bSource;
+        private Expense selectedExpense;
+
 
         private MySqlDataAdapter mySqlDataAdapter;
 
@@ -161,8 +163,11 @@ namespace CS6920Group4Project.View
                 dataGridView1.Columns[3].Width = 175;
                 dataGridView1.Columns[3].Selected = false;
                 dataGridView1.Columns[4].Width = 200;
+                dataGridView1.Columns[5].DefaultCellStyle.Format = "c";
                 dataGridView1.Columns[6].ReadOnly = true;
+                dataGridView1.Columns[6].DefaultCellStyle.Format = "d";
                 dataGridView1.Columns[7].ReadOnly = true;
+                dataGridView1.Columns[7].DefaultCellStyle.Format = "d";
 
                 dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
@@ -206,6 +211,8 @@ namespace CS6920Group4Project.View
             if (e.ColumnIndex == 5)
             {
                 MessageBox.Show("Invalid Amount!");
+                this.refreshView();
+                this.getExpenselist();
                 e.ThrowException = false;
                 return;
                 
@@ -220,7 +227,7 @@ namespace CS6920Group4Project.View
                 string value = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
                 if (!String.IsNullOrEmpty(value))
                 {
-                    Expense selectedExpense = null;
+                    selectedExpense = null;
                     try
                     {
                         selectedExpense = Session.SessionInformation.GetBudget().
@@ -248,6 +255,7 @@ namespace CS6920Group4Project.View
                         {
                             MessageBox.Show("Invalid amount: " + sendAmount);
                             dataGridView1.Rows[e.RowIndex].Cells[5].Value = Utilities.StringUtilities.Get4PointDecimal(selectedExpense.Amount);
+                            dataGridView1.Refresh();
                             return;
                         }
 

@@ -156,8 +156,11 @@ namespace CS6920Group4Project.View
                 earnGridView.Columns[3].Width = 175;
                 earnGridView.Columns[3].Selected = false;
                 earnGridView.Columns[4].Width = 200;
+                earnGridView.Columns[5].DefaultCellStyle.Format = "c";
                 earnGridView.Columns[6].ReadOnly = true;
+                earnGridView.Columns[6].DefaultCellStyle.Format = "d";
                 earnGridView.Columns[7].ReadOnly = true;
+                earnGridView.Columns[7].DefaultCellStyle.Format = "d";
 
                 earnGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
@@ -202,6 +205,8 @@ namespace CS6920Group4Project.View
             if (e.ColumnIndex == 5)
             {
                 MessageBox.Show("Invalid Amount!");
+                this.refreshView();
+                this.populateGridView();
                 e.ThrowException = false;
                 return;
             }
