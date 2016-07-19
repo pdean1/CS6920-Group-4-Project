@@ -23,12 +23,6 @@ namespace CS6920Group4Project.View
             tbPassword.PasswordChar = '●';
         }
 
-        private void WelcomeScreen_Load(object sender, EventArgs e)
-        {
-            this.Show();                                    // code added for guestLogin
-            this.guestLogin();                              // code added for guestLogin
-        }
-
         private void btnLogIn_Click(object sender, EventArgs e)
         {
             String username = tbUserName.Text;
@@ -72,25 +66,17 @@ namespace CS6920Group4Project.View
 
         void otherForm_FormClosed(object sender, FormClosedEventArgs e)
         {
+            tbUserName.Text = "";
+            tbPassword.Text = "";
             this.Show();
         }
 
-        private void guestLogin()                      // code added for guestLogin
+        private void btnSignInGuestUser_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Do you want to Login as a Guest to use the sandbox version of the BudgetBuddy application?"
-                                                 , "LOGIN"
-                                                 , MessageBoxButtons.YesNo
-                                                 , MessageBoxIcon.Question);
-            if (result == DialogResult.Yes)
-            {
-                tbUserName.Text = "guest";
-                tbPassword.Text = "guest";
-            }
-            else if (result == DialogResult.No)
-            {
-                tbUserName.Text = "";
-                tbPassword.Text = "";
-            }
+            tbUserName.Text = "guest";
+            tbPassword.Text = "guest";
+
+            btnLogIn_Click(sender, e);
         }
 
     }

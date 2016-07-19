@@ -35,6 +35,7 @@
             this.llCreateAccount = new System.Windows.Forms.LinkLabel();
             this.userLbl = new System.Windows.Forms.Label();
             this.PassLbl = new System.Windows.Forms.Label();
+            this.btnSignInGuestUser = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // tbUserName
@@ -56,11 +57,11 @@
             this.btnLogIn.BackColor = System.Drawing.Color.ForestGreen;
             this.btnLogIn.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogIn.ForeColor = System.Drawing.Color.MintCream;
-            this.btnLogIn.Location = new System.Drawing.Point(658, 552);
+            this.btnLogIn.Location = new System.Drawing.Point(721, 552);
             this.btnLogIn.Name = "btnLogIn";
-            this.btnLogIn.Size = new System.Drawing.Size(103, 34);
+            this.btnLogIn.Size = new System.Drawing.Size(125, 34);
             this.btnLogIn.TabIndex = 3;
-            this.btnLogIn.Text = "Submit";
+            this.btnLogIn.Text = "Sign in";
             this.btnLogIn.UseVisualStyleBackColor = false;
             this.btnLogIn.Click += new System.EventHandler(this.btnLogIn_Click);
             // 
@@ -102,6 +103,19 @@
             this.PassLbl.TabIndex = 7;
             this.PassLbl.Text = "Password:";
             // 
+            // btnSignInGuestUser
+            // 
+            this.btnSignInGuestUser.BackColor = System.Drawing.Color.Goldenrod;
+            this.btnSignInGuestUser.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSignInGuestUser.ForeColor = System.Drawing.Color.MintCream;
+            this.btnSignInGuestUser.Location = new System.Drawing.Point(551, 552);
+            this.btnSignInGuestUser.Name = "btnSignInGuestUser";
+            this.btnSignInGuestUser.Size = new System.Drawing.Size(125, 34);
+            this.btnSignInGuestUser.TabIndex = 8;
+            this.btnSignInGuestUser.Text = "Sign in as Guest";
+            this.btnSignInGuestUser.UseVisualStyleBackColor = false;
+            this.btnSignInGuestUser.Click += new System.EventHandler(this.btnSignInGuestUser_Click);
+            // 
             // WelcomeScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -109,6 +123,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1384, 762);
+            this.Controls.Add(this.btnSignInGuestUser);
             this.Controls.Add(this.PassLbl);
             this.Controls.Add(this.userLbl);
             this.Controls.Add(this.llCreateAccount);
@@ -119,7 +134,6 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "WelcomeScreen";
             this.Text = "Budget Buddy";
-            this.Load += new System.EventHandler(this.WelcomeScreen_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -133,5 +147,6 @@
         private System.Windows.Forms.LinkLabel llCreateAccount;
         private System.Windows.Forms.Label userLbl;
         private System.Windows.Forms.Label PassLbl;
+        private System.Windows.Forms.Button btnSignInGuestUser;
     }
 }
