@@ -1,13 +1,7 @@
-﻿using CS6920Group4Project.DAL;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
 
 using MySql.Data.MySqlClient;
 using CS6920Group4Project.Model;
-using System.Windows.Forms;
 using CS6920Group4Project.Utilities;
 namespace CS6920Group4Project.DAL.Model
 {
@@ -43,7 +37,7 @@ namespace CS6920Group4Project.DAL.Model
                 command.Parameters.AddWithValue("@FirstName", user.FirstName);
                 command.Parameters.AddWithValue("@LastName", user.LastName);
                 command.Parameters.AddWithValue("@UserName", user.UserName);
-                command.Parameters.AddWithValue("@Password", user.Password);
+                command.Parameters.AddWithValue("@Password", Utilities.PasswordEncryption.CreateHash(user.UserName + user.Password));
                 command.Parameters.AddWithValue("@DateCreated", DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss"));
                 command.ExecuteNonQuery();
                 id = command.LastInsertedId;
@@ -62,7 +56,7 @@ namespace CS6920Group4Project.DAL.Model
 
         private const string LogInQuery = "SELECT `users`.`UserID`, `users`.`FirstName`, `users`.`LastName`, `users`.`UserName`," +
             " `users`.`Password`, `users`.`DateCreated`, `users`.`DateUpdated` FROM `sql5123046`.`users` WHERE `users`.`UserName`" + 
-            " = @UserName AND `users`.`Password` = @Password;";
+            " = @UserName";
 
         /// <summary>
         /// Attempts to retrieve and log in a user based on the supplied credentials (username and password)
@@ -81,7 +75,6 @@ namespace CS6920Group4Project.DAL.Model
                 command.CommandText = LogInQuery;
                 command.Prepare();
                 command.Parameters.AddWithValue("@UserName", UserName);
-                command.Parameters.AddWithValue("@Password", Password);
                 using (MySqlDataReader reader = command.ExecuteReader())
                 {
 					if (reader.Read())
@@ -100,6 +93,10 @@ namespace CS6920Group4Project.DAL.Model
                         {
                             user.DateUpdated = null;
                         }						
+                        if (Utilities.PasswordEncryption.ValidatePassword(UserName + Password, user.Password) == false)
+                        {
+                            user = null;
+                        }
 					}
 					else
 						user = null;
