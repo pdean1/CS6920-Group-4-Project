@@ -1,4 +1,4 @@
-INSERT INTO `sql5123046`.`users` (`FirstName`, `LastName`, `UserName`, `Password`, `DateCreated`) VALUES ('Guest', 'User', 'guest', 'guest', '2016-06-15');
+INSERT INTO `sql5123046`.`users` (`FirstName`, `LastName`, `UserName`, `Password`, `DateCreated`) VALUES ('Guest', 'User', 'guest', '1000:3dki5MOtE9ipOajrvJxWeooHJivqufJW:TnxTQ+3m++F6lE6gLVv1I6nW46xwSnQz', '2016-06-15');
 INSERT INTO `sql5123046`.`budgets` (`UserID`, `Title`, `Description`, `DateCreated`) VALUES ('1', 'June 2016', 'June 2016 Guest Test Budget', '2016-06-01');
 INSERT INTO `sql5123046`.`records` (`BudgetID`, `RecordType`, `Title`, `Description`, `DateCreated`) VALUES ('1', 'E', 'Paycheck', '1st of the month', '2016-06-01');
 INSERT INTO `sql5123046`.`records` (`BudgetID`, `RecordType`, `Title`, `DateCreated`) VALUES ('1', 'X', 'Groceries', '2016-06-03');

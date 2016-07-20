@@ -59,6 +59,7 @@
     <Compile Include="DALTests\ModelTests\UserDALTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SessionTests\SessionInformationTests.cs" />
+    <Compile Include="UtilityTests\PasswordEncryptionTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CS6920Group4Project\CS6920Group4Project.csproj">

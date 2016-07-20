@@ -69,6 +69,7 @@
     <Compile Include="Session\SessionInformation.cs" />
     <Compile Include="Utilities\CsvExport.cs" />
     <Compile Include="Utilities\DatabaseErrorMessageUtility.cs" />
+    <Compile Include="Utilities\PasswordEncryption.cs" />
     <Compile Include="Utilities\StringUtilities.cs" />
     <Compile Include="View\BudgetPickerForm.cs">
       <SubType>Form</SubType>
