@@ -1,10 +1,7 @@
-﻿using CS6920Group4Project.Model;
+﻿using CS6920Group4Project.Controller;
+using CS6920Group4Project.Model;
 using CS6920Group4Project.Utilities;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CS6920Group4Project.Session
@@ -25,6 +22,11 @@ namespace CS6920Group4Project.Session
         private static Budget _Budget;
 
         /// <summary>
+        /// This is a list of budgets the User has access to
+        /// </summary>
+        private static List<Budget> _Budgets;
+
+        /// <summary>
         /// The next to static variables are related to the MyBudgetForm's Session Labels.
         /// These two labels will display the username and income remaining for the application.
         /// If more labels are needed declare them here
@@ -33,6 +35,10 @@ namespace CS6920Group4Project.Session
         /// </summary>
         private static Label _LBLUserName;
         private static Label _LBLIncomeRemaining;
+
+        private static ComboBox _CBBudgets;
+        private static Button _BTNSelectBudget;
+        private static Button _BTNDeleteBudget;
 
         /// <summary>
         /// Retrieves the session user from session
@@ -71,6 +77,24 @@ namespace CS6920Group4Project.Session
         }
 
         /// <summary>
+        /// Gets the list of budgets loaded into session
+        /// </summary>
+        /// <returns>A list of budgets that was loaded into session</returns>
+        public static List<Budget> GetBudgets()
+        {
+            return _Budgets;
+        }
+
+        /// <summary>
+        /// Sets the list of budgets loaded into session
+        /// </summary>
+        /// <param name="budgets">List of budgets to set the budgets equal to</param>
+        public static void SetBudgets(List<Budget> budgets)
+        {
+            _Budgets = budgets;
+        }
+
+        /// <summary>
         /// Sets the UserName Session Label
         /// </summary>
         /// <param name="lblUserName">Label for the User's Name</param>
@@ -86,6 +110,47 @@ namespace CS6920Group4Project.Session
         public static void SetIncomeRemainingSessionLabel(Label lblIncomeRemaining)
         {
             _LBLIncomeRemaining = lblIncomeRemaining;
+        }
+
+        public static void SetBudgetPickerArea(ComboBox cbBudgets, Button btnSelect, Button btnDelete)
+        {
+            _CBBudgets = cbBudgets;
+            _BTNSelectBudget = btnSelect;
+            _BTNDeleteBudget = btnDelete;
+        }
+
+        public static void RefreshBudgetPickerArea()
+        {
+            Session.SessionInformation.SetBudgets(BudgetController.Instance.GetUsersBudgets(Session.SessionInformation.GetSessionUser().ID));
+            if (Session.SessionInformation.GetBudgets().Count != 0)
+            {
+                _CBBudgets.DataSource = Session.SessionInformation.GetBudgets();
+                _CBBudgets.ValueMember = "ID";
+                _CBBudgets.DisplayMember = "Title";
+                _CBBudgets.Enabled = true;
+                _BTNDeleteBudget.Enabled = true;
+                _BTNSelectBudget.Enabled = true;
+                Session.SessionInformation.SetCurrentBudget(Session.SessionInformation.GetBudgets()[_CBBudgets.SelectedIndex]);
+                if (!BudgetController.Instance.PopulateBudgetWithRecords(Session.SessionInformation.GetBudget()))
+                {
+                    MessageBox.Show("Unable to populate budget with it's records.");
+                    return;
+                }
+            }
+            else
+            {
+                _CBBudgets.DataSource = null;
+                _CBBudgets.Items.Add("Add a budget first");
+                _CBBudgets.SelectedIndex = 0;
+                _CBBudgets.Enabled = false;
+                _BTNDeleteBudget.Enabled = false;
+                _BTNSelectBudget.Enabled = false;
+                Budget budget = new Budget();
+                budget.Bills = new List<Bill>();
+                budget.Expenses = new List<Expense>();
+                budget.Earnings = new List<Earning>();
+                Session.SessionInformation.SetCurrentBudget(budget);
+            }
         }
 
         /// <summary>

@@ -17,10 +17,6 @@ namespace CS6920Group4Project.View
         
         BudgetView budView;
 
-        private List<Budget> _budgets;
-
-        private Boolean thereIsExistingBudgets;
-
         private const int Dashboard = 0,
                           ManageEarning = 1,
                           ManageExpense = 2,
@@ -30,6 +26,8 @@ namespace CS6920Group4Project.View
         public MyBudgetForm()
         {
             InitializeComponent();
+
+            Session.SessionInformation.SetBudgetPickerArea(cbBudgets, btnSelect, btnDelete);
 
             UpdateBudgets();
 
@@ -188,44 +186,12 @@ namespace CS6920Group4Project.View
 
         private void UpdateBudgets()
         {
-            _budgets = // Populating a list of the signed in user's budgets
-                BudgetController.Instance.GetUsersBudgets(Session.SessionInformation.GetSessionUser().ID);
-            if (_budgets.Count != 0)
-            {
-                cbBudgets.DataSource = _budgets;
-                cbBudgets.ValueMember = "ID";
-                cbBudgets.DisplayMember = "Title";
-                cbBudgets.Enabled = true;
-                btnDelete.Enabled = true;
-                btnSelect.Enabled = true;
-                thereIsExistingBudgets = true;
-                Session.SessionInformation.SetCurrentBudget(_budgets[cbBudgets.SelectedIndex]);
-                if (!BudgetController.Instance.PopulateBudgetWithRecords(Session.SessionInformation.GetBudget()))
-                {
-                    MessageBox.Show("Unable to populate budget with it's records.");
-                    return;
-                }
-            }
-            else
-            {
-                cbBudgets.DataSource = null;
-                cbBudgets.Items.Add("Add a budget first");
-                cbBudgets.SelectedIndex = 0;
-                cbBudgets.Enabled = false;
-                btnDelete.Enabled = false;
-                btnSelect.Enabled = false;
-                thereIsExistingBudgets = false;
-                Budget budget = new Budget();
-                budget.Bills = new List<Bill>();
-                budget.Expenses = new List<Expense>();
-                budget.Earnings = new List<Earning>();
-                Session.SessionInformation.SetCurrentBudget(budget);
-            }
+            Session.SessionInformation.RefreshBudgetPickerArea();
         }
 
         private void btnSelect_Click(object sender, EventArgs e)
         {
-            Session.SessionInformation.SetCurrentBudget(_budgets[cbBudgets.SelectedIndex]);
+            Session.SessionInformation.SetCurrentBudget(Session.SessionInformation.GetBudgets()[cbBudgets.SelectedIndex]);
             if (!BudgetController.Instance.PopulateBudgetWithRecords(Session.SessionInformation.GetBudget()))
             {
                 MessageBox.Show("Unable to populate budget with it's records.");
@@ -237,11 +203,11 @@ namespace CS6920Group4Project.View
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            if (!thereIsExistingBudgets)
+            if (Session.SessionInformation.GetBudgets().Count == 0)
             {
                 return;
             }
-            DialogResult result = MessageBox.Show("Do you want to delete Budget " + _budgets[cbBudgets.SelectedIndex].Title,
+            DialogResult result = MessageBox.Show("Do you want to delete Budget " + Session.SessionInformation.GetBudgets()[cbBudgets.SelectedIndex].Title,
                 "Delete Budget",
                 MessageBoxButtons.YesNo,
                 MessageBoxIcon.Question);
@@ -249,7 +215,7 @@ namespace CS6920Group4Project.View
             {
                 return;
             }
-            int id = _budgets[cbBudgets.SelectedIndex].ID;
+            int id = Session.SessionInformation.GetBudgets()[cbBudgets.SelectedIndex].ID;
             if (BudgetController.Instance.DeleteBudget(id))
             {
                 MessageBox.Show("Budget Deleted!");

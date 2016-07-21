@@ -221,6 +221,7 @@ namespace CS6920Group4Project.View
                 MessageBox.Show("Update was completed!");
                 Session.SessionInformation.GetBudget().Title = budget.Title;
                 Session.SessionInformation.GetBudget().Description = budget.Description;
+                Session.SessionInformation.RefreshBudgetPickerArea();
             }
             else
             {
