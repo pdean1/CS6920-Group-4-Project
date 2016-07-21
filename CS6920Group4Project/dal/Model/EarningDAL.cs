@@ -39,12 +39,10 @@ namespace CS6920Group4Project.DAL.Model
                 }
                 catch (MySqlException e)
                 {
-                    DatabaseErrorMessageUtility.SendMessageToUser("Unable to insert earning into the database.", e);
                     return 0;
                 }
                 catch (Exception e)
                 {
-                    DatabaseErrorMessageUtility.SendMessageToUser("Unable to insert earning into the database.", e);
                     return 0;
                 }
                 finally
@@ -99,14 +97,10 @@ namespace CS6920Group4Project.DAL.Model
             catch (MySqlException e)
             {
                 earnings = null;
-                DatabaseErrorMessageUtility.SendMessageToUser(
-                    "Unable to query for earnings in the database.", e);
             }
             catch (Exception e)
             {
                 earnings = null;
-                DatabaseErrorMessageUtility.SendMessageToUser(
-                    "Unable to query for earnings in the database.", e);
             }
             finally
             {
@@ -156,11 +150,10 @@ namespace CS6920Group4Project.DAL.Model
             catch (MySqlException ex)
             {
                 trans.Rollback();
-                DatabaseErrorMessageUtility.SendMessageToUser("Unable to update Database with Earnings.", ex);
             }
             catch (Exception ex)
             {
-                DatabaseErrorMessageUtility.SendMessageToUser("Unable to update Database with Earnings.", ex);
+                trans.Rollback();
             }
             finally
             {
@@ -187,11 +180,11 @@ namespace CS6920Group4Project.DAL.Model
             }
             catch (MySqlException ex)
             {
-                DatabaseErrorMessageUtility.SendMessageToUser("Unable to query for earnings view in the database.", ex);
+                return null;
             }
             catch (Exception ex)
             {
-                DatabaseErrorMessageUtility.SendMessageToUser("Unable to query for earnings view in the database.", ex);
+                return null;
             }
             finally
             {
@@ -233,16 +226,13 @@ namespace CS6920Group4Project.DAL.Model
             }
             catch (MySqlException e)
             {
-                DatabaseErrorMessageUtility.SendMessageToUser(
-                    "Unable to query for delete Earning in the database.", e);
+                delEarningTran.Rollback();
+                return false;
             }
             catch (Exception e)
-            {
-                if (delEarningTran != null)
-                    delEarningTran.Rollback();
-
-                DatabaseErrorMessageUtility.SendMessageToUser(
-                    "Unable to query for delete Earning in the database.", e);
+            { 
+                delEarningTran.Rollback();
+                return false;
             }
             finally
             {

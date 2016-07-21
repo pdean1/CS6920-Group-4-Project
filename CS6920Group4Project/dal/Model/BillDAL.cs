@@ -48,12 +48,10 @@ namespace CS6920Group4Project.DAL.Model
             }
             catch (MySqlException e)
             {
-                DatabaseErrorMessageUtility.SendMessageToUser("Problem adding Record information to the database.", e);
                 return 0;
             }
             catch (Exception e)
             {
-                DatabaseErrorMessageUtility.SendMessageToUser("Problem adding Record information to the database.", e);
                 return 0;
             }
             finally
@@ -114,15 +112,10 @@ namespace CS6920Group4Project.DAL.Model
             }
             catch(MySqlException e)
             {
-                DatabaseErrorMessageUtility.SendMessageToUser(
-                    "Unable to query for bills in the database.", e);
                 bills = null;
             }
             catch (Exception e)
-            {
-                DatabaseErrorMessageUtility.SendMessageToUser(
-                    "Unable to query for bills in the database.", e);
-                bills = null;
+            {   bills = null;
             }
             finally
             {
@@ -179,11 +172,10 @@ namespace CS6920Group4Project.DAL.Model
             catch (MySqlException ex)
             {
                 trans.Rollback();
-                DatabaseErrorMessageUtility.SendMessageToUser("Unable to update Database with Bills.", ex);
             }
             catch (Exception ex)
             {
-                DatabaseErrorMessageUtility.SendMessageToUser("Unable to update Database with Bills.", ex);
+                trans.Rollback();
             }
             finally
             {

@@ -95,8 +95,11 @@ namespace CS6920Group4Project.Session
         {
             _LBLUserName.Text = Session.SessionInformation.GetSessionUser().FirstName
                 + " " + Session.SessionInformation.GetSessionUser().LastName; ;
-            _LBLIncomeRemaining.Text = StringUtilities.GetDisplayableDollarAmount(
-                GetBudget().GetTotalAmountOfEarnings() - (GetBudget().GetTotalAmountOfBills() + GetBudget().GetTotalAmountOfExpenses()));
+            if (Session.SessionInformation.GetBudget() == null)
+                _LBLIncomeRemaining.Text = StringUtilities.GetDisplayableDollarAmount(0);
+            else
+                _LBLIncomeRemaining.Text = StringUtilities.GetDisplayableDollarAmount(
+                    GetBudget().GetTotalAmountOfEarnings() - (GetBudget().GetTotalAmountOfBills() + GetBudget().GetTotalAmountOfExpenses()));
         }
 
         /// <summary>

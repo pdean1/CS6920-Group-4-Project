@@ -60,12 +60,10 @@ namespace CS6920Group4Project.DAL.Model
             }
             catch (MySqlException e)
             {
-                DatabaseErrorMessageUtility.SendMessageToUser("Unable to query for users in the database.", e);
                 budgets = null;
             }
             catch (Exception e)
             {
-                DatabaseErrorMessageUtility.SendMessageToUser("Unable to query for users in the database.", e);
                 budgets = null;
             }
             finally
@@ -113,11 +111,10 @@ namespace CS6920Group4Project.DAL.Model
             catch (MySqlException ex)
             {
                 trans.Rollback();
-                DatabaseErrorMessageUtility.SendMessageToUser("Unable to update Database with Budgets.", ex);
             }
             catch (Exception ex)
             {
-                DatabaseErrorMessageUtility.SendMessageToUser("Unable to update Database with Budgets.", ex);
+                trans.Rollback();
             }
             finally
             {
@@ -147,12 +144,10 @@ namespace CS6920Group4Project.DAL.Model
                 }
                 catch (MySqlException e)
                 {
-                    DatabaseErrorMessageUtility.SendMessageToUser("Unable to delete budget in the database.", e);
                     success = false;
                 }
                 catch (Exception e)
                 {
-                    DatabaseErrorMessageUtility.SendMessageToUser("Unable to delete budget in the database.", e);
                     success = false;
                 }
                 finally
@@ -189,12 +184,10 @@ namespace CS6920Group4Project.DAL.Model
                 }
                 catch (MySqlException e)
                 {
-                    DatabaseErrorMessageUtility.SendMessageToUser("Unable to add Budget in the database.", e);
                     return false;
                 }
                 catch (Exception e)
                 {
-                    DatabaseErrorMessageUtility.SendMessageToUser("Unable to add Budget in the database.", e);
                     return false;
                 }
                 finally

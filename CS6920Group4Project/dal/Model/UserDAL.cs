@@ -44,7 +44,6 @@ namespace CS6920Group4Project.DAL.Model
             }
             catch (MySqlException exception)
             {
-                DatabaseErrorMessageUtility.SendMessageToUser("Problem adding user to the database.", exception);
                 id = 0;
             }
             finally
@@ -106,12 +105,10 @@ namespace CS6920Group4Project.DAL.Model
             }
             catch (MySqlException e)
             {
-                DatabaseErrorMessageUtility.SendMessageToUser("Unable to query for users in the database.", e);
                 user = null;
             }
             catch (Exception e)
             {
-                DatabaseErrorMessageUtility.SendMessageToUser("Unable to query for users in the database.", e);
                 user = null;
             }
             finally 

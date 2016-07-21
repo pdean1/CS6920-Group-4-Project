@@ -40,12 +40,10 @@ namespace CS6920Group4Project.DAL.Model
                 }
                 catch (MySqlException e)
                 {
-                    DatabaseErrorMessageUtility.SendMessageToUser("Unable to query for expenses in the database.", e);
                     return 0;
                 }
                 catch (Exception e)
                 {
-                    DatabaseErrorMessageUtility.SendMessageToUser("Unable to query for expenses in the database.", e);
                     return 0;
                 }
                 finally
@@ -104,14 +102,10 @@ namespace CS6920Group4Project.DAL.Model
             catch (MySqlException e)
             {
                 expenses = null;
-                DatabaseErrorMessageUtility.SendMessageToUser(
-                    "Unable to query for expenses in the database.", e);
             }
             catch (Exception e)
             {
                 expenses = null;
-                DatabaseErrorMessageUtility.SendMessageToUser(
-                    "Unable to query for expenses in the database.", e);
             }
             finally
             {
@@ -158,11 +152,10 @@ namespace CS6920Group4Project.DAL.Model
             catch (MySqlException ex)
             {
                 trans.Rollback();
-                DatabaseErrorMessageUtility.SendMessageToUser("Unable to update Database with Expenses.", ex);
             }
             catch (Exception ex)
             {
-                DatabaseErrorMessageUtility.SendMessageToUser("Unable to update Database with Expenses.", ex);
+                trans.Rollback();
             }
             finally
             {
@@ -192,13 +185,11 @@ namespace CS6920Group4Project.DAL.Model
             }
             catch (MySqlException e)
             {
-                DatabaseErrorMessageUtility.SendMessageToUser(
-                    "Unable to query for expense view in the database.", e);
+                return null;
             }
             catch (Exception e)
             {
-                DatabaseErrorMessageUtility.SendMessageToUser(
-                    "Unable to query for expense view in the database.", e);
+                return null;
             }
             finally
             {
@@ -243,16 +234,11 @@ namespace CS6920Group4Project.DAL.Model
             }
             catch (MySqlException e)
             {
-                DatabaseErrorMessageUtility.SendMessageToUser(
-                    "Unable to query for delete expense in the database.", e);
+                delExpenseTran.Rollback();
             }
             catch (Exception e)
             {
-                if (delExpenseTran != null)
-                    delExpenseTran.Rollback();
-
-                DatabaseErrorMessageUtility.SendMessageToUser(
-                    "Unable to query for delete expense in the database.", e);
+                delExpenseTran.Rollback();
             }
             finally
             {

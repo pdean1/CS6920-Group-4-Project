@@ -41,7 +41,7 @@ namespace CS6920Group4Project.View
             Boolean findUser = UserController.Instance.Login(username, password);
             if (findUser == true)
             {
-                Form bpForm = new BudgetPickerForm();
+                Form bpForm = new MyBudgetForm();
                 bpForm.FormClosed += new FormClosedEventHandler(otherForm_FormClosed);
                 this.Hide();
                 bpForm.Show();
