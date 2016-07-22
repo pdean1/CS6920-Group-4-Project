@@ -221,6 +221,7 @@ namespace CS6920Group4Project.View
                 MessageBox.Show("Budget Deleted!");
             }
             UpdateBudgets();
+            Session.SessionInformation.RefreshSessionLabels();
             UpdateTab();
         }
 
