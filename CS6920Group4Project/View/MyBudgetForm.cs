@@ -224,5 +224,10 @@ namespace CS6920Group4Project.View
             UpdateTab();
         }
 
+        private void MainMenuStrip_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
     }
 }
