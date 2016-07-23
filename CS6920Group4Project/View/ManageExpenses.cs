@@ -265,9 +265,12 @@ namespace CS6920Group4Project.View
             String title = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
             String desc = dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString();
             String sendAmount = dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString();
+            String newDate = dataGridView1.Rows[e.RowIndex].Cells[6].Value.ToString();
 
             selectedExpense.Title = title;
             selectedExpense.Description = desc;
+            selectedExpense.DateSpent = Convert.ToDateTime(newDate);
+
             try
             {
                 Decimal d = Convert.ToDecimal(sendAmount);
