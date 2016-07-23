@@ -336,8 +336,9 @@ namespace CS6920Group4Project.View
             // Intially made it invisible
             oDateTimePicker.Visible = false;
 
-            // Setting the format (i.e. 2014-10-10)
-            oDateTimePicker.Format = DateTimePickerFormat.Short;  //
+            // Setting the format
+            oDateTimePicker.Format = DateTimePickerFormat.Custom;
+            oDateTimePicker.CustomFormat = "MM-dd-yyyy";
             
             oDateTimePicker.Value = Convert.ToDateTime(dataGridView1.Rows[e.RowIndex].Cells[6].Value.ToString());
             
