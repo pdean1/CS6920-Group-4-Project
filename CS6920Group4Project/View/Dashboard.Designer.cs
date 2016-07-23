@@ -47,9 +47,11 @@
             this.label2 = new System.Windows.Forms.Label();
             this.statisticsChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label9 = new System.Windows.Forms.Label();
             this.budgetEditBtn = new System.Windows.Forms.Button();
             this.budgetDescBox = new System.Windows.Forms.TextBox();
             this.budgetTitleBox = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.dgDueBills = new System.Windows.Forms.DataGridView();
             this.label7 = new System.Windows.Forms.Label();
@@ -76,14 +78,15 @@
             this.eightBtn = new System.Windows.Forms.Button();
             this.sevenBtn = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.quoteTxt = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.percentageCht)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.statisticsChart)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgDueBills)).BeginInit();
             this.panel3.SuspendLayout();
+            this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // percentageCht
@@ -121,7 +124,7 @@
             this.lblBillAmount.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblBillAmount.AutoSize = true;
             this.lblBillAmount.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBillAmount.Location = new System.Drawing.Point(163, 207);
+            this.lblBillAmount.Location = new System.Drawing.Point(163, 215);
             this.lblBillAmount.Name = "lblBillAmount";
             this.lblBillAmount.Size = new System.Drawing.Size(60, 23);
             this.lblBillAmount.TabIndex = 9;
@@ -132,7 +135,7 @@
             this.lblExpenseAmount.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblExpenseAmount.AutoSize = true;
             this.lblExpenseAmount.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblExpenseAmount.Location = new System.Drawing.Point(163, 176);
+            this.lblExpenseAmount.Location = new System.Drawing.Point(163, 184);
             this.lblExpenseAmount.Name = "lblExpenseAmount";
             this.lblExpenseAmount.Size = new System.Drawing.Size(60, 23);
             this.lblExpenseAmount.TabIndex = 8;
@@ -143,7 +146,7 @@
             this.lblIncomeAmount.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblIncomeAmount.AutoSize = true;
             this.lblIncomeAmount.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIncomeAmount.Location = new System.Drawing.Point(163, 140);
+            this.lblIncomeAmount.Location = new System.Drawing.Point(163, 148);
             this.lblIncomeAmount.Name = "lblIncomeAmount";
             this.lblIncomeAmount.Size = new System.Drawing.Size(60, 23);
             this.lblIncomeAmount.TabIndex = 7;
@@ -169,7 +172,7 @@
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.DarkGreen;
-            this.label5.Location = new System.Drawing.Point(91, 205);
+            this.label5.Location = new System.Drawing.Point(91, 213);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(45, 23);
             this.label5.TabIndex = 5;
@@ -182,7 +185,7 @@
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.DarkGreen;
-            this.label4.Location = new System.Drawing.Point(61, 174);
+            this.label4.Location = new System.Drawing.Point(61, 182);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(86, 23);
             this.label4.TabIndex = 4;
@@ -195,7 +198,7 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.DarkGreen;
-            this.label3.Location = new System.Drawing.Point(75, 138);
+            this.label3.Location = new System.Drawing.Point(75, 146);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(73, 23);
             this.label3.TabIndex = 3;
@@ -208,7 +211,7 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.DarkGreen;
-            this.label2.Location = new System.Drawing.Point(13, 74);
+            this.label2.Location = new System.Drawing.Point(13, 71);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(118, 23);
             this.label2.TabIndex = 2;
@@ -226,7 +229,7 @@
             this.statisticsChart.ChartAreas.Add(chartArea2);
             legend2.Name = "Legend1";
             this.statisticsChart.Legends.Add(legend2);
-            this.statisticsChart.Location = new System.Drawing.Point(11, 234);
+            this.statisticsChart.Location = new System.Drawing.Point(11, 238);
             this.statisticsChart.Name = "statisticsChart";
             this.statisticsChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Pastel;
             series2.ChartArea = "ChartArea1";
@@ -261,6 +264,17 @@
             this.panel1.Size = new System.Drawing.Size(335, 465);
             this.panel1.TabIndex = 13;
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.DarkGreen;
+            this.label9.Location = new System.Drawing.Point(13, 92);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(162, 23);
+            this.label9.TabIndex = 16;
+            this.label9.Text = "Budget Description:";
+            // 
             // budgetEditBtn
             // 
             this.budgetEditBtn.Location = new System.Drawing.Point(278, 116);
@@ -285,12 +299,25 @@
             this.budgetTitleBox.Size = new System.Drawing.Size(100, 20);
             this.budgetTitleBox.TabIndex = 13;
             // 
+            // label1
+            // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Calibri", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.DarkGreen;
+            this.label1.Location = new System.Drawing.Point(11, 12);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(306, 33);
+            this.label1.TabIndex = 12;
+            this.label1.Text = "Current Budget Dashboard";
+            // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
             this.panel2.Controls.Add(this.dgDueBills);
             this.panel2.Controls.Add(this.label7);
-            this.panel2.Location = new System.Drawing.Point(354, 13);
+            this.panel2.Location = new System.Drawing.Point(360, 13);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(331, 465);
             this.panel2.TabIndex = 14;
@@ -342,9 +369,9 @@
             this.panel3.Controls.Add(this.nineBtn);
             this.panel3.Controls.Add(this.eightBtn);
             this.panel3.Controls.Add(this.sevenBtn);
-            this.panel3.Location = new System.Drawing.Point(715, 30);
+            this.panel3.Location = new System.Drawing.Point(703, 25);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(233, 248);
+            this.panel3.Size = new System.Drawing.Size(233, 253);
             this.panel3.TabIndex = 15;
             // 
             // valueLbl
@@ -576,34 +603,35 @@
             // 
             this.panel4.BackgroundImage = global::CS6920Group4Project.Properties.Resources.QuoteBox;
             this.panel4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel4.Location = new System.Drawing.Point(715, 306);
+            this.panel4.Controls.Add(this.quoteTxt);
+            this.panel4.Controls.Add(this.label10);
+            this.panel4.Location = new System.Drawing.Point(703, 306);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(239, 163);
             this.panel4.TabIndex = 16;
             // 
-            // label1
+            // label10
             // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Calibri", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.DarkGreen;
-            this.label1.Location = new System.Drawing.Point(11, 12);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(306, 33);
-            this.label1.TabIndex = 12;
-            this.label1.Text = "Current Budget Dashboard";
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Calibri", 15F);
+            this.label10.ForeColor = System.Drawing.Color.DarkGreen;
+            this.label10.Location = new System.Drawing.Point(70, 19);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(110, 24);
+            this.label10.TabIndex = 17;
+            this.label10.Text = "Savings Tips";
             // 
-            // label9
+            // quoteTxt
             // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.DarkGreen;
-            this.label9.Location = new System.Drawing.Point(13, 92);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(162, 23);
-            this.label9.TabIndex = 16;
-            this.label9.Text = "Budget Description:";
+            this.quoteTxt.BackColor = System.Drawing.Color.Ivory;
+            this.quoteTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.quoteTxt.Font = new System.Drawing.Font("Bookman Old Style", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.quoteTxt.ForeColor = System.Drawing.Color.Green;
+            this.quoteTxt.Location = new System.Drawing.Point(29, 51);
+            this.quoteTxt.Multiline = true;
+            this.quoteTxt.Name = "quoteTxt";
+            this.quoteTxt.Size = new System.Drawing.Size(184, 81);
+            this.quoteTxt.TabIndex = 19;
             // 
             // Dashboard
             // 
@@ -620,6 +648,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Dashboard";
             this.Text = "Budget Buddy Dashboard";
+            this.Load += new System.EventHandler(this.Dashboard_Load);
             ((System.ComponentModel.ISupportInitialize)(this.percentageCht)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.statisticsChart)).EndInit();
             this.panel1.ResumeLayout(false);
@@ -629,6 +658,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgDueBills)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -679,5 +710,7 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox quoteTxt;
     }
 }

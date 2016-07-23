@@ -230,5 +230,10 @@ namespace CS6920Group4Project.View
 
         }
 
+        private void lblIncomeRemainingPlaceholder_Click(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }

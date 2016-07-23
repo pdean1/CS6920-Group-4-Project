@@ -163,6 +163,7 @@
             this.lblIncomeRemainingPlaceholder.Size = new System.Drawing.Size(320, 31);
             this.lblIncomeRemainingPlaceholder.TabIndex = 6;
             this.lblIncomeRemainingPlaceholder.Text = "Income Remaining Placeholder";
+            this.lblIncomeRemainingPlaceholder.Click += new System.EventHandler(this.lblIncomeRemainingPlaceholder_Click);
             // 
             // lblUserNamePlaceholder
             // 
