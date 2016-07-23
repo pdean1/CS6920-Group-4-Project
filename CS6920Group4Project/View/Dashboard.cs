@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.IO;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CS6920Group4Project.Model;
@@ -229,6 +230,27 @@ namespace CS6920Group4Project.View
             }
            
         }
-       
+
+        private void Dashboard_Load(object sender, EventArgs e)
+        {
+            this.Generate();
+        }
+
+        public void Generate()
+        {
+            List<string> Quotes = new List<string>();
+            Random rand = new Random();
+
+            StreamReader quoteReader = new StreamReader("quotes.txt");
+            string line = "";
+
+            while (!quoteReader.EndOfStream)
+            {
+                line = quoteReader.ReadLine();
+                Quotes.Add(line);
+            }
+            quoteTxt.Text = Quotes[rand.Next(1, Quotes.Count)];
+        }
+              
     }
 }
