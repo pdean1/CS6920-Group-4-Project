@@ -3,6 +3,7 @@ using System.Windows.Forms;
 using CS6920Group4Project.Model;
 using CS6920Group4Project.Controller;
 using System.Collections.Generic;
+using CS6920Group4Project.View;
 
 
 namespace CS6920Group4Project.View
@@ -233,6 +234,34 @@ namespace CS6920Group4Project.View
         private void lblIncomeRemainingPlaceholder_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void helpToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+           HelpMsgBox.Show("Welcome to Budget Buddy" + Environment.NewLine
+               + Environment.NewLine
+               + "1. To begin start by adding a new budget." + Environment.NewLine
+               + "2. Use Manage earnings to add income." + Environment.NewLine
+               + "3. Use manage expense to add expenses." + Environment.NewLine
+               + "such as groceries, and pet care." + Environment.NewLine
+               + "4. Use manage bills to enter revolving bills." + Environment.NewLine
+               + "such as car payments, and credit cards." + Environment.NewLine
+               + "5. Create multiple budgets." + Environment.NewLine
+               + "6. See all your entries in view budget." + Environment.NewLine
+               + Environment.NewLine
+               + "More Information" + Environment.NewLine
+               + Environment.NewLine
+               + "With Budget Buddy application you will able" + Environment.NewLine
+               + "to create a custom log in, manage multiple" + Environment.NewLine
+               + "budgets at one time, or remove, edit and" + Environment.NewLine 
+               + "delete earnings, expenses, and bills " + Environment.NewLine
+               + "Use dashboard for helpful tips, " + Environment.NewLine
+               + "to see how your spending your money " + Environment.NewLine
+               + "to calculate upcoming expenses " + Environment.NewLine
+               + "and to edit your budget information" + Environment.NewLine
+               + Environment.NewLine
+               + "Thank you for using Budget Buddy" + Environment.NewLine
+               + "", "", "OK", "Cancel");
         }
 
     }

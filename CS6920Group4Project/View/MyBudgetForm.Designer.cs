@@ -55,6 +55,7 @@
             this.txtDesc = new System.Windows.Forms.TextBox();
             this.btnAddBudget = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.percentageCht)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.MainMenuStrip.SuspendLayout();
@@ -95,7 +96,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 28);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1112, 688);
+            this.tabPage2.Size = new System.Drawing.Size(1278, 688);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Manage Earnings";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -104,7 +105,7 @@
             // 
             this.tabPage3.Location = new System.Drawing.Point(4, 28);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(1112, 688);
+            this.tabPage3.Size = new System.Drawing.Size(1278, 688);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Manage Expenses";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -113,7 +114,7 @@
             // 
             this.tabPage4.Location = new System.Drawing.Point(4, 28);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(1112, 688);
+            this.tabPage4.Size = new System.Drawing.Size(1278, 688);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Manage Bills";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -122,7 +123,7 @@
             // 
             this.tabPage5.Location = new System.Drawing.Point(4, 28);
             this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Size = new System.Drawing.Size(1112, 688);
+            this.tabPage5.Size = new System.Drawing.Size(1278, 688);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "Budget View";
             this.tabPage5.UseVisualStyleBackColor = true;
@@ -179,9 +180,10 @@
             // 
             // MainMenuStrip
             // 
-            this.MainMenuStrip.BackColor = System.Drawing.Color.Transparent;
+            this.MainMenuStrip.BackColor = System.Drawing.Color.WhiteSmoke;
             this.MainMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileToolStripMenuItem});
+            this.fileToolStripMenuItem,
+            this.helpToolStripMenuItem});
             this.MainMenuStrip.Location = new System.Drawing.Point(0, 0);
             this.MainMenuStrip.Name = "MainMenuStrip";
             this.MainMenuStrip.Size = new System.Drawing.Size(1562, 24);
@@ -202,19 +204,19 @@
             // exportToCSVToolStripMenuItem
             // 
             this.exportToCSVToolStripMenuItem.Name = "exportToCSVToolStripMenuItem";
-            this.exportToCSVToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.exportToCSVToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.exportToCSVToolStripMenuItem.Text = "Export To CSV";
             this.exportToCSVToolStripMenuItem.Click += new System.EventHandler(this.exportToCSVToolStripMenuItem_Click);
             // 
             // logoutExitToolStripMenuItem
             // 
             this.logoutExitToolStripMenuItem.Name = "logoutExitToolStripMenuItem";
-            this.logoutExitToolStripMenuItem.Size = new System.Drawing.Size(145, 6);
+            this.logoutExitToolStripMenuItem.Size = new System.Drawing.Size(149, 6);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             // 
             // cbBudgets
@@ -330,6 +332,13 @@
             this.label1.TabIndex = 53;
             this.label1.Text = "CHOOSE A BUDGET";
             // 
+            // helpToolStripMenuItem
+            // 
+            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.helpToolStripMenuItem.Text = "Help";
+            this.helpToolStripMenuItem.Click += new System.EventHandler(this.helpToolStripMenuItem_Click);
+            // 
             // MyBudgetForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -397,5 +406,6 @@
         private System.Windows.Forms.TextBox txtDesc;
         private System.Windows.Forms.Button btnAddBudget;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
     }
 }
