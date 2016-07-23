@@ -27,6 +27,35 @@ namespace CS6920Group4Project.Controller
                 title = value;
             }
         }
+
+        public static bool IsPresent(string column, string text)
+        {
+            if (string.IsNullOrEmpty(text))
+            {
+                MessageBox.Show(column + " is a required field.", Title);
+                return false;
+            }
+            return true;
+        }
+
+
+        public static bool IsAmountNonNegative(string column, string text)
+        {
+            var regex = new Regex(@"\d+\.\d{2}");
+            var regexNoDecimals = new Regex(@"\d");
+
+            if (regex.IsMatch(text) || regexNoDecimals.IsMatch(text))
+            {
+                return true;
+            }
+            else
+            {
+                MessageBox.Show(
+                    column + " must be a whole non-negative number with a max of two decimal points", Title);
+                return false;
+            }
+        }
+
         public static bool IsPresent(Control control)
           {
               if (control.GetType().ToString() == "System.Windows.Forms.TextBox")

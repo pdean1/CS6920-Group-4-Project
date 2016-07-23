@@ -18,10 +18,6 @@ namespace CS6920Group4Project.View
     public partial class ManageEarnings : Form
     {
         MySqlDataAdapter mySqlDataAdapter;
-        private String earnDesc;
-        private String earnDate;
-        private String earnTitle;
-        private String earnAmount;
         public List<Budget> budgetList;
         private DataTable table;
         private BindingSource bind;
@@ -67,10 +63,10 @@ namespace CS6920Group4Project.View
                 if (this.IsValidData())
                 {
                     Earning newEarn = new Earning();
-                    earnAmount = earningAmountBox.Text;
-                    earnDate = monthCalendar.SelectionRange.Start.ToShortDateString();
-                    earnTitle = tbTitle.Text;
-                    earnDesc = descTxt.Text;
+                    string earnAmount = earningAmountBox.Text;
+                    string earnDate = monthCalendar.SelectionRange.Start.ToShortDateString();
+                    string earnTitle = tbTitle.Text;
+                    string earnDesc = descTxt.Text;
                     try
                     {
                         newEarn.Amount = Convert.ToDecimal(earnAmount);
@@ -126,6 +122,7 @@ namespace CS6920Group4Project.View
                 mySqlDataAdapter.Fill(table);
                 bind.DataSource = table;
                 earnGridView.DataSource = bind;
+                table.Rows.Add(table.NewRow());
             }
             catch (SqlException ex)
             {
@@ -155,12 +152,24 @@ namespace CS6920Group4Project.View
                 earnGridView.Columns[3].Selected = false;
                 earnGridView.Columns[4].Width = 200;
                 earnGridView.Columns[5].DefaultCellStyle.Format = "c";
-                earnGridView.Columns[6].ReadOnly = true;
+                earnGridView.Columns[6].ReadOnly = false;
                 earnGridView.Columns[6].DefaultCellStyle.Format = "d";
                 earnGridView.Columns[7].ReadOnly = true;
                 earnGridView.Columns[7].DefaultCellStyle.Format = "d";
 
                 earnGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+                //add new button column to the DataGridView
+                //This column displays a add Button in each row
+                DataGridViewButtonColumn addbut = new DataGridViewButtonColumn();
+                addbut.Text = "ADD";
+                addbut.Name = "ADD";
+                addbut.HeaderText = "";
+                addbut.Width = 100;
+                addbut.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                addbut.UseColumnTextForButtonValue = true;
+                addbut.DefaultCellStyle.BackColor = Color.White;
+                earnGridView.Columns.Insert(8, addbut);
 
                 //add new button column to the DataGridView
                 //This column displays a edit Button in each row
@@ -172,7 +181,7 @@ namespace CS6920Group4Project.View
                 editbut.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
                 editbut.UseColumnTextForButtonValue = true;
                 editbut.DefaultCellStyle.BackColor = Color.White;
-                earnGridView.Columns.Insert(8, editbut);
+                earnGridView.Columns.Insert(9, editbut);
 
                 //add new button column to the DataGridView
                 //This column displays a delete Button in each row
@@ -184,7 +193,9 @@ namespace CS6920Group4Project.View
                 delbut.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
                 delbut.UseColumnTextForButtonValue = true;
                 delbut.DefaultCellStyle.BackColor = Color.White;
-                earnGridView.Columns.Insert(9, delbut);
+                earnGridView.Columns.Insert(10, delbut);
+
+               
 
                 earnGridView.DataError += earnGridView_DataError;
             }
@@ -212,9 +223,9 @@ namespace CS6920Group4Project.View
 
         public bool validateData()
         {
-            earnAmount = earningAmountBox.Text;
-            earnDate = monthCalendar.SelectionRange.Start.ToShortDateString();
-            earnTitle = tbTitle.Text;
+            string earnAmount = earningAmountBox.Text;
+            string earnDate = monthCalendar.SelectionRange.Start.ToShortDateString();
+            string earnTitle = tbTitle.Text;
 
             if (String.IsNullOrEmpty(earnTitle) || String.IsNullOrEmpty(earnAmount) || String.IsNullOrEmpty(earnDate))
             {
@@ -331,6 +342,82 @@ namespace CS6920Group4Project.View
                                                                       MessageBoxIcon.Information);
                                 }
                             }
+                        }
+
+                        else
+                        {
+                            MessageBox.Show("Cannot ADD an existing earning record.",
+                                           "USER",
+                                           MessageBoxButtons.OK,
+                                           MessageBoxIcon.Stop);
+                            return;
+                        }
+                    }
+                    else
+                    {
+                        if (earnGridView.Columns[e.ColumnIndex].Name == "ADD")
+                        {
+                            try
+                            {
+                                Earning newEarn = new Earning();
+                                string earnAmount = earnGridView.Rows[e.RowIndex].Cells[5].Value.ToString();
+                                string earnDate = earnGridView.Rows[e.RowIndex].Cells[6].Value.ToString();
+                                string earnTitle = earnGridView.Rows[e.RowIndex].Cells[3].Value.ToString();
+                                string earnDesc = earnGridView.Rows[e.RowIndex].Cells[4].Value.ToString();
+
+
+                                if ((Validator.IsPresent("Title", earnTitle) && Validator.IsAmountNonNegative("Amount", earnAmount) &&
+                    Validator.IsPresent("Description", earnDesc) && Validator.IsPresent("DateEarned", earnDate)) == false)
+                                {
+                                    return;
+                                }
+
+                                try
+                                {
+                                    newEarn.Amount = Convert.ToDecimal(earnAmount);
+                                }
+                                catch (FormatException fex)
+                                {
+                                    Utilities.DatabaseErrorMessageUtility.SendMessageToUser("Invalid format for amount", fex);
+                                    return;
+                                }
+
+                                newEarn.DateEarned = DateTime.Parse(earnDate);
+                                newEarn.Title = earnTitle;
+                                newEarn.Description = earnDesc;
+                                newEarn.BudgetID = Session.SessionInformation.GetBudget().ID;
+                                long isEarningsAdded = EarningController.Instance.InsertEarning(newEarn);
+                                if (isEarningsAdded == 0)
+                                {
+                                    MessageBox.Show("An error occured, earnings was not added to your Budget",
+                                                "USER",
+                                                MessageBoxButtons.OK,
+                                                MessageBoxIcon.Stop);
+                                }
+                                else
+                                {
+                                    this.ClearText();
+                                    this.refreshView();
+                                    this.populateGridView();
+                                    Session.SessionInformation.RefreshSessionLabels();
+                                }
+                            }
+                            catch (SqlException ex)
+                            {
+                                MessageBox.Show(ex.Message, ex.GetType().ToString());
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show(ex.Message, ex.GetType().ToString());
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Cannot UPDATE or DELETE a new earning record.",
+                                           "USER",
+                                           MessageBoxButtons.OK,
+                                           MessageBoxIcon.Stop);
+                            return;
                         }
                     }
                 }
