@@ -166,19 +166,11 @@ namespace CS6920Group4Project.View
                 dataGridView1.Columns[3].Selected = false;
                 dataGridView1.Columns[4].Width = 200;
                 dataGridView1.Columns[5].DefaultCellStyle.Format = "c";
- //               dataGridView1.Columns[6].ReadOnly = true;
                 dataGridView1.Columns[6].Name = "DateSpent";
-
- //               dataGridView1.Columns[6].DefaultCellStyle.Format = "d";
                 dataGridView1.Columns[7].ReadOnly = true;
                 dataGridView1.Columns[7].DefaultCellStyle.Format = "d";
 
                 dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-
-                // Define ColumnPicker DateTime Picker Column  
-                DateTimePicker dtPicker = new DateTimePicker();
-                
- 
 
                 //add new button column to the DataGridView
                 //This column displays a edit Button in each row
@@ -336,7 +328,7 @@ namespace CS6920Group4Project.View
 
         private void dateTimeExpense(DataGridViewCellEventArgs e)
         {
-            DateTimePicker oDateTimePicker = new DateTimePicker();  //DateTimePicker 
+            oDateTimePicker = new DateTimePicker();  //DateTimePicker 
 
             //Adding DateTimePicker control into DataGridView 
             dataGridView1.Controls.Add(oDateTimePicker);
