@@ -41,11 +41,13 @@ CREATE TABLE budgets (
   Title        VARCHAR(64)  NOT NULL,
   Description  VARCHAR(256),
   DateCreated  DATETIME     NOT NULL,
+  Notes 	   VARCHAR(2000) NULL,
   CONSTRAINT Budget_PK PRIMARY KEY (BudgetID),
   CONSTRAINT Budget_User_FK FOREIGN KEY (UserID) 
     REFERENCES users (UserID),
   CONSTRAINT Budget_UserID_Title_UK UNIQUE (UserID, Title)
 );
+  
 -- =====================================================================
 -- Records Table Creation Scripts                               
 -- =====================================================================

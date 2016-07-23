@@ -80,9 +80,9 @@ namespace CS6920Group4Project.Controller
             return _dal.DeleteBudget(id);
         }
 
-        public bool CreateBudget(int userID, String title, String desc)
+        public bool CreateBudget(Budget budget)
         {
-            return _dal.CreateBudget(userID, title, desc);
+            return _dal.CreateBudget(budget);
         }
     }
 }

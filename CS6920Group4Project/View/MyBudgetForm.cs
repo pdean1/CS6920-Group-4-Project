@@ -4,6 +4,8 @@ using CS6920Group4Project.Model;
 using CS6920Group4Project.Controller;
 using System.Collections.Generic;
 using CS6920Group4Project.View;
+using System.Text;
+using System.IO;
 
 
 namespace CS6920Group4Project.View
@@ -172,7 +174,13 @@ namespace CS6920Group4Project.View
                 return;
             }
             int userID = Session.SessionInformation.GetSessionUser().ID;
-            if (BudgetController.Instance.CreateBudget(userID, title, desc) == true)
+            Budget budget = new Budget();
+            budget.UserID = userID;
+            budget.Title = title;
+            budget.Description = desc;
+            budget.Notes = "";
+
+            if (BudgetController.Instance.CreateBudget(budget) == true)
             {
                 MessageBox.Show("Budget Successfully Created");
                 txtTitle.Clear();
@@ -263,6 +271,5 @@ namespace CS6920Group4Project.View
                + "Thank you for using Budget Buddy" + Environment.NewLine
                + "", "", "OK", "Cancel");
         }
-
     }
 }

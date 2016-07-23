@@ -54,6 +54,14 @@ namespace CS6920Group4Project.DAL.Model
                         }
                         
                         budget.DateCreated = reader.GetDateTime(4);
+                        try
+                        {
+                            budget.Notes = reader.GetString(5);
+                        }
+                        catch (Exception)
+                        {
+                            budget.Notes = "";
+                        }
                         budgets.Add(budget);
                     }
                 }
@@ -80,7 +88,7 @@ namespace CS6920Group4Project.DAL.Model
             MySqlConnection connection = new DBConnect().GetConnection();
 
             String updateBudgetsStatement = "UPDATE `sql5123046`.`budgets` " +
-                                             "SET Title = @Title, Description = @Description " +
+                                             "SET Title = @Title, Description = @Description, Notes = @Notes " +
                                              "where BudgetID = @BudgetID";
 
             MySqlCommand updateBudgetCommand = new MySqlCommand(updateBudgetsStatement, connection);
@@ -88,6 +96,7 @@ namespace CS6920Group4Project.DAL.Model
             updateBudgetCommand.Parameters.AddWithValue("@BudgetID", budget.ID);
             updateBudgetCommand.Parameters.AddWithValue("@Title", budget.Title);
             updateBudgetCommand.Parameters.AddWithValue("@Description", budget.Description);
+            updateBudgetCommand.Parameters.AddWithValue("@Notes", budget.Notes);
 
             MySqlTransaction trans = null;
             try
@@ -158,10 +167,10 @@ namespace CS6920Group4Project.DAL.Model
             return success;
         }
 
-        private const string CreateBudgetStatment = "INSERT INTO `sql5123046`.`budgets` (`UserID`, `Title`, `Description`, `DateCreated`) " +
-                                                        "VALUES (@ID, @Title, @Desc, @DateCreated);";
+        private const string CreateBudgetStatment = "INSERT INTO `sql5123046`.`budgets` (`UserID`, `Title`, `Description`, `DateCreated`, `Notes`) " +
+                                                        "VALUES (@ID, @Title, @Desc, @DateCreated, @Notes);";
 
-        public bool CreateBudget(int userID, String title, String desc)
+        public bool CreateBudget(Budget budget)
         {
             try
                 {
@@ -170,10 +179,11 @@ namespace CS6920Group4Project.DAL.Model
                     cmd.Connection = conn;
                     cmd.CommandText = CreateBudgetStatment;
                     cmd.Prepare();
-                    cmd.Parameters.AddWithValue("@ID", userID);
-                    cmd.Parameters.AddWithValue("@Title", title);
-                    cmd.Parameters.AddWithValue("@Desc", desc);
+                    cmd.Parameters.AddWithValue("@ID", budget.UserID);
+                    cmd.Parameters.AddWithValue("@Title", budget.Title);
+                    cmd.Parameters.AddWithValue("@Desc", budget.Description);
                     cmd.Parameters.AddWithValue("@DateCreated", DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss"));
+                    cmd.Parameters.AddWithValue("@Notes", budget.Notes);
 
                     int isCreated = cmd.ExecuteNonQuery();
                     if (isCreated > 0)

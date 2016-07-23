@@ -30,6 +30,7 @@ namespace CS6920Group4Project.View
             InitializeComponent();
             budgetTitleBox.Text = Session.SessionInformation.GetBudget().Title;
             budgetDescBox.Text = Session.SessionInformation.GetBudget().Description;
+            NotesRtb.Text = Session.SessionInformation.GetBudget().Notes;
             UpdateDashboard();
             resultsTxt.KeyUp += resultsTxt_KeyUp;
             resultsTxt.Enabled = false; // Added this here as a quick fix for user entered errors
@@ -216,12 +217,14 @@ namespace CS6920Group4Project.View
             budget.ID = Session.SessionInformation.GetBudget().ID;
             budget.Title = budgetTitleBox.Text;
             budget.Description = budgetDescBox.Text;
+            budget.Notes = NotesRtb.Text;
             bool update = BudgetController.Instance.EditBudget(budget);
             if (update == true)
             {
                 MessageBox.Show("Update was completed!");
                 Session.SessionInformation.GetBudget().Title = budget.Title;
                 Session.SessionInformation.GetBudget().Description = budget.Description;
+                Session.SessionInformation.GetBudget().Notes = budget.Notes;
                 Session.SessionInformation.RefreshBudgetPickerArea();
             }
             else
@@ -250,6 +253,11 @@ namespace CS6920Group4Project.View
                 Quotes.Add(line);
             }
             quoteTxt.Text = Quotes[rand.Next(1, Quotes.Count)];
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.NotesRtb.Clear();
         }
               
     }
