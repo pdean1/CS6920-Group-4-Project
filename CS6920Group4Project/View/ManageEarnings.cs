@@ -38,8 +38,7 @@ namespace CS6920Group4Project.View
         {
             this.populateGridView();
             this.buildView();
-            earnGridView.AutoGenerateColumns = false;
-            
+            earnGridView.AutoGenerateColumns = false;        
         }
 
         /// <summary>
@@ -54,7 +53,6 @@ namespace CS6920Group4Project.View
                 {
                     Close();
                 }
-
             }
             catch (Exception e)
             {
