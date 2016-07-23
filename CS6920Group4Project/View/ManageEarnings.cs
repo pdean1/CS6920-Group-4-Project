@@ -57,7 +57,7 @@ namespace CS6920Group4Project.View
         }
 
         private void addEarningsBtn_Click(object sender, EventArgs e)
-        {
+        {/*
             try
             {
                 if (this.IsValidData())
@@ -109,7 +109,7 @@ namespace CS6920Group4Project.View
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, ex.GetType().ToString());
-            }
+            }*/
            
         }
 
@@ -221,7 +221,7 @@ namespace CS6920Group4Project.View
             }
         }
 
-        public bool validateData()
+       /* public bool validateData()
         {
             string earnAmount = earningAmountBox.Text;
             string earnDate = monthCalendar.SelectionRange.Start.ToShortDateString();
@@ -237,7 +237,7 @@ namespace CS6920Group4Project.View
             }
 
             return true;
-        }
+        }*/
 
        
         /// <summary>
@@ -245,21 +245,21 @@ namespace CS6920Group4Project.View
         /// </summary>
         private void ClearText()
         {
-            tbTitle.Text = "";
+            /*tbTitle.Text = "";
             earningAmountBox.Text = "";
-            descTxt.Text = "";
+            descTxt.Text = "";*/
         }
 
-        private bool IsValidData()
+       /* private bool IsValidData()
         {
-            if(Validator.IsPresent(tbTitle) && Validator.IsAmountNonNegative(earningAmountBox) &&
+            /*if(Validator.IsPresent(tbTitle) && Validator.IsAmountNonNegative(earningAmountBox) &&
                 Validator.IsPresent(descTxt) && Validator.IsPresent(monthCalendar))
             {
                 return true;
             }
             else 
                 return false;
-        }
+        }*/
         private void cancelBtn_Click(object sender, EventArgs e)
         {
             this.ClearText();
