@@ -170,6 +170,7 @@
             this.dgBills.Name = "dgBills";
             this.dgBills.Size = new System.Drawing.Size(986, 592);
             this.dgBills.TabIndex = 34;
+            this.dgBills.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgBills_CellClick_1);
             // 
             // ManageBills
             // 

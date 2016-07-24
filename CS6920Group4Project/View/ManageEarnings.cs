@@ -21,6 +21,7 @@ namespace CS6920Group4Project.View
         public List<Budget> budgetList;
         private DataTable table;
         private BindingSource bind;
+        DateTimePicker oDateTimePicker;
 
         public ManageEarnings()
         {
@@ -154,9 +155,8 @@ namespace CS6920Group4Project.View
                 earnGridView.Columns[5].DefaultCellStyle.Format = "c";
                 earnGridView.Columns[6].ReadOnly = false;
                 earnGridView.Columns[6].DefaultCellStyle.Format = "d";
-                earnGridView.Columns[7].ReadOnly = true;
-                earnGridView.Columns[7].DefaultCellStyle.Format = "d";
-
+                earnGridView.Columns[7].Visible = false;
+                
                 earnGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
                 //add new button column to the DataGridView
@@ -367,7 +367,7 @@ namespace CS6920Group4Project.View
 
 
                                 if ((Validator.IsPresent("Title", earnTitle) && Validator.IsAmountNonNegative("Amount", earnAmount) &&
-                    Validator.IsPresent("Description", earnDesc) && Validator.IsPresent("DateEarned", earnDate)) == false)
+                                     Validator.IsPresent("Description", earnDesc) && Validator.IsPresent("DateEarned", earnDate)) == false)
                                 {
                                     return;
                                 }
@@ -429,6 +429,81 @@ namespace CS6920Group4Project.View
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, ex.GetType().ToString());
+            }
+        }
+
+        private void dateTimeExpense(DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                oDateTimePicker = new DateTimePicker();  //DateTimePicker 
+
+                //Adding DateTimePicker control into DataGridView 
+                earnGridView.Controls.Add(oDateTimePicker);
+
+                // Intially made it invisible
+                oDateTimePicker.Visible = false;
+
+                // Setting the format
+                oDateTimePicker.Format = DateTimePickerFormat.Custom;
+                oDateTimePicker.CustomFormat = "MM-dd-yyyy";
+
+                if (!String.IsNullOrEmpty(earnGridView.Rows[e.RowIndex].Cells[6].Value.ToString()))
+                {
+                    oDateTimePicker.Value = Convert.ToDateTime(earnGridView.Rows[e.RowIndex].Cells[6].Value.ToString());
+                }
+
+                oDateTimePicker.TextChanged += new EventHandler(dateTimePicker_OnTextChange);
+
+                // Now make it visible
+                oDateTimePicker.Visible = true;
+
+                // It returns the retangular area that represents the Display area for a cell
+                Rectangle oRectangle = earnGridView.GetCellDisplayRectangle(e.ColumnIndex, e.RowIndex, true);
+
+                //Setting area for DateTimePicker Control
+                oDateTimePicker.Size = new Size(oRectangle.Width, oRectangle.Height);
+
+                // Setting Location
+                oDateTimePicker.Location = new Point(oRectangle.X, oRectangle.Y);
+
+                oDateTimePicker.CloseUp += new EventHandler(oDateTimePicker_CloseUp);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.GetType().ToString());
+            }
+        }
+
+        private void dateTimePicker_OnTextChange(object sender, EventArgs e)
+        {
+            try
+            {
+                earnGridView.CurrentCell.Value = oDateTimePicker.Text.ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.GetType().ToString());
+            }
+        }
+
+        private void oDateTimePicker_CloseUp(object sender, EventArgs e)
+        {
+            try
+            {
+                oDateTimePicker.Visible = false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.GetType().ToString());
+            }
+        }
+
+        private void earnGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (earnGridView.Columns[e.ColumnIndex].Index == 6)
+            {
+                dateTimeExpense(e);
             }
         }
         

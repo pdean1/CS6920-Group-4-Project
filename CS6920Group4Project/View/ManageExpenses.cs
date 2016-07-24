@@ -80,9 +80,7 @@ namespace CS6920Group4Project.View
                 dataGridView1.Columns[4].Width = 200;
                 dataGridView1.Columns[5].DefaultCellStyle.Format = "c";
                 dataGridView1.Columns[6].Name = "DateSpent";
-                dataGridView1.Columns[7].ReadOnly = true;
-                dataGridView1.Columns[7].DefaultCellStyle.Format = "d";
-                dataGridView1.Columns[7].DefaultCellStyle.BackColor = Color.LightGray;
+                dataGridView1.Columns[7].Visible = false;
 
                 dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 

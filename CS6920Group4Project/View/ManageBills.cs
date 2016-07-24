@@ -21,6 +21,7 @@ namespace CS6920Group4Project.View
         private String billDate;
         private String billTitle;
         private const int EditCol = 6, DeleteCol = 7;
+        DateTimePicker oDateTimePicker;
 
         public ManageBills()
         {
@@ -128,8 +129,8 @@ namespace CS6920Group4Project.View
             dgBills.Columns[3].Name = "Amount";
             dgBills.Columns[4].Name = "Date Due";
             dgBills.Columns[5].Name = "Date Paid";
-            dgBills.Columns[4].ReadOnly = true;
-            dgBills.Columns[5].ReadOnly = true;
+//            dgBills.Columns[4].ReadOnly = true;
+//            dgBills.Columns[5].ReadOnly = true;
             dgBills.Columns[3].DefaultCellStyle.Format = "c";
             dgBills.Columns[4].DefaultCellStyle.Format = "d";
             dgBills.Columns[5].DefaultCellStyle.Format = "d";
@@ -260,6 +261,89 @@ namespace CS6920Group4Project.View
                 Session.SessionInformation.RefreshSessionLabels();
             }
             return true;
+        }
+
+        private void dateTimeExpense(DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                oDateTimePicker = new DateTimePicker();  //DateTimePicker 
+
+                //Adding DateTimePicker control into DataGridView 
+                dgBills.Controls.Add(oDateTimePicker);
+
+                // Intially made it invisible
+                oDateTimePicker.Visible = false;
+
+                // Setting the format
+                oDateTimePicker.Format = DateTimePickerFormat.Custom;
+                oDateTimePicker.CustomFormat = "MM-dd-yyyy";
+
+                if (dgBills.Columns[e.ColumnIndex].Index == 4)
+                {
+                    if (!String.IsNullOrEmpty(dgBills.Rows[e.RowIndex].Cells[4].Value.ToString()))
+                    {
+                        oDateTimePicker.Value = Convert.ToDateTime(dgBills.Rows[e.RowIndex].Cells[4].Value.ToString());
+                    }
+                }
+
+                if (dgBills.Columns[e.ColumnIndex].Index == 5)
+                {
+                    if (!String.IsNullOrEmpty(dgBills.Rows[e.RowIndex].Cells[5].Value.ToString()))
+                    {
+                        oDateTimePicker.Value = Convert.ToDateTime(dgBills.Rows[e.RowIndex].Cells[5].Value.ToString());
+                    }
+                }
+
+                oDateTimePicker.TextChanged += new EventHandler(dateTimePicker_OnTextChange);
+
+                // Now make it visible
+                oDateTimePicker.Visible = true;
+
+                // It returns the retangular area that represents the Display area for a cell
+                Rectangle oRectangle = dgBills.GetCellDisplayRectangle(e.ColumnIndex, e.RowIndex, true);
+
+                //Setting area for DateTimePicker Control
+                oDateTimePicker.Size = new Size(oRectangle.Width, oRectangle.Height);
+
+                // Setting Location
+                oDateTimePicker.Location = new Point(oRectangle.X, oRectangle.Y);
+
+                oDateTimePicker.CloseUp += new EventHandler(oDateTimePicker_CloseUp);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.GetType().ToString());
+            }
+        }
+
+        private void dateTimePicker_OnTextChange(object sender, EventArgs e)
+        {
+            try
+            {
+                dgBills.CurrentCell.Value = oDateTimePicker.Text.ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.GetType().ToString());
+            }
+        }
+
+        private void oDateTimePicker_CloseUp(object sender, EventArgs e)
+        {
+            try
+            {
+                oDateTimePicker.Visible = false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.GetType().ToString());
+            }
+        }
+
+        private void dgBills_CellClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            dateTimeExpense(e);
         }
 
     }

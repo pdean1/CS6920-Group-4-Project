@@ -55,6 +55,7 @@
             this.earnGridView.Name = "earnGridView";
             this.earnGridView.Size = new System.Drawing.Size(932, 589);
             this.earnGridView.TabIndex = 29;
+            this.earnGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.earnGridView_CellClick);
             this.earnGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.earnGridView_CellContentClick);
             // 
             // ManageEarnings
