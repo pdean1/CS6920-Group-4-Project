@@ -94,11 +94,11 @@ namespace CS6920Group4Project.DAL.Model
                     }
                 }
             }
-            catch (MySqlException e)
+            catch (MySqlException)
             {
                 earnings = null;
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 earnings = null;
             }
@@ -147,11 +147,11 @@ namespace CS6920Group4Project.DAL.Model
                     update = false;
                 }
             }
-            catch (MySqlException ex)
+            catch (MySqlException)
             {
                 trans.Rollback();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 trans.Rollback();
             }
@@ -178,11 +178,11 @@ namespace CS6920Group4Project.DAL.Model
                     mySqlDataAdapter = new MySqlDataAdapter(command);
                 }
             }
-            catch (MySqlException ex)
+            catch (MySqlException)
             {
                 return null;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return null;
             }

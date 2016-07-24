@@ -122,6 +122,7 @@ namespace CS6920Group4Project.View
             dgBills.ColumnCount = 6;
 
             dgBills.Columns[0].Name = "Record ID";
+            dgBills.Columns[0].Visible = false;
             dgBills.Columns[1].Name = "Title";
             dgBills.Columns[2].Name = "Description";
             dgBills.Columns[3].Name = "Amount";
