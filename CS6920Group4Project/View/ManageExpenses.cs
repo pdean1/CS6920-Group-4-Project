@@ -225,6 +225,18 @@ namespace CS6920Group4Project.View
         {
             try
             {
+                if (selectedExpense.Title == title && 
+                    selectedExpense.Description == desc && 
+                    selectedExpense.Amount == Convert.ToDecimal(amount) &&
+                    selectedExpense.DateSpent == Convert.ToDateTime(sDate))
+                {
+                    MessageBox.Show("There were no changes to the Expense Item, Item was not updated.",
+                                           "USER",
+                                           MessageBoxButtons.OK,
+                                           MessageBoxIcon.Stop);
+                    return;
+                }
+
                 selectedExpense.Title = title;
                 selectedExpense.Description = desc;
                 selectedExpense.DateSpent = Convert.ToDateTime(sDate);

@@ -331,6 +331,19 @@ namespace CS6920Group4Project.View
         {
             try
             {
+                if ((selectedBill.Title == title) && 
+                    (selectedBill.Description == desc) && 
+                    (selectedBill.Amount == Convert.ToDecimal(amount)) &&
+                    (selectedBill.DateDue == Convert.ToDateTime(dueDate)) && 
+                    (selectedBill.DatePaid == Convert.ToDateTime(paidDate)))
+                {
+                    MessageBox.Show("There were no changes to the Bill Item, Item was not updated.",
+                                           "USER",
+                                           MessageBoxButtons.OK,
+                                           MessageBoxIcon.Stop);
+                    return;
+                }
+
                 selectedBill.Title = title;
                 selectedBill.Description = desc;
                 selectedBill.DateDue = Convert.ToDateTime(dueDate);

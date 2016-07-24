@@ -281,18 +281,31 @@ namespace CS6920Group4Project.View
                         {
                             String title = earnGridView.Rows[e.RowIndex].Cells[3].Value.ToString();
                             String desc = earnGridView.Rows[e.RowIndex].Cells[4].Value.ToString();
-                            String sendAmount = earnGridView.Rows[e.RowIndex].Cells[5].Value.ToString();
+                            String amount = earnGridView.Rows[e.RowIndex].Cells[5].Value.ToString();
+                            String eDate = earnGridView.Rows[e.RowIndex].Cells[6].Value.ToString();
+
+                            if (selectedEarning.Title == title && 
+                                selectedEarning.Description == desc &&
+                                selectedEarning.Amount == Convert.ToDecimal(amount) && 
+                                selectedEarning.DateEarned == Convert.ToDateTime(eDate))
+                            {
+                                MessageBox.Show("There were no changes to the Expense Item, Item was not updated.",
+                                                       "USER",
+                                                       MessageBoxButtons.OK,
+                                                       MessageBoxIcon.Stop);
+                                return;
+                            }
 
                             selectedEarning.Title = title;
                             selectedEarning.Description = desc;
                             try
                             {
-                                Decimal d = Convert.ToDecimal(sendAmount);
+                                Decimal d = Convert.ToDecimal(amount);
                                 selectedEarning.Amount = d;
                             }
                             catch (Exception)
                             {
-                                MessageBox.Show("Invalid amount: " + sendAmount);
+                                MessageBox.Show("Invalid amount: " + amount);
                                 earnGridView.Rows[e.RowIndex].Cells[5].Value = Utilities.StringUtilities.Get4PointDecimal(selectedEarning.Amount);
                                 return;
                             }
