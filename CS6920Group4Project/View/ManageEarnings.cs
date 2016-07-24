@@ -35,7 +35,8 @@ namespace CS6920Group4Project.View
         {
             this.populateGridView();
             this.buildView();
-            earnGridView.AutoGenerateColumns = false;        
+            earnGridView.AutoGenerateColumns = false;
+            this.AddARow();
         }
 
         /// <summary>
@@ -123,7 +124,6 @@ namespace CS6920Group4Project.View
                 mySqlDataAdapter.Fill(table);
                 bind.DataSource = table;
                 earnGridView.DataSource = bind;
-                table.Rows.Add(table.NewRow());
             }
             catch (SqlException ex)
             {
@@ -194,8 +194,6 @@ namespace CS6920Group4Project.View
                 delbut.UseColumnTextForButtonValue = true;
                 delbut.DefaultCellStyle.BackColor = Color.White;
                 earnGridView.Columns.Insert(10, delbut);
-
-               
 
                 earnGridView.DataError += earnGridView_DataError;
             }
@@ -346,7 +344,7 @@ namespace CS6920Group4Project.View
 
                         else
                         {
-                            MessageBox.Show("Cannot ADD an existing earning record.",
+                            MessageBox.Show("Cannot ADD an existing Earning record.",
                                            "USER",
                                            MessageBoxButtons.OK,
                                            MessageBoxIcon.Stop);
@@ -399,6 +397,7 @@ namespace CS6920Group4Project.View
                                     this.ClearText();
                                     this.refreshView();
                                     this.populateGridView();
+                                    this.AddARow();
                                     Session.SessionInformation.RefreshSessionLabels();
                                 }
                             }
@@ -432,6 +431,18 @@ namespace CS6920Group4Project.View
             }
         }
 
+        private void AddARow()
+        {
+            try
+            {
+                table.Rows.Add(table.NewRow());
+                earnGridView.Rows[earnGridView.RowCount - 1].Cells[5].Value = 0.00;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.GetType().ToString());
+            }
+        }
         private void dateTimeExpense(DataGridViewCellEventArgs e)
         {
             try

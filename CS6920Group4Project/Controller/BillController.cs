@@ -1,5 +1,6 @@
 ﻿using CS6920Group4Project.DAL.Model;
 using CS6920Group4Project.Model;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -41,6 +42,11 @@ namespace CS6920Group4Project.Controller
         public bool DeleteBill(Bill b) 
         {
             return _dal.DeleteBill(b);
+        }
+
+        public MySqlDataAdapter GetListOfBillsByBudgetIDDataGridView(int BudgetID)
+        {
+            return _dal.GetListOfBillsByBudgetIDDataGridView(BudgetID);
         }
     }
 }

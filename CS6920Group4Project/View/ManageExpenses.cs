@@ -19,9 +19,15 @@ namespace CS6920Group4Project.View
         private DataTable table;
         private BindingSource bSource;
         private Expense selectedExpense;
-        private List<Budget> _budgets;
         private MySqlDataAdapter mySqlDataAdapter;
         DateTimePicker oDateTimePicker;
+        private String editButton;
+        private String deleteButton;
+        private String addButton;
+        private String title;
+        private String desc;
+        private String amount;
+        private String sDate;
 
         public ManageExpenses()
         {
@@ -29,7 +35,9 @@ namespace CS6920Group4Project.View
             mySqlDataAdapter = new MySqlDataAdapter();
             table = new DataTable();
             bSource = new BindingSource();
-            _budgets = new List<Budget>();
+            editButton = "Edit";
+            deleteButton = "Delete";
+            addButton = "Add";
         }
 
         private void ManageExpenses_Load(object sender, EventArgs e)
@@ -79,50 +87,49 @@ namespace CS6920Group4Project.View
                 dataGridView1.Columns[3].Selected = false;
                 dataGridView1.Columns[4].Width = 200;
                 dataGridView1.Columns[5].DefaultCellStyle.Format = "c";
-                dataGridView1.Columns[6].Name = "DateSpent";
+                dataGridView1.Columns[6].ReadOnly = false;
+                dataGridView1.Columns[6].DefaultCellStyle.Format = "d";
                 dataGridView1.Columns[7].Visible = false;
 
                 dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
                 //add new button column to the DataGridView
+                //This column displays a add Button in each row
+                DataGridViewButtonColumn addBut = new DataGridViewButtonColumn();
+                addBut.Text = addButton;
+                addBut.Name = addButton;
+                addBut.HeaderText = "";
+                addBut.Width = 100;
+                addBut.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                addBut.UseColumnTextForButtonValue = true;
+                addBut.DefaultCellStyle.BackColor = Color.White;
+                dataGridView1.Columns.Insert(8, addBut);
+                
+                //add new button column to the DataGridView
                 //This column displays a edit Button in each row
                 DataGridViewButtonColumn editbut = new DataGridViewButtonColumn();
-                editbut.Text = "UPDATE EXPENSE";
-                editbut.Name = "UPDATE EXPENSE";
+                editbut.Text = editButton;
+                editbut.Name = editButton;
                 editbut.HeaderText = "";
                 editbut.Width = 100;
                 editbut.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                editbut.UseColumnTextForButtonValue = true;
                 editbut.DefaultCellStyle.BackColor = Color.White;
-                dataGridView1.Columns.Insert(8, editbut);
-                for (int i = 0; i < dataGridView1.RowCount; i++)
-                {
-                    dataGridView1.Rows[i].Cells[8].Value = "Update Expense"; //Column Index for the dataGridViewButtonColumn           
-                }
-
+                dataGridView1.Columns.Insert(9, editbut);
+                
                 //add new button column to the DataGridView
                 //This column displays a delete Button in each row
                 DataGridViewButtonColumn delbut = new DataGridViewButtonColumn();
-                delbut.Text = "DELETE EXPENSE";
-                delbut.Name = "DELETE EXPENSE";
+                delbut.Text = deleteButton;
+                delbut.Name = deleteButton;
                 delbut.HeaderText = "";
                 delbut.Width = 100;               
                 delbut.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
- //               delbut.UseColumnTextForButtonValue = true;
+                delbut.UseColumnTextForButtonValue = true;
                 delbut.DefaultCellStyle.BackColor = Color.White;
-                dataGridView1.Columns.Insert(9, delbut);
+                dataGridView1.Columns.Insert(10, delbut);
                 
-                for (int i = 0; i < dataGridView1.RowCount; i++)
-                {
-                    dataGridView1.Rows[i].Cells[9].Value = "Delete Expense"; //Column Index for the dataGridViewButtonColumn  
-                    dataGridView1.Rows[i].Height = 28;
-                }
-
-
                 dataGridView1.DataError += dataGridView1_DataError;
-            }
-            catch (SqlException ex)
-            {
-                MessageBox.Show(ex.Message, ex.GetType().ToString());
             }
             catch (Exception ex)
             {
@@ -160,29 +167,35 @@ namespace CS6920Group4Project.View
                     {
                         return;
                     }
+                    
+                    title = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
+                    desc = dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString();
+                    amount = dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString();
+                    sDate = dataGridView1.Rows[e.RowIndex].Cells[6].Value.ToString();
 
-                    if (dataGridView1.Columns[e.ColumnIndex].Name == "Update Expense")
+                    if (dataGridView1.Columns[e.ColumnIndex].Name == editButton)
                     {
                         this.editExpense(e);
                     }
 
-                    else if (dataGridView1.Columns[e.ColumnIndex].Name == "Delete Expense")
+                    else if (dataGridView1.Columns[e.ColumnIndex].Name == deleteButton)
                     {
                         this.deleteExpense(e);
                     }
-                }
-                else
-                {
-                    if (dataGridView1.Columns[e.ColumnIndex].Index == 8)            // add expense
+
+                    else
                     {
-                        this.addExpense(e);
-                    }
-                    else if (dataGridView1.Columns[e.ColumnIndex].Index == 9)       // clear expense
-                    {
-                        this.clearExpense(e);
-                        this.refreshView();
+                            MessageBox.Show("Cannot ADD an existing Expense Record.",
+                                           "USER",
+                                           MessageBoxButtons.OK,
+                                           MessageBoxIcon.Stop);
+                            return;
                     }
                 }
+                else if (dataGridView1.Columns[e.ColumnIndex].Name == addButton)            // add expense
+                 {
+                     this.addExpense(e);
+                 }
             }
         }
 
@@ -198,33 +211,9 @@ namespace CS6920Group4Project.View
         {
             try
             {
-                if (dataGridView1.RowCount == 0)
-                {
-                    DataGridViewCell addCell = dataGridView1.Rows[dataGridView1.RowCount].Cells[8]; //Column Index for the dataGridViewButtonColumn           
-                    addCell.Value = "Add Expense";
-                    dataGridView1.Rows[dataGridView1.RowCount].Height = 28;
-
-                    DataGridViewCell clearCell = dataGridView1.Rows[dataGridView1.RowCount].Cells[9]; //Column Index for the dataGridViewButtonColumn           
-                    clearCell.Value = "Clear Expense";
-                }
-                else
-                {
-                    // Use the NewRow method to create a DataRow with 
-                    // the table's schema.
-                    DataRow newRow = table.NewRow();
-
-                    // Add the row to the rows collection.
-                    table.Rows.Add(newRow);
-
-                    dataGridView1.Rows[dataGridView1.RowCount - 1].Cells[5].Value = 0.00;
-
-                    DataGridViewCell addCell = dataGridView1.Rows[dataGridView1.RowCount - 1].Cells[8]; //Column Index for the dataGridViewButtonColumn           
-                    addCell.Value = "Add Expense";
-                    dataGridView1.Rows[dataGridView1.RowCount - 1].Height = 28;
-
-                    DataGridViewCell clearCell = dataGridView1.Rows[dataGridView1.RowCount - 1].Cells[9]; //Column Index for the dataGridViewButtonColumn           
-                    clearCell.Value = "Clear Expense";
-                }
+                table.Rows.Add(table.NewRow());
+                dataGridView1.Rows[dataGridView1.RowCount - 1].Cells[5].Value = 0.00;
+                
             }
             catch (Exception ex)
             {
@@ -236,23 +225,18 @@ namespace CS6920Group4Project.View
         {
             try
             {
-                String title = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
-                String desc = dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString();
-                String sendAmount = dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString();
-                String newDate = dataGridView1.Rows[e.RowIndex].Cells[6].Value.ToString();
-
                 selectedExpense.Title = title;
                 selectedExpense.Description = desc;
-                selectedExpense.DateSpent = Convert.ToDateTime(newDate);
+                selectedExpense.DateSpent = Convert.ToDateTime(sDate);
 
                 try
                 {
-                    Decimal d = Convert.ToDecimal(sendAmount);
+                    Decimal d = Convert.ToDecimal(amount);
                     selectedExpense.Amount = d;
                 }
                 catch (Exception)
                 {
-                    MessageBox.Show("Invalid amount: " + sendAmount);
+                    MessageBox.Show("Invalid amount: " + amount);
                     dataGridView1.Rows[e.RowIndex].Cells[5].Value = Utilities.StringUtilities.Get4PointDecimal(selectedExpense.Amount);
                     dataGridView1.Refresh();
                     return;
@@ -280,12 +264,9 @@ namespace CS6920Group4Project.View
         {
             try
             {
-                String title = selectedExpense.Title.ToString();
-                String sAmount = selectedExpense.Amount.ToString();
-                String sDateSpent = selectedExpense.DateSpent.ToString();
                 DialogResult result = MessageBox.Show("Do you want to delete EXPENSE (Title - "
-                                                     + title + " Amount - " + sAmount
-                                                     + " DateSpent - " + sDateSpent + ")?",
+                                                     + title + " Amount - " + amount
+                                                     + " DateSpent - " + sDate + ")?",
                                                        "DELETE EXPENSE",
                                                         MessageBoxButtons.YesNo,
                                                          MessageBoxIcon.Question);
@@ -300,7 +281,7 @@ namespace CS6920Group4Project.View
                     }
                     else
                     {
-                        MessageBox.Show("Unable to Delete (Title - " + title + " Amount - " + sAmount
+                        MessageBox.Show("Unable to Delete (Title - " + title + " Amount - " + amount
                                                           + ") EXPENSE!",
                                                          "DELETE EXPENSE",
                                                           MessageBoxButtons.OK,
@@ -318,12 +299,12 @@ namespace CS6920Group4Project.View
         {
             try
             {
-                String title = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
-                String desc = dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString();
-                String amount = dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString();
-                String spentDate = dataGridView1.Rows[e.RowIndex].Cells[6].Value.ToString();
+                title = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
+                desc = dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString();
+                amount = dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString();
+                sDate = dataGridView1.Rows[e.RowIndex].Cells[6].Value.ToString();
 
-                if (String.IsNullOrEmpty(title) || String.IsNullOrEmpty(amount) || String.IsNullOrEmpty(spentDate))
+                if (String.IsNullOrEmpty(title) || String.IsNullOrEmpty(amount) || String.IsNullOrEmpty(sDate))
                 {
                     MessageBox.Show("All fields are required, Please Try Again",
                                     "USER",
@@ -345,7 +326,7 @@ namespace CS6920Group4Project.View
                     }
 
                     newExpense.DateCreated = DateTime.Now;
-                    newExpense.DateSpent = DateTime.Parse(spentDate);
+                    newExpense.DateSpent = DateTime.Parse(sDate);
                     newExpense.Title = title;
                     newExpense.Description = desc;
                     newExpense.BudgetID = Session.SessionInformation.GetBudget().ID;
@@ -362,26 +343,10 @@ namespace CS6920Group4Project.View
                     {
                         this.refreshView();
                         this.getExpenselist();
-                        this.buildView();
-                        Session.SessionInformation.RefreshSessionLabels();
                         this.AddARow();
+                        Session.SessionInformation.RefreshSessionLabels();                    
                     }
                 }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, ex.GetType().ToString());
-            }
-        }
-
-        private void clearExpense(DataGridViewCellEventArgs e)
-        {
-            try
-            {
-                dataGridView1.Rows[e.RowIndex].Cells[3].Value = "";
-                dataGridView1.Rows[e.RowIndex].Cells[4].Value = "";
-                dataGridView1.Rows[e.RowIndex].Cells[5].Value = 0.00;
-                dataGridView1.Rows[e.RowIndex].Cells[6].Value = "";
             }
             catch (Exception ex)
             {

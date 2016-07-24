@@ -15,8 +15,8 @@ namespace CS6920Group4Project.DAL.Model
     {
         private MySqlConnection conn = new DBConnect().GetConnection();
 
-        private const string InsertBillStatement = 
-            "INSERT INTO sql5123046.bills(RecordID, Amount, DateDue, DatePaid) VALUES" 
+        private const string InsertBillStatement =
+            "INSERT INTO sql5123046.bills(RecordID, Amount, DateDue, DatePaid) VALUES"
             + " (@RecordID, @Amount, @DateDue, @DatePaid)";
 
         public long InsertBill(Bill bill)
@@ -62,7 +62,7 @@ namespace CS6920Group4Project.DAL.Model
             return id;
         }
 
-        private const string SelectBillsByBudgetID = 
+        private const string SelectBillsByBudgetID =
             "SELECT * FROM `sql5123046`.`viewbillrecords` WHERE `viewbillrecords`.`BudgetID` = @ID;";
 
         public List<Bill> GetBillsByBudgetID(int BudgetID)
@@ -110,12 +110,13 @@ namespace CS6920Group4Project.DAL.Model
                     }
                 }
             }
-            catch(MySqlException e)
+            catch (MySqlException e)
             {
                 bills = null;
             }
             catch (Exception e)
-            {   bills = null;
+            {
+                bills = null;
             }
             finally
             {
@@ -189,5 +190,39 @@ namespace CS6920Group4Project.DAL.Model
         {
             return RecordController.Instance.DeleteRecord(b);
         }
+
+        public MySqlDataAdapter GetListOfBillsByBudgetIDDataGridView(int BudgetID)
+        {
+            MySqlDataAdapter mySqlDataAdapter = null;
+
+            try
+            {
+                using (MySqlCommand cmd = new MySqlCommand())
+                {
+                    conn.Open();
+                    cmd.Connection = conn;
+                    cmd.CommandText = "SELECT * FROM `sql5123046`.`viewbillrecords` WHERE `viewbillrecords`.`BudgetID` = @ID " +
+                                      "ORDER BY DateDue DESC;";
+
+                    cmd.Prepare();
+                    cmd.Parameters.AddWithValue("@ID", BudgetID);
+                    mySqlDataAdapter = new MySqlDataAdapter(cmd);
+                }
+            }
+            catch (MySqlException e)
+            {
+                return null;
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return mySqlDataAdapter;
+        }
+
     }
 }
