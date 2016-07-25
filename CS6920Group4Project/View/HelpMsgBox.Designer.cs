@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.messageLbl = new System.Windows.Forms.Label();
             this.btnOK = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
-            this.messageLbl = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -43,6 +43,15 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(267, 387);
             this.panel1.TabIndex = 0;
+            // 
+            // messageLbl
+            // 
+            this.messageLbl.AutoSize = true;
+            this.messageLbl.Location = new System.Drawing.Point(13, 13);
+            this.messageLbl.Name = "messageLbl";
+            this.messageLbl.Size = new System.Drawing.Size(35, 13);
+            this.messageLbl.TabIndex = 0;
+            this.messageLbl.Text = "label1";
             // 
             // btnOK
             // 
@@ -62,15 +71,7 @@
             this.btnCancel.TabIndex = 2;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
-            // 
-            // messageLbl
-            // 
-            this.messageLbl.AutoSize = true;
-            this.messageLbl.Location = new System.Drawing.Point(13, 13);
-            this.messageLbl.Name = "messageLbl";
-            this.messageLbl.Size = new System.Drawing.Size(35, 13);
-            this.messageLbl.TabIndex = 0;
-            this.messageLbl.Text = "label1";
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // HelpMsgBox
             // 

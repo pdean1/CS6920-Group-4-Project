@@ -35,5 +35,10 @@ namespace CS6920Group4Project
             result = DialogResult.Yes;
             MsgBox.Close();
         }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            MsgBox.Close();
+        }
     }
 }
