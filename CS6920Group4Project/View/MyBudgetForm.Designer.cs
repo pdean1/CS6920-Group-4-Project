@@ -50,9 +50,32 @@
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnSelect = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.resultsTxt = new System.Windows.Forms.TextBox();
+            this.plusBtn = new System.Windows.Forms.Button();
+            this.periodBtn = new System.Windows.Forms.Button();
+            this.zeroBtn = new System.Windows.Forms.Button();
+            this.Negbtn = new System.Windows.Forms.Button();
+            this.threeBtn = new System.Windows.Forms.Button();
+            this.twoBtn = new System.Windows.Forms.Button();
+            this.OneBtn = new System.Windows.Forms.Button();
+            this.equalBtn = new System.Windows.Forms.Button();
+            this.clear = new System.Windows.Forms.Button();
+            this.multBtn = new System.Windows.Forms.Button();
+            this.sixBtn = new System.Windows.Forms.Button();
+            this.fiveBtn = new System.Windows.Forms.Button();
+            this.fourBtn = new System.Windows.Forms.Button();
+            this.clearAll = new System.Windows.Forms.Button();
+            this.divBtn = new System.Windows.Forms.Button();
+            this.nineBtn = new System.Windows.Forms.Button();
+            this.eightBtn = new System.Windows.Forms.Button();
+            this.sevenbtn = new System.Windows.Forms.Button();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.valueLbl = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.percentageCht)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.MainMenuStrip.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // percentageCht
@@ -268,6 +291,262 @@
             this.label1.TabIndex = 53;
             this.label1.Text = "CHOOSE A BUDGET";
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(12, 10);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(91, 13);
+            this.label3.TabIndex = 19;
+            this.label3.Text = "Budget Calculator";
+            // 
+            // resultsTxt
+            // 
+            this.resultsTxt.BackColor = System.Drawing.Color.White;
+            this.resultsTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.resultsTxt.Location = new System.Drawing.Point(12, 44);
+            this.resultsTxt.Name = "resultsTxt";
+            this.resultsTxt.Size = new System.Drawing.Size(209, 23);
+            this.resultsTxt.TabIndex = 18;
+            this.resultsTxt.Text = "0";
+            this.resultsTxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.resultsTxt.TextChanged += new System.EventHandler(this.resultsTxt_TextChanged);
+            // 
+            // plusBtn
+            // 
+            this.plusBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.plusBtn.Location = new System.Drawing.Point(144, 198);
+            this.plusBtn.Name = "plusBtn";
+            this.plusBtn.Size = new System.Drawing.Size(35, 33);
+            this.plusBtn.TabIndex = 17;
+            this.plusBtn.Text = "+";
+            this.plusBtn.UseVisualStyleBackColor = true;
+            this.plusBtn.Click += new System.EventHandler(this.operator_Click);
+            // 
+            // periodBtn
+            // 
+            this.periodBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.periodBtn.Location = new System.Drawing.Point(100, 199);
+            this.periodBtn.Name = "periodBtn";
+            this.periodBtn.Size = new System.Drawing.Size(35, 33);
+            this.periodBtn.TabIndex = 16;
+            this.periodBtn.Text = ".";
+            this.periodBtn.UseVisualStyleBackColor = true;
+            this.periodBtn.Click += new System.EventHandler(this.button_Click);
+            // 
+            // zeroBtn
+            // 
+            this.zeroBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.zeroBtn.Location = new System.Drawing.Point(12, 199);
+            this.zeroBtn.Name = "zeroBtn";
+            this.zeroBtn.Size = new System.Drawing.Size(83, 33);
+            this.zeroBtn.TabIndex = 15;
+            this.zeroBtn.Text = "0";
+            this.zeroBtn.UseVisualStyleBackColor = true;
+            this.zeroBtn.Click += new System.EventHandler(this.button_Click);
+            // 
+            // Negbtn
+            // 
+            this.Negbtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Negbtn.Location = new System.Drawing.Point(144, 157);
+            this.Negbtn.Name = "Negbtn";
+            this.Negbtn.Size = new System.Drawing.Size(35, 33);
+            this.Negbtn.TabIndex = 14;
+            this.Negbtn.Text = "-";
+            this.Negbtn.UseVisualStyleBackColor = true;
+            this.Negbtn.Click += new System.EventHandler(this.operator_Click);
+            // 
+            // threeBtn
+            // 
+            this.threeBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.threeBtn.Location = new System.Drawing.Point(103, 160);
+            this.threeBtn.Name = "threeBtn";
+            this.threeBtn.Size = new System.Drawing.Size(35, 33);
+            this.threeBtn.TabIndex = 13;
+            this.threeBtn.Text = "3";
+            this.threeBtn.UseVisualStyleBackColor = true;
+            this.threeBtn.Click += new System.EventHandler(this.button_Click);
+            // 
+            // twoBtn
+            // 
+            this.twoBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.twoBtn.Location = new System.Drawing.Point(56, 157);
+            this.twoBtn.Name = "twoBtn";
+            this.twoBtn.Size = new System.Drawing.Size(35, 33);
+            this.twoBtn.TabIndex = 12;
+            this.twoBtn.Text = "2";
+            this.twoBtn.UseVisualStyleBackColor = true;
+            this.twoBtn.Click += new System.EventHandler(this.button_Click);
+            // 
+            // OneBtn
+            // 
+            this.OneBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.OneBtn.Location = new System.Drawing.Point(12, 157);
+            this.OneBtn.Name = "OneBtn";
+            this.OneBtn.Size = new System.Drawing.Size(35, 33);
+            this.OneBtn.TabIndex = 11;
+            this.OneBtn.Text = "1";
+            this.OneBtn.UseVisualStyleBackColor = true;
+            this.OneBtn.Click += new System.EventHandler(this.button_Click);
+            // 
+            // equalBtn
+            // 
+            this.equalBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.equalBtn.Location = new System.Drawing.Point(188, 157);
+            this.equalBtn.Name = "equalBtn";
+            this.equalBtn.Size = new System.Drawing.Size(35, 75);
+            this.equalBtn.TabIndex = 10;
+            this.equalBtn.Text = "=";
+            this.equalBtn.UseVisualStyleBackColor = true;
+            this.equalBtn.Click += new System.EventHandler(this.equal_Click);
+            // 
+            // clear
+            // 
+            this.clear.Location = new System.Drawing.Point(187, 115);
+            this.clear.Name = "clear";
+            this.clear.Size = new System.Drawing.Size(34, 33);
+            this.clear.TabIndex = 9;
+            this.clear.Text = "C";
+            this.clear.UseVisualStyleBackColor = true;
+            this.clear.Click += new System.EventHandler(this.clear_Click_1);
+            // 
+            // multBtn
+            // 
+            this.multBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.multBtn.Location = new System.Drawing.Point(143, 115);
+            this.multBtn.Name = "multBtn";
+            this.multBtn.Size = new System.Drawing.Size(35, 33);
+            this.multBtn.TabIndex = 8;
+            this.multBtn.Text = "*";
+            this.multBtn.UseVisualStyleBackColor = true;
+            this.multBtn.Click += new System.EventHandler(this.operator_Click);
+            // 
+            // sixBtn
+            // 
+            this.sixBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sixBtn.Location = new System.Drawing.Point(99, 115);
+            this.sixBtn.Name = "sixBtn";
+            this.sixBtn.Size = new System.Drawing.Size(35, 33);
+            this.sixBtn.TabIndex = 7;
+            this.sixBtn.Text = "6";
+            this.sixBtn.UseVisualStyleBackColor = true;
+            this.sixBtn.Click += new System.EventHandler(this.button_Click);
+            // 
+            // fiveBtn
+            // 
+            this.fiveBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fiveBtn.Location = new System.Drawing.Point(55, 115);
+            this.fiveBtn.Name = "fiveBtn";
+            this.fiveBtn.Size = new System.Drawing.Size(35, 33);
+            this.fiveBtn.TabIndex = 6;
+            this.fiveBtn.Text = "5";
+            this.fiveBtn.UseVisualStyleBackColor = true;
+            this.fiveBtn.Click += new System.EventHandler(this.button_Click);
+            // 
+            // fourBtn
+            // 
+            this.fourBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fourBtn.Location = new System.Drawing.Point(12, 115);
+            this.fourBtn.Name = "fourBtn";
+            this.fourBtn.Size = new System.Drawing.Size(35, 33);
+            this.fourBtn.TabIndex = 5;
+            this.fourBtn.Text = "4";
+            this.fourBtn.UseVisualStyleBackColor = true;
+            this.fourBtn.Click += new System.EventHandler(this.button_Click);
+            // 
+            // clearAll
+            // 
+            this.clearAll.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.clearAll.Location = new System.Drawing.Point(186, 73);
+            this.clearAll.Name = "clearAll";
+            this.clearAll.Size = new System.Drawing.Size(35, 33);
+            this.clearAll.TabIndex = 4;
+            this.clearAll.Text = "CE";
+            this.clearAll.UseVisualStyleBackColor = true;
+            this.clearAll.Click += new System.EventHandler(this.clearAll_Click_1);
+            // 
+            // divBtn
+            // 
+            this.divBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.divBtn.Location = new System.Drawing.Point(143, 73);
+            this.divBtn.Name = "divBtn";
+            this.divBtn.Size = new System.Drawing.Size(35, 33);
+            this.divBtn.TabIndex = 3;
+            this.divBtn.Text = "/";
+            this.divBtn.UseVisualStyleBackColor = true;
+            this.divBtn.Click += new System.EventHandler(this.operator_Click);
+            // 
+            // nineBtn
+            // 
+            this.nineBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nineBtn.Location = new System.Drawing.Point(99, 73);
+            this.nineBtn.Name = "nineBtn";
+            this.nineBtn.Size = new System.Drawing.Size(35, 33);
+            this.nineBtn.TabIndex = 2;
+            this.nineBtn.Text = "9";
+            this.nineBtn.UseVisualStyleBackColor = true;
+            this.nineBtn.Click += new System.EventHandler(this.button_Click);
+            // 
+            // eightBtn
+            // 
+            this.eightBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.eightBtn.Location = new System.Drawing.Point(55, 73);
+            this.eightBtn.Name = "eightBtn";
+            this.eightBtn.Size = new System.Drawing.Size(35, 33);
+            this.eightBtn.TabIndex = 1;
+            this.eightBtn.Text = "8";
+            this.eightBtn.UseVisualStyleBackColor = true;
+            this.eightBtn.Click += new System.EventHandler(this.button_Click);
+            // 
+            // sevenbtn
+            // 
+            this.sevenbtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sevenbtn.Location = new System.Drawing.Point(12, 73);
+            this.sevenbtn.Name = "sevenbtn";
+            this.sevenbtn.Size = new System.Drawing.Size(35, 33);
+            this.sevenbtn.TabIndex = 0;
+            this.sevenbtn.Text = "7";
+            this.sevenbtn.UseVisualStyleBackColor = true;
+            this.sevenbtn.Click += new System.EventHandler(this.button_Click);
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel3.Controls.Add(this.valueLbl);
+            this.panel3.Controls.Add(this.label3);
+            this.panel3.Controls.Add(this.resultsTxt);
+            this.panel3.Controls.Add(this.plusBtn);
+            this.panel3.Controls.Add(this.periodBtn);
+            this.panel3.Controls.Add(this.zeroBtn);
+            this.panel3.Controls.Add(this.Negbtn);
+            this.panel3.Controls.Add(this.threeBtn);
+            this.panel3.Controls.Add(this.twoBtn);
+            this.panel3.Controls.Add(this.OneBtn);
+            this.panel3.Controls.Add(this.equalBtn);
+            this.panel3.Controls.Add(this.clear);
+            this.panel3.Controls.Add(this.multBtn);
+            this.panel3.Controls.Add(this.sixBtn);
+            this.panel3.Controls.Add(this.fiveBtn);
+            this.panel3.Controls.Add(this.fourBtn);
+            this.panel3.Controls.Add(this.clearAll);
+            this.panel3.Controls.Add(this.divBtn);
+            this.panel3.Controls.Add(this.nineBtn);
+            this.panel3.Controls.Add(this.eightBtn);
+            this.panel3.Controls.Add(this.sevenbtn);
+            this.panel3.Location = new System.Drawing.Point(1301, 206);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(233, 253);
+            this.panel3.TabIndex = 15;
+            // 
+            // valueLbl
+            // 
+            this.valueLbl.AutoSize = true;
+            this.valueLbl.Location = new System.Drawing.Point(97, 28);
+            this.valueLbl.Name = "valueLbl";
+            this.valueLbl.Size = new System.Drawing.Size(0, 13);
+            this.valueLbl.TabIndex = 54;
+            // 
             // MyBudgetForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -282,6 +561,7 @@
             this.Controls.Add(this.lblUserNamePlaceholder);
             this.Controls.Add(this.lblIncomeRemainingPlaceholder);
             this.Controls.Add(this.lblIncomeRemaining);
+            this.Controls.Add(this.panel3);
             this.Controls.Add(this.lblUser);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.MainMenuStrip);
@@ -295,6 +575,8 @@
             this.tabControl1.ResumeLayout(false);
             this.MainMenuStrip.ResumeLayout(false);
             this.MainMenuStrip.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -324,5 +606,27 @@
         private System.Windows.Forms.Button btnSelect;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox resultsTxt;
+        private System.Windows.Forms.Button plusBtn;
+        private System.Windows.Forms.Button periodBtn;
+        private System.Windows.Forms.Button zeroBtn;
+        private System.Windows.Forms.Button Negbtn;
+        private System.Windows.Forms.Button threeBtn;
+        private System.Windows.Forms.Button twoBtn;
+        private System.Windows.Forms.Button OneBtn;
+        private System.Windows.Forms.Button equalBtn;
+        private System.Windows.Forms.Button clear;
+        private System.Windows.Forms.Button multBtn;
+        private System.Windows.Forms.Button sixBtn;
+        private System.Windows.Forms.Button fiveBtn;
+        private System.Windows.Forms.Button fourBtn;
+        private System.Windows.Forms.Button clearAll;
+        private System.Windows.Forms.Button divBtn;
+        private System.Windows.Forms.Button nineBtn;
+        private System.Windows.Forms.Button eightBtn;
+        private System.Windows.Forms.Button sevenbtn;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Label valueLbl;
     }
 }

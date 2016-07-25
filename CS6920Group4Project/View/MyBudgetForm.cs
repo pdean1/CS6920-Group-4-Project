@@ -1,6 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Drawing;
+using System.IO;
 using System.Windows.Forms;
 using CS6920Group4Project.Model;
+using CS6920Group4Project.Utilities;
 using CS6920Group4Project.Controller;
 
 
@@ -9,7 +13,10 @@ namespace CS6920Group4Project.View
     public partial class MyBudgetForm : Form
     {
         Dashboard dbform;
-        
+        Double result = 0;
+        String calculations = "";
+        bool isCalculationPerformed = false;
+
         ManageExpenses exform;
         ManageEarnings earnForm;
         ManageBills billForm;
@@ -35,7 +42,10 @@ namespace CS6920Group4Project.View
             this.tabManageEarnings();
             this.tabManageBills();
             this.tabBudgetView();
-
+            resultsTxt.BackColor = Color.White;
+            resultsTxt.KeyUp += resultsTxt_KeyUp;
+            resultsTxt.Enabled = false; // Added this here as a quick fix for user entered errors
+            
             tabControl1.SelectedIndexChanged += tabControl1_SelectedIndexChanged;
         }
 
@@ -75,6 +85,97 @@ namespace CS6920Group4Project.View
             }
             return;
         }
+        private void button_Click(object sender, EventArgs e)
+        {
+            if ((resultsTxt.Text == "0") || (isCalculationPerformed))
+                resultsTxt.Clear();
+
+            isCalculationPerformed = false;
+            Button button = (Button)sender;
+            if (button.Text == ".")
+            {
+                if (!resultsTxt.Text.Contains("."))
+                    resultsTxt.Text = resultsTxt.Text + button.Text;
+            }
+            else
+                resultsTxt.Text = resultsTxt.Text + button.Text;
+        }
+
+        private void operator_Click(object sender, EventArgs e)
+        {
+            Button button = (Button)sender;
+
+            if (result != 0)
+            {
+                equalBtn.PerformClick();
+                calculations = button.Text;
+                valueLbl.Text = result + " " + calculations;
+                isCalculationPerformed = true;
+            }
+            else
+            {
+                calculations = button.Text;
+                result = Double.Parse(resultsTxt.Text);
+                valueLbl.Text = result + " " + calculations;
+                isCalculationPerformed = true;
+            }
+        }
+        private void clear_Click_1(object sender, EventArgs e)
+        {
+           resultsTxt.Text = "0";
+        }
+        private void clearAll_Click_1(object sender, EventArgs e)
+        {
+            resultsTxt.Text = "0";
+            result = 0;
+        }
+        void resultsTxt_KeyUp(object sender, KeyEventArgs e)
+        {
+            char[] text = resultsTxt.Text.ToCharArray();
+            String newText = "";
+            foreach (char c in text)
+            {
+                if (char.IsDigit(c) || c == '/' || c == '*' || c == '-' || c == '+')
+                {
+                    newText += c;
+                }
+            }
+            resultsTxt.Text = newText;
+        }
+
+        private void equal_Click(object sender, EventArgs e)
+        {
+            switch (calculations)
+            {
+                case "+":
+                    resultsTxt.Text = (result + Double.Parse(resultsTxt.Text)).ToString();
+                    break;
+
+                case "-":
+                    resultsTxt.Text = (result - Double.Parse(resultsTxt.Text)).ToString();
+                    break;
+
+                case "*":
+                    resultsTxt.Text = (result * Double.Parse(resultsTxt.Text)).ToString();
+                    break;
+
+                case "/":
+                    if (Double.Parse(resultsTxt.Text) == 0)
+                    {
+                        MessageBox.Show("Cannot Divide by Zero, please enter a different value");
+                        resultsTxt.Text = "";
+                        return;
+                    }
+                    resultsTxt.Text = (result / Double.Parse(resultsTxt.Text)).ToString();
+                    break;
+                default:
+                    break;
+
+            }
+            result = Double.Parse(resultsTxt.Text);
+            valueLbl.Text = "";
+        }
+
 
         private void tabDashBoad()
         {
@@ -235,5 +336,14 @@ namespace CS6920Group4Project.View
                + "Thank you for using Budget Buddy" + Environment.NewLine
                + "", "", "OK", "Cancel");
         }
+
+        private void resultsTxt_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+      
+
+       
     }
 }
