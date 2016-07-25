@@ -58,63 +58,6 @@ namespace CS6920Group4Project.View
             }
         }
 
-        private void addEarningsBtn_Click(object sender, EventArgs e)
-        {/*
-            try
-            {
-                if (this.IsValidData())
-                {
-                    Earning newEarn = new Earning();
-                    string earnAmount = earningAmountBox.Text;
-                    string earnDate = monthCalendar.SelectionRange.Start.ToShortDateString();
-                    string earnTitle = tbTitle.Text;
-                    string earnDesc = descTxt.Text;
-                    try
-                    {
-                        newEarn.Amount = Convert.ToDecimal(earnAmount);
-                    }
-                    catch (FormatException fex)
-                    {
-                        Utilities.DatabaseErrorMessageUtility.SendMessageToUser("Invalid format for amount", fex);
-                        return;
-                    }
-
-                    newEarn.DateEarned = DateTime.Parse(earnDate);
-                    newEarn.Title = earnTitle;
-                    newEarn.Description = earnDesc;
-                    newEarn.BudgetID = Session.SessionInformation.GetBudget().ID;
-                    long isEarningsAdded = EarningController.Instance.InsertEarning(newEarn);
-                    if (isEarningsAdded == 0)
-                    {
-                        MessageBox.Show("An error occured, earnings was not added to your Budget",
-                                    "USER",
-                                    MessageBoxButtons.OK,
-                                    MessageBoxIcon.Stop);
-                    }
-                    else
-                    {
-                        this.ClearText();
-                        this.refreshView();
-                        this.populateGridView();
-                        Session.SessionInformation.RefreshSessionLabels();
-                    }
-                }
-                else
-                {
-                    this.ClearText();
-                }
-            }
-            catch (SqlException ex)
-            {
-                MessageBox.Show(ex.Message, ex.GetType().ToString());
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, ex.GetType().ToString());
-            }*/
-           
-        }
-
         private void populateGridView()
         {
             try
@@ -215,24 +158,11 @@ namespace CS6920Group4Project.View
                 this.refreshView();
                 this.populateGridView();
                 e.ThrowException = false;
+                this.AddARow();
                 return;
             }
         }
 
-             
-        /// <summary>
-        /// if desired method to clear all fields before closing or if the user wants to start again (reset)
-        /// </summary>
-        /* private bool IsValidData()
-        {
-            /*if(Validator.IsPresent(tbTitle) && Validator.IsAmountNonNegative(earningAmountBox) &&
-                Validator.IsPresent(descTxt) && Validator.IsPresent(monthCalendar))
-            {
-                return true;
-            }
-            else 
-                return false;
-        }*/
         private void earnGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             try
@@ -439,7 +369,7 @@ namespace CS6920Group4Project.View
                 // Setting the format
                 oDateTimePicker.Format = DateTimePickerFormat.Custom;
                 oDateTimePicker.CustomFormat = "MM-dd-yyyy";
-
+                oDateTimePicker.Font = new Font("Calbri", 8.25F, FontStyle.Regular, GraphicsUnit.Point, ((Byte)(0)));
                 if (!String.IsNullOrEmpty(earnGridView.Rows[e.RowIndex].Cells[6].Value.ToString()))
                 {
                     oDateTimePicker.Value = Convert.ToDateTime(earnGridView.Rows[e.RowIndex].Cells[6].Value.ToString());

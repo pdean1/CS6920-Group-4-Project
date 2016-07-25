@@ -141,6 +141,7 @@ namespace CS6920Group4Project.View
                 this.refreshView();
                 this.getBillslist();
                 e.ThrowException = false;
+                this.AddARow();
                 return;
             }
         }
@@ -382,7 +383,7 @@ namespace CS6920Group4Project.View
                 // Setting the format
                 oDateTimePicker.Format = DateTimePickerFormat.Custom;
                 oDateTimePicker.CustomFormat = "MM-dd-yyyy";
-
+                oDateTimePicker.Font = new Font("Calbri", 8.25F, FontStyle.Regular, GraphicsUnit.Point, ((Byte)(0)));
                 if (dgBills.Columns[e.ColumnIndex].Index == 6)
                 {
                     if (!String.IsNullOrEmpty(dgBills.Rows[e.RowIndex].Cells[6].Value.ToString()))
@@ -452,160 +453,5 @@ namespace CS6920Group4Project.View
                 dateTimeBill(e);
             }
         }
-
- /*     Delete Code  ----------------------------------
-        private void AddRowToDataGrid(Bill b)
-        {
-            String sDatePaid;
-            DateTime billDatePaid;
-
-            if (b.DatePaid != null)
-            {
-                billDatePaid = Convert.ToDateTime(b.DatePaid);
-                sDatePaid = billDatePaid.ToShortDateString();
-            }
-            else
-            {
-                sDatePaid = null;
-            }
-
-            string[] row = new string[] { 
-                    b.ID.ToString(), 
-                    b.Title, 
-                    (String.IsNullOrEmpty(b.Description)) ? "" : b.Description,
-                    // StringUtilities.Get4PointDecimal(b.Amount),
-                    // b.DateDue.ToString(),
-                    // b.DatePaid.ToString()
-                    StringUtilities.GetDisplayableDollarAmount(b.Amount),
-                    b.DateDue.ToShortDateString(),
-                    sDatePaid                    
-                };
-            dgBills.Rows.Add(row);
-        }
-
-        private Boolean DeleteBillClicked(int id)
-        {
-            Bill bill = Session.SessionInformation.GetBudget().GetSelectedBill(id);
-            DialogResult dr = MessageBox.Show(
-                "Do you want to delete BILL (Title - " + bill.Title + " Amount - "
-                + Utilities.StringUtilities.GetDisplayableDollarAmount(bill.Amount) + ")?"
-                , "DELETE BILL"
-                , MessageBoxButtons.YesNo
-                , MessageBoxIcon.Question);
-            if (dr == DialogResult.Yes)
-            {
-                if (bill == null)
-                {
-                    MessageBox.Show("Unable to delete bill!");
-                    return false;
-                }
-                if (!BillController.Instance.DeleteBill(bill))
-                {
-                    MessageBox.Show("Unable to delete bill!");
-                    return false;
-                }
-                Session.SessionInformation.GetBudget().Bills.Remove(bill);
-                Session.SessionInformation.RefreshSessionLabels();
-            }
-            return true;
-        }
-
-        private void buildView1()
-        {
-            dgBills.ColumnCount = 6;
-
-            dgBills.Columns[0].Name = "Record ID";
-            dgBills.Columns[0].Visible = false;
-            dgBills.Columns[1].Name = "Title";
-            dgBills.Columns[2].Name = "Description";
-            dgBills.Columns[3].Name = "Amount";
-            dgBills.Columns[4].Name = "Date Due";
-            dgBills.Columns[5].Name = "Date Paid";
-            dgBills.Columns[3].DefaultCellStyle.Format = "c";
-            dgBills.Columns[4].DefaultCellStyle.Format = "d";
-            dgBills.Columns[5].DefaultCellStyle.Format = "d";
-
-            //            foreach (Bill b in Session.SessionInformation.GetBudget().Bills)
-            //            {
-            //                AddRowToDataGrid(b);
-            //            }
-
-            DataGridViewButtonColumn editBtnCol = new DataGridViewButtonColumn();
-            dgBills.Columns.Add(editBtnCol);
-            editBtnCol.HeaderText = " ";
-            editBtnCol.Text = "Edit Bill";
-            editBtnCol.Name = "btnEdit";
-            //          editBtnCol.UseColumnTextForButtonValue = true;
-            for (int i = 0; i < dgBills.RowCount; i++)
-            {
-                dgBills.Rows[i].Cells[6].Value = "Update Bill"; //Column Index for the dataGridViewButtonColumn           
-            }
-
-            DataGridViewButtonColumn deleteBtnCol = new DataGridViewButtonColumn();
-            dgBills.Columns.Add(deleteBtnCol);
-            deleteBtnCol.HeaderText = " ";
-            deleteBtnCol.Text = "Delete Bill";
-            deleteBtnCol.Name = "btnDelete";
-            //        deleteBtnCol.UseColumnTextForButtonValue = true;
-            dgBills.CellClick += dgBills_CellClick;
-
-            dgBills.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-
-            for (int i = 0; i < dgBills.RowCount; i++)
-            {
-                dgBills.Rows[i].Cells[7].Value = "Delete Bill"; //Column Index for the dataGridViewButtonColumn  
-            }
-        }
-
-        private void dgBills1_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.ColumnIndex == EditCol)
-            {
-                int id = Int32.Parse(dgBills.Rows[e.RowIndex].Cells[0].Value.ToString());
-                Bill selectedBill = Session.SessionInformation.GetBudget().
-                                                    GetSelectedBill(id);
-
-                String title = dgBills.Rows[e.RowIndex].Cells[3].Value.ToString();
-                String desc = dgBills.Rows[e.RowIndex].Cells[4].Value.ToString();
-                String sendAmount = dgBills.Rows[e.RowIndex].Cells[5].Value.ToString();
-
-                selectedBill.Title = title;
-                selectedBill.Description = desc;
-                try
-                {
-                    Decimal d = Convert.ToDecimal(sendAmount);
-                    selectedBill.Amount = d;
-                }
-                catch (Exception)
-                {
-                    MessageBox.Show("Amount invalid: " + dgBills.Rows[e.RowIndex].Cells[3].Value.ToString());
-                    dgBills.Rows[e.RowIndex].Cells[3].Value = Utilities.StringUtilities.Get4PointDecimal(selectedBill.Amount);
-                    return;
-
-                }
-
-                bool update = BillController.Instance.EditBills(selectedBill);
-
-                if (update == true)
-                {
-                    MessageBox.Show("Bills Successfully Updated");
-                    Session.SessionInformation.RefreshSessionLabels();
-                }
-                else
-                {
-                    MessageBox.Show("Bills not Updated, please try again!");
-                }
-            }
-            else if (e.ColumnIndex == DeleteCol)
-            {
-                int id = Int32.Parse(dgBills.Rows[e.RowIndex].Cells[0].Value.ToString());
-                if (DeleteBillClicked(id))
-                {
-                    dgBills.Rows.RemoveAt(e.RowIndex);
-                }
-            }
-        }
-  */
-
     }
 }

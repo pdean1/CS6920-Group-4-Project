@@ -145,6 +145,7 @@ namespace CS6920Group4Project.View
                 this.refreshView();
                 this.getExpenselist();
                 e.ThrowException = false;
+                this.AddARow();
                 return;            
             }
         }
@@ -381,7 +382,7 @@ namespace CS6920Group4Project.View
                 // Setting the format
                 oDateTimePicker.Format = DateTimePickerFormat.Custom;
                 oDateTimePicker.CustomFormat = "MM-dd-yyyy";
-
+                oDateTimePicker.Font = new Font("Calbri", 8.25F, FontStyle.Regular, GraphicsUnit.Point, ((Byte)(0)));
                 if (!String.IsNullOrEmpty(dataGridView1.Rows[e.RowIndex].Cells[6].Value.ToString()))
                 {
                     oDateTimePicker.Value = Convert.ToDateTime(dataGridView1.Rows[e.RowIndex].Cells[6].Value.ToString());
