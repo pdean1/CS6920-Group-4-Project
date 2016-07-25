@@ -19,7 +19,7 @@ namespace CS6920Group4Project.View
     {
         
         private const int EditCol = 6, DeleteCol = 7;
-        DateTimePicker oDateTimePicker;
+        //DateTimePicker oDateTimePicker;
         private DataTable table;
         private BindingSource bSource;
         private MySqlDataAdapter mySqlDataAdapter;
@@ -370,9 +370,9 @@ namespace CS6920Group4Project.View
 
         private void dateTimeBill(DataGridViewCellEventArgs e)
         {
+            DateTimePicker oDateTimePicker = new DateTimePicker();  //DateTimePicker 
             try
             {
-                oDateTimePicker = new DateTimePicker();  //DateTimePicker 
 
                 //Adding DateTimePicker control into DataGridView 
                 dgBills.Controls.Add(oDateTimePicker);
@@ -424,26 +424,14 @@ namespace CS6920Group4Project.View
 
         private void dateTimePicker_OnTextChange(object sender, EventArgs e)
         {
-            try
-            {
-                dgBills.CurrentCell.Value = oDateTimePicker.Text.ToString();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, ex.GetType().ToString());
-            }
+            DateTimePicker dtp = (DateTimePicker) sender;
+            dgBills.CurrentCell.Value = dtp.Text.ToString();
         }
 
         private void oDateTimePicker_CloseUp(object sender, EventArgs e)
         {
-            try
-            {
-                oDateTimePicker.Visible = false;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, ex.GetType().ToString());
-            }
+            DateTimePicker dtp = (DateTimePicker)sender;
+            dtp.Visible = false;
         }
 
         private void dgBills_CellClick_1(object sender, DataGridViewCellEventArgs e)
