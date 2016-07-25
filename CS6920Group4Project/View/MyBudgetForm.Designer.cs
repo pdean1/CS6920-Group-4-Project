@@ -161,24 +161,24 @@
             // 
             this.lblIncomeRemaining.AutoSize = true;
             this.lblIncomeRemaining.BackColor = System.Drawing.Color.Transparent;
-            this.lblIncomeRemaining.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold);
-            this.lblIncomeRemaining.ForeColor = System.Drawing.Color.ForestGreen;
-            this.lblIncomeRemaining.Location = new System.Drawing.Point(698, 81);
+            this.lblIncomeRemaining.Font = new System.Drawing.Font("Calibri", 15F);
+            this.lblIncomeRemaining.ForeColor = System.Drawing.Color.DarkGreen;
+            this.lblIncomeRemaining.Location = new System.Drawing.Point(665, 84);
             this.lblIncomeRemaining.Name = "lblIncomeRemaining";
-            this.lblIncomeRemaining.Size = new System.Drawing.Size(170, 24);
+            this.lblIncomeRemaining.Size = new System.Drawing.Size(188, 24);
             this.lblIncomeRemaining.TabIndex = 5;
-            this.lblIncomeRemaining.Text = "Remaining Income:";
+            this.lblIncomeRemaining.Text = "REMAINING INCOME:";
             // 
             // lblIncomeRemainingPlaceholder
             // 
             this.lblIncomeRemainingPlaceholder.AutoSize = true;
             this.lblIncomeRemainingPlaceholder.BackColor = System.Drawing.Color.Transparent;
             this.lblIncomeRemainingPlaceholder.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lblIncomeRemainingPlaceholder.Font = new System.Drawing.Font("Calibri", 18F);
-            this.lblIncomeRemainingPlaceholder.ForeColor = System.Drawing.Color.Black;
-            this.lblIncomeRemainingPlaceholder.Location = new System.Drawing.Point(865, 76);
+            this.lblIncomeRemainingPlaceholder.Font = new System.Drawing.Font("Calibri", 16F);
+            this.lblIncomeRemainingPlaceholder.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.lblIncomeRemainingPlaceholder.Location = new System.Drawing.Point(854, 81);
             this.lblIncomeRemainingPlaceholder.Name = "lblIncomeRemainingPlaceholder";
-            this.lblIncomeRemainingPlaceholder.Size = new System.Drawing.Size(320, 31);
+            this.lblIncomeRemainingPlaceholder.Size = new System.Drawing.Size(295, 29);
             this.lblIncomeRemainingPlaceholder.TabIndex = 6;
             this.lblIncomeRemainingPlaceholder.Text = "Income Remaining Placeholder";
             this.lblIncomeRemainingPlaceholder.Click += new System.EventHandler(this.lblIncomeRemainingPlaceholder_Click);
@@ -283,11 +283,11 @@
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.ForestGreen;
+            this.label1.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.DarkGreen;
             this.label1.Location = new System.Drawing.Point(14, 82);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(173, 24);
+            this.label1.Size = new System.Drawing.Size(169, 24);
             this.label1.TabIndex = 53;
             this.label1.Text = "CHOOSE A BUDGET";
             // 
