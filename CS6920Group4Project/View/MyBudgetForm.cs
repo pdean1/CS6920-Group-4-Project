@@ -2,10 +2,6 @@
 using System.Windows.Forms;
 using CS6920Group4Project.Model;
 using CS6920Group4Project.Controller;
-using System.Collections.Generic;
-using CS6920Group4Project.View;
-using System.Text;
-using System.IO;
 
 
 namespace CS6920Group4Project.View
@@ -158,38 +154,6 @@ namespace CS6920Group4Project.View
                 {
                     MessageBox.Show("Unable to export to CSV! Please try again.");
                 }
-            }
-        }
-
-        private void btnAddBudget_Click(object sender, EventArgs e)
-        {
-            String title = txtTitle.Text;
-            String desc = txtDesc.Text;
-            if (String.IsNullOrEmpty(title) || String.IsNullOrEmpty(desc))
-            {
-                MessageBox.Show("All fields are required, Please Try Again",
-                                "USER",
-                                MessageBoxButtons.OK,
-                                MessageBoxIcon.Stop);
-                return;
-            }
-            int userID = Session.SessionInformation.GetSessionUser().ID;
-            Budget budget = new Budget();
-            budget.UserID = userID;
-            budget.Title = title;
-            budget.Description = desc;
-            budget.Notes = "";
-
-            if (BudgetController.Instance.CreateBudget(budget) == true)
-            {
-                MessageBox.Show("Budget Successfully Created");
-                txtTitle.Clear();
-                txtDesc.Clear();
-                UpdateBudgets();
-            }
-            else
-            {
-                MessageBox.Show("Budget was not Created, please try again!");
             }
         }
 

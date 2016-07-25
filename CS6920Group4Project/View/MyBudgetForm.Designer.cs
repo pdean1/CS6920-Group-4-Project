@@ -49,12 +49,6 @@
             this.cbBudgets = new System.Windows.Forms.ComboBox();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnSelect = new System.Windows.Forms.Button();
-            this.txtTitle = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtDesc = new System.Windows.Forms.TextBox();
-            this.btnAddBudget = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.percentageCht)).BeginInit();
             this.tabControl1.SuspendLayout();
@@ -262,71 +256,6 @@
             this.btnSelect.UseVisualStyleBackColor = false;
             this.btnSelect.Click += new System.EventHandler(this.btnSelect_Click);
             // 
-            // txtTitle
-            // 
-            this.txtTitle.Font = new System.Drawing.Font("Calibri", 15.75F);
-            this.txtTitle.Location = new System.Drawing.Point(1308, 262);
-            this.txtTitle.Name = "txtTitle";
-            this.txtTitle.Size = new System.Drawing.Size(220, 33);
-            this.txtTitle.TabIndex = 50;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold);
-            this.label2.ForeColor = System.Drawing.Color.ForestGreen;
-            this.label2.Location = new System.Drawing.Point(1354, 210);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(144, 24);
-            this.label2.TabIndex = 18;
-            this.label2.Text = "Create a Budget";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Calibri", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.DarkGreen;
-            this.label3.Location = new System.Drawing.Point(1318, 298);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(98, 22);
-            this.label3.TabIndex = 20;
-            this.label3.Text = "Description:";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Font = new System.Drawing.Font("Calibri", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.DarkGreen;
-            this.label4.Location = new System.Drawing.Point(1318, 237);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(47, 22);
-            this.label4.TabIndex = 19;
-            this.label4.Text = "Title:";
-            // 
-            // txtDesc
-            // 
-            this.txtDesc.Font = new System.Drawing.Font("Calibri", 15.75F);
-            this.txtDesc.Location = new System.Drawing.Point(1308, 323);
-            this.txtDesc.Name = "txtDesc";
-            this.txtDesc.Size = new System.Drawing.Size(220, 33);
-            this.txtDesc.TabIndex = 51;
-            // 
-            // btnAddBudget
-            // 
-            this.btnAddBudget.BackColor = System.Drawing.Color.ForestGreen;
-            this.btnAddBudget.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold);
-            this.btnAddBudget.ForeColor = System.Drawing.Color.MintCream;
-            this.btnAddBudget.Location = new System.Drawing.Point(1403, 362);
-            this.btnAddBudget.Name = "btnAddBudget";
-            this.btnAddBudget.Size = new System.Drawing.Size(125, 35);
-            this.btnAddBudget.TabIndex = 52;
-            this.btnAddBudget.Text = "Create Budget";
-            this.btnAddBudget.UseVisualStyleBackColor = false;
-            this.btnAddBudget.Click += new System.EventHandler(this.btnAddBudget_Click);
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -347,14 +276,8 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1562, 912);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.btnAddBudget);
-            this.Controls.Add(this.txtDesc);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnSelect);
-            this.Controls.Add(this.txtTitle);
             this.Controls.Add(this.cbBudgets);
             this.Controls.Add(this.lblUserNamePlaceholder);
             this.Controls.Add(this.lblIncomeRemainingPlaceholder);
@@ -399,12 +322,6 @@
         private System.Windows.Forms.ComboBox cbBudgets;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnSelect;
-        private System.Windows.Forms.TextBox txtTitle;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtDesc;
-        private System.Windows.Forms.Button btnAddBudget;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
     }
