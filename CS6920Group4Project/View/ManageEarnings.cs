@@ -219,36 +219,11 @@ namespace CS6920Group4Project.View
             }
         }
 
-       /* public bool validateData()
-        {
-            string earnAmount = earningAmountBox.Text;
-            string earnDate = monthCalendar.SelectionRange.Start.ToShortDateString();
-            string earnTitle = tbTitle.Text;
-
-            if (String.IsNullOrEmpty(earnTitle) || String.IsNullOrEmpty(earnAmount) || String.IsNullOrEmpty(earnDate))
-            {
-                MessageBox.Show("All fields are required, Please Try Again",
-                                "USER",
-                                MessageBoxButtons.OK,
-                                MessageBoxIcon.Stop);
-                return false;
-            }
-
-            return true;
-        }*/
-
-       
+             
         /// <summary>
         /// if desired method to clear all fields before closing or if the user wants to start again (reset)
         /// </summary>
-        private void ClearText()
-        {
-            /*tbTitle.Text = "";
-            earningAmountBox.Text = "";
-            descTxt.Text = "";*/
-        }
-
-       /* private bool IsValidData()
+        /* private bool IsValidData()
         {
             /*if(Validator.IsPresent(tbTitle) && Validator.IsAmountNonNegative(earningAmountBox) &&
                 Validator.IsPresent(descTxt) && Validator.IsPresent(monthCalendar))
@@ -258,12 +233,6 @@ namespace CS6920Group4Project.View
             else 
                 return false;
         }*/
-        private void cancelBtn_Click(object sender, EventArgs e)
-        {
-            this.ClearText();
-            
-        }
-       
         private void earnGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             try
@@ -407,7 +376,6 @@ namespace CS6920Group4Project.View
                                 }
                                 else
                                 {
-                                    this.ClearText();
                                     this.refreshView();
                                     this.populateGridView();
                                     this.AddARow();

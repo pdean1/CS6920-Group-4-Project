@@ -17,10 +17,7 @@ namespace CS6920Group4Project.View
 {
     public partial class ManageBills : Form
     {
-        private String billDesc;
-        private String billAmount;
-        private String billDate;
-        private String billTitle;
+        
         private const int EditCol = 6, DeleteCol = 7;
         DateTimePicker oDateTimePicker;
         private DataTable table;
@@ -45,91 +42,6 @@ namespace CS6920Group4Project.View
             editButton = "Edit";
             deleteButton = "Delete";
             addButton = "Add";
-        }
-
-        private void billBtn_Click(object sender, EventArgs e)
-        { 
-            try
-            {
-                bool isValidData = this.validateData();
-                if (isValidData == true)
-                {
-                    Bill newBill = new Bill();
-                    try
-                    {
-                        newBill.Amount = Convert.ToDecimal(billAmount);
-                    }
-                    catch (FormatException fe)
-                    {
-                        Utilities.DatabaseErrorMessageUtility.SendMessageToUser("Invalid amount format!", fe);
-                        return;
-                    }
-                    newBill.DateCreated = DateTime.Now;
-                    newBill.DateDue = DateTime.Parse(billDate);
-                    newBill.Title = billTitle;
-                    newBill.Description = billDesc;
-                    newBill.BudgetID = Session.SessionInformation.GetBudget().ID;
-
-                    long isBillAdded = BillController.Instance.InsertBill(newBill);
-                    if (isBillAdded == 0)
-                    {
-                        MessageBox.Show("An error occured, Bill was not added to your Budget",
-                                    "USER",
-                                    MessageBoxButtons.OK,
-                                    MessageBoxIcon.Stop);
-                    }
-                    else
-                    {
-                        this.clearData();
-                     //   AddRowToDataGrid(newBill);
-                        Session.SessionInformation.RefreshSessionLabels();
-                    }
-                }
-                else
-                {
-                    this.clearData();
-                }
-            }
-            catch (SqlException ex)
-            {
-                MessageBox.Show(ex.Message, ex.GetType().ToString());
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, ex.GetType().ToString());
-            }
-        }
-
-        public bool validateData()
-        {
-             billDesc = billDescTxt.Text;
-             billAmount = billAmountTxt.Text;
-             billDate = monthCalendar.SelectionRange.Start.ToShortDateString();
-             billTitle = billTitleTxt.Text;
-            
-             if (String.IsNullOrEmpty(billTitle) || String.IsNullOrEmpty(billAmount) || String.IsNullOrEmpty(billDate))
-             {
-                 MessageBox.Show("All fields are required, Please Try Again",
-                                 "USER",
-                                 MessageBoxButtons.OK,
-                                 MessageBoxIcon.Stop);
-                 return false;
-             }
-
-             return true;
-        }
-
-        private void clearData()
-        {
-            billTitleTxt.Text = "";
-            billDescTxt.Text = "";
-            billAmountTxt.Text = "";
-            monthCalendar.Text = "";
-        }
-
-        private void resetBtn_Click(object sender, EventArgs e)
-        {
-            this.clearData();
         }
 
         private void ManageBills_Load(object sender, EventArgs e)
