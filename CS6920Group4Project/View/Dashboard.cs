@@ -100,8 +100,6 @@ namespace CS6920Group4Project.View
             lblExpenseAmount.Text = StringUtilities.GetDisplayableDollarAmount(ExpensesAmount);
             lblIncomeAmount.Text = StringUtilities.GetDisplayableDollarAmount(EarningsAmount);
 
-            lblIncomeRemaining.Text = StringUtilities.GetDisplayableDollarAmount(EarningsAmount - (BillsAmount + ExpensesAmount));
-
             decimal[] yValues = { EarningsAmount, ExpensesAmount, BillsAmount };
 
             statisticsChart.Series[0].Points.DataBindXY(xValues, yValues);

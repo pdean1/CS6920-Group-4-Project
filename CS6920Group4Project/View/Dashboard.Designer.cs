@@ -36,25 +36,27 @@
             System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashboard));
             this.percentageCht = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.lblIncomeRemaining = new System.Windows.Forms.Label();
             this.lblBillAmount = new System.Windows.Forms.Label();
             this.lblExpenseAmount = new System.Windows.Forms.Label();
             this.lblIncomeAmount = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.statisticsChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label12 = new System.Windows.Forms.Label();
+            this.dgDueBills = new System.Windows.Forms.DataGridView();
+            this.label7 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.budgetEditBtn = new System.Windows.Forms.Button();
             this.budgetDescBox = new System.Windows.Forms.TextBox();
             this.budgetTitleBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.dgDueBills = new System.Windows.Forms.DataGridView();
-            this.label7 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.NotesRtb = new System.Windows.Forms.RichTextBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.valueLbl = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -80,15 +82,11 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.quoteTxt = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.NotesRtb = new System.Windows.Forms.RichTextBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.percentageCht)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.statisticsChart)).BeginInit();
             this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgDueBills)).BeginInit();
+            this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
             this.SuspendLayout();
@@ -110,18 +108,6 @@
             this.percentageCht.Size = new System.Drawing.Size(300, 300);
             this.percentageCht.TabIndex = 0;
             this.percentageCht.Text = "Budget";
-            // 
-            // lblIncomeRemaining
-            // 
-            this.lblIncomeRemaining.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblIncomeRemaining.AutoSize = true;
-            this.lblIncomeRemaining.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lblIncomeRemaining.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIncomeRemaining.Location = new System.Drawing.Point(205, 329);
-            this.lblIncomeRemaining.Name = "lblIncomeRemaining";
-            this.lblIncomeRemaining.Size = new System.Drawing.Size(62, 25);
-            this.lblIncomeRemaining.TabIndex = 10;
-            this.lblIncomeRemaining.Text = "$0000";
             // 
             // lblBillAmount
             // 
@@ -155,19 +141,6 @@
             this.lblIncomeAmount.Size = new System.Drawing.Size(60, 23);
             this.lblIncomeAmount.TabIndex = 7;
             this.lblIncomeAmount.Text = "$0000";
-            // 
-            // label6
-            // 
-            this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.Transparent;
-            this.label6.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.DarkGreen;
-            this.label6.Location = new System.Drawing.Point(49, 329);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(157, 23);
-            this.label6.TabIndex = 6;
-            this.label6.Text = "Income Remaining:";
             // 
             // label5
             // 
@@ -249,11 +222,9 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
             this.panel1.Controls.Add(this.label12);
-            this.panel1.Controls.Add(this.lblIncomeRemaining);
             this.panel1.Controls.Add(this.statisticsChart);
             this.panel1.Controls.Add(this.dgDueBills);
             this.panel1.Controls.Add(this.label7);
-            this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.lblBillAmount);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.label3);
@@ -264,6 +235,39 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(335, 490);
             this.panel1.TabIndex = 13;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Calibri", 20F);
+            this.label12.ForeColor = System.Drawing.Color.DarkGreen;
+            this.label12.Location = new System.Drawing.Point(90, 362);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(154, 33);
+            this.label12.TabIndex = 11;
+            this.label12.Text = "Bills Still Due";
+            // 
+            // dgDueBills
+            // 
+            this.dgDueBills.AllowUserToAddRows = false;
+            this.dgDueBills.AllowUserToDeleteRows = false;
+            this.dgDueBills.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgDueBills.Location = new System.Drawing.Point(13, 398);
+            this.dgDueBills.Name = "dgDueBills";
+            this.dgDueBills.ReadOnly = true;
+            this.dgDueBills.Size = new System.Drawing.Size(309, 78);
+            this.dgDueBills.TabIndex = 1;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Calibri", 20F);
+            this.label7.ForeColor = System.Drawing.Color.DarkGreen;
+            this.label7.Location = new System.Drawing.Point(96, 8);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(134, 33);
+            this.label7.TabIndex = 0;
+            this.label7.Text = "Dashboard";
             // 
             // label9
             // 
@@ -330,27 +334,34 @@
             this.panel2.Size = new System.Drawing.Size(331, 490);
             this.panel2.TabIndex = 14;
             // 
-            // dgDueBills
+            // button1
             // 
-            this.dgDueBills.AllowUserToAddRows = false;
-            this.dgDueBills.AllowUserToDeleteRows = false;
-            this.dgDueBills.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgDueBills.Location = new System.Drawing.Point(13, 398);
-            this.dgDueBills.Name = "dgDueBills";
-            this.dgDueBills.ReadOnly = true;
-            this.dgDueBills.Size = new System.Drawing.Size(309, 78);
-            this.dgDueBills.TabIndex = 1;
+            this.button1.Location = new System.Drawing.Point(198, 423);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 17;
+            this.button1.Text = "Clear";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // label7
+            // NotesRtb
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Calibri", 20F);
-            this.label7.ForeColor = System.Drawing.Color.DarkGreen;
-            this.label7.Location = new System.Drawing.Point(96, 8);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(134, 33);
-            this.label7.TabIndex = 0;
-            this.label7.Text = "Dashboard";
+            this.NotesRtb.Location = new System.Drawing.Point(12, 191);
+            this.NotesRtb.Name = "NotesRtb";
+            this.NotesRtb.Size = new System.Drawing.Size(307, 226);
+            this.NotesRtb.TabIndex = 3;
+            this.NotesRtb.Text = "";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Calibri", 20F);
+            this.label11.ForeColor = System.Drawing.Color.DarkGreen;
+            this.label11.Location = new System.Drawing.Point(84, 155);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(163, 33);
+            this.label11.TabIndex = 2;
+            this.label11.Text = "Budget Notes";
             // 
             // panel3
             // 
@@ -641,46 +652,6 @@
             this.label10.TabIndex = 17;
             this.label10.Text = "Savings Tips";
             // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Calibri", 20F);
-            this.label11.ForeColor = System.Drawing.Color.DarkGreen;
-            this.label11.Location = new System.Drawing.Point(84, 155);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(163, 33);
-            this.label11.TabIndex = 2;
-            this.label11.Text = "Budget Notes";
-            // 
-            // NotesRtb
-            // 
-            this.NotesRtb.Location = new System.Drawing.Point(12, 191);
-            this.NotesRtb.Name = "NotesRtb";
-            this.NotesRtb.Size = new System.Drawing.Size(307, 226);
-            this.NotesRtb.TabIndex = 3;
-            this.NotesRtb.Text = "";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Calibri", 20F);
-            this.label12.ForeColor = System.Drawing.Color.DarkGreen;
-            this.label12.Location = new System.Drawing.Point(90, 362);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(154, 33);
-            this.label12.TabIndex = 11;
-            this.label12.Text = "Bills Still Due";
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(198, 423);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 17;
-            this.button1.Text = "Clear";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -701,9 +672,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.statisticsChart)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgDueBills)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgDueBills)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel4.ResumeLayout(false);
@@ -716,11 +687,9 @@
 
         //       private System.Windows.Forms.Panel dashboardpnl;
         private System.Windows.Forms.DataVisualization.Charting.Chart percentageCht;
-        private System.Windows.Forms.Label lblIncomeRemaining;
         private System.Windows.Forms.Label lblBillAmount;
         private System.Windows.Forms.Label lblExpenseAmount;
         private System.Windows.Forms.Label lblIncomeAmount;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
