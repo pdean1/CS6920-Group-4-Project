@@ -40,5 +40,10 @@ namespace CS6920Group4Project
         {
             MsgBox.Close();
         }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
