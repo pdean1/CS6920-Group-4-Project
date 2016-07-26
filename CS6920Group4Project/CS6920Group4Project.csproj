@@ -238,6 +238,9 @@
     <None Include="Resources\QuoteBox.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="billQuotes.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="earnQuotes.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

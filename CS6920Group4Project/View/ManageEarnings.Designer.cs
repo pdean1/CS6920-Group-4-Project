@@ -32,8 +32,8 @@
             this.incomeLbl = new System.Windows.Forms.Label();
             this.earnGridView = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
             this.earnQuoteTxt = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.earnGridView)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -57,7 +57,7 @@
             this.earnGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.earnGridView.Location = new System.Drawing.Point(18, 40);
             this.earnGridView.Name = "earnGridView";
-            this.earnGridView.Size = new System.Drawing.Size(932, 589);
+            this.earnGridView.Size = new System.Drawing.Size(932, 546);
             this.earnGridView.TabIndex = 29;
             this.earnGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.earnGridView_CellClick);
             this.earnGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.earnGridView_CellContentClick);
@@ -73,16 +73,6 @@
             this.panel1.Size = new System.Drawing.Size(261, 295);
             this.panel1.TabIndex = 30;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(74, 42);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(120, 24);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Earnings Tips";
-            // 
             // earnQuoteTxt
             // 
             this.earnQuoteTxt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(242)))), ((int)(((byte)(196)))));
@@ -95,6 +85,16 @@
             this.earnQuoteTxt.Name = "earnQuoteTxt";
             this.earnQuoteTxt.Size = new System.Drawing.Size(201, 166);
             this.earnQuoteTxt.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(74, 42);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(120, 24);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Earnings Tips";
             // 
             // ManageEarnings
             // 
