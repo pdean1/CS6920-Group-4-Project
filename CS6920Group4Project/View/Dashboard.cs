@@ -139,7 +139,7 @@ namespace CS6920Group4Project.View
                 line = quoteReader.ReadLine();
                 Quotes.Add(line);
             }
-            quoteTxt.Text = Quotes[rand.Next(1, Quotes.Count)];
+            saveQuoteTxt.Text = Quotes[rand.Next(1, Quotes.Count)];
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -177,6 +177,11 @@ namespace CS6920Group4Project.View
             {
                 MessageBox.Show("Budget was not Created, please try again!");
             }
+        }
+
+        private void saveQuoteTxt_TextChanged(object sender, EventArgs e)
+        {
+
         }
 
     }

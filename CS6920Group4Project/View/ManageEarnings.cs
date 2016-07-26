@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CS6920Group4Project.Utilities;
 using CS6920Group4Project.Model;
 using CS6920Group4Project.View;
 using CS6920Group4Project.Controller;
@@ -33,12 +35,28 @@ namespace CS6920Group4Project.View
 
         private void ManageEarnings_Load(object sender, EventArgs e)
         {
+            this.Generate();
             this.populateGridView();
             this.buildView();
             earnGridView.AutoGenerateColumns = false;
             this.AddARow();
+            
         }
+        public void Generate()
+        {
+            List<string> Quotes = new List<string>();
+            Random rand = new Random();
 
+            StreamReader quoteReader = new StreamReader("earnQuotes.txt");
+            string line = "";
+
+            while (!quoteReader.EndOfStream)
+            {
+                line = quoteReader.ReadLine();
+                Quotes.Add(line);
+            }
+            earnQuoteTxt.Text = Quotes[rand.Next(1, Quotes.Count)];
+        }
         /// <summary>
         /// method to load a combobox -stubbed out functionality for later use
         /// </summary>
