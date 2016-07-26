@@ -68,7 +68,7 @@
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel1.Controls.Add(this.earnQuoteTxt);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(976, 63);
+            this.panel1.Location = new System.Drawing.Point(966, 43);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(261, 295);
             this.panel1.TabIndex = 30;
@@ -90,7 +90,7 @@
             this.earnQuoteTxt.Enabled = false;
             this.earnQuoteTxt.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.earnQuoteTxt.ForeColor = System.Drawing.Color.DarkGreen;
-            this.earnQuoteTxt.Location = new System.Drawing.Point(30, 78);
+            this.earnQuoteTxt.Location = new System.Drawing.Point(32, 78);
             this.earnQuoteTxt.Multiline = true;
             this.earnQuoteTxt.Name = "earnQuoteTxt";
             this.earnQuoteTxt.Size = new System.Drawing.Size(201, 166);

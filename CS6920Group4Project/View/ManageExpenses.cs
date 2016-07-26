@@ -11,6 +11,7 @@ using CS6920Group4Project.Controller;
 using CS6920Group4Project.Model;
 using System.Data.SqlClient;
 using MySql.Data.MySqlClient;
+using System.IO;
 
 namespace CS6920Group4Project.View
 {
@@ -42,12 +43,29 @@ namespace CS6920Group4Project.View
 
         private void ManageExpenses_Load(object sender, EventArgs e)
         {
+            this.expenseGenerate();
             this.getExpenselist();
             this.buildView();
             dataGridView1.AutoGenerateColumns = false;
             this.AddARow();
         }
         
+        private void expenseGenerate()
+        {
+            List<string> Quotes = new List<string>();
+            Random rand = new Random();
+
+            StreamReader quoteReader = new StreamReader("expenseQuotes.txt");
+            string line = "";
+
+            while (!quoteReader.EndOfStream)
+            {
+                line = quoteReader.ReadLine();
+                Quotes.Add(line);
+            }
+            expenseQuoteTxt.Text = Quotes[rand.Next(1, Quotes.Count)];
+        }
+
         private void getExpenselist()
         {
             try

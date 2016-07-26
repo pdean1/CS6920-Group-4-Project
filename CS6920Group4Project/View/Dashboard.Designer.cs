@@ -445,7 +445,7 @@
             this.saveQuoteTxt.Enabled = false;
             this.saveQuoteTxt.Font = new System.Drawing.Font("Bookman Old Style", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.saveQuoteTxt.ForeColor = System.Drawing.Color.Green;
-            this.saveQuoteTxt.Location = new System.Drawing.Point(38, 46);
+            this.saveQuoteTxt.Location = new System.Drawing.Point(38, 52);
             this.saveQuoteTxt.Multiline = true;
             this.saveQuoteTxt.Name = "saveQuoteTxt";
             this.saveQuoteTxt.Size = new System.Drawing.Size(175, 81);
