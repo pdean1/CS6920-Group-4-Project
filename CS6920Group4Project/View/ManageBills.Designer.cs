@@ -71,7 +71,7 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(961, 38);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(276, 388);
+            this.panel1.Size = new System.Drawing.Size(276, 436);
             this.panel1.TabIndex = 35;
             // 
             // label1
@@ -94,7 +94,7 @@
             this.billQuoteTxt.Location = new System.Drawing.Point(33, 95);
             this.billQuoteTxt.Multiline = true;
             this.billQuoteTxt.Name = "billQuoteTxt";
-            this.billQuoteTxt.Size = new System.Drawing.Size(215, 213);
+            this.billQuoteTxt.Size = new System.Drawing.Size(215, 258);
             this.billQuoteTxt.TabIndex = 1;
             // 
             // ManageBills
