@@ -21,7 +21,7 @@ namespace CS6920Group4Project.View
         public List<Budget> budgetList;
         private DataTable table;
         private BindingSource bind;
-        DateTimePicker oDateTimePicker;
+        DateTimePicker dtpDateEarned;
 
         public ManageEarnings()
         {
@@ -139,6 +139,7 @@ namespace CS6920Group4Project.View
                 earnGridView.Columns.Insert(10, delbut);
 
                 earnGridView.DataError += earnGridView_DataError;
+                earnGridView.CellLeave += earnGridView_CellLeave;
             }
             catch (SqlException ex)
             {
@@ -150,17 +151,22 @@ namespace CS6920Group4Project.View
             }
         }
 
+        void earnGridView_CellLeave(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == 6)
+            {
+                dtpDateEarned.Visible = false;
+            }
+        }
+
         void earnGridView_DataError(object sender, DataGridViewDataErrorEventArgs e)
         {
-            if (e.ColumnIndex == 5)
-            {
-                MessageBox.Show("Invalid Amount!");
-                this.refreshView();
-                this.populateGridView();
-                e.ThrowException = false;
-                this.AddARow();
-                return;
-            }
+            MessageBox.Show("Invalid Amount!");
+            //this.refreshView();
+            //this.populateGridView();
+            e.ThrowException = false;
+            //this.AddARow();
+            return;
         }
 
         private void earnGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -356,69 +362,43 @@ namespace CS6920Group4Project.View
         }
         private void dateTimeExpense(DataGridViewCellEventArgs e)
         {
-            try
+            dtpDateEarned = new DateTimePicker();  //DateTimePicker 
+
+            // Setting the format
+            dtpDateEarned.Format = DateTimePickerFormat.Custom;
+            dtpDateEarned.CustomFormat = "MM-dd-yyyy";
+            dtpDateEarned.Font = new Font("Calbri", 8.25F, FontStyle.Regular, GraphicsUnit.Point, ((Byte)(0)));
+            if (!String.IsNullOrEmpty(earnGridView.Rows[e.RowIndex].Cells[6].Value.ToString()))
             {
-                oDateTimePicker = new DateTimePicker();  //DateTimePicker 
-
-                //Adding DateTimePicker control into DataGridView 
-                earnGridView.Controls.Add(oDateTimePicker);
-
-                // Intially made it invisible
-                oDateTimePicker.Visible = false;
-
-                // Setting the format
-                oDateTimePicker.Format = DateTimePickerFormat.Custom;
-                oDateTimePicker.CustomFormat = "MM-dd-yyyy";
-                oDateTimePicker.Font = new Font("Calbri", 8.25F, FontStyle.Regular, GraphicsUnit.Point, ((Byte)(0)));
-                if (!String.IsNullOrEmpty(earnGridView.Rows[e.RowIndex].Cells[6].Value.ToString()))
-                {
-                    oDateTimePicker.Value = Convert.ToDateTime(earnGridView.Rows[e.RowIndex].Cells[6].Value.ToString());
-                }
-
-                oDateTimePicker.TextChanged += new EventHandler(dateTimePicker_OnTextChange);
-
-                // Now make it visible
-                oDateTimePicker.Visible = true;
-
-                // It returns the retangular area that represents the Display area for a cell
-                Rectangle oRectangle = earnGridView.GetCellDisplayRectangle(e.ColumnIndex, e.RowIndex, true);
-
-                //Setting area for DateTimePicker Control
-                oDateTimePicker.Size = new Size(oRectangle.Width, oRectangle.Height);
-
-                // Setting Location
-                oDateTimePicker.Location = new Point(oRectangle.X, oRectangle.Y);
-
-                oDateTimePicker.CloseUp += new EventHandler(oDateTimePicker_CloseUp);
+                dtpDateEarned.Value = Convert.ToDateTime(earnGridView.Rows[e.RowIndex].Cells[6].Value.ToString());
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, ex.GetType().ToString());
-            }
+
+            dtpDateEarned.TextChanged += new EventHandler(dateTimePicker_OnTextChange);
+
+            // It returns the retangular area that represents the Display area for a cell
+            Rectangle oRectangle = earnGridView.GetCellDisplayRectangle(e.ColumnIndex, e.RowIndex, true);
+
+            //Setting area for DateTimePicker Control
+            dtpDateEarned.Size = new Size(oRectangle.Width, oRectangle.Height);
+
+            // Setting Location
+            dtpDateEarned.Location = new Point(oRectangle.X, oRectangle.Y);
+
+            dtpDateEarned.CloseUp += new EventHandler(oDateTimePicker_CloseUp);
+            //Adding DateTimePicker control into DataGridView 
+            earnGridView.Controls.Add(dtpDateEarned);
         }
 
         private void dateTimePicker_OnTextChange(object sender, EventArgs e)
         {
-            try
-            {
-                earnGridView.CurrentCell.Value = oDateTimePicker.Text.ToString();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, ex.GetType().ToString());
-            }
+            DateTimePicker oDateTimePicker = (DateTimePicker)sender;
+            earnGridView.CurrentCell.Value = oDateTimePicker.Text.ToString();   
         }
 
         private void oDateTimePicker_CloseUp(object sender, EventArgs e)
         {
-            try
-            {
-                oDateTimePicker.Visible = false;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, ex.GetType().ToString());
-            }
+            DateTimePicker oDateTimePicker = (DateTimePicker)sender;
+            oDateTimePicker.Visible = false;
         }
 
         private void earnGridView_CellClick(object sender, DataGridViewCellEventArgs e)

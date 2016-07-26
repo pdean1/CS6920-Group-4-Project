@@ -19,7 +19,7 @@ namespace CS6920Group4Project.View
     {
         
         private const int EditCol = 6, DeleteCol = 7;
-        //DateTimePicker oDateTimePicker;
+        //DateTimePicker dtpDatePaid;
         private DataTable table;
         private BindingSource bSource;
         private MySqlDataAdapter mySqlDataAdapter;
@@ -32,6 +32,7 @@ namespace CS6920Group4Project.View
         private String editButton;
         private String deleteButton;
         private String addButton;
+        DateTimePicker dtpDateDue, dtpDatePaid;
 
         public ManageBills()
         {
@@ -125,7 +126,8 @@ namespace CS6920Group4Project.View
                 delbut.DefaultCellStyle.BackColor = Color.White;
                 dgBills.Columns.Insert(11, delbut);
 
-                dgBills.DataError += dgBills_DataError;           
+                dgBills.DataError += dgBills_DataError;
+                dgBills.CellLeave += dgBills_CellLeave;
             }
             catch (SqlException ex)
             {
@@ -133,15 +135,20 @@ namespace CS6920Group4Project.View
             }       
         }
 
+        void dgBills_CellLeave(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == 6)
+                dtpDateDue.Visible = false;
+            else if (e.ColumnIndex == 7)
+                dtpDatePaid.Visible = false;
+        }
+
         void dgBills_DataError(object sender, DataGridViewDataErrorEventArgs e)
         {
             if (e.ColumnIndex == 5)
             {
                 MessageBox.Show("Invalid Amount!");
-                this.refreshView();
-                this.getBillslist();
                 e.ThrowException = false;
-                this.AddARow();
                 return;
             }
         }
@@ -370,62 +377,69 @@ namespace CS6920Group4Project.View
 
         private void dateTimeBill(DataGridViewCellEventArgs e)
         {
-            DateTimePicker oDateTimePicker = new DateTimePicker();  //DateTimePicker 
-            try
+            if (e.ColumnIndex == 6)
             {
-
-                //Adding DateTimePicker control into DataGridView 
-                dgBills.Controls.Add(oDateTimePicker);
-
-                // Intially made it invisible
-                oDateTimePicker.Visible = false;
-
+                dtpDateDue = new DateTimePicker();  //DateTimePicker 
                 // Setting the format
-                oDateTimePicker.Format = DateTimePickerFormat.Custom;
-                oDateTimePicker.CustomFormat = "MM-dd-yyyy";
-                oDateTimePicker.Font = new Font("Calbri", 8.25F, FontStyle.Regular, GraphicsUnit.Point, ((Byte)(0)));
-                if (dgBills.Columns[e.ColumnIndex].Index == 6)
+                dtpDateDue.Format = DateTimePickerFormat.Custom;
+                dtpDateDue.CustomFormat = "MM-dd-yyyy";
+                dtpDateDue.Font = new Font("Calbri", 8.25F, FontStyle.Regular, GraphicsUnit.Point, ((Byte)(0)));
+                if (!String.IsNullOrEmpty(dgBills.Rows[e.RowIndex].Cells[6].Value.ToString()))
                 {
-                    if (!String.IsNullOrEmpty(dgBills.Rows[e.RowIndex].Cells[6].Value.ToString()))
-                    {
-                        oDateTimePicker.Value = Convert.ToDateTime(dgBills.Rows[e.RowIndex].Cells[6].Value.ToString());
-                    }
+                    dtpDateDue.Value = Convert.ToDateTime(dgBills.Rows[e.RowIndex].Cells[6].Value.ToString());
                 }
 
-                if (dgBills.Columns[e.ColumnIndex].Index == 7)
+                dtpDateDue.TextChanged += new EventHandler(dateTimePicker_OnTextChange);
+
+                // It returns the retangular area that represents the Display area for a cell
+                Rectangle oRectangleA = dgBills.GetCellDisplayRectangle(e.ColumnIndex, e.RowIndex, true);
+
+                //Setting area for DateTimePicker Control
+                dtpDateDue.Size = new Size(oRectangleA.Width, oRectangleA.Height);
+
+                // Setting Location
+                dtpDateDue.Location = new Point(oRectangleA.X, oRectangleA.Y);
+
+                dtpDateDue.CloseUp += new EventHandler(oDateTimePicker_CloseUp);
+                //Adding DateTimePicker control into DataGridView 
+                dgBills.Controls.Add(dtpDateDue);
+            }
+            else if (e.ColumnIndex == 7)
+            {
+                dtpDatePaid = new DateTimePicker();  //DateTimePicker 
+                // Setting the format
+                dtpDatePaid.Format = DateTimePickerFormat.Custom;
+                dtpDatePaid.CustomFormat = "MM-dd-yyyy";
+                dtpDatePaid.Font = new Font("Calbri", 8.25F, FontStyle.Regular, GraphicsUnit.Point, ((Byte)(0)));
+
+
+                if (!String.IsNullOrEmpty(dgBills.Rows[e.RowIndex].Cells[7].Value.ToString()))
                 {
-                    if (!String.IsNullOrEmpty(dgBills.Rows[e.RowIndex].Cells[7].Value.ToString()))
-                    {
-                        oDateTimePicker.Value = Convert.ToDateTime(dgBills.Rows[e.RowIndex].Cells[7].Value.ToString());
-                    }
+                    dtpDatePaid.Value = Convert.ToDateTime(dgBills.Rows[e.RowIndex].Cells[7].Value.ToString());
                 }
 
-                oDateTimePicker.TextChanged += new EventHandler(dateTimePicker_OnTextChange);
-
-                // Now make it visible
-                oDateTimePicker.Visible = true;
+                dtpDatePaid.TextChanged += new EventHandler(dateTimePicker_OnTextChange);
 
                 // It returns the retangular area that represents the Display area for a cell
                 Rectangle oRectangle = dgBills.GetCellDisplayRectangle(e.ColumnIndex, e.RowIndex, true);
 
                 //Setting area for DateTimePicker Control
-                oDateTimePicker.Size = new Size(oRectangle.Width, oRectangle.Height);
+                dtpDatePaid.Size = new Size(oRectangle.Width, oRectangle.Height);
 
                 // Setting Location
-                oDateTimePicker.Location = new Point(oRectangle.X, oRectangle.Y);
+                dtpDatePaid.Location = new Point(oRectangle.X, oRectangle.Y);
 
-                oDateTimePicker.CloseUp += new EventHandler(oDateTimePicker_CloseUp);
+                dtpDatePaid.CloseUp += new EventHandler(oDateTimePicker_CloseUp);
+                //Adding DateTimePicker control into DataGridView 
+                dgBills.Controls.Add(dtpDatePaid);
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, ex.GetType().ToString());
-            }
+            
         }
 
         private void dateTimePicker_OnTextChange(object sender, EventArgs e)
         {
             DateTimePicker dtp = (DateTimePicker) sender;
-            dgBills.CurrentCell.Value = dtp.Text.ToString();
+            dgBills.CurrentCell.Value = dtp.Value;
         }
 
         private void oDateTimePicker_CloseUp(object sender, EventArgs e)
@@ -436,7 +450,7 @@ namespace CS6920Group4Project.View
 
         private void dgBills_CellClick_1(object sender, DataGridViewCellEventArgs e)
         {
-            if (dgBills.Columns[e.ColumnIndex].Index == 6 || dgBills.Columns[e.ColumnIndex].Index == 7)
+            if (e.ColumnIndex == 6 || e.ColumnIndex == 7)
             {
                 dateTimeBill(e);
             }
