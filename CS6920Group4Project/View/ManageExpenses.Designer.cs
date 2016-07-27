@@ -106,6 +106,7 @@
             this.expenseQuoteTxt.Name = "expenseQuoteTxt";
             this.expenseQuoteTxt.Size = new System.Drawing.Size(203, 226);
             this.expenseQuoteTxt.TabIndex = 1;
+            this.expenseQuoteTxt.Enabled = false;
             // 
             // ManageExpenses
             // 
