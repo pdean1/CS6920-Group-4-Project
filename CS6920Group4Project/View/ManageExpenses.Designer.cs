@@ -117,7 +117,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.incomeLbl);
-            this.Enabled = false;
+            this.Enabled = true;
             this.Font = new System.Drawing.Font("Calibri", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.DarkGreen;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
