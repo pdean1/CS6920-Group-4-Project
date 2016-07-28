@@ -467,7 +467,7 @@ namespace CS6920Group4Project.View
 
         private void dgBills_CellClick_1(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == 6 || e.ColumnIndex == 7)
+            if ((e.ColumnIndex == 6 || e.ColumnIndex == 7) && e.RowIndex >= 0)
             {
                 dateTimeBill(e);
             }

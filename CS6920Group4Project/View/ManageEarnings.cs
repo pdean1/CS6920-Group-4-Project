@@ -420,7 +420,7 @@ namespace CS6920Group4Project.View
 
         private void earnGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (earnGridView.Columns[e.ColumnIndex].Index == 6)
+            if (earnGridView.Columns[e.ColumnIndex].Index == 6 && e.RowIndex >= 0)
             {
                 dateTimeExpense(e);
             }

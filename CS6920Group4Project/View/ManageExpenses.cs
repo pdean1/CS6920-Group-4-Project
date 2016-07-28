@@ -227,7 +227,7 @@ namespace CS6920Group4Project.View
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dataGridView1.Columns[e.ColumnIndex].Name == "DateSpent")
+            if (dataGridView1.Columns[e.ColumnIndex].Name == "DateSpent" && e.RowIndex >= 0)
             {
                 dateTimeExpense(e);
             }
