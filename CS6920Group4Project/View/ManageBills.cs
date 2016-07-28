@@ -351,7 +351,8 @@ namespace CS6920Group4Project.View
 
                     newBill.DateCreated = DateTime.Now;
                     newBill.DateDue = DateTime.Parse(dueDate);
-                    newBill.DatePaid = DateTime.Parse(paidDate);
+                    if (!String.IsNullOrEmpty(paidDate))
+                        newBill.DatePaid = DateTime.Parse(paidDate);
                     newBill.Title = title;
                     newBill.Description = desc;
                     newBill.BudgetID = Session.SessionInformation.GetBudget().ID;
