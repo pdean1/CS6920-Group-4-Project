@@ -221,20 +221,21 @@
             // exportToCSVToolStripMenuItem
             // 
             this.exportToCSVToolStripMenuItem.Name = "exportToCSVToolStripMenuItem";
-            this.exportToCSVToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.exportToCSVToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.exportToCSVToolStripMenuItem.Text = "Export To CSV";
             this.exportToCSVToolStripMenuItem.Click += new System.EventHandler(this.exportToCSVToolStripMenuItem_Click);
             // 
             // logoutExitToolStripMenuItem
             // 
             this.logoutExitToolStripMenuItem.Name = "logoutExitToolStripMenuItem";
-            this.logoutExitToolStripMenuItem.Size = new System.Drawing.Size(145, 6);
+            this.logoutExitToolStripMenuItem.Size = new System.Drawing.Size(149, 6);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // helpToolStripMenuItem
             // 

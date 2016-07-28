@@ -343,8 +343,14 @@ namespace CS6920Group4Project.View
 
         }
 
-      
-
-       
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Are you sure you want to exit BudgetBuddy?",
+                                                   "Exit BudgetBuddy?",
+                                                    MessageBoxButtons.YesNo,
+                                                     MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+                Application.ExitThread();
+        }
     }
 }
