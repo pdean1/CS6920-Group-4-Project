@@ -264,8 +264,7 @@ namespace CS6920Group4Project.View
                                 {
                                     Session.SessionInformation.GetBudget().Earnings.Remove(selectedEarning);
                                     Session.SessionInformation.RefreshSessionLabels();
-                                    this.refreshView();
-                                    this.populateGridView();
+                                    earnGridView.Rows.RemoveAt(e.RowIndex);
                                 }
                                 else
                                 {
